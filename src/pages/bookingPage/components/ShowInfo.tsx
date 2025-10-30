@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as S from '../styles/ShowInfo.styles';
 
-import POSTER from '../../../assets/booking/poster.svg';
+import POSTER from '@/assets/booking/poster.svg';
 
 interface PerformanceInfo {
   title: string;

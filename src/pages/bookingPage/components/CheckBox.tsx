@@ -1,8 +1,8 @@
 import * as S from '../styles/CheckBox.styles';
 import { useState } from 'react';
 
-import CHECK from '../../../assets/booking/check.svg';
-import CHECKED from '../../../assets/booking/checked.svg';
+import CHECK from '@/assets/booking/check.svg';
+import CHECKED from '@/assets/booking/checked.svg';
 
 interface CheckBoxProps {
   text?: string;
