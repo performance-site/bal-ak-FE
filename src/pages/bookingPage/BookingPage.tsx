@@ -13,6 +13,7 @@ const BookingPage = () => {
         height="75px"
         title="사전예매"
         questionText="예매 관련 문의하기"
+        questionLink="https://www.kakaocorp.com/page/service/service/openchat"
         subtitles={[
           {
             text: '더 싼 가격으로 미리 하는 사전예매 ~ 12/12(마감일)',
