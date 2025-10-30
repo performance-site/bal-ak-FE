@@ -4,7 +4,11 @@ const theme = {
     background2: '#121212',
 
     white: '#FFFFFF',
+    white2: '#FCFCFC',
     black: '#000000',
+
+    gray300: '#C4C4C4',
+    gray400: '#9D9D9D',
 
     buttonGradient1: '#886AE2',
     buttonGradient2: '#A284F6',
