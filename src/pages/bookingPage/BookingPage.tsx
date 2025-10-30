@@ -2,6 +2,9 @@ import * as S from './BookingPage.style';
 
 import SectionHeader from './components/SectionHeader';
 
+import CheckBox from './components/CheckBox';
+import ShowInfo from './components/ShowInfo';
+
 const BookingPage = () => {
   return (
     <S.BookingContainer>
@@ -16,6 +19,10 @@ const BookingPage = () => {
           },
         ]}
       />
+
+      {/* 공연 기본 정보 확인 */}
+      <ShowInfo />
+      <CheckBox text="확인했습니다." />
     </S.BookingContainer>
   );
 };
