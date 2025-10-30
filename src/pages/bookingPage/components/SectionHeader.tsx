@@ -1,4 +1,4 @@
-import * as S from './SectionHeader.styles';
+import * as S from '../styles/SectionHeader.styles';
 
 interface SubtitleOption {
   text: string;

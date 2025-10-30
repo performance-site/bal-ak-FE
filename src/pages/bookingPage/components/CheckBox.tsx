@@ -1,4 +1,4 @@
-import * as S from './CheckBox.styles';
+import * as S from '../styles/CheckBox.styles';
 import { useState } from 'react';
 
 import CHECK from '../../../assets/booking/check.svg';
