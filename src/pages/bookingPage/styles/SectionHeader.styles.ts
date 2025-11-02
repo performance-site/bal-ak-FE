@@ -13,7 +13,7 @@ export const HeaderTopText = styled.div`
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 140%; /* 33.6px */
   letter-spacing: -0.6px;
@@ -23,7 +23,7 @@ export const QuestionText = styled.p`
   color: ${({ theme }) => theme.colors.gray400};
   text-align: right;
   font-family: Pretendard;
-  font-size: 10px;
+  font-size: 0.75rem;
   font-weight: 300;
   line-height: 140%; /* 14px */
   letter-spacing: -0.25px;

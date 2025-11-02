@@ -10,7 +10,7 @@ const BookingPage = () => {
     <S.BookingContainer>
       {/* 상단 사전 예매 제목 */}
       <SectionHeader
-        height="75px"
+        height="3.19rem"
         title="사전예매"
         questionText="예매 관련 문의하기"
         questionLink="https://www.kakaocorp.com/page/service/service/openchat"
