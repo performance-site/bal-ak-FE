@@ -8,3 +8,11 @@ export const BookingContainer = styled.div`
   align-items: center;
   gap: 1.5rem;
 `;
+
+export const Line = styled.hr`
+  width: 21.5rem;
+  height: 0.0625rem;
+  opacity: 0.4;
+  background: ${({ theme }) => theme.colors.gray500};
+  margin: 0;
+`;

@@ -24,6 +24,8 @@ const BookingPage = () => {
       {/* 공연 기본 정보 확인 */}
       <ShowInfo />
       <CheckBox text="확인했습니다." />
+
+      <S.Line />
     </S.BookingContainer>
   );
 };
