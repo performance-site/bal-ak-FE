@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from '../styles/SectionHeader.styles';
+import * as S from './SectionHeader.styles';
 
 interface SubtitleOption {
   text: React.ReactNode;

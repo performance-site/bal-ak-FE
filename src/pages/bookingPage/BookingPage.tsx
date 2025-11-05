@@ -1,10 +1,10 @@
-import * as S from './BookingPage.style';
+import * as S from './styles/BookingPage.style';
 
-import SectionHeader from './components/SectionHeader';
+import SectionHeader from './components/sectionheader/SectionHeader';
 
-import CheckBox from './components/CheckBox';
-import ShowInfo from './components/ShowInfo';
-import InputBox from './components/InputBox';
+import CheckBox from './components/checkbox/CheckBox';
+import ShowInfo from './components/showinfo/ShowInfo';
+import InputBox from './components/inputbox/InputBox';
 
 const BookingPage = () => {
   return (

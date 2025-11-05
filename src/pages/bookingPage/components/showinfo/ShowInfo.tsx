@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as S from '../styles/ShowInfo.styles';
+import * as S from './ShowInfo.styles';
 
 import POSTER from '@/assets/booking/poster.svg';
 

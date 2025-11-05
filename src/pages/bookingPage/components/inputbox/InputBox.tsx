@@ -1,4 +1,4 @@
-import * as S from '../styles/InputBox.style';
+import * as S from './InputBox.style';
 
 interface InputBoxProps {
   placeholder?: string;
