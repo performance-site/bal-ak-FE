@@ -4,8 +4,15 @@ export const BookingContainer = styled.div`
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 1.5rem;
+
+  height: 100vh;
+  overflow-y: auto;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Line = styled.hr`
@@ -45,4 +52,9 @@ export const NumberInput = styled.div`
   display: flex;
   align-items: center;
   gap: 0.375rem;
+`;
+
+export const ClickRow = styled.div`
+  display: flex;
+  gap: 0.62rem;
 `;
