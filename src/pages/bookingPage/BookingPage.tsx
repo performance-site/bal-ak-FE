@@ -40,8 +40,10 @@ const BookingPage = () => {
       />
 
       {/* 공연 기본 정보 확인 */}
-      <ShowInfo />
-      <CheckBox text="확인했습니다." />
+      <S.InfoContainer>
+        <ShowInfo />
+        <CheckBox text="확인했습니다." />
+      </S.InfoContainer>
 
       <S.Line />
 
@@ -91,37 +93,66 @@ const BookingPage = () => {
           </S.PriceText>
         </S.PriceTextContainer>
 
-        {/* 송금 안내 */}
-        <S.PayContainer>
-          {/* 송금 방식 선택 */}
-          <S.ClickRow>
-            <ClickBox
-              text="카카오페이 송금"
-              isSelected={selected === '카카오페이 송금'}
-              onClick={() => handleSelect('카카오페이 송금')}
-            />
-            <ClickBox
-              text="네이버페이 송금"
-              isSelected={selected === '네이버페이 송금'}
-              onClick={() => handleSelect('네이버페이 송금')}
-            />
-          </S.ClickRow>
+        <S.PayBoxWrapper>
+          {/* 송금 안내 */}
+          <S.PayContainer>
+            {/* 송금 방식 선택 박스*/}
+            <S.ClickRow>
+              <ClickBox
+                text="카카오페이 송금"
+                isSelected={selected === '카카오페이 송금'}
+                onClick={() => handleSelect('카카오페이 송금')}
+              />
+              <ClickBox
+                text="네이버페이 송금"
+                isSelected={selected === '네이버페이 송금'}
+                onClick={() => handleSelect('네이버페이 송금')}
+              />
+            </S.ClickRow>
 
-          <S.CopyBox>
-            <S.CopyText>
-              <S.CopyTitle>직접 계좌이체</S.CopyTitle>
-              <S.CopySub>ㅣ</S.CopySub>
-            </S.CopyText>
-            <S.CopyImg
-              onClick={() => {
-                onCopyClick(account);
-              }}
-              src={COPY}
-            />
-            <S.AddressText>{account}</S.AddressText>
-          </S.CopyBox>
-        </S.PayContainer>
+            {/* 계좌이체 박스 */}
+            <S.CopyBox>
+              <S.CopyText>
+                <S.CopyTitle>직접 계좌이체</S.CopyTitle>
+                <S.CopySub>ㅣ</S.CopySub>
+              </S.CopyText>
+              <S.CopyImg
+                onClick={() => {
+                  onCopyClick(account);
+                }}
+                src={COPY}
+              />
+              <S.AddressText>{account}</S.AddressText>
+            </S.CopyBox>
+          </S.PayContainer>
+
+          <CheckBox text="송금 완료했습니다." />
+        </S.PayBoxWrapper>
       </S.PriceContainer>
+
+      <S.Line />
+
+      {/* 최종 확인 및 제출 */}
+      <S.ConfirmContainer>
+        <SectionHeader height="1.875rem" title="최종 확인 및 제출" />
+        <S.ConfirmContent>
+          <S.ConfirmText>
+            <p>[개인정보 수집·이용 동의]</p>
+            <span>
+              입력하신 개인정보는 들불 밴드부 사전 예매 확인 및 공연 안내를 위한
+              용도로만 사용되며, 해당 목적 외의 용도로 이용되지 않습니다. <br />
+              <br />
+              - 수집 항목: 이름, 전화번호 <br />
+              - 수집 목적: 예매자 확인, 공연 관련 안내 <br />
+              - 보유 기간: 공연 종료 후 7일 이내 파기 <br />- 수집 주체:
+              한성대학교 밴드부 들불
+            </span>
+          </S.ConfirmText>
+        </S.ConfirmContent>
+        <S.ButtonWrapper>
+          <CheckBox text="개인정보 수집·이용에 동의합니다." />
+        </S.ButtonWrapper>
+      </S.ConfirmContainer>
     </S.BookingContainer>
   );
 };
