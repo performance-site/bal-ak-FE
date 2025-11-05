@@ -30,19 +30,11 @@ export const QuestionText = styled.p`
   text-decoration: underline;
 `;
 
-export const SubTitle = styled.p<{
-  $color?: string;
-  $size?: string;
-  $fontWeight?: string | number;
-}>`
-  color: ${({ $color, theme }) => $color || theme.colors.gray300};
-  font-size: ${({ $size }) => $size || '0.75rem'};
+export const SubTitle = styled.p`
+  color: ${({ theme }) => theme.colors.gray300};
+  font-size: 0.75rem;
   font-family: Pretendard;
   line-height: 140%; /* 16.8px */
   letter-spacing: -0.3px;
-  font-weight: ${({ $fontWeight }) => $fontWeight || 500};
-
-  strong {
-    font-weight: 800;
-  }
+  font-weight: 500;
 `;

@@ -5,6 +5,7 @@ import SectionHeader from './components/sectionheader/SectionHeader';
 import CheckBox from './components/checkbox/CheckBox';
 import ShowInfo from './components/showinfo/ShowInfo';
 import InputBox from './components/inputbox/InputBox';
+import ClickBox from './components/clickbox/ClickBox';
 
 const BookingPage = () => {
   return (
@@ -15,11 +16,7 @@ const BookingPage = () => {
         title="사전예매"
         questionText="예매 관련 문의하기"
         questionLink="https://www.kakaocorp.com/page/service/service/openchat"
-        subtitles={[
-          {
-            text: '더 싼 가격으로 미리 하는 사전예매 ~ 12/12(마감일)',
-          },
-        ]}
+        subtitle="더 싼 가격으로 미리 하는 사전예매 ~ 12/12(마감일)"
       />
 
       {/* 공연 기본 정보 확인 */}
@@ -56,24 +53,7 @@ const BookingPage = () => {
       <S.Line />
 
       {/* 가격 안내 및 입금 */}
-      <SectionHeader
-        height="4.24rem"
-        title="가격 안내 및 입금"
-        subtitles={[
-          {
-            text: (
-              <>
-                입금 후 꼭 <strong>최종 제출</strong> 버튼까지 눌러 주세요!
-              </>
-            ),
-            fontWeight: 600,
-          },
-          {
-            text: `송금만으로는 예매가 완료되지 않습니다.`,
-            fontWeight: 400,
-          },
-        ]}
-      />
+      <SectionHeader height="2.125rem" title="가격 안내 및 입금" />
     </S.BookingContainer>
   );
 };
