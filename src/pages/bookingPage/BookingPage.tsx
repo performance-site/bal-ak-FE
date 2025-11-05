@@ -6,8 +6,15 @@ import CheckBox from './components/checkbox/CheckBox';
 import ShowInfo from './components/showinfo/ShowInfo';
 import InputBox from './components/inputbox/InputBox';
 import ClickBox from './components/clickbox/ClickBox';
+import { useState } from 'react';
 
 const BookingPage = () => {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const handleSelect = (text: string) => {
+    setSelected(text);
+  };
+
   return (
     <S.BookingContainer>
       {/* 상단 사전 예매 제목 */}
@@ -53,7 +60,38 @@ const BookingPage = () => {
       <S.Line />
 
       {/* 가격 안내 및 입금 */}
-      <SectionHeader height="2.125rem" title="가격 안내 및 입금" />
+      <S.PriceContainer>
+        <S.PriceTextContainer>
+          <SectionHeader height="2.125rem" title="가격 안내 및 입금" />
+
+          <S.PriceText>
+            <S.PriceExplain>
+              입금 후 꼭 <strong>최종 제출</strong> 버튼까지 눌러 주세요!
+              <br />
+              <span>송금만으로는 예매가 완료되지 않습니다.</span>
+            </S.PriceExplain>
+
+            <S.UserPrice>
+              입금자: <strong>홍길동</strong>
+              <br />총 입금 금액: <strong>5,000원</strong>
+            </S.UserPrice>
+          </S.PriceText>
+        </S.PriceTextContainer>
+
+        {/* 송금 방식 선택 */}
+        <S.ClickRow>
+          <ClickBox
+            text="카카오페이 송금"
+            isSelected={selected === '카카오페이 송금'}
+            onClick={() => handleSelect('카카오페이 송금')}
+          />
+          <ClickBox
+            text="네이버페이 송금"
+            isSelected={selected === '네이버페이 송금'}
+            onClick={() => handleSelect('네이버페이 송금')}
+          />
+        </S.ClickRow>
+      </S.PriceContainer>
     </S.BookingContainer>
   );
 };
