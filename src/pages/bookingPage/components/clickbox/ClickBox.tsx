@@ -1,18 +1,14 @@
-import { useState } from 'react';
 import * as S from './ClickBox.style';
 
 interface ClickBoxProps {
   text: string;
+  isSelected?: boolean;
+  onClick?: () => void;
 }
 
-const ClickBox: React.FC<ClickBoxProps> = ({ text }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
+const ClickBox: React.FC<ClickBoxProps> = ({ text, isSelected, onClick }) => {
   return (
-    <S.ClickBoxContainer
-      $isSelected={isSelected}
-      onClick={() => setIsSelected(!isSelected)}
-    >
+    <S.ClickBoxContainer $isSelected={isSelected} onClick={onClick}>
       <S.ClickText $isSelected={isSelected}>{text}</S.ClickText>
     </S.ClickBoxContainer>
   );
