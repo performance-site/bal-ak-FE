@@ -12,8 +12,8 @@ export const InputBoxContainer = styled.div<{
   align-items: center;
   align-self: stretch;
   border-radius: 0.25rem;
-  border: 1.25px solid ${({ theme }) => theme.colors.borderColor};
-  background: ${({ theme }) => theme.gradients.inputBoxGradient};
+  border: 1.25px solid ${({ theme }) => theme.colors.buttonGradient1};
+  background: ${({ theme }) => theme.gradients.inputBox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
 `;
 
