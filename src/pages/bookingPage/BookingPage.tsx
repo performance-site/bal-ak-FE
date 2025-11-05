@@ -1,6 +1,8 @@
 import * as S from './styles/BookingPage.style';
 import { useState } from 'react';
 
+import { Link, Element, scroller } from 'react-scroll';
+
 import SectionHeader from './components/sectionheader/SectionHeader';
 
 import CheckBox from './components/checkbox/CheckBox';
@@ -29,7 +31,7 @@ const BookingPage = () => {
   };
 
   return (
-    <S.BookingContainer>
+    <S.BookingContainer id="bookingScroll">
       {/* 상단 사전 예매 제목 */}
       <SectionHeader
         height="3.19rem"
@@ -42,117 +44,137 @@ const BookingPage = () => {
       {/* 공연 기본 정보 확인 */}
       <S.InfoContainer>
         <ShowInfo />
-        <CheckBox text="확인했습니다." />
+        <Link
+          to="info"
+          smooth={true}
+          duration={500}
+          containerId="bookingScroll"
+        >
+          <CheckBox text="확인했습니다." />
+        </Link>
       </S.InfoContainer>
 
       <S.Line />
 
-      {/* 예매 정보 입력 */}
-      <SectionHeader height="2.125rem" title="예매 정보 입력" />
-      <S.InfoInput>
-        <S.InfoBox>
-          <S.InfoName>입금자 성함</S.InfoName>
-          <InputBox variant="medium" placeholder="홍길동" />
-        </S.InfoBox>
+      <Element name="info">
+        {/* 예매 정보 입력 */}
+        <SectionHeader height="2.125rem" title="예매 정보 입력" />
+        <S.InfoInput>
+          <S.InfoBox>
+            <S.InfoName>입금자 성함</S.InfoName>
+            <InputBox variant="medium" placeholder="홍길동" />
+          </S.InfoBox>
 
-        <S.InfoBox>
-          <S.InfoName>입금자 전화번호</S.InfoName>
-          <S.NumberInput>
-            <InputBox variant="small" width="3rem" placeholder="010" />
-            -
-            <InputBox variant="small" width="3.5rem" placeholder="1234" />
-            -
-            <InputBox variant="small" width="3.56rem" placeholder="5678" />
-          </S.NumberInput>
-        </S.InfoBox>
+          <S.InfoBox>
+            <S.InfoName>입금자 전화번호</S.InfoName>
+            <S.NumberInput>
+              <InputBox variant="small" width="3rem" placeholder="010" />
+              -
+              <InputBox variant="small" width="3.5rem" placeholder="1234" />
+              -
+              <InputBox variant="small" width="3.56rem" placeholder="5678" />
+            </S.NumberInput>
+          </S.InfoBox>
 
-        <S.InfoBox>
-          <S.InfoName>예매 인원</S.InfoName>
-          <InputBox variant="small" placeholder="ex. 1" />
-        </S.InfoBox>
-      </S.InfoInput>
-
-      <S.Line />
-
-      {/* 가격 안내 및 입금 */}
-      <S.PriceContainer>
-        <S.PriceTextContainer>
-          <SectionHeader height="2.125rem" title="가격 안내 및 입금" />
-
-          <S.PriceText>
-            <S.PriceExplain>
-              입금 후 꼭 <strong>최종 제출</strong> 버튼까지 눌러 주세요!
-              <br />
-              <span>송금만으로는 예매가 완료되지 않습니다.</span>
-            </S.PriceExplain>
-
-            <S.UserPrice>
-              입금자: <strong>홍길동</strong>
-              <br />총 입금 금액: <strong>5,000원</strong>
-            </S.UserPrice>
-          </S.PriceText>
-        </S.PriceTextContainer>
-
-        <S.PayBoxWrapper>
-          {/* 송금 안내 */}
-          <S.PayContainer>
-            {/* 송금 방식 선택 박스*/}
-            <S.ClickRow>
-              <ClickBox
-                text="카카오페이 송금"
-                isSelected={selected === '카카오페이 송금'}
-                onClick={() => handleSelect('카카오페이 송금')}
-              />
-              <ClickBox
-                text="네이버페이 송금"
-                isSelected={selected === '네이버페이 송금'}
-                onClick={() => handleSelect('네이버페이 송금')}
-              />
-            </S.ClickRow>
-
-            {/* 계좌이체 박스 */}
-            <S.CopyBox>
-              <S.CopyText>
-                <S.CopyTitle>직접 계좌이체</S.CopyTitle>
-                <S.CopySub>ㅣ</S.CopySub>
-              </S.CopyText>
-              <S.CopyImg
-                onClick={() => {
-                  onCopyClick(account);
-                }}
-                src={COPY}
-              />
-              <S.AddressText>{account}</S.AddressText>
-            </S.CopyBox>
-          </S.PayContainer>
-
-          <CheckBox text="송금 완료했습니다." />
-        </S.PayBoxWrapper>
-      </S.PriceContainer>
+          <S.InfoBox>
+            <S.InfoName>예매 인원</S.InfoName>
+            <InputBox variant="small" placeholder="ex. 1" />
+          </S.InfoBox>
+        </S.InfoInput>
+      </Element>
 
       <S.Line />
 
-      {/* 최종 확인 및 제출 */}
-      <S.ConfirmContainer>
-        <SectionHeader height="1.875rem" title="최종 확인 및 제출" />
-        <S.ConfirmContent>
-          <S.ConfirmText>
-            <p>[개인정보 수집·이용 동의]</p>
-            <span>
-              입력하신 개인정보는 들불 밴드부 사전 예매 확인 및 공연 안내를 위한
-              용도로만 사용되며, 해당 목적 외의 용도로 이용되지 않습니다. <br />
-              <br />
-              - 수집 항목: 이름, 전화번호 <br />
-              - 수집 목적: 예매자 확인, 공연 관련 안내 <br />
-              - 보유 기간: 공연 종료 후 7일 이내 파기 <br />- 수집 주체:
-              한성대학교 밴드부 들불
-            </span>
-          </S.ConfirmText>
-        </S.ConfirmContent>
-        <S.ButtonWrapper>
-          <CheckBox text="개인정보 수집·이용에 동의합니다." />
-        </S.ButtonWrapper>
-      </S.ConfirmContainer>
+      <Element name="price">
+        {/* 가격 안내 및 입금 */}
+        <S.PriceContainer>
+          <S.PriceTextContainer>
+            <SectionHeader height="2.125rem" title="가격 안내 및 입금" />
+
+            <S.PriceText>
+              <S.PriceExplain>
+                입금 후 꼭 <strong>최종 제출</strong> 버튼까지 눌러 주세요!
+                <br />
+                <span>송금만으로는 예매가 완료되지 않습니다.</span>
+              </S.PriceExplain>
+
+              <S.UserPrice>
+                입금자: <strong>홍길동</strong>
+                <br />총 입금 금액: <strong>5,000원</strong>
+              </S.UserPrice>
+            </S.PriceText>
+          </S.PriceTextContainer>
+
+          <S.PayBoxWrapper>
+            {/* 송금 안내 */}
+            <S.PayContainer>
+              {/* 송금 방식 선택 박스*/}
+              <S.ClickRow>
+                <ClickBox
+                  text="카카오페이 송금"
+                  isSelected={selected === '카카오페이 송금'}
+                  onClick={() => handleSelect('카카오페이 송금')}
+                />
+                <ClickBox
+                  text="네이버페이 송금"
+                  isSelected={selected === '네이버페이 송금'}
+                  onClick={() => handleSelect('네이버페이 송금')}
+                />
+              </S.ClickRow>
+
+              {/* 계좌이체 박스 */}
+              <S.CopyBox>
+                <S.CopyText>
+                  <S.CopyTitle>직접 계좌이체</S.CopyTitle>
+                  <S.CopySub>ㅣ</S.CopySub>
+                </S.CopyText>
+                <S.CopyImg
+                  onClick={() => {
+                    onCopyClick(account);
+                  }}
+                  src={COPY}
+                />
+                <S.AddressText>{account}</S.AddressText>
+              </S.CopyBox>
+            </S.PayContainer>
+            <Link
+              to="confirm"
+              smooth={true}
+              duration={500}
+              containerId="bookingScroll"
+            >
+              <CheckBox text="송금 완료했습니다." />
+            </Link>
+          </S.PayBoxWrapper>
+        </S.PriceContainer>
+      </Element>
+
+      <S.Line />
+
+      <Element name="confirm">
+        {/* 최종 확인 및 제출 */}
+        <S.ConfirmContainer>
+          <SectionHeader height="1.875rem" title="최종 확인 및 제출" />
+          <S.ConfirmContent>
+            <S.ConfirmText>
+              <p>[개인정보 수집·이용 동의]</p>
+              <span>
+                입력하신 개인정보는 들불 밴드부 사전 예매 확인 및 공연 안내를
+                위한 용도로만 사용되며, 해당 목적 외의 용도로 이용되지 않습니다.{' '}
+                <br />
+                <br />
+                - 수집 항목: 이름, 전화번호 <br />
+                - 수집 목적: 예매자 확인, 공연 관련 안내 <br />
+                - 보유 기간: 공연 종료 후 7일 이내 파기 <br />- 수집 주체:
+                한성대학교 밴드부 들불
+              </span>
+            </S.ConfirmText>
+          </S.ConfirmContent>
+          <S.ButtonWrapper>
+            <CheckBox text="개인정보 수집·이용에 동의합니다." />
+          </S.ButtonWrapper>
+        </S.ConfirmContainer>
+      </Element>
     </S.BookingContainer>
   );
 };
