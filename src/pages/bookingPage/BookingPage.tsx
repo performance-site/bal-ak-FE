@@ -54,6 +54,26 @@ const BookingPage = () => {
       </S.InfoInput>
 
       <S.Line />
+
+      {/* 가격 안내 및 입금 */}
+      <SectionHeader
+        height="4.24rem"
+        title="가격 안내 및 입금"
+        subtitles={[
+          {
+            text: (
+              <>
+                입금 후 꼭 <strong>최종 제출</strong> 버튼까지 눌러 주세요!
+              </>
+            ),
+            fontWeight: 600,
+          },
+          {
+            text: `송금만으로는 예매가 완료되지 않습니다.`,
+            fontWeight: 400,
+          },
+        ]}
+      />
     </S.BookingContainer>
   );
 };

@@ -1,9 +1,11 @@
+import React from 'react';
 import * as S from '../styles/SectionHeader.styles';
 
 interface SubtitleOption {
-  text: string;
+  text: React.ReactNode;
   color?: string;
   size?: string;
+  fontWeight?: string | number;
 }
 
 interface SectionHeaderProps {
@@ -42,7 +44,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 
       {/* 여러 추가 설명 존재할 경우 */}
       {subtitles?.map((sub, idx) => (
-        <S.SubTitle key={idx} $color={sub.color} $size={sub.size}>
+        <S.SubTitle
+          key={idx}
+          $color={sub.color}
+          $size={sub.size}
+          $fontWeight={sub.fontWeight}
+        >
           {sub.text}
         </S.SubTitle>
       ))}
