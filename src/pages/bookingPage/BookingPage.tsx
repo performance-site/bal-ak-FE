@@ -3,14 +3,17 @@ import * as S from './styles/BookingPage.style';
 import { Link, Element } from 'react-scroll';
 
 import SectionHeader from './components/sectionheader/SectionHeader';
-
 import CheckBox from './components/checkbox/CheckBox';
 import ShowInfo from './components/showinfo/ShowInfo';
-
 import InfoField from './components/infofield/InfoField';
 import PayBox from './components/paybox/PayBox';
+import { useState } from 'react';
 
 const BookingPage = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [member, setMember] = useState('');
+
   return (
     <S.BookingContainer id="bookingScroll">
       {/* 상단 사전 예매 제목 */}
@@ -37,13 +40,26 @@ const BookingPage = () => {
         <S.InfoInput>
           <InfoField
             title="입금자 성함"
-            variant="medium"
+            variant="large"
             placeholder="홍길동"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
 
-          <InfoField title="입금자 전화번호" type="phone" />
+          <InfoField
+            title="입금자 전화번호"
+            type="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
 
-          <InfoField title="예매 인원" variant="small" placeholder="ex. 1" />
+          <InfoField
+            title="예매 인원"
+            variant="medium"
+            placeholder="ex. 1"
+            value={member}
+            onChange={(e) => setMember(e.target.value.replace(/[^0-9]/g, ''))}
+          />
         </S.InfoInput>
       </Element>
 
@@ -63,8 +79,13 @@ const BookingPage = () => {
               </S.PriceExplain>
 
               <S.UserPrice>
-                입금자: <strong>홍길동</strong>
-                <br />총 입금 금액: <strong>5,000원</strong>
+                입금자: <strong>{name}</strong>
+                <br />총 입금 금액:{' '}
+                <strong>
+                  {member
+                    ? `${(Number(member) * 5000).toLocaleString()}원`
+                    : '0원'}
+                </strong>
               </S.UserPrice>
             </S.PriceText>
           </S.PriceTextContainer>
