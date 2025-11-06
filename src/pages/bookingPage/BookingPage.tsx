@@ -1,9 +1,8 @@
 import * as S from './styles/BookingPage.style';
 
-import { Link, Element } from 'react-scroll';
+import { Element } from 'react-scroll';
 
 import SectionHeader from './components/sectionheader/SectionHeader';
-import CheckBox from './components/checkbox/CheckBox';
 import ShowInfo from './components/showinfo/ShowInfo';
 import InfoField from './components/infofield/InfoField';
 import PayBox from './components/paybox/PayBox';
@@ -14,6 +13,25 @@ const BookingPage = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [member, setMember] = useState('');
+
+  const [checked, setChecked] = useState({
+    info: false,
+    price: false,
+    confirm: false,
+  });
+
+  // 위의 세 타입 중 하나만 받도록 설정
+  const toggleCheck = (key: keyof typeof checked) => {
+    setChecked((prev) => ({ ...prev, [key]: !prev[key] }));
+  };
+
+  const isNameValid = name.trim().length > 0;
+  const isPhoneValid = /^010-\d{3,4}-\d{4}$/.test(phone);
+  const isMemberValid = Number(member) > 0;
+  const isAllChecked = Object.values(checked).every(Boolean);
+
+  const isAllValid =
+    isNameValid && isPhoneValid && isMemberValid && isAllChecked;
 
   return (
     <S.BookingContainer id="bookingScroll">
@@ -28,7 +46,12 @@ const BookingPage = () => {
       {/* 공연 기본 정보 확인 */}
       <S.InfoContainer>
         <ShowInfo />
-        <ScrollCheck to="info" text="확인했습니다." />
+        <ScrollCheck
+          to="info"
+          text="확인했습니다."
+          checked={checked.info}
+          onChange={() => toggleCheck('info')}
+        />
       </S.InfoContainer>
 
       <S.Line />
@@ -92,7 +115,12 @@ const BookingPage = () => {
           <S.PayBoxWrapper>
             {/* 송금 안내 */}
             <PayBox />
-            <ScrollCheck to="confirm" text="송금 완료했습니다." />
+            <ScrollCheck
+              to="confirm"
+              text="송금 완료했습니다."
+              checked={checked.price}
+              onChange={() => toggleCheck('price')}
+            />
           </S.PayBoxWrapper>
         </S.PriceContainer>
       </Element>
@@ -119,13 +147,18 @@ const BookingPage = () => {
             </S.ConfirmText>
           </S.ConfirmContent>
           <S.ButtonWrapper>
-            <ScrollCheck to="end" text="개인정보 수집·이용에 동의합니다." />
+            <ScrollCheck
+              to="end"
+              text="개인정보 수집·이용에 동의합니다."
+              checked={checked.confirm}
+              onChange={() => toggleCheck('confirm')}
+            />
           </S.ButtonWrapper>
         </S.ConfirmContainer>
       </Element>
 
       <Element name="end">
-        <S.EndButton>
+        <S.EndButton $active={!!isAllValid}>
           <S.ButtonText>최종 제출</S.ButtonText>
         </S.EndButton>
       </Element>
