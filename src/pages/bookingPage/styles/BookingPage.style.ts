@@ -212,3 +212,31 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
   padding-top: 4rem;
 `;
+
+export const EndButton = styled.div`
+  display: flex;
+  height: 2.4375rem;
+  padding: 0.625rem 0.875rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  margin-bottom: 0.75rem;
+  align-self: stretch;
+  border-radius: 0.25rem;
+  border: 1.25px solid ${({ theme }) => theme.colors.buttonGradient1};
+  background: ${({ theme }) => theme.gradients.checkbox}
+  box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
+`;
+
+export const ButtonText = styled.p`
+  color: ${({ theme }) => theme.colors.white};
+  text-align: center;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 1.05rem */
+  letter-spacing: -0.01875rem;
+  font-family: Pretendard;
+`;

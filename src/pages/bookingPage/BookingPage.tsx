@@ -34,7 +34,6 @@ const BookingPage = () => {
     <S.BookingContainer id="bookingScroll">
       {/* 상단 사전 예매 제목 */}
       <SectionHeader
-        height="3.19rem"
         title="사전예매"
         questionText="예매 관련 문의하기"
         questionLink="https://www.kakaocorp.com/page/service/service/openchat"
@@ -58,7 +57,7 @@ const BookingPage = () => {
 
       <Element name="info">
         {/* 예매 정보 입력 */}
-        <SectionHeader height="2.125rem" title="예매 정보 입력" />
+        <SectionHeader title="예매 정보 입력" />
         <S.InfoInput>
           <S.InfoBox>
             <S.InfoName>입금자 성함</S.InfoName>
@@ -89,7 +88,7 @@ const BookingPage = () => {
         {/* 가격 안내 및 입금 */}
         <S.PriceContainer>
           <S.PriceTextContainer>
-            <SectionHeader height="2.125rem" title="가격 안내 및 입금" />
+            <SectionHeader title="가격 안내 및 입금" />
 
             <S.PriceText>
               <S.PriceExplain>
@@ -154,7 +153,7 @@ const BookingPage = () => {
       <Element name="confirm">
         {/* 최종 확인 및 제출 */}
         <S.ConfirmContainer>
-          <SectionHeader height="1.875rem" title="최종 확인 및 제출" />
+          <SectionHeader title="최종 확인 및 제출" />
           <S.ConfirmContent>
             <S.ConfirmText>
               <p>[개인정보 수집·이용 동의]</p>
@@ -171,9 +170,22 @@ const BookingPage = () => {
             </S.ConfirmText>
           </S.ConfirmContent>
           <S.ButtonWrapper>
-            <CheckBox text="개인정보 수집·이용에 동의합니다." />
+            <Link
+              to="end"
+              smooth={true}
+              duration={500}
+              containerId="bookingScroll"
+            >
+              <CheckBox text="개인정보 수집·이용에 동의합니다." />
+            </Link>
           </S.ButtonWrapper>
         </S.ConfirmContainer>
+      </Element>
+
+      <Element name="end">
+        <S.EndButton>
+          <S.ButtonText>최종 제출</S.ButtonText>
+        </S.EndButton>
       </Element>
     </S.BookingContainer>
   );
