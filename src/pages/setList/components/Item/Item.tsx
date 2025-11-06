@@ -14,14 +14,15 @@ interface ItemProps {
 
 const Item = ({ data, currentOrder }: ItemProps) => {
   const isCurrent = data.order === currentOrder;
-  const isBeforeConcert = data.title === '공연 시작 전';
   const { goTo } = useNavigation();
 
   return (
     <S.ItemContainer>
       <S.Circle isFirst={isCurrent} />
 
-      <S.ItemRightContainer onClick={() => goTo(`/setlist/${data.order}`)}>
+      <S.ItemRightContainer
+        onClick={() => goTo(data.order === 0 ? '/' : `/setlist/${data.order}`)}
+      >
         <S.ItemRightInnerContainer>
           <S.ItemPContainer>
             {isCurrent && <Wave />}
@@ -47,9 +48,7 @@ const Item = ({ data, currentOrder }: ItemProps) => {
           </S.ItemPContainer>
         </S.ItemRightInnerContainer>
 
-        {!isBeforeConcert && (
-          <S.ItemArrowImg src={ItemArrow} isWhite={!isCurrent} alt="arrow" />
-        )}
+        <S.ItemArrowImg src={ItemArrow} isWhite={!isCurrent} alt="arrow" />
       </S.ItemRightContainer>
     </S.ItemContainer>
   );

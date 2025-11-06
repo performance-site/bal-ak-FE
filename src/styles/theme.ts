@@ -8,6 +8,7 @@ const hexToRgba = (hex: string, alpha: number): string => {
 const colors = {
   background1: '#4800FF',
   background2: '#121212',
+  background3: '#321857',
 
   gray1: '#FCFCFC',
   gray2: '#C4C4C4',
@@ -29,7 +30,11 @@ const colors = {
 };
 
 const gradients = {
-  background: `radial-gradient(182.67% 71.87% at 11.84% -40.44%, ${colors.background1} 0%, ${colors.background2} 100%)`,
+  get background() {
+    const topGradient = `radial-gradient(300% 150% at -30% -50%, ${colors.background1} 0%, transparent 75%)`;
+    const bottomGradient = `radial-gradient(180% 50% at 100% 60%, ${colors.background3} 0%, transparent 75%)`;
+    return `${bottomGradient}, ${topGradient}, ${colors.background2}`;
+  },
 
   setListPageTitleBackground: `linear-gradient(97.62deg, ${hexToRgba(colors.purple1, 0.5)} 43.66%, ${hexToRgba(colors.purple2, 0.5)} 116.16%)`,
   setListPageTitleBorder: `linear-gradient(97.62deg, ${colors.purple1} 43.66%, ${colors.purple2} 116.16%)`,
