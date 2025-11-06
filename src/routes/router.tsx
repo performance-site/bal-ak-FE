@@ -5,6 +5,8 @@ import Splash from '../components/Splash/Splash';
 
 import NotFound from '../pages/notFound/notFound';
 import Home from '../pages/home/home';
+import SetList from '../pages/setList/setList';
+import SetListDetail from '../pages/setListDetail/setListDetail';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,13 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Splash /> },
       { path: 'home', element: <Home /> },
+      {
+        path: 'setlist',
+        children: [
+          { index: true, element: <SetList /> },
+          { path: ':id', element: <SetListDetail /> },
+        ],
+      },
     ],
   },
 ]);
