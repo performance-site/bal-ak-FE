@@ -1,16 +1,16 @@
 import * as S from './styles/BookingPage.style';
 import { useState } from 'react';
 
-import { Link, Element, scroller } from 'react-scroll';
+import { Link, Element } from 'react-scroll';
 
 import SectionHeader from './components/sectionheader/SectionHeader';
 
 import CheckBox from './components/checkbox/CheckBox';
 import ShowInfo from './components/showinfo/ShowInfo';
-import InputBox from './components/inputbox/InputBox';
 import ClickBox from './components/clickbox/ClickBox';
 
 import COPY from '@/assets/booking/copy.svg';
+import InfoField from './components/infofield/InfoField';
 
 const BookingPage = () => {
   const account = 'KB국민은행 93770201535579 이진현';
@@ -59,26 +59,15 @@ const BookingPage = () => {
         {/* 예매 정보 입력 */}
         <SectionHeader title="예매 정보 입력" />
         <S.InfoInput>
-          <S.InfoBox>
-            <S.InfoName>입금자 성함</S.InfoName>
-            <InputBox variant="medium" placeholder="홍길동" />
-          </S.InfoBox>
+          <InfoField
+            title="입금자 성함"
+            variant="medium"
+            placeholder="홍길동"
+          />
 
-          <S.InfoBox>
-            <S.InfoName>입금자 전화번호</S.InfoName>
-            <S.NumberInput>
-              <InputBox variant="small" width="3rem" placeholder="010" />
-              -
-              <InputBox variant="small" width="3.5rem" placeholder="1234" />
-              -
-              <InputBox variant="small" width="3.56rem" placeholder="5678" />
-            </S.NumberInput>
-          </S.InfoBox>
+          <InfoField title="입금자 전화번호" type="phone" />
 
-          <S.InfoBox>
-            <S.InfoName>예매 인원</S.InfoName>
-            <InputBox variant="small" placeholder="ex. 1" />
-          </S.InfoBox>
+          <InfoField title="예매 인원" variant="small" placeholder="ex. 1" />
         </S.InfoInput>
       </Element>
 
