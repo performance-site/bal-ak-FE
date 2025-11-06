@@ -1,5 +1,5 @@
 import type { TeamMember } from '../../../../../types/setListDetail/setListDetail.type';
-import * as S from './styles/listTeam.style';
+import * as S from './styles/ListTeam.style';
 import ItemTeam from '../ItemTeam/ItemTeam';
 
 interface ListTeamProps {

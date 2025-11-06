@@ -1,6 +1,6 @@
 import type { TeamMember } from '../../../../types/setListDetail/setListDetail.type';
-import * as S from './styles/team.style';
-import ListTeam from './LIstTeam/ListTeam';
+import * as S from './styles/Team.style';
+import ListTeam from './ListTeam/ListTeam';
 
 interface TeamProps {
   team: TeamMember[];

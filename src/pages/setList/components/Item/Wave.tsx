@@ -1,4 +1,4 @@
-import * as S from './styles/wave.style';
+import * as S from './styles/Wave.style';
 
 const Wave = () => {
   return (

@@ -1,5 +1,5 @@
 import type { TeamMember } from '../../../../../types/setListDetail/setListDetail.type';
-import * as S from './styles/itemTeam.style';
+import * as S from './styles/ItemTeam.style';
 import ProfileImg from '../../../../../assets/images/setListDetail/profileImg.svg';
 
 interface ItemTeamProps {

@@ -1,5 +1,5 @@
 import type { Song } from '../../../../types/setListDetail/setListDetail.type';
-import * as S from './styles/song.style';
+import * as S from './styles/Song.style';
 import Youtube from './Youtube/Youtube';
 
 interface SongProps {

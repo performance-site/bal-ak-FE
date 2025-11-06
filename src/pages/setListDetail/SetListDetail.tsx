@@ -1,4 +1,4 @@
-import * as S from './styles/setListDetail.style';
+import * as S from './styles/SetListDetail.style';
 import { useState } from 'react';
 import { SetListDetailData } from '../../mocks/setListDetail/setListDetailData';
 import Banner from './components/Album/Banner/Banner';

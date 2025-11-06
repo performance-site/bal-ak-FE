@@ -1,4 +1,4 @@
-import * as S from './styles/albumExplain.style';
+import * as S from './styles/AlbumExplain.style';
 import type { Track } from '../../../../../types/setListDetail/setListDetail.type';
 import HeartOff from '../../../../../assets/images/setListDetail/heartOff.svg';
 import HeartOn from '../../../../../assets/images/setListDetail/heartOn.svg';

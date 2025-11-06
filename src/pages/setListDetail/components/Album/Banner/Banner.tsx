@@ -1,4 +1,4 @@
-import * as S from './styles/banner.style';
+import * as S from './styles/Banner.style';
 import type { Track } from '../../../../../types/setListDetail/setListDetail.type';
 
 interface BannerProps {

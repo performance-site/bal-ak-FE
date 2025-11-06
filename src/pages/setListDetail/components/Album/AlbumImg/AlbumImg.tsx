@@ -1,4 +1,4 @@
-import * as S from './styles/albumImg.style';
+import * as S from './styles/AlbumImg.style';
 import type { Track } from '../../../../../types/setListDetail/setListDetail.type';
 
 interface AlbumImgProps {

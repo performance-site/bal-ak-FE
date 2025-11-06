@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import * as S from './styles/list.style';
+import * as S from './styles/List.style';
 import Item from '../Item/Item';
 import { SetListItem } from '../../../../types/setList/setList.type';
 

@@ -1,4 +1,4 @@
-import * as S from './styles/pageTitle.style';
+import * as S from './styles/PageTitle.style';
 import PageTitleArrow from '../../../../assets/images/setList/pageTitleArrow.svg';
 import useNavigation from '../../../../hooks/useNavigation';
 

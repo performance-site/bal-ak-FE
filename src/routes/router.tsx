@@ -3,10 +3,10 @@ import RootLayout from '../layouts/RootLayout';
 
 import Splash from '../components/Splash/Splash';
 
-import NotFound from '../pages/notFound/notFound';
+import NotFound from '../pages/notFound/NotFound';
 import Home from '../pages/home/home';
-import SetList from '../pages/setList/setList';
-import SetListDetail from '../pages/setListDetail/setListDetail';
+import SetList from '../pages/setList/SetList';
+import SetListDetail from '../pages/setListDetail/SetListDetail';
 
 const router = createBrowserRouter([
   {
