@@ -24,12 +24,7 @@ const BookingPage = () => {
       {/* 공연 기본 정보 확인 */}
       <S.InfoContainer>
         <ShowInfo />
-        <Link
-          to="info"
-          smooth={true}
-          duration={500}
-          containerId="bookingScroll"
-        >
+        <Link to="info" smooth duration={500} containerId="bookingScroll">
           <CheckBox text="확인했습니다." />
         </Link>
       </S.InfoContainer>
@@ -79,7 +74,7 @@ const BookingPage = () => {
             <PayBox />
             <Link
               to="confirm"
-              smooth={true}
+              smooth
               duration={500}
               containerId="bookingScroll"
             >
@@ -111,12 +106,7 @@ const BookingPage = () => {
             </S.ConfirmText>
           </S.ConfirmContent>
           <S.ButtonWrapper>
-            <Link
-              to="end"
-              smooth={true}
-              duration={500}
-              containerId="bookingScroll"
-            >
+            <Link to="end" smooth duration={500} containerId="bookingScroll">
               <CheckBox text="개인정보 수집·이용에 동의합니다." />
             </Link>
           </S.ButtonWrapper>
