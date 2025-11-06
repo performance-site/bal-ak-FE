@@ -27,16 +27,29 @@ const PayBox = () => {
     <S.PayContainer>
       {/* 송금 방식 선택 박스*/}
       <S.ClickRow>
-        <ClickBox
-          text="카카오페이 송금"
-          isSelected={selected === '카카오페이 송금'}
-          onClick={() => handleSelect('카카오페이 송금')}
-        />
-        <ClickBox
-          text="네이버페이 송금"
-          isSelected={selected === '네이버페이 송금'}
-          onClick={() => handleSelect('네이버페이 송금')}
-        />
+        <a
+          href="https://qr.kakaopay.com/Fbqn2HMS089292"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ClickBox
+            text="카카오페이 송금"
+            isSelected={selected === '카카오페이 송금'}
+            onClick={() => handleSelect('카카오페이 송금')}
+          />
+        </a>
+
+        <a
+          href="https://pay.naver.com/remit/block/NonAppError?originUrl=https%3A%2F%2Fpay.naver.com%2Fremit%2Fqr%2Finflow%3Fv%3D1%26a%3D1002449629196%26c%3D020%26d%3D5bd85792dbd2b87fa5810dacc444a539"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <ClickBox
+            text="네이버페이 송금"
+            isSelected={selected === '네이버페이 송금'}
+            onClick={() => handleSelect('네이버페이 송금')}
+          />
+        </a>
       </S.ClickRow>
 
       {/* 계좌이체 박스 */}
