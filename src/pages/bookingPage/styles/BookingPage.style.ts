@@ -159,6 +159,14 @@ export const ButtonText = styled.p`
   font-family: Pretendard;
 `;
 
+export const ErrorMsgWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 4rem;
+  margin-bottom: 0.75rem;
+`;
+
 export const ErrorMsg = styled.p`
   color: #ff027a;
   font-family: Pretendard;
@@ -166,6 +174,4 @@ export const ErrorMsg = styled.p`
   font-weight: 300;
   line-height: 140%; /* 0.875rem */
   letter-spacing: -0.01563rem;
-  margin-top: 4rem;
-  margin-bottom: 0.75rem;
 `;

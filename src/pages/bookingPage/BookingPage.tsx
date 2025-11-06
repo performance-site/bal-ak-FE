@@ -34,15 +34,19 @@ const BookingPage = () => {
     isNameValid && isPhoneValid && isMemberValid && isAllChecked;
 
   const errorMsgs = () => {
+    const msgs: string[] = [];
+
     if (!isNameValid || !isPhoneValid || !isMemberValid)
-      return '*예매 정보 입력 항목을 다시 확인해 주세요.';
-    if (!checked.price) return '*가격 안내 및 입금 항목을 다시 확인해 주세요.';
+      msgs.push('*예매 정보 입력 항목을 다시 확인해 주세요.');
+    if (!checked.price)
+      msgs.push('*가격 안내 및 입금 항목을 다시 확인해 주세요.');
     if (!checked.confirm)
-      return '최*/종 확인 및 제출 항목을 다시 확인해 주세요.';
-    return '';
+      msgs.push('*최종 확인 및 제출 항목을 다시 확인해 주세요.');
+
+    return msgs;
   };
 
-  const errorMsg = errorMsgs();
+  const errorMsgList = errorMsgs();
 
   return (
     <S.BookingContainer id="bookingScroll">
@@ -169,7 +173,13 @@ const BookingPage = () => {
       </Element>
 
       <Element name="end">
-        <S.ErrorMsg>{errorMsg}</S.ErrorMsg>
+        {errorMsgList.length > 0 && (
+          <S.ErrorMsgWrapper>
+            {errorMsgList.map((msg, idx) => (
+              <S.ErrorMsg key={idx}>{msg}</S.ErrorMsg>
+            ))}
+          </S.ErrorMsgWrapper>
+        )}
 
         <S.EndButton $active={!!isAllValid}>
           <S.ButtonText>최종 제출</S.ButtonText>
