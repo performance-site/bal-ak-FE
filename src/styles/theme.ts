@@ -15,6 +15,8 @@ const colors = {
   gray3: '#767676',
   gray4: '#B3B3B3',
   gray5: '#505050',
+  gray6: '#E9E9E9',
+  gray7: '#D9D9D9',
 
   purple1: '#886AE2',
   purple2: '#A284F6',
@@ -22,6 +24,8 @@ const colors = {
   purple4: '#AE92FF',
   purple5: '#6A00FF',
   purple6: '#454BF9',
+  purple7: '#535DCD',
+  purple8: '#7B57E4',
 
   pink1: '#D360E5',
 
@@ -41,14 +45,22 @@ const gradients = {
   setListRefreshbackground: `linear-gradient(38.23deg, ${colors.purple3} 15.58%, ${colors.purple4} 83%)`,
   setListItemBackground: `linear-gradient(180deg, ${colors.pink1} 0%, ${colors.purple6} 100%)`,
   setListItemWaveBackground: `linear-gradient(90deg, ${colors.pink1} 0%, ${colors.purple6} 100%)`,
+
   setListItemDownloadBackground: `${colors.gray4}`,
   setListItemTitleBackground: `${colors.gray1}`,
+};
+
+const shadows = {
+  default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
+  purple: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple7, 0.08)}`,
+  purple2: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple8, 0.06)}`,
 };
 
 const theme = {
   colors,
   gradients,
   hexToRgba,
+  shadows,
 };
 
 export default theme;

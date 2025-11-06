@@ -40,7 +40,7 @@ const List = ({ data, currentOrder }: ListProps) => {
   }, [currentOrder, data]);
 
   return (
-    <S.ListContainer ref={containerRef}>
+    <S.ListContainer className="scroll" ref={containerRef}>
       {data.map((item, index) => (
         <div
           ref={(el) => {

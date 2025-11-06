@@ -39,13 +39,13 @@ const SetList = () => {
   };
 
   return (
-    <S.setListContainer>
+    <S.SetListContainer>
       <PageTitle />
       <List data={list} currentOrder={currentOrder} />
       <RefreshButton onClick={handleRefresh} />
 
       <S.ListBar />
-    </S.setListContainer>
+    </S.SetListContainer>
   );
 };
 
