@@ -1,5 +1,4 @@
 import * as S from './styles/BookingPage.style';
-import { useState } from 'react';
 
 import { Link, Element } from 'react-scroll';
 
@@ -7,29 +6,11 @@ import SectionHeader from './components/sectionheader/SectionHeader';
 
 import CheckBox from './components/checkbox/CheckBox';
 import ShowInfo from './components/showinfo/ShowInfo';
-import ClickBox from './components/clickbox/ClickBox';
 
-import COPY from '@/assets/booking/copy.svg';
 import InfoField from './components/infofield/InfoField';
+import PayBox from './components/paybox/PayBox';
 
 const BookingPage = () => {
-  const account = 'KB국민은행 93770201535579 이진현';
-
-  const [selected, setSelected] = useState<string | null>(null);
-
-  const handleSelect = (text: string) => {
-    setSelected(text);
-  };
-
-  const onCopyClick = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      console.log('계좌번호 복사 성공');
-    } catch (e) {
-      console.log('계좌번호 복사 실패');
-    }
-  };
-
   return (
     <S.BookingContainer id="bookingScroll">
       {/* 상단 사전 예매 제목 */}
@@ -95,36 +76,7 @@ const BookingPage = () => {
 
           <S.PayBoxWrapper>
             {/* 송금 안내 */}
-            <S.PayContainer>
-              {/* 송금 방식 선택 박스*/}
-              <S.ClickRow>
-                <ClickBox
-                  text="카카오페이 송금"
-                  isSelected={selected === '카카오페이 송금'}
-                  onClick={() => handleSelect('카카오페이 송금')}
-                />
-                <ClickBox
-                  text="네이버페이 송금"
-                  isSelected={selected === '네이버페이 송금'}
-                  onClick={() => handleSelect('네이버페이 송금')}
-                />
-              </S.ClickRow>
-
-              {/* 계좌이체 박스 */}
-              <S.CopyBox>
-                <S.CopyText>
-                  <S.CopyTitle>직접 계좌이체</S.CopyTitle>
-                  <S.CopySub>ㅣ</S.CopySub>
-                </S.CopyText>
-                <S.CopyImg
-                  onClick={() => {
-                    onCopyClick(account);
-                  }}
-                  src={COPY}
-                />
-                <S.AddressText>{account}</S.AddressText>
-              </S.CopyBox>
-            </S.PayContainer>
+            <PayBox />
             <Link
               to="confirm"
               smooth={true}
