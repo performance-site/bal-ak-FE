@@ -18,10 +18,17 @@ export const InputBoxContainer = styled.div<{
 `;
 
 export const Input = styled.input`
-  color: ${({ theme }) => theme.colors.gray400};
+  color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
   letter-spacing: -0.01875rem;
+
+  flex: 1;
+  min-width: 0;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.gray400};
+  }
 `;

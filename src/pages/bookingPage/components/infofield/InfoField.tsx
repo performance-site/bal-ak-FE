@@ -27,9 +27,9 @@ const InfoField: React.FC<InfoFieldProps> = ({
         <S.NumberInput>
           <InputBox variant="small" width="3rem" placeholder="010" />
           -
-          <InputBox variant="small" width="3.5rem" placeholder="1234" />
+          <InputBox variant="medium" width="3.5rem" placeholder="1234" />
           -
-          <InputBox variant="small" width="3.56rem" placeholder="5678" />
+          <InputBox variant="medium" width="3.56rem" placeholder="5678" />
         </S.NumberInput>
       ) : (
         <InputBox
