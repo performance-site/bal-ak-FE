@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderTextSection = styled.div<{ $height: string }>`
-  height: ${({ $height }) => $height};
+export const HeaderTextSection = styled.div`
   width: 100%;
 `;
 

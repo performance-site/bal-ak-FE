@@ -2,7 +2,6 @@ import React from 'react';
 import * as S from './SectionHeader.styles';
 
 interface SectionHeaderProps {
-  height: string;
   title: string;
   questionText?: string;
   questionLink?: string;
@@ -10,14 +9,13 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
-  height,
   title,
   questionText,
   questionLink,
   subtitle,
 }) => {
   return (
-    <S.HeaderTextSection $height={height}>
+    <S.HeaderTextSection>
       <S.HeaderTopText>
         <S.Title>{title}</S.Title>
 
