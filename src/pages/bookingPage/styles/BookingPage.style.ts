@@ -135,7 +135,6 @@ export const EndButton = styled.div<{ $active?: boolean }>`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
-  margin-top: 4rem;
   margin-bottom: 0.75rem;
   align-self: stretch;
   border-radius: 0.25rem;
@@ -158,4 +157,15 @@ export const ButtonText = styled.p`
   line-height: 140%; /* 1.05rem */
   letter-spacing: -0.01875rem;
   font-family: Pretendard;
+`;
+
+export const ErrorMsg = styled.p`
+  color: #ff027a;
+  font-family: Pretendard;
+  font-size: 0.625rem;
+  font-weight: 300;
+  line-height: 140%; /* 0.875rem */
+  letter-spacing: -0.01563rem;
+  margin-top: 4rem;
+  margin-bottom: 0.75rem;
 `;
