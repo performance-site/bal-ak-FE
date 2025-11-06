@@ -8,6 +8,7 @@ import ShowInfo from './components/showinfo/ShowInfo';
 import InfoField from './components/infofield/InfoField';
 import PayBox from './components/paybox/PayBox';
 import { useState } from 'react';
+import ScrollCheck from './components/scrollcheck/ScrollCheck';
 
 const BookingPage = () => {
   const [name, setName] = useState('');
@@ -27,9 +28,7 @@ const BookingPage = () => {
       {/* 공연 기본 정보 확인 */}
       <S.InfoContainer>
         <ShowInfo />
-        <Link to="info" smooth duration={500} containerId="bookingScroll">
-          <CheckBox text="확인했습니다." />
-        </Link>
+        <ScrollCheck to="info" text="확인했습니다." />
       </S.InfoContainer>
 
       <S.Line />
@@ -93,14 +92,7 @@ const BookingPage = () => {
           <S.PayBoxWrapper>
             {/* 송금 안내 */}
             <PayBox />
-            <Link
-              to="confirm"
-              smooth
-              duration={500}
-              containerId="bookingScroll"
-            >
-              <CheckBox text="송금 완료했습니다." />
-            </Link>
+            <ScrollCheck to="confirm" text="송금 완료했습니다." />
           </S.PayBoxWrapper>
         </S.PriceContainer>
       </Element>
@@ -127,9 +119,7 @@ const BookingPage = () => {
             </S.ConfirmText>
           </S.ConfirmContent>
           <S.ButtonWrapper>
-            <Link to="end" smooth duration={500} containerId="bookingScroll">
-              <CheckBox text="개인정보 수집·이용에 동의합니다." />
-            </Link>
+            <ScrollCheck to="end" text="개인정보 수집·이용에 동의합니다." />
           </S.ButtonWrapper>
         </S.ConfirmContainer>
       </Element>
