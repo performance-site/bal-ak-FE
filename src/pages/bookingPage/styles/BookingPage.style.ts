@@ -15,27 +15,12 @@ export const BookingContainer = styled.div`
   }
 `;
 
-export const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-`;
-
 export const Line = styled.hr`
   width: 21.5rem;
   height: 0.0625rem;
   opacity: 0.4;
   background: ${({ theme }) => theme.colors.gray500};
   margin: 0;
-`;
-
-export const InfoInput = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.75rem;
 `;
 
 export const PayBoxWrapper = styled.div`

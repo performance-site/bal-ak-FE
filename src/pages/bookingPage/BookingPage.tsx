@@ -3,11 +3,11 @@ import * as S from './styles/BookingPage.style';
 import { Element } from 'react-scroll';
 
 import SectionHeader from './components/SectionHeader/SectionHeader';
-import InfoField from './components/InfoField/InfoField';
 import PayBox from './components/PayBox/PayBox';
 import ScrollCheck from './components/ScrollCheck/ScrollCheck';
 import UseBookingForm from '../../hooks/UseBookingForm';
 import InfoSection from './components/InfoSection/InfoSection';
+import InputSection from './components/InputSection/InputSection';
 
 const BookingPage = () => {
   const form = UseBookingForm();
@@ -22,7 +22,7 @@ const BookingPage = () => {
     setPhone,
     setMember,
     toggleCheck,
-  } = UseBookingForm();
+  } = form;
 
   return (
     <S.BookingContainer id="bookingScroll">
@@ -41,30 +41,7 @@ const BookingPage = () => {
       <Element name="info">
         {/* 예매 정보 입력 */}
         <SectionHeader title="예매 정보 입력" />
-        <S.InfoInput>
-          <InfoField
-            title="입금자 성함"
-            variant="large"
-            placeholder="홍길동"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-
-          <InfoField
-            title="입금자 전화번호"
-            type="phone"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-
-          <InfoField
-            title="예매 인원"
-            variant="medium"
-            placeholder="ex. 1"
-            value={member}
-            onChange={(e) => setMember(e.target.value.replace(/[^0-9]/g, ''))}
-          />
-        </S.InfoInput>
+        <InputSection form={form} />
       </Element>
 
       <S.Line />
