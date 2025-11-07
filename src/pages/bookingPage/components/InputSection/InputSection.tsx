@@ -1,5 +1,5 @@
 import UseBookingForm from '../../../../hooks/UseBookingForm';
-import InfoField from '../InfoField/InfoField';
+import InfoField from '../InputField/InputField';
 import * as S from './InputSection.style';
 
 type InputSectionProps = {

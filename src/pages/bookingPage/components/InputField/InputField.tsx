@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import InputBox from '../InputBox/InputBox';
-import * as S from './InfoField.style';
+import * as S from './InputField.style';
 
 interface InfoFieldProps {
   title: string;
