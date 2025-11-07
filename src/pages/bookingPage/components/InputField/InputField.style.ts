@@ -9,7 +9,7 @@ export const InfoFieldContainer = styled.div`
 `;
 
 export const fieldTitle = styled.p`
-  color: ${({ theme }) => theme.colors.gray100};
+  color: ${({ theme }) => theme.colors.gray6};
   font-family: Pretendard;
   font-size: 0.875rem;
   font-weight: 600;

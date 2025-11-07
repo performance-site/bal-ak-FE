@@ -7,7 +7,7 @@ export const ConfirmContainer = styled.div`
 `;
 
 export const ConfirmText = styled.p`
-  color: ${({ theme }) => theme.colors.gray100};
+  color: ${({ theme }) => theme.colors.gray6};
   font-family: Pretendard;
   font-size: 0.8125rem;
   font-style: normal;
@@ -20,7 +20,7 @@ export const ConfirmText = styled.p`
   }
 
   span {
-    color: ${({ theme }) => theme.colors.gray400};
+    color: ${({ theme }) => theme.colors.gray8};
     font-weight: 500;
   }
 `;

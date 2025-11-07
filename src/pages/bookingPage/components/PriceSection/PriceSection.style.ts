@@ -26,7 +26,7 @@ export const PriceText = styled.div`
 `;
 
 export const PriceExplain = styled.p`
-  color: ${({ theme }) => theme.colors.gray100};
+  color: ${({ theme }) => theme.colors.gray6};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 600;
@@ -44,7 +44,7 @@ export const PriceExplain = styled.p`
 `;
 
 export const UserPrice = styled.p`
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray2};
   font-family: Pretendard;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -75,7 +75,7 @@ export const CopyBox = styled.div`
   justify-content: space-between;
   align-items: center;
   border-radius: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.colors.buttonGradient1};
+  border: 1px solid ${({ theme }) => theme.colors.purple1};
   background: ${({ theme }) => theme.gradients.checkbox};
 `;
 
@@ -111,7 +111,7 @@ export const CopyImg = styled.img`
 `;
 
 export const AddressText = styled.p`
-  color: ${({ theme }) => theme.colors.gray400};
+  color: ${({ theme }) => theme.colors.gray8};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 500;

@@ -12,8 +12,8 @@ export const InputBoxContainer = styled.div<{
   align-items: center;
   align-self: stretch;
   border-radius: 0.25rem;
-  border: 1.25px solid ${({ theme }) => theme.colors.buttonGradient1};
-  background: ${({ theme }) => theme.gradients.inputBox};
+  border: 1.25px solid ${({ theme }) => theme.colors.purple1};
+  background: ${({ theme }) => theme.gradients.inputbox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
 `;
 
@@ -29,6 +29,5 @@ export const Input = styled.input`
   min-width: 0;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.gray400};
-  }
+    color: ${({ theme }) => theme.colors.gray8}
 `;

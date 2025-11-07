@@ -35,7 +35,7 @@ export const ShowTitle = styled.div`
 `;
 
 export const TitleText = styled.p`
-  color: ${({ theme }) => theme.colors.gray100};
+  color: ${({ theme }) => theme.colors.gray6};
   font-family: Pretendard;
   font-size: 0.875rem;
   font-weight: 600;
@@ -52,7 +52,7 @@ export const DetailInfo = styled.div`
 `;
 
 export const BasicPrice = styled.p`
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray2};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 500;

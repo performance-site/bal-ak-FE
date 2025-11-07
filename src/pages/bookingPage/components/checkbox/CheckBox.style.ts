@@ -8,7 +8,7 @@ export const CheckBoxContainer = styled.div`
   gap: 0.5rem;
 
   border-radius: 0.25rem;
-  border: 1.25px solid ${({ theme }) => theme.colors.buttonGradient1};
+  border: 1.25px solid ${({ theme }) => theme.colors.purple1};
   background: ${({ theme }) => theme.gradients.checkbox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
 `;

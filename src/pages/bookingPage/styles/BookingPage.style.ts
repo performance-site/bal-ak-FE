@@ -19,7 +19,7 @@ export const Line = styled.hr`
   width: 21.5rem;
   height: 0.0625rem;
   opacity: 0.4;
-  background: ${({ theme }) => theme.colors.gray500};
+  background: ${({ theme }) => theme.colors.gray3};
   margin: 0;
 `;
 
@@ -33,7 +33,7 @@ export const EndButton = styled.div<{ $active?: boolean }>`
   margin-bottom: 0.75rem;
   align-self: stretch;
   border-radius: 0.25rem;
-  border: 1.25px solid ${({ theme }) => theme.colors.buttonGradient1};
+  border: 1.25px solid ${({ theme }) => theme.colors.purple1};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
 
   cursor: ${({ $active }) => ($active ? 'pointer' : 'not-allowed')};

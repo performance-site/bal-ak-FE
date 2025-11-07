@@ -19,7 +19,7 @@ export const Title = styled.p`
 `;
 
 export const QuestionText = styled.p`
-  color: ${({ theme }) => theme.colors.gray400};
+  color: ${({ theme }) => theme.colors.gray8};
   text-align: right;
   font-family: Pretendard;
   font-size: 0.75rem;
@@ -30,7 +30,7 @@ export const QuestionText = styled.p`
 `;
 
 export const SubTitle = styled.p`
-  color: ${({ theme }) => theme.colors.gray300};
+  color: ${({ theme }) => theme.colors.gray2};
   font-size: 0.75rem;
   font-family: Pretendard;
   line-height: 140%; /* 16.8px */
