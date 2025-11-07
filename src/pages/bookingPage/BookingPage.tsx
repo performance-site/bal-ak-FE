@@ -29,7 +29,6 @@ const BookingPage = () => {
 
       <Element name="info">
         {/* 예매 정보 입력 */}
-        <SectionHeader title="예매 정보 입력" />
         <InputSection form={form} />
       </Element>
 
