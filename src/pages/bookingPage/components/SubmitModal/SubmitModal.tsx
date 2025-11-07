@@ -5,9 +5,10 @@ import CLOSE from '@/assets/booking/close.svg';
 
 type SubmitModalProps = {
   form: ReturnType<typeof UseBookingForm>;
+  onClose: () => void;
 };
 
-const SubmitModal: React.FC<SubmitModalProps> = ({ form }) => {
+const SubmitModal: React.FC<SubmitModalProps> = ({ form, onClose }) => {
   const { name, phone, member } = form;
 
   return (
@@ -15,7 +16,7 @@ const SubmitModal: React.FC<SubmitModalProps> = ({ form }) => {
       <S.ModalContainer>
         <S.ModalHeader>
           <S.ModalTitle>사전 예매가 완료되었습니다.</S.ModalTitle>
-          <S.CloseIcon src={CLOSE} />
+          <S.CloseIcon src={CLOSE} onClick={onClose} />
         </S.ModalHeader>
         <S.ModalContent>
           <S.UserText>{`${name} | ${member}매 | ${phone}`}</S.UserText>
