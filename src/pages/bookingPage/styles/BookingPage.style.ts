@@ -23,63 +23,6 @@ export const Line = styled.hr`
   margin: 0;
 `;
 
-export const PayBoxWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.62rem;
-`;
-
-export const PriceContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-export const PriceTextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.06rem;
-`;
-
-export const PriceText = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.75rem;
-`;
-
-export const PriceExplain = styled.p`
-  color: ${({ theme }) => theme.colors.gray100};
-  font-family: Pretendard;
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 140%;
-  letter-spacing: -0.01875rem;
-  white-space: pre-line;
-
-  strong {
-    font-weight: 800;
-  }
-
-  span {
-    font-weight: 400;
-  }
-`;
-
-export const UserPrice = styled.p`
-  color: ${({ theme }) => theme.colors.gray300};
-  font-family: Pretendard;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  line-height: 140%; /* 1.1375rem */
-  letter-spacing: -0.02031rem;
-  white-space: pre-line;
-
-  strong {
-    font-weight: 800;
-  }
-`;
-
 export const ConfirmContainer = styled.div`
   display: flex;
   flex-direction: column;

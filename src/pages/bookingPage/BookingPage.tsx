@@ -3,11 +3,11 @@ import * as S from './styles/BookingPage.style';
 import { Element } from 'react-scroll';
 
 import SectionHeader from './components/SectionHeader/SectionHeader';
-import PayBox from './components/PayBox/PayBox';
 import ScrollCheck from './components/ScrollCheck/ScrollCheck';
 import UseBookingForm from '../../hooks/UseBookingForm';
 import InfoSection from './components/InfoSection/InfoSection';
 import InputSection from './components/InputSection/InputSection';
+import PriceSection from './components/PriceSection/PriceSection';
 
 const BookingPage = () => {
   const form = UseBookingForm();
@@ -48,40 +48,7 @@ const BookingPage = () => {
 
       <Element name="price">
         {/* 가격 안내 및 입금 */}
-        <S.PriceContainer>
-          <S.PriceTextContainer>
-            <SectionHeader title="가격 안내 및 입금" />
-
-            <S.PriceText>
-              <S.PriceExplain>
-                입금 후 꼭 <strong>최종 제출</strong> 버튼까지 눌러 주세요!
-                <br />
-                <span>송금만으로는 예매가 완료되지 않습니다.</span>
-              </S.PriceExplain>
-
-              <S.UserPrice>
-                입금자: <strong>{name}</strong>
-                <br />총 입금 금액:{' '}
-                <strong>
-                  {member
-                    ? `${(Number(member) * 5000).toLocaleString()}원`
-                    : '0원'}
-                </strong>
-              </S.UserPrice>
-            </S.PriceText>
-          </S.PriceTextContainer>
-
-          <S.PayBoxWrapper>
-            {/* 송금 안내 */}
-            <PayBox />
-            <ScrollCheck
-              to="confirm"
-              text="송금 완료했습니다."
-              checked={checked.price}
-              onChange={() => toggleCheck('price')}
-            />
-          </S.PayBoxWrapper>
-        </S.PriceContainer>
+        <PriceSection form={form} />
       </Element>
 
       <S.Line />
