@@ -1,0 +1,23 @@
+import styled from 'styled-components';
+
+export const SetListContainer = styled.main`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6.8rem;
+  overflow: hidden;
+`;
+
+export const ListBar = styled.div`
+  width: 0.1rem;
+  height: 100%;
+  position: absolute;
+  top: 19.5rem;
+  left: 2.9rem;
+  background: ${({ theme }) => theme.colors.gray3};
+  box-shadow: 0 0 0.4rem 0
+    ${({ theme }) => theme.hexToRgba(theme.colors.purple2, 0.18)};
+`;

@@ -54,6 +54,7 @@ const gradients = {
   setListRefreshbackground: `linear-gradient(38.23deg, ${colors.purple3} 15.58%, ${colors.purple4} 83%)`,
   setListItemBackground: `linear-gradient(180deg, ${colors.pink1} 0%, ${colors.purple6} 100%)`,
   setListItemWaveBackground: `linear-gradient(90deg, ${colors.pink1} 0%, ${colors.purple6} 100%)`,
+
   setListItemDownloadBackground: `${colors.gray4}`,
   setListItemTitleBackground: `${colors.gray1}`,
 };
@@ -67,8 +68,8 @@ const shadows = {
 const theme = {
   colors,
   gradients,
-  shadows,
   hexToRgba,
+  shadows,
 };
 
 export default theme;
