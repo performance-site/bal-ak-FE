@@ -1,4 +1,4 @@
-import * as S from './CheckBox.styles';
+import * as S from './CheckBox.style';
 
 import CHECK from '@/assets/booking/check.svg';
 import CHECKED from '@/assets/booking/checked.svg';

@@ -2,12 +2,12 @@ import * as S from './styles/BookingPage.style';
 
 import { Element } from 'react-scroll';
 
-import SectionHeader from './components/sectionheader/SectionHeader';
-import ShowInfo from './components/showinfo/ShowInfo';
-import InfoField from './components/infofield/InfoField';
-import PayBox from './components/paybox/PayBox';
+import SectionHeader from './components/SectionHeader/SectionHeader';
+import ShowInfo from './components/ShowInfo/ShowInfo';
+import InfoField from './components/InfoField/InfoField';
+import PayBox from './components/PayBox/PayBox';
 import { useState } from 'react';
-import ScrollCheck from './components/scrollcheck/ScrollCheck';
+import ScrollCheck from './components/ScrollCheck/ScrollCheck';
 
 const BookingPage = () => {
   const [name, setName] = useState('');

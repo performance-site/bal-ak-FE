@@ -1,7 +1,7 @@
 import * as S from './PayBox.style';
 import { useState } from 'react';
 
-import ClickBox from '../clickbox/ClickBox';
+import ClickBox from '../ClickBox/ClickBox';
 
 import COPY from '@/assets/booking/copy.svg';
 
