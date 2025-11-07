@@ -1,4 +1,4 @@
-import * as S from './styles/item.style';
+import * as S from './styles/Item.style';
 import { SetListItem } from '../../../../types/setList/setList.type';
 import ItemArrow from '../../../../assets/images/setList/ItemArrow.svg';
 import Wave from './Wave';
