@@ -16,6 +16,9 @@ const BookingPage = () => {
   const { isAllValid, errorMsgs } = form;
 
   const [isOpen, setIsOpen] = useState(false);
+  const [questionLink, setQuestionLink] = useState<string>(
+    'https://www.kakaocorp.com/page/service/service/openchat',
+  );
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -28,7 +31,7 @@ const BookingPage = () => {
         <SectionHeader
           title="사전예매"
           questionText="예매 관련 문의하기"
-          questionLink="https://www.kakaocorp.com/page/service/service/openchat"
+          questionLink={questionLink}
           subtitle="더 싼 가격으로 미리 하는 사전예매 ~ 12/12(마감일)"
         />
 
@@ -75,7 +78,13 @@ const BookingPage = () => {
         </Element>
       </S.BookingContainer>
 
-      {isOpen && <SubmitModal form={form} onClose={handleOpen} />}
+      {isOpen && (
+        <SubmitModal
+          form={form}
+          onClose={handleOpen}
+          questionLink={questionLink}
+        />
+      )}
     </>
   );
 };

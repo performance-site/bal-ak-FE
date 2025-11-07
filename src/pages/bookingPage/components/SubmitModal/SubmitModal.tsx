@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import UseBookingForm from '../../../../hooks/UseBookingForm';
 import * as S from './SubmitModal.style';
 
@@ -6,10 +7,16 @@ import CLOSE from '@/assets/booking/close.svg';
 type SubmitModalProps = {
   form: ReturnType<typeof UseBookingForm>;
   onClose: () => void;
+  questionLink: string;
 };
 
-const SubmitModal: React.FC<SubmitModalProps> = ({ form, onClose }) => {
+const SubmitModal: React.FC<SubmitModalProps> = ({
+  form,
+  onClose,
+  questionLink,
+}) => {
   const { name, phone, member } = form;
+  const navigate = useNavigate();
 
   return (
     <S.ModalOverlay>
@@ -25,10 +32,13 @@ const SubmitModal: React.FC<SubmitModalProps> = ({ form, onClose }) => {
             공연 당일에 뵙겠습니다. 감사합니다.
           </S.EndText>
           <S.ButtonContainer>
-            <S.ModalBtn>
-              <S.BtnText>문의하기</S.BtnText>
-            </S.ModalBtn>
-            <S.ModalBtn>
+            <a href={questionLink} target="_blank" rel="noopener noreferrer">
+              <S.ModalBtn>
+                <S.BtnText>문의하기</S.BtnText>
+              </S.ModalBtn>
+            </a>
+
+            <S.ModalBtn onClick={() => navigate('/setList')}>
               <S.BtnText>셋 리스트</S.BtnText>
             </S.ModalBtn>
           </S.ButtonContainer>
