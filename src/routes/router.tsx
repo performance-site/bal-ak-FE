@@ -5,6 +5,7 @@ import Splash from '../components/Splash/Splash';
 
 import NotFound from '../pages/notFound/notFound';
 import Home from '../pages/home/home';
+import BookingPage from '../pages/bookingPage/BookingPage';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Splash /> },
       { path: 'home', element: <Home /> },
+      { path: 'booking', element: <BookingPage /> },
     ],
   },
 ]);
