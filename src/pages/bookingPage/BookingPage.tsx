@@ -3,13 +3,14 @@ import * as S from './styles/BookingPage.style';
 import { Element } from 'react-scroll';
 
 import SectionHeader from './components/SectionHeader/SectionHeader';
-import ShowInfo from './components/ShowInfo/ShowInfo';
 import InfoField from './components/InfoField/InfoField';
 import PayBox from './components/PayBox/PayBox';
 import ScrollCheck from './components/ScrollCheck/ScrollCheck';
 import UseBookingForm from '../../hooks/UseBookingForm';
+import InfoSection from './components/InfoSection/InfoSection';
 
 const BookingPage = () => {
+  const form = UseBookingForm();
   const {
     name,
     phone,
@@ -34,16 +35,7 @@ const BookingPage = () => {
       />
 
       {/* 공연 기본 정보 확인 */}
-      <S.InfoContainer>
-        <ShowInfo />
-        <ScrollCheck
-          to="info"
-          text="확인했습니다."
-          checked={checked.info}
-          onChange={() => toggleCheck('info')}
-        />
-      </S.InfoContainer>
-
+      <InfoSection form={form} />
       <S.Line />
 
       <Element name="info">
