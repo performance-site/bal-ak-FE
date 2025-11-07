@@ -62,7 +62,7 @@ export const BasicPrice = styled.p`
 `;
 
 export const BookingPrice = styled.p`
-  color: ${({ theme }) => theme.colors.white2};
+  color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 600;
@@ -71,7 +71,7 @@ export const BookingPrice = styled.p`
 `;
 
 export const InfoText = styled.p`
-  color: ${({ theme }) => theme.colors.white2};
+  color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 400;

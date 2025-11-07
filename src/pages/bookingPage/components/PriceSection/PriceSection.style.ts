@@ -86,7 +86,7 @@ export const CopyText = styled.div`
 `;
 
 export const CopyTitle = styled.p`
-  color: ${({ theme }) => theme.colors.white2};
+  color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 500;
@@ -95,7 +95,7 @@ export const CopyTitle = styled.p`
 `;
 
 export const CopySub = styled.p`
-  color: ${({ theme }) => theme.colors.white2};
+  color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
   font-size: 0.875rem;
   font-weight: 500;
