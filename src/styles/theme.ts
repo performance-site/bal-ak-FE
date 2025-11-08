@@ -17,6 +17,7 @@ const colors = {
   gray5: '#505050',
   gray6: '#E9E9E9',
   gray7: '#D9D9D9',
+  gray9: '#7C7C7C',
 
   purple1: '#886AE2',
   purple2: '#A284F6',
@@ -39,6 +40,8 @@ const gradients = {
     const bottomGradient = `radial-gradient(180% 50% at 100% 60%, ${colors.background3} 0%, transparent 75%)`;
     return `${bottomGradient}, ${topGradient}, ${colors.background2}`;
   },
+
+  inputbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.10) 43.66%, rgba(162, 132, 246, 0.10) 116.16%)`,
 
   setListPageTitleBackground: `linear-gradient(97.62deg, ${hexToRgba(colors.purple1, 0.5)} 43.66%, ${hexToRgba(colors.purple2, 0.5)} 116.16%)`,
   setListPageTitleBorder: `linear-gradient(97.62deg, ${colors.purple1} 43.66%, ${colors.purple2} 116.16%)`,
