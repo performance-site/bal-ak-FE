@@ -1,3 +1,4 @@
+import ButtonList from './components/ButtonList/ButtonList';
 import Header from './components/Header/Header';
 import Performence from './components/Performence/Performence';
 import { HomeContainer } from './styles/Home.style';
@@ -7,6 +8,7 @@ const Home = () => {
     <HomeContainer>
       <Header />
       <Performence />
+      <ButtonList />
     </HomeContainer>
   );
 };
