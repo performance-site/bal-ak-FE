@@ -1,5 +1,6 @@
 import ButtonList from './components/ButtonList/ButtonList';
 import Header from './components/Header/Header';
+import NowPlaying from './components/NowPlaying/NowPlaying';
 import Performence from './components/Performence/Performence';
 import Poster from './components/Poster/Poster';
 import { HomeContainer } from './styles/Home.style';
@@ -11,6 +12,7 @@ const Home = () => {
       <Performence />
       <ButtonList />
       <Poster />
+      <NowPlaying />
     </HomeContainer>
   );
 };

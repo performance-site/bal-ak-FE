@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const PerformenceContainer = styled.div`
-  width: 34.5rem;
+  width: 90%;
+  max-width: 34.5rem;
   height: 15.6rem;
   display: flex;
   flex-direction: column;

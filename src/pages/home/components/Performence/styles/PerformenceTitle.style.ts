@@ -11,8 +11,8 @@ export const PerformenceTitleContainer = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow:
-    inset 0px 0px 1px 2px rgba(170, 170, 170, 1),
-    inset 0px 0px 1px 2px rgba(150, 150, 150, 1);
+    inset 1px 1px 1px 1px rgba(170, 170, 170, 1),
+    inset -1px -1px 1px 1px rgba(150, 150, 150, 1);
 `;
 
 export const PerformenceTitle = styled.p`
