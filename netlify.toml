@@ -1,3 +1,5 @@
+# Netlify가 직접 빌드를 수행하는 경우에 동작(Github Actions에서 동작 x)
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
