@@ -10,15 +10,14 @@ import PriceSection from './components/PriceSection/PriceSection';
 import ConfirmSection from './components/ConfirmSection/ConfirmSection';
 import { useState } from 'react';
 import SubmitModal from './components/SubmitModal/SubmitModal';
+import { LINKS } from '../../datas/BookingLinks';
 
 const BookingPage = () => {
   const form = UseBookingForm();
   const { isAllValid, errorMsgs } = form;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [questionLink, setQuestionLink] = useState<string>(
-    'https://www.kakaocorp.com/page/service/service/openchat',
-  );
+  const [questionLink, setQuestionLink] = useState<string>(LINKS.QUESTION_CHAT);
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);

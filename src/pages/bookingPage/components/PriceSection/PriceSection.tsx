@@ -5,7 +5,8 @@ import SectionHeader from '../SectionHeader/SectionHeader';
 import * as S from './PriceSection.style';
 
 import COPY from '@/assets/booking/copy.svg';
-import ClickBox from '../ClickBox/ClickBox';
+import ClickBox from '../clickbox/ClickBox';
+import { ACCOUNTS, LINKS } from '../../../../datas/BookingLinks';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
@@ -13,7 +14,7 @@ type PriceSectionProps = {
 
 const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
   const { name, member, checked, toggleCheck } = form;
-  const account = 'KB국민은행 93770201535579 이진현';
+  const [account, setAccount] = useState(ACCOUNTS.DEFAULT);
 
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -57,11 +58,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
         <S.PayContainer>
           {/* 송금 방식 선택 박스*/}
           <S.ClickRow>
-            <a
-              href="https://qr.kakaopay.com/Fbqn2HMS089292"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={LINKS.KAKAO_PAY} target="_blank" rel="noopener noreferrer">
               <ClickBox
                 text="카카오페이 송금"
                 isSelected={selected === '카카오페이 송금'}
@@ -69,11 +66,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
               />
             </a>
 
-            <a
-              href="https://pay.naver.com/remit/block/NonAppError?originUrl=https%3A%2F%2Fpay.naver.com%2Fremit%2Fqr%2Finflow%3Fv%3D1%26a%3D1002449629196%26c%3D020%26d%3D5bd85792dbd2b87fa5810dacc444a539"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={LINKS.NAVER_PAY} target="_blank" rel="noopener noreferrer">
               <ClickBox
                 text="네이버페이 송금"
                 isSelected={selected === '네이버페이 송금'}
