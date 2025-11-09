@@ -14,8 +14,8 @@ interface ItemWrapperProps {
 }
 
 interface ItemImgProps extends ItemWrapperProps {
-  iconWidth: string;
-  iconHeight: string;
+  $iconWidth: string;
+  $iconHeight: string;
 }
 
 const converter = (type: string) => {
@@ -46,7 +46,7 @@ function MoreButtonItem(data: ButtonItemProps) {
   const size = ICON_SIZES[typeKey];
   return (
     <ItemWrapper>
-      <ItemImg src={imgSrc} iconWidth={size.width} iconHeight={size.height} />
+      <ItemImg src={imgSrc} $iconWidth={size.width} $iconHeight={size.height} />
       <ItemInfo>{data.name}</ItemInfo>
     </ItemWrapper>
   );
@@ -64,8 +64,8 @@ const ItemWrapper = styled.div`
 `;
 
 const ItemImg = styled.img<ItemImgProps>`
-  width: ${(props) => props.iconWidth};
-  height: ${(props) => props.iconHeight};
+  width: ${(props) => props.$iconWidth};
+  height: ${(props) => props.$iconHeight};
   display: block;
 `;
 
