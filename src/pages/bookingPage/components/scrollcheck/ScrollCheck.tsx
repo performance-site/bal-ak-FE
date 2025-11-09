@@ -1,5 +1,5 @@
 import { Link } from 'react-scroll';
-import CheckBox from '../CheckBox/CheckBox';
+import CheckBox from '../checkbox/CheckBox';
 
 interface ScrollCheckProps {
   to: string;
