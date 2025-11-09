@@ -1,6 +1,6 @@
 import * as S from './styles/Item.style';
 import { SetListItem } from '../../../../types/setList/setList.type';
-import ItemArrow from '../../../../assets/images/setList/ItemArrow.svg';
+import ItemArrow from '../../../../assets/images/setList/itemArrow.svg';
 import Wave from './Wave';
 import ItemDownloadOn from '../../../../assets/images/setList/itemDownloadOn.svg';
 import ItemDownloadOff from '../../../../assets/images/setList/itemDownloadOff.svg';
