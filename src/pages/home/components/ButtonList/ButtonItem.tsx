@@ -6,6 +6,10 @@ interface ButtonItemProps {
   link: string;
 }
 
+interface ItemWrapperProps {
+  src: string;
+}
+
 function ButtonItem(data: ButtonItemProps) {
   return (
     <ItemWrapper>
@@ -22,7 +26,10 @@ const ItemWrapper = styled.div`
   width: 4.2rem;
 `;
 
-const ItemImg = styled.img``;
+const ItemImg = styled.div<ItemWrapperProps>`
+  height: 4.2rem;
+  width: 4.2rem;
+`;
 
 const ItemInfo = styled.p`
   font-size: 1rem;
