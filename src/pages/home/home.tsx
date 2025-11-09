@@ -1,4 +1,5 @@
 import ButtonList from './components/ButtonList/ButtonList';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import KakaoMap from './components/Map/KakaoMap';
 import More from './components/More/More';
@@ -17,6 +18,7 @@ const Home = () => {
       <NowPlaying />
       <KakaoMap />
       <More />
+      <Footer />
     </HomeContainer>
   );
 };
