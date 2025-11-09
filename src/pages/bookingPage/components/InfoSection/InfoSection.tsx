@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import UseBookingForm from '../../../../hooks/UseBookingForm';
-import ScrollCheck from '../ScrollCheck/ScrollCheck';
+import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
 
 import POSTER from '@/assets/booking/poster.svg';

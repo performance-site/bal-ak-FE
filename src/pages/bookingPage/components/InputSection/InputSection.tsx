@@ -1,6 +1,6 @@
 import UseBookingForm from '../../../../hooks/UseBookingForm';
-import InfoField from '../InputField/InputField';
-import SectionHeader from '../SectionHeader/SectionHeader';
+import InfoField from '../inputField/InputField';
+import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './InputSection.style';
 
 type InputSectionProps = {

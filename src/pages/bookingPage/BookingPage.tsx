@@ -2,14 +2,14 @@ import * as S from './styles/BookingPage.style';
 
 import { Element } from 'react-scroll';
 
-import SectionHeader from './components/SectionHeader/SectionHeader';
+import SectionHeader from './components/sectionHeader/SectionHeader';
 import UseBookingForm from '../../hooks/UseBookingForm';
-import InfoSection from './components/InfoSection/InfoSection';
-import InputSection from './components/InputSection/InputSection';
-import PriceSection from './components/PriceSection/PriceSection';
-import ConfirmSection from './components/ConfirmSection/ConfirmSection';
+import InfoSection from './components/infoSection/InfoSection';
+import InputSection from './components/inputSection/InputSection';
+import PriceSection from './components/priceSection/PriceSection';
+import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
-import SubmitModal from './components/SubmitModal/SubmitModal';
+import SubmitModal from './components/submitModal/SubmitModal';
 import { LINKS } from '../../datas/BookingLinks';
 
 const BookingPage = () => {

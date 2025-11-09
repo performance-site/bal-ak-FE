@@ -1,6 +1,6 @@
 import UseBookingForm from '../../../../hooks/UseBookingForm';
-import ScrollCheck from '../ScrollCheck/ScrollCheck';
-import SectionHeader from '../SectionHeader/SectionHeader';
+import ScrollCheck from '../scrollCheck/ScrollCheck';
+import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './ConfirmSection.style';
 
 type ConfirmSectionProps = {
