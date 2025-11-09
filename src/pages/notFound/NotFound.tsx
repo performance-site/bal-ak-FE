@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom';
+import useNavigation from '../../hooks/useNavigation';
 import * as S from './styles/NotFound.style';
 
 const NotFound = () => {
-  const navigate = useNavigate();
+  const { goTo } = useNavigation();
 
   return (
     <>
@@ -16,7 +16,7 @@ const NotFound = () => {
             *요청하신 페이지를 찾을 수 없습니다. <br />
             메인으로 돌아갑니다.
           </S.NotText>
-          <S.BackBox onClick={() => navigate('/')}>
+          <S.BackBox onClick={() => goTo('/')}>
             <S.BackText>메인으로</S.BackText>
           </S.BackBox>
         </S.NotFoundContent>
