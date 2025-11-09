@@ -1,8 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import UseBookingForm from '../../../../hooks/UseBookingForm';
 import * as S from './SubmitModal.style';
 
 import CLOSE from '@/assets/booking/close.svg';
+import useNavigation from '../../../../hooks/useNavigation';
 
 type SubmitModalProps = {
   form: ReturnType<typeof UseBookingForm>;
@@ -16,7 +16,7 @@ const SubmitModal: React.FC<SubmitModalProps> = ({
   questionLink,
 }) => {
   const { name, phone, member } = form;
-  const navigate = useNavigate();
+  const { goTo } = useNavigation();
 
   return (
     <S.ModalOverlay>
@@ -38,7 +38,7 @@ const SubmitModal: React.FC<SubmitModalProps> = ({
               </S.ModalBtn>
             </a>
 
-            <S.ModalBtn onClick={() => navigate('/setList')}>
+            <S.ModalBtn onClick={() => goTo('/setList')}>
               <S.BtnText>셋 리스트</S.BtnText>
             </S.ModalBtn>
           </S.ButtonContainer>
