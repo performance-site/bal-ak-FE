@@ -30,7 +30,7 @@ const MoreBtnContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  top: 179.6rem;
+  top: 181.6rem;
   left: 50%;
   transform: translateX(-50%);
 `;
