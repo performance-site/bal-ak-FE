@@ -17,7 +17,7 @@ const BookingPage = () => {
   const { isAllValid, errorMsgs } = form;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [questionLink, setQuestionLink] = useState<string>(LINKS.QUESTION_CHAT);
+  const [questionLink] = useState<string>(LINKS.QUESTION_CHAT);
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);

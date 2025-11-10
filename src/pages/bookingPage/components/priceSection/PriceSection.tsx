@@ -14,7 +14,7 @@ type PriceSectionProps = {
 
 const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
   const { name, member, checked, toggleCheck } = form;
-  const [account, setAccount] = useState(ACCOUNTS.DEFAULT);
+  const [account] = useState(ACCOUNTS.DEFAULT);
 
   const [selected, setSelected] = useState<string | null>(null);
 

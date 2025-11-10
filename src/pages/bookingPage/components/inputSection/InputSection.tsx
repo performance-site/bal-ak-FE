@@ -1,5 +1,5 @@
 import UseBookingForm from '../../../../hooks/UseBookingForm';
-import InfoField from '../inputField/InputField';
+import InputField from '../inputField/InputField';
 import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './InputSection.style';
 
@@ -14,7 +14,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
     <S.InputSectionContainer>
       <SectionHeader title="예매 정보 입력" />
       <S.InfoInput>
-        <InfoField
+        <InputField
           title="입금자 성함"
           variant="large"
           placeholder="홍길동"
@@ -22,14 +22,14 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <InfoField
+        <InputField
           title="입금자 전화번호"
           type="phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
 
-        <InfoField
+        <InputField
           title="예매 인원"
           variant="medium"
           placeholder="ex. 1"

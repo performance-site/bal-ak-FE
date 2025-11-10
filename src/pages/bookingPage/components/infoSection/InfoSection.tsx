@@ -19,7 +19,7 @@ interface PerformanceInfo {
 const InfoSection: React.FC<InfoSectionProps> = ({ form }) => {
   const { checked, toggleCheck } = form;
 
-  const [data, setData] = useState<PerformanceInfo>({
+  const [data] = useState<PerformanceInfo>({
     title: '공연 이름',
     dateTime: '12/21(일) 17:30 (입장 17:00)',
     venue: '홍대 프리버드 리부트',
