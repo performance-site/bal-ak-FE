@@ -17,6 +17,7 @@ const colors = {
   gray5: '#505050',
   gray6: '#E9E9E9',
   gray7: '#D9D9D9',
+  gray8: '#9D9D9D',
 
   purple1: '#886AE2',
   purple2: '#A284F6',
@@ -39,6 +40,14 @@ const gradients = {
     const bottomGradient = `radial-gradient(180% 50% at 100% 60%, ${colors.background3} 0%, transparent 75%)`;
     return `${bottomGradient}, ${topGradient}, ${colors.background2}`;
   },
+
+  checkbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.1) 44%, rgba(162, 132, 246, 0.1) 116%)`,
+  clickbox: `linear-gradient(98deg, ${colors.purple1} 44%, ${colors.purple2} 116%)`,
+  submitModal: `linear-gradient(180deg, rgba(233,233,233,0.24) 0%, rgba(255,255,255,0.16) 100%), 
+                linear-gradient(180deg, rgba(211,96,229,0.24) 0%, rgba(69,75,249,0.24) 100%), 
+                linear-gradient(180deg, rgba(211,96,229,0.08) 0%, rgba(69,75,249,0.08) 100%)`,
+  inputbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.10) 43.66%, rgba(162, 132, 246, 0.10) 116.16%)`,
+  showInfo: `linear-gradient(180deg, rgba(123, 87, 228, 0.12) 0%, rgba(44, 31, 81, 0) 36.54%, rgba(123, 87, 228, 0.12) 100%)`,
 
   setListPageTitleBackground: `linear-gradient(97.62deg, ${hexToRgba(colors.purple1, 0.5)} 43.66%, ${hexToRgba(colors.purple2, 0.5)} 116.16%)`,
   setListPageTitleBorder: `linear-gradient(97.62deg, ${colors.purple1} 43.66%, ${colors.purple2} 116.16%)`,
