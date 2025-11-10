@@ -13,7 +13,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement: <NotFound />,
     children: [
       { index: true, element: <Splash /> },
       { path: 'home', element: <Home /> },
@@ -25,6 +24,7 @@ const router = createBrowserRouter([
           { path: ':id', element: <SetListDetail /> },
         ],
       },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ]);
