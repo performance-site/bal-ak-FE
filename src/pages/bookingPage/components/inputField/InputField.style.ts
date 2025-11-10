@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InfoFieldContainer = styled.div`
+export const InputFieldContainer = styled.div`
   display: flex;
   width: 12.375rem;
   flex-direction: column;

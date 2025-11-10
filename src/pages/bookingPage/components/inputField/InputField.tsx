@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import InputBox from '../inputBox/InputBox';
 import * as S from './InputField.style';
 
-interface InfoFieldProps {
+interface InputFieldProps {
   title: string;
   placeholder?: string;
   variant?: 'small' | 'medium' | 'large';
@@ -12,7 +12,7 @@ interface InfoFieldProps {
   type?: 'default' | 'phone';
 }
 
-const InfoField: React.FC<InfoFieldProps> = ({
+const InputField: React.FC<InputFieldProps> = ({
   title = '',
   placeholder = '',
   variant = 'medium',
@@ -35,7 +35,7 @@ const InfoField: React.FC<InfoFieldProps> = ({
   }, [phone1, phone2, phone3]);
 
   return (
-    <S.InfoFieldContainer>
+    <S.InputFieldContainer>
       <S.fieldTitle>{title}</S.fieldTitle>
       {type === 'phone' ? (
         <S.NumberInput>
@@ -78,8 +78,8 @@ const InfoField: React.FC<InfoFieldProps> = ({
           onChange={onChange}
         />
       )}
-    </S.InfoFieldContainer>
+    </S.InputFieldContainer>
   );
 };
 
-export default InfoField;
+export default InputField;
