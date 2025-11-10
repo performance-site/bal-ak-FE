@@ -15,7 +15,7 @@ const List = ({ data, currentOrder }: ListProps) => {
 
   useEffect(() => {
     const currentItem = itemRefs.current.find(
-      (el, index) => data[index]?.order === currentOrder,
+      (el, index) => el && data[index]?.order === currentOrder,
     );
     const container = containerRef.current;
 
