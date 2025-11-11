@@ -1,11 +1,12 @@
+import { forwardRef } from 'react';
 import * as S from './styles/Poster.style';
 import PosterInfo from './PosterInfo';
 
 const images = ['red', 'blue', 'yellow', 'green'];
 
-function Poster() {
+const Poster = forwardRef<HTMLDivElement, {}>((_, ref) => {
   return (
-    <S.PosterConatiner>
+    <S.PosterConatiner ref={ref}>
       <PosterInfo />
       <S.PosterSlider>
         <S.PosterWrapper $imageCount={images.length}>
@@ -20,6 +21,6 @@ function Poster() {
       </S.PosterSlider>
     </S.PosterConatiner>
   );
-}
+});
 
 export default Poster;

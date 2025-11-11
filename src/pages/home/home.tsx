@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import ButtonList from './components/ButtonList/ButtonList';
 import DropDownBtn from './components/DropDown/DropDownBtn';
 import Footer from './components/Footer/Footer';
@@ -10,13 +11,18 @@ import Poster from './components/Poster/Poster';
 import { HomeContainer } from './styles/Home.style';
 
 const Home = () => {
+  const posterRef = useRef<HTMLDivElement>(null);
+
+  const handleScrollToPoster = () => {
+    posterRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
     <HomeContainer className="scroll">
       <Header />
       <Performence />
       <ButtonList />
-      <DropDownBtn />
-      <Poster />
+      <DropDownBtn onScrollToPoster={handleScrollToPoster} />
+      <Poster ref={posterRef} />
       <NowPlaying />
       <KakaoMap />
       <More />
