@@ -7,8 +7,24 @@ export const ItemTeamContainer = styled.div`
   align-items: center;
 `;
 
-export const ItemTeamProfileImg = styled.img`
+export const ItemTeamProfileDiv = styled.div`
   width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: ${({ theme }) => theme.gradients.whiteOpacity10};
+  box-shadow: ${({ theme }) => `
+    ${theme.shadows.blueSoft},
+    ${theme.shadows.insetLight},
+    ${theme.shadows.insetDark}
+  `};
+  backdrop-filter: ${({ theme }) => theme.shadows.glassBlur};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ItemTeamProfileImg = styled.img`
+  width: 2.8rem;
   height: auto;
 `;
 
