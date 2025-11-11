@@ -68,7 +68,8 @@ function KakaoMap() {
 export default KakaoMap;
 
 const MapContainer = styled.div`
-  width: 34.5rem;
+  width: 90%;
+  max-width: 34.5rem;
   position: absolute;
   top: 141.7rem;
   left: 50%;

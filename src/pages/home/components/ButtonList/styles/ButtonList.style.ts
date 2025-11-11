@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const ButtonListContainer = styled.div`
+  width: 90%;
+  max-width: 31.1rem;
   position: absolute;
-  width: 31.1rem;
   height: 6.86rem;
   display: flex;
   justify-content: space-between;
@@ -10,10 +11,4 @@ export const ButtonListContainer = styled.div`
   margin-top: 15.4rem;
   left: 50%;
   transform: translate(-50%);
-`;
-
-// 사용안함
-export const ButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
 `;

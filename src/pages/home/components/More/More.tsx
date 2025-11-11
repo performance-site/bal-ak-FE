@@ -24,7 +24,8 @@ function More() {
 export default More;
 
 const MoreBtnContainer = styled.div`
-  width: 34.5rem;
+  width: 90%;
+  max-width: 34.5rem;
   height: 11.3rem;
   display: flex;
   flex-direction: column;
@@ -41,7 +42,7 @@ const MoreButtonList = styled.div`
   padding: 1.75rem;
 
   > div:nth-child(3) {
-    margin-right: -1.4rem; /* GOODS와 EVENT_NOTICE 사이 간격 좁히기 위해 */
+    margin-right: -1.4rem; /* GOODS와 EVENT_NOTICE 사이 간격 좁히기 위해 음수 마진 사용함*/
   }
 `;
 
