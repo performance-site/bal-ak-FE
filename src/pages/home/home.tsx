@@ -10,7 +10,7 @@ import { HomeContainer } from './styles/Home.style';
 
 const Home = () => {
   return (
-    <HomeContainer>
+    <HomeContainer className="scroll">
       <Header />
       <Performence />
       <ButtonList />

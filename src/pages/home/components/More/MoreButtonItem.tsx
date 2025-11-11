@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import instagramImg from '../../../../assets/images/home/More/INSTAGRAM.svg';
-import menuImg from '../../../../assets/images/home/More/Menu.svg';
+import menuImg from '../../../../assets/images/home/More/Menu.png';
 import youtubeImg from '../../../../assets/images/home/More/YOUTUBE.svg';
 
 interface ButtonItemProps {

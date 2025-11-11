@@ -1,8 +1,8 @@
 import { ButtonListContainer } from './styles/ButtonList.style';
-import inquiryBtn from '../../../../assets/images/home/inquiryBtn.svg';
-import LocationBtn from '../../../../assets/images/home/LocationBtn.svg';
-import StarBtn from '../../../../assets/images/home/StarBtn.svg';
-import setListBtn from '../../../../assets/images/home/playBtn.svg';
+import inquiryBtn from '../../../../assets/images/home/MsgImg.png';
+import LocationBtn from '../../../../assets/images/home/LocationImg.png';
+import StarBtn from '../../../../assets/images/home/Star.png';
+import setListBtn from '../../../../assets/images/home/PlayImg.png';
 import ButtonItem from './ButtonItem';
 
 export const IconArray = [
@@ -18,7 +18,7 @@ function ButtonList() {
   return (
     <ButtonListContainer>
       {IconArray.map((item, index) => (
-        <ButtonItem key={index} {...item} />
+        <ButtonItem key={index} isFirst={index === 0} {...item} />
       ))}
     </ButtonListContainer>
   );
