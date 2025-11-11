@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import * as S from './styles/More.style';
 import MoreButtonItem from './MoreButtonItem';
 
 const IconArray = [
@@ -10,43 +10,15 @@ const IconArray = [
 
 function More() {
   return (
-    <MoreBtnContainer>
-      <MoreBtnTitle>More</MoreBtnTitle>
-      <MoreButtonList>
+    <S.MoreBtnContainer>
+      <S.MoreBtnTitle>More</S.MoreBtnTitle>
+      <S.MoreButtonList>
         {IconArray.map((item, index) => (
           <MoreButtonItem key={index} {...item} />
         ))}
-      </MoreButtonList>
-    </MoreBtnContainer>
+      </S.MoreButtonList>
+    </S.MoreBtnContainer>
   );
 }
 
 export default More;
-
-const MoreBtnContainer = styled.div`
-  width: 90%;
-  max-width: 34.5rem;
-  height: 11.3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  top: 181.6rem;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
-const MoreButtonList = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 1.75rem;
-
-  > div:nth-child(3) {
-    margin-right: -1.4rem; /* GOODS와 EVENT_NOTICE 사이 간격 좁히기 위해 음수 마진 사용함*/
-  }
-`;
-
-const MoreBtnTitle = styled.p`
-  font-size: 2.4rem;
-  font-weight: 600;
-`;

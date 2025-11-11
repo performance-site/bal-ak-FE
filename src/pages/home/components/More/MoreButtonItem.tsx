@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import * as S from './styles/MoreButtonItem.style';
 import instagramImg from '../../../../assets/images/home/More/INSTAGRAM.svg';
 import menuImg from '../../../../assets/images/home/More/Menu.png';
 import youtubeImg from '../../../../assets/images/home/More/YOUTUBE.svg';
@@ -9,13 +9,8 @@ interface ButtonItemProps {
   url: string;
 }
 
-interface ItemWrapperProps {
+export interface ItemWrapperProps {
   src: string;
-}
-
-interface ItemImgProps extends ItemWrapperProps {
-  $iconWidth: string;
-  $iconHeight: string;
 }
 
 const converter = (type: string) => {
@@ -45,32 +40,15 @@ function MoreButtonItem(data: ButtonItemProps) {
   const typeKey = data.type.toUpperCase() as keyof typeof ICON_SIZES;
   const size = ICON_SIZES[typeKey];
   return (
-    <ItemWrapper>
-      <ItemImg src={imgSrc} $iconWidth={size.width} $iconHeight={size.height} />
-      <ItemInfo>{data.name}</ItemInfo>
-    </ItemWrapper>
+    <S.ItemWrapper>
+      <S.ItemImg
+        src={imgSrc}
+        $iconWidth={size.width}
+        $iconHeight={size.height}
+      />
+      <S.ItemInfo>{data.name}</S.ItemInfo>
+    </S.ItemWrapper>
   );
 }
 
 export default MoreButtonItem;
-
-const ItemWrapper = styled.div`
-  min-width: 5.2rem
-  height: 5.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const ItemImg = styled.img<ItemImgProps>`
-  width: ${(props) => props.$iconWidth};
-  height: ${(props) => props.$iconHeight};
-  display: block;
-`;
-
-const ItemInfo = styled.p`
-  font-size: 1rem;
-  font-weight: 600;
-  white-space: nowrap;
-`;

@@ -1,5 +1,5 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import styled from 'styled-components';
+import * as S from './styles/KakaoMap.style';
 import { useState, useEffect } from 'react';
 
 function KakaoMap() {
@@ -28,27 +28,27 @@ function KakaoMap() {
 
   if (isLoading) {
     return (
-      <MapWrapper>
-        <MapContainer>지도 로딩중...</MapContainer>
-      </MapWrapper>
+      <S.MapWrapper>
+        <S.MapContainer>지도 로딩중...</S.MapContainer>
+      </S.MapWrapper>
     );
   }
 
   if (!position) {
     return (
-      <MapWrapper>
-        <MapContainer>주소를 찾을 수 없습니다.</MapContainer>
-      </MapWrapper>
+      <S.MapWrapper>
+        <S.MapContainer>주소를 찾을 수 없습니다.</S.MapContainer>
+      </S.MapWrapper>
     );
   }
 
   return (
-    <MapContainer>
-      <TitleWrapper>
-        <MapTitle>Concert Location</MapTitle>
-        <MapSubTitle>위치 안내</MapSubTitle>
-      </TitleWrapper>
-      <MapWrapper>
+    <S.MapContainer>
+      <S.TitleWrapper>
+        <S.MapTitle>Concert Location</S.MapTitle>
+        <S.MapSubTitle>위치 안내</S.MapSubTitle>
+      </S.TitleWrapper>
+      <S.MapWrapper>
         <Map
           center={position}
           style={{ width: '100%', height: '100%' }}
@@ -56,67 +56,13 @@ function KakaoMap() {
         >
           <MapMarker position={position} />
         </Map>
-      </MapWrapper>
-      <AddressInfo>
-        <AddressText>위치 : {address}</AddressText>
-      </AddressInfo>
-      <AddressReminder>장소: {address}</AddressReminder>
-    </MapContainer>
+      </S.MapWrapper>
+      <S.AddressInfo>
+        <S.AddressText>위치 : {address}</S.AddressText>
+      </S.AddressInfo>
+      <S.AddressReminder>장소: {address}</S.AddressReminder>
+    </S.MapContainer>
   );
 }
 
 export default KakaoMap;
-
-const MapContainer = styled.div`
-  width: 90%;
-  max-width: 34.5rem;
-  position: absolute;
-  top: 141.7rem;
-  left: 50%;
-  transform: translateX(-50%);
-`;
-
-const MapWrapper = styled.div`
-  width: 100%;
-  height: 22.5rem;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  overflow: hidden;
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2.4rem;
-`;
-
-const MapTitle = styled.p`
-  font-size: 2.4rem;
-  font-weight: 600;
-`;
-
-const MapSubTitle = styled.p`
-  font-size: 1.2rem;
-  font-weight: 400;
-`;
-
-const AddressInfo = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: #f8f9fa;
-  padding: 0.5rem 0.5rem;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  font-size: 1rem;
-  color: #333;
-`;
-
-const AddressText = styled.span`
-  font-weight: 500;
-`;
-
-const AddressReminder = styled.p`
-  margin-top: 0.6rem;
-  font-size: 1.6rem;
-  font-weight: 400;
-`;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import * as S from './styles/ButtonItem.style';
 
 interface ButtonItemProps {
   src: string;
@@ -7,44 +7,13 @@ interface ButtonItemProps {
   isFirst?: boolean;
 }
 
-interface ItemWrapperProps {
-  $isFirst?: boolean;
-}
-
-interface ItemImgProps {
-  $isFirst?: boolean;
-}
-
 function ButtonItem(data: ButtonItemProps) {
   return (
-    <ItemWrapper>
-      <ItemImg src={data.src} $isFirst={data.isFirst} />
-      <ItemInfo>{data.info}</ItemInfo>
-    </ItemWrapper>
+    <S.ItemWrapper>
+      <S.ItemImg src={data.src} $isFirst={data.isFirst} />
+      <S.ItemInfo>{data.info}</S.ItemInfo>
+    </S.ItemWrapper>
   );
 }
 
 export default ButtonItem;
-
-const ItemWrapper = styled.div<ItemWrapperProps>`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-`;
-
-const ItemImg = styled.img<ItemImgProps>`
-  height: 5rem;
-  object-fit: contain;
-  display: block;
-  margin-top: ${(props) => (props.$isFirst ? '-0.4rem' : '0')};
-  margin-bottom: ${(props) => (props.$isFirst ? '0.4rem' : '0')};
-  transform: ${(props) => (props.$isFirst ? 'scale(1.1)' : 'scale(1)')};
-`;
-
-const ItemInfo = styled.p`
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
-`;
