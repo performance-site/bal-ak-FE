@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-text-size-adjust: 100%;
         scroll-behavior: smooth;
+        font-size: clamp(45%, 1vw + 0.5rem, 62.5%);
     }
 
     body {
