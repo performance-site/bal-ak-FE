@@ -39,6 +39,10 @@ const MoreButtonList = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1.75rem;
+
+  > div:nth-child(3) {
+    margin-right: -1.4rem; /* GOODS와 EVENT_NOTICE 사이 간격 좁히기 위해 */
+  }
 `;
 
 const MoreBtnTitle = styled.p`

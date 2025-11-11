@@ -55,7 +55,7 @@ function MoreButtonItem(data: ButtonItemProps) {
 export default MoreButtonItem;
 
 const ItemWrapper = styled.div`
-  width: 5.2rem;
+  min-width: 5.2rem
   height: 5.5rem;
   display: flex;
   flex-direction: column;
@@ -72,4 +72,5 @@ const ItemImg = styled.img<ItemImgProps>`
 const ItemInfo = styled.p`
   font-size: 1rem;
   font-weight: 600;
+  white-space: nowrap;
 `;
