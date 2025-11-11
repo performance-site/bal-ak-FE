@@ -1,4 +1,5 @@
 import ButtonList from './components/ButtonList/ButtonList';
+import DropDownBtn from './components/DropDown/DropDownBtn';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import KakaoMap from './components/Map/KakaoMap';
@@ -14,6 +15,7 @@ const Home = () => {
       <Header />
       <Performence />
       <ButtonList />
+      <DropDownBtn />
       <Poster />
       <NowPlaying />
       <KakaoMap />
