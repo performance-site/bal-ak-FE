@@ -9,7 +9,9 @@ interface ItemTeamProps {
 const ItemTeam = ({ member }: ItemTeamProps) => {
   return (
     <S.ItemTeamContainer>
-      <S.ItemTeamProfileImg src={ProfileImg} alt="profile" />
+      <S.ItemTeamProfileDiv>
+        <S.ItemTeamProfileImg src={ProfileImg} alt="profile" />
+      </S.ItemTeamProfileDiv>
       <S.ItemTeamP>
         {member.session} | {member.name} <br />
         {member.instagramId}

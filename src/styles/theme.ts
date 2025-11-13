@@ -58,12 +58,18 @@ const gradients = {
 
   setListItemDownloadBackground: `${colors.gray4}`,
   setListItemTitleBackground: `${colors.gray1}`,
+  whiteOpacity10: hexToRgba(colors.white, 0.1),
 };
 
 const shadows = {
   default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
   purple: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple7, 0.08)}`,
   purple2: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple8, 0.06)}`,
+
+  blueSoft: `0 0.4rem 1.2rem 0 ${hexToRgba(colors.purple6, 0.06)}`,
+  glassBlur: `blur(2.5rem)`,
+  insetLight: `-0.1rem -0.1rem 0.3rem -0.2rem ${hexToRgba(colors.gray7, 0.8)} inset`,
+  insetDark: `0.1rem 0.1rem 0.3rem -0.2rem ${hexToRgba(colors.gray8, 0.8)} inset`,
 };
 
 const theme = {
