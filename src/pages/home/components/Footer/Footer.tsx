@@ -34,10 +34,10 @@ function Footer() {
         <S.Section>
           <S.Title>TEAM</S.Title>
           <S.TeamList>
-            <S.TeamMember>PM 김해진</S.TeamMember>
+            <S.TeamMember>PM 김혜진</S.TeamMember>
             <S.TeamMember>DESIGN 최유성</S.TeamMember>
             <S.TeamMember>FE 김서희 양인서 우정혁 김예나</S.TeamMember>
-            <S.TeamMember>BE 김해진 김주호 이동건</S.TeamMember>
+            <S.TeamMember>BE 김혜진 김주호 이동건</S.TeamMember>
             <S.TeamMember>SUPPORT 임종욱</S.TeamMember>
           </S.TeamList>
         </S.Section>
