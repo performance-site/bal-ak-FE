@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import * as S from './styles/setList.style';
+import * as S from './styles/SetList.style';
 import PageTitle from './components/PageTitle/PageTitle';
 import List from './components/List/List';
 import RefreshButton from './components/RefreshButton/RefreshButton';
@@ -39,13 +39,13 @@ const SetList = () => {
   };
 
   return (
-    <S.setListContainer>
+    <S.SetListContainer>
       <PageTitle />
       <List data={list} currentOrder={currentOrder} />
       <RefreshButton onClick={handleRefresh} />
 
       <S.ListBar />
-    </S.setListContainer>
+    </S.SetListContainer>
   );
 };
 

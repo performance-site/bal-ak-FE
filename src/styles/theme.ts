@@ -15,6 +15,10 @@ const colors = {
   gray3: '#767676',
   gray4: '#B3B3B3',
   gray5: '#505050',
+  gray6: '#E9E9E9',
+  gray7: '#D9D9D9',
+  gray8: '#9D9D9D',
+  gray9: '#7C7C7C',
 
   purple1: '#886AE2',
   purple2: '#A284F6',
@@ -22,6 +26,8 @@ const colors = {
   purple4: '#AE92FF',
   purple5: '#6A00FF',
   purple6: '#454BF9',
+  purple7: '#535DCD',
+  purple8: '#7B57E4',
 
   pink1: '#D360E5',
 
@@ -36,19 +42,41 @@ const gradients = {
     return `${bottomGradient}, ${topGradient}, ${colors.background2}`;
   },
 
+  inputbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.10) 43.66%, rgba(162, 132, 246, 0.10) 116.16%)`,
+  checkbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.1) 44%, rgba(162, 132, 246, 0.1) 116%)`,
+  clickbox: `linear-gradient(98deg, ${colors.purple1} 44%, ${colors.purple2} 116%)`,
+  submitModal: `linear-gradient(180deg, rgba(233,233,233,0.24) 0%, rgba(255,255,255,0.16) 100%), 
+                linear-gradient(180deg, rgba(211,96,229,0.24) 0%, rgba(69,75,249,0.24) 100%), 
+                linear-gradient(180deg, rgba(211,96,229,0.08) 0%, rgba(69,75,249,0.08) 100%)`,
+  showInfo: `linear-gradient(180deg, rgba(123, 87, 228, 0.12) 0%, rgba(44, 31, 81, 0) 36.54%, rgba(123, 87, 228, 0.12) 100%)`,
+
   setListPageTitleBackground: `linear-gradient(97.62deg, ${hexToRgba(colors.purple1, 0.5)} 43.66%, ${hexToRgba(colors.purple2, 0.5)} 116.16%)`,
   setListPageTitleBorder: `linear-gradient(97.62deg, ${colors.purple1} 43.66%, ${colors.purple2} 116.16%)`,
   setListRefreshbackground: `linear-gradient(38.23deg, ${colors.purple3} 15.58%, ${colors.purple4} 83%)`,
   setListItemBackground: `linear-gradient(180deg, ${colors.pink1} 0%, ${colors.purple6} 100%)`,
   setListItemWaveBackground: `linear-gradient(90deg, ${colors.pink1} 0%, ${colors.purple6} 100%)`,
+
   setListItemDownloadBackground: `${colors.gray4}`,
   setListItemTitleBackground: `${colors.gray1}`,
+  whiteOpacity10: hexToRgba(colors.white, 0.1),
+};
+
+const shadows = {
+  default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
+  purple: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple7, 0.08)}`,
+  purple2: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple8, 0.06)}`,
+
+  blueSoft: `0 0.4rem 1.2rem 0 ${hexToRgba(colors.purple6, 0.06)}`,
+  glassBlur: `blur(2.5rem)`,
+  insetLight: `-0.1rem -0.1rem 0.3rem -0.2rem ${hexToRgba(colors.gray7, 0.8)} inset`,
+  insetDark: `0.1rem 0.1rem 0.3rem -0.2rem ${hexToRgba(colors.gray8, 0.8)} inset`,
 };
 
 const theme = {
   colors,
   gradients,
   hexToRgba,
+  shadows,
 };
 
 export default theme;

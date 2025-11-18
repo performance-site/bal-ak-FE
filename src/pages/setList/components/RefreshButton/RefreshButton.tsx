@@ -1,4 +1,4 @@
-import * as S from './styles/refreshButton.style';
+import * as S from './styles/RefreshButton.style';
 import RefreshButtonLogo from '../../../../assets/images/setList/refreshButtonLogo.svg';
 
 interface RefreshButtonProps {

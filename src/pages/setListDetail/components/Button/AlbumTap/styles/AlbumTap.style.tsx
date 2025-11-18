@@ -1,0 +1,53 @@
+import styled from 'styled-components';
+
+export const AlbumTapContainer = styled.div`
+  width: 100%;
+  height: 2.9rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const AlbumTapDiv = styled.div<{
+  $active?: boolean;
+  $position: 'left' | 'right';
+}>`
+  flex: 1;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.gray1};
+  background: ${({ $active, theme }) =>
+    $active ? theme.gradients.setListRefreshbackground : 'transparent'};
+  cursor: pointer;
+  overflow: hidden;
+
+  ${({ $position }) =>
+    $position === 'left'
+      ? `
+        border-top-left-radius: 0.6rem;
+        border-bottom-left-radius: 0.6rem;
+      `
+      : `
+        border-top-right-radius: 0.6rem;
+        border-bottom-right-radius: 0.6rem;
+      `}
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 0.1rem;
+    background: ${({ theme }) => theme.gradients.setListPageTitleBorder};
+    -webkit-mask:
+      linear-gradient(${({ theme }) => theme.colors.white} 0 0) content-box,
+      linear-gradient(${({ theme }) => theme.colors.white} 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+`;

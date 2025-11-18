@@ -3,19 +3,20 @@ import RootLayout from '../layouts/RootLayout';
 
 import Splash from '../components/Splash/Splash';
 
-import NotFound from '../pages/notFound/notFound';
+import NotFound from '../pages/notFound/NotFound';
 import Home from '../pages/home/home';
-import SetList from '../pages/setList/setList';
-import SetListDetail from '../pages/setListDetail/setListDetail';
+import BookingPage from '../pages/bookingPage/BookingPage';
+import SetList from '../pages/setList/SetList';
+import SetListDetail from '../pages/setListDetail/SetListDetail';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement: <NotFound />,
     children: [
       { index: true, element: <Splash /> },
       { path: 'home', element: <Home /> },
+      { path: 'booking', element: <BookingPage /> },
       {
         path: 'setlist',
         children: [
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
           { path: ':id', element: <SetListDetail /> },
         ],
       },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ]);

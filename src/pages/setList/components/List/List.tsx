@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import * as S from './styles/list.style';
+import * as S from './styles/List.style';
 import Item from '../Item/Item';
 import { SetListItem } from '../../../../types/setList/setList.type';
 
@@ -15,7 +15,7 @@ const List = ({ data, currentOrder }: ListProps) => {
 
   useEffect(() => {
     const currentItem = itemRefs.current.find(
-      (el, index) => data[index]?.order === currentOrder,
+      (el, index) => el && data[index]?.order === currentOrder,
     );
     const container = containerRef.current;
 
@@ -40,7 +40,7 @@ const List = ({ data, currentOrder }: ListProps) => {
   }, [currentOrder, data]);
 
   return (
-    <S.ListContainer ref={containerRef}>
+    <S.ListContainer className="scroll" ref={containerRef}>
       {data.map((item, index) => (
         <div
           ref={(el) => {
