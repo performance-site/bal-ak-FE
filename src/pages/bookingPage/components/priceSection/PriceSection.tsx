@@ -6,7 +6,7 @@ import * as S from './PriceSection.style';
 
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
-import { ACCOUNTS, LINKS } from '../../../../datas/BookingLinks';
+import { LINKS } from '../../../../datas/BookingLinks';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
@@ -14,7 +14,7 @@ type PriceSectionProps = {
 
 const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
   const { name, member, checked, toggleCheck } = form;
-  const [account] = useState(ACCOUNTS.DEFAULT);
+  const account = import.meta.env.VITE_PAY_ACCOUNT;
 
   const [selected, setSelected] = useState<string | null>(null);
 
