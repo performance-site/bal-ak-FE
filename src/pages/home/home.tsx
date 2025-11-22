@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ButtonList from './components/ButtonList/ButtonList';
 import DropDownBtn from './components/DropDown/DropDownBtn';
 import Footer from './components/Footer/Footer';
@@ -9,9 +9,12 @@ import NowPlaying from './components/NowPlaying/NowPlaying';
 import Performence from './components/Performence/Performence';
 import Poster from './components/Poster/Poster';
 import { HomeContainer } from './styles/Home.style';
+import useGetHomeData from './hooks/useQuery/useGetHomeData';
 
 const Home = () => {
   const posterRef = useRef<HTMLDivElement>(null);
+
+  const { isLoading, isError } = useGetHomeData();
 
   const handleScrollToPoster = () => {
     posterRef.current?.scrollIntoView({ behavior: 'smooth' });

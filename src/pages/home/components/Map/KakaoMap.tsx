@@ -1,18 +1,24 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import * as S from './styles/KakaoMap.style';
 import { useState, useEffect } from 'react';
+import { useHomeStore } from '../../../../store/homeStore/homeStore';
 
 function KakaoMap() {
-  const [address] = useState<string>('서울 서대문구 연세로5다길 10 지하2층');
+  const location = useHomeStore((state) => state.homeData?.location);
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null,
   );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!location) {
+      setIsLoading(false);
+      return;
+    }
+
     const geocoder = new kakao.maps.services.Geocoder();
 
-    geocoder.addressSearch(address, (result, status) => {
+    geocoder.addressSearch(location, (result, status) => {
       if (status === kakao.maps.services.Status.OK) {
         const coords = {
           lat: parseFloat(result[0].y),
@@ -24,7 +30,7 @@ function KakaoMap() {
         setIsLoading(false);
       }
     });
-  }, [address]);
+  }, [location]);
 
   if (isLoading) {
     return (
@@ -58,9 +64,9 @@ function KakaoMap() {
         </Map>
       </S.MapWrapper>
       <S.AddressInfo>
-        <S.AddressText>위치 : {address}</S.AddressText>
+        <S.AddressText>위치 : {location}</S.AddressText>
       </S.AddressInfo>
-      <S.AddressReminder>장소: {address}</S.AddressReminder>
+      <S.AddressReminder>장소: {location}</S.AddressReminder>
     </S.MapContainer>
   );
 }
