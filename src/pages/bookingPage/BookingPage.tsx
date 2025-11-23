@@ -57,7 +57,7 @@ const BookingPage = () => {
           title="사전예매"
           questionText="예매 관련 문의하기"
           questionLink={questionLink}
-          subtitle="더 싼 가격으로 미리 하는 사전예매 ~ 12/12(마감일)"
+          subtitle="더 싼 가격으로 미리 하는 사전예매 ~ 12/19(금)"
         />
 
         {/* 공연 기본 정보 확인 */}
