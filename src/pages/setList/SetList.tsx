@@ -9,7 +9,7 @@ const SetList = () => {
   console.log(data?.data?.setlist);
 
   const list = data?.data?.setlist ?? [];
-  const currentOrder = data?.data?.nowPlayingOrder ?? 0;
+  const nowPlayingOrder = data?.data?.nowPlayingOrder ?? 0;
 
   const handleRefresh = () => {
     refetch();
@@ -20,7 +20,7 @@ const SetList = () => {
   return (
     <S.SetListContainer>
       <PageTitle />
-      <List data={list} currentOrder={currentOrder} />
+      <List data={list} nowPlayingOrder={nowPlayingOrder} />
       <RefreshButton onClick={handleRefresh} />
 
       <S.ListBar />
