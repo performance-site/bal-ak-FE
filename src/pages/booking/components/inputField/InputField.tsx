@@ -41,7 +41,6 @@ const InputField: React.FC<InputFieldProps> = ({
         <S.NumberInput>
           <InputBox
             variant="small"
-            width="3rem"
             placeholder="010"
             value={phone1}
             onChange={(e) =>
@@ -51,7 +50,7 @@ const InputField: React.FC<InputFieldProps> = ({
           -
           <InputBox
             variant="medium"
-            width="3.5rem"
+            width="5.8rem"
             placeholder="1234"
             value={phone2}
             onChange={(e) =>
@@ -61,7 +60,7 @@ const InputField: React.FC<InputFieldProps> = ({
           -
           <InputBox
             variant="medium"
-            width="3.56rem"
+            width="5.8rem"
             placeholder="5678"
             value={phone3}
             onChange={(e) =>
