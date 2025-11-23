@@ -70,6 +70,7 @@ export const ClickRow = styled.div`
 
 export const CopyBox = styled.div`
   display: flex;
+  height: 4rem;
   padding: 1rem 2.7rem;
   justify-content: space-between;
   align-items: center;
