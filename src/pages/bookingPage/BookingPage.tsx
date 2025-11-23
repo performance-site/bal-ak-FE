@@ -10,14 +10,18 @@ import PriceSection from './components/priceSection/PriceSection';
 import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
 import SubmitModal from './components/submitModal/SubmitModal';
-import { LINKS } from '../../datas/BookingLinks';
+import { useGetBookingLink } from './hooks/useQuery/useGetBookingLink';
 
 const BookingPage = () => {
   const form = UseBookingForm();
   const { isAllValid, errorMsgs } = form;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [questionLink] = useState<string>(LINKS.QUESTION_CHAT);
+
+  const { data } = useGetBookingLink();
+  console.log(data?.data?.openChatUrl);
+
+  const questionLink = data?.data?.openChatUrl ?? '';
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
