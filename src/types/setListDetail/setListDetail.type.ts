@@ -6,6 +6,8 @@ export interface Track {
   genre: string;
   releaseDate: string;
   albumImgUrl: string;
+  youtubeUrl: string;
+  lyrics: string;
 }
 
 export interface Song {
