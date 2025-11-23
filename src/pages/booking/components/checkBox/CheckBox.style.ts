@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const CheckBoxContainer = styled.div`
   display: flex;
-  width: 20.875rem;
-  padding: 0.625rem 0.875rem;
+  width: 33.4rem;
+  padding: 1rem 1.4rem;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8rem;
 
   border-radius: 0.25rem;
   border: 1.25px solid ${({ theme }) => theme.colors.purple1};
@@ -14,15 +14,15 @@ export const CheckBoxContainer = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 1.8rem;
+  height: 1.8rem;
   flex-shrink: 0;
 `;
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;
   line-height: 140%; /* 16.8px */
