@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 export const ClickBoxContainer = styled.div<{ $isSelected?: boolean }>`
   display: flex;
-  padding: 1rem 4.6rem;
+  height: 3.7rem;
+  width: 16.6rem;
+  padding: 1rem 4rem;
   justify-content: center;
   align-items: center;
   gap: 2.4rem;
