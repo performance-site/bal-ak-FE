@@ -12,8 +12,11 @@ import { useState } from 'react';
 import SubmitModal from './components/submitModal/SubmitModal';
 import { useGetBookingLink } from './hooks/useQuery/useGetBookingLink';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
+import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 
 const BookingPage = () => {
+  const { data: performanceData } = useGetHomeData();
+
   const form = UseBookingForm();
   const { isAllValid, errorMsgs } = form;
 
@@ -58,7 +61,7 @@ const BookingPage = () => {
         />
 
         {/* 공연 기본 정보 확인 */}
-        <InfoSection form={form} />
+        <InfoSection form={form} performanceData={performanceData} />
         <S.Line />
 
         <Element name="info">

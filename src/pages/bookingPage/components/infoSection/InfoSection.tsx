@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import UseBookingForm from '../../../../hooks/UseBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
@@ -7,24 +6,13 @@ import POSTER from '@/assets/booking/poster.svg';
 
 type InfoSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
+  performanceData: any;
 };
 
-interface PerformanceInfo {
-  title: string;
-  dateTime: string;
-  venue: string;
-  location: string;
-}
-
-const InfoSection: React.FC<InfoSectionProps> = ({ form }) => {
+const InfoSection: React.FC<InfoSectionProps> = ({ form, performanceData }) => {
   const { checked, toggleCheck } = form;
 
-  const [data] = useState<PerformanceInfo>({
-    title: '공연 이름',
-    dateTime: '12/21(일) 17:30 (입장 17:00)',
-    venue: '홍대 프리버드 리부트',
-    location: '(상수역 도보 3분)',
-  });
+  const homeData = performanceData;
 
   return (
     <S.InfoContainer>
@@ -33,8 +21,8 @@ const InfoSection: React.FC<InfoSectionProps> = ({ form }) => {
 
         <S.TextBox>
           <S.ShowTitle>
-            <S.TitleText>{data.title}</S.TitleText>
-            <S.InfoText>{data.dateTime}</S.InfoText>
+            <S.TitleText>{homeData?.title}</S.TitleText>
+            <S.InfoText>{homeData?.dateTime}</S.InfoText>
           </S.ShowTitle>
 
           <S.DetailInfo>
@@ -44,7 +32,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({ form }) => {
             </S.PriceText>
 
             <S.InfoText>
-              위치: {data.venue} <br /> {data.location}
+              위치: {homeData?.venue} <br /> {homeData?.location}
             </S.InfoText>
           </S.DetailInfo>
         </S.TextBox>
