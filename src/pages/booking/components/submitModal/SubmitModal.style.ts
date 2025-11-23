@@ -18,12 +18,12 @@ export const ModalOverlay = styled.div`
 export const ModalContainer = styled.div`
   position: relative;
   display: flex;
-  width: 20.375rem;
-  padding: 0.75rem 1.5rem;
+  width: 32.6rem;
+  padding: 1.2rem 1.2rem 1.2rem 2.4rem;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
-  border-radius: 0.25rem;
+  gap: 2.2rem;
+  border-radius: 0.4rem;
   border: 1.5px solid rgba(233, 233, 233, 0.6);
   background: ${({ theme }) => theme.gradients.submitModal};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
@@ -40,56 +40,57 @@ export const ModalHeader = styled.div`
 export const ModalTitle = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: 140%; /* 1.4rem */
-  letter-spacing: -0.025rem;
+  letter-spacing: -0.04rem;
 `;
 
 export const CloseIcon = styled.img`
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
   cursor: pointer;
+  right: 1.2rem;
 `;
 
 export const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.38rem;
+  gap: 2.2rem;
 `;
 
 export const UserText = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   font-weight: 700;
   line-height: 140%; /* 1.225rem */
-  letter-spacing: -0.02188rem;
+  letter-spacing: -0.035rem;
 `;
 
 export const EndText = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
-  letter-spacing: -0.01875rem;
+  letter-spacing: -0.03rem;
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 1.38rem;
+  gap: 2.2rem;
 `;
 
 export const ModalBtn = styled.button`
   display: flex;
-  width: 8rem;
-  height: 2.375rem;
-  padding: 0.5625rem 2.19rem;
+  width: 12.8rem;
+  height: 3.8rem;
+  padding: 0.8rem 3.5rem;
   justify-content: center;
   align-items: center;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   background: ${({ theme }) => theme.gradients.clickbox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
 `;
@@ -97,8 +98,8 @@ export const ModalBtn = styled.button`
 export const BtnText = styled.p`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: 140%; /* 1.4rem */
-  letter-spacing: -0.025rem;
+  letter-spacing: -0.04rem;
 `;
