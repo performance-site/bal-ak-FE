@@ -87,7 +87,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
               }}
               src={COPY}
             />
-            <S.AddressText>{account}</S.AddressText>
+            <S.AccountText>{account}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
 
