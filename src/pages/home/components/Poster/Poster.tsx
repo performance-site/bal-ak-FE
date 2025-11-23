@@ -3,8 +3,6 @@ import * as S from './styles/Poster.style';
 import PosterInfo from './PosterInfo';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 
-// const images = ['red', 'blue', 'yellow', 'green'];
-
 const Poster = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const images = useHomeStore((state) => state.homeData?.posterUrls) || [];
 

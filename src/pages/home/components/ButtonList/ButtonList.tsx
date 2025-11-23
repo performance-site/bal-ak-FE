@@ -13,8 +13,6 @@ export const IconArray = [
 ];
 
 function ButtonList() {
-  // console.log('aaa', typeof StarBtn);
-
   return (
     <ButtonListContainer>
       {IconArray.map((item, index) => (

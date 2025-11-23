@@ -7,8 +7,7 @@ interface DropDownBtnProps {
 
 function DropDownBtn({ onScrollToPoster }: DropDownBtnProps) {
   const handleClick = () => {
-    console.log('click');
-    onScrollToPoster?.(); // 부모에서 받은 함수 실행
+    onScrollToPoster?.();
   };
   return (
     <S.DropDownContainer onClick={handleClick}>

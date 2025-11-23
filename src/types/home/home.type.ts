@@ -1,4 +1,3 @@
-// Link 타입 정의 (moreLinks 배열의 요소)
 export type LinkType = 'INSTAGRAM' | 'YOUTUBE' | 'GOODS' | 'EVENT_NOTICE';
 
 export interface MoreLink {
