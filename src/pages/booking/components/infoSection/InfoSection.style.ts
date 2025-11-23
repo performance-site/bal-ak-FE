@@ -23,6 +23,7 @@ export const Poster = styled.img`
 `;
 
 export const TextBox = styled.div`
+  height: 16.4rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -31,7 +32,7 @@ export const TextBox = styled.div`
 export const ShowTitle = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.38rem;
+  gap: 0.6rem;
 `;
 
 export const TitleText = styled.p`
@@ -47,8 +48,9 @@ export const PriceText = styled.div``;
 
 export const DetailInfo = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: column;
-  gap: 2.25rem;
+  justify-content: space-between;
 `;
 
 export const BasicPrice = styled.p`
