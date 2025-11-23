@@ -2,11 +2,11 @@ import styled from 'styled-components';
 
 export const ClickBoxContainer = styled.div<{ $isSelected?: boolean }>`
   display: flex;
-  padding: 0.625rem 2.875rem;
+  padding: 1rem 4.6rem;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  border-radius: 0.5rem;
+  gap: 2.4rem;
+  border-radius: 0.8rem;
 
   border: 1px solid ${({ theme }) => theme.colors.purple1};
 
@@ -18,11 +18,11 @@ export const ClickBoxContainer = styled.div<{ $isSelected?: boolean }>`
 `;
 
 export const ClickText = styled.p<{ $isSelected?: boolean }>`
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-family: Pretendard;
   font-weight: 500;
   line-height: 140%;
-  letter-spacing: -0.01875rem;
+  letter-spacing: -0.03rem;
   transition: color 0.3s ease;
 
   color: ${({ theme, $isSelected }) =>
