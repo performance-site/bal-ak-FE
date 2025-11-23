@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface PlayerImgProps {
+  $imageUrl: string | null;
+}
+
 export const PlayerContainer = styled.div`
   width: 100%;
   height: 14.2rem;
@@ -39,10 +43,11 @@ export const PlayerArtist = styled.p`
   font-wieght: 400;
 `;
 
-export const PlayerImg = styled.div`
+export const PlayerImg = styled.div<PlayerImgProps>`
   width: 4rem;
   height: 4rem;
   border-radius: 4px;
+  background-image: url(${(props) => props.$imageUrl});
   background-color: red;
 `;
 

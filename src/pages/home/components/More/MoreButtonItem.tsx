@@ -35,6 +35,10 @@ const ICON_SIZES = {
   EVENT_NOTICE: { width: '4.6rem', height: '3.6rem' },
 };
 
+const handleExternalLink = (url: string) => {
+  window.location.href = url;
+};
+
 function MoreButtonItem(data: ButtonItemProps) {
   const imgSrc = converter(data.type);
   const typeKey = data.type.toUpperCase() as keyof typeof ICON_SIZES;
@@ -45,6 +49,7 @@ function MoreButtonItem(data: ButtonItemProps) {
         src={imgSrc}
         $iconWidth={size.width}
         $iconHeight={size.height}
+        onClick={() => handleExternalLink(data.url)}
       />
       <S.ItemInfo>{data.name}</S.ItemInfo>
     </S.ItemWrapper>
