@@ -11,6 +11,7 @@ import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
 import SubmitModal from './components/submitModal/SubmitModal';
 import { useGetBookingLink } from './hooks/useQuery/useGetBookingLink';
+import { usePostBooking } from './hooks/useMutation/usePostBooking';
 
 const BookingPage = () => {
   const form = UseBookingForm();
@@ -19,9 +20,27 @@ const BookingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data } = useGetBookingLink();
-  console.log(data?.data?.openChatUrl);
-
   const questionLink = data?.data?.openChatUrl ?? '';
+
+  const bookingMutation = usePostBooking();
+  const handleSubmitBooking = () => {
+    bookingMutation.mutate(
+      {
+        name: form.name,
+        phoneNumber: form.phone,
+        headCount: Number(form.member),
+      },
+      {
+        onSuccess: () => {
+          console.log('예매 성공');
+          handleOpen();
+        },
+        onError: (err) => {
+          console.error('예매 실패', err);
+        },
+      },
+    );
+  };
 
   const handleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -73,7 +92,7 @@ const BookingPage = () => {
           <S.EndButton
             $active={!!isAllValid}
             onClick={() => {
-              if (isAllValid) handleOpen();
+              if (isAllValid) handleSubmitBooking();
             }}
           >
             <S.ButtonText>최종 제출</S.ButtonText>
