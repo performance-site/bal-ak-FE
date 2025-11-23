@@ -1,42 +1,21 @@
-import { useEffect, useState } from 'react';
 import * as S from './styles/SetList.style';
 import PageTitle from './components/PageTitle/PageTitle';
 import List from './components/List/List';
 import RefreshButton from './components/RefreshButton/RefreshButton';
-import { SetListData } from '../../mocks/setList/setListData';
-import { SetListItem } from '../../types/setList/setList.type';
+import { useGetListData } from './hooks/useQuery/useGetListData';
 
 const SetList = () => {
-  const [list, setList] = useState<SetListItem[]>([]);
-  const [currentOrder, setCurrentOrder] = useState<number>(0);
+  const { data, isLoading, refetch } = useGetListData();
+  console.log(data?.data?.setlist);
 
-  // 추후 수정
-  const fetchSetList = async () => {
-    try {
-      setList(SetListData);
-    } catch (error) {
-      console.error('Setlist 불러오기 실패:', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchSetList();
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentOrder((prev) => {
-        if (prev >= SetListData.length - 1) return 0;
-        return prev + 1;
-      });
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const list = data?.data?.setlist ?? [];
+  const currentOrder = data?.data?.nowPlayingOrder ?? 0;
 
   const handleRefresh = () => {
-    fetchSetList();
+    refetch();
   };
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <S.SetListContainer>
