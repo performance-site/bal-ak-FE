@@ -16,16 +16,16 @@ const InputBox: React.FC<InputBoxProps> = ({
   onChange,
 }) => {
   const size = {
-    small: { width: '3rem', height: '1.69rem', padding: '0.3125rem 0.7rem' },
+    small: { width: '5rem', height: '2.7rem', padding: '0.5rem 1.2rem' },
     medium: {
-      width: '3.5rem',
-      height: '1.69rem',
-      padding: '0.3125rem 0.75rem',
+      width: '5.4rem',
+      height: '2.7rem',
+      padding: '0.5rem 1.2rem',
     },
     large: {
-      width: '12.38rem',
-      height: '1.69rem',
-      padding: '0.3125rem 0.75rem',
+      width: '19.8rem',
+      height: '2.7rem',
+      padding: '0.5rem 1.2rem',
     },
   }[variant];
 

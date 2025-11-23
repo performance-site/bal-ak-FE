@@ -11,7 +11,7 @@ export const InputBoxContainer = styled.div<{
   display: flex;
   align-items: center;
   align-self: stretch;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   border: 1.25px solid ${({ theme }) => theme.colors.purple1};
   background: ${({ theme }) => theme.gradients.inputbox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
@@ -20,10 +20,10 @@ export const InputBoxContainer = styled.div<{
 export const Input = styled.input`
   color: ${({ theme }) => theme.colors.white};
   font-family: Pretendard;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
-  letter-spacing: -0.01875rem;
+  letter-spacing: -0.03rem;
 
   flex: 1;
   min-width: 0;
