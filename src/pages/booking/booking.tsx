@@ -1,4 +1,4 @@
-import * as S from './styles/BookingPage.style';
+import * as S from './styles/Booking.style';
 
 import { Element } from 'react-scroll';
 
@@ -14,7 +14,7 @@ import { useGetBookingLink } from './hooks/useQuery/useGetBookingLink';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 
-const BookingPage = () => {
+const Booking = () => {
   const { data: performanceData } = useGetHomeData();
 
   const form = UseBookingForm();
@@ -114,4 +114,4 @@ const BookingPage = () => {
   );
 };
 
-export default BookingPage;
+export default Booking;
