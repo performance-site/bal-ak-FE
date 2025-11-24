@@ -1,3 +1,5 @@
+import { ApiEnvelope } from '../api.type';
+
 export interface SetListItem {
   order: number;
   title: string;
@@ -5,14 +7,9 @@ export interface SetListItem {
   performanceSongId: number;
 }
 
-export interface SetListResponse {
-  isSuccess: boolean;
-  code: string;
-  httpStatus: number;
-  message: string;
-  data: {
-    nowPlayingOrder: number;
-    setlist: SetListItem[];
-  };
-  timeStamp: string;
+export interface SetListData {
+  nowPlayingOrder: number;
+  setlist: SetListItem[];
 }
+
+export interface SetListResponse extends ApiEnvelope<SetListData> {}
