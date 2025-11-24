@@ -18,7 +18,7 @@ const SetListDetail = () => {
   if (isLoading) return <div>Loading...</div>;
   if (!data) return <div>데이터 없음</div>;
 
-  const { track, team, song } = data;
+  const { track, team, song } = data.data;
 
   return (
     <S.SetListDetailContainer className="scroll">

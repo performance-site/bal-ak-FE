@@ -8,6 +8,9 @@ export interface Track {
   genre: string;
   releaseDate: string;
   albumImgUrl: string;
+}
+
+export interface Song {
   youtubeUrl: string;
   lyrics: string;
 }
@@ -20,6 +23,7 @@ export interface TeamMember {
 
 export interface SetListDetailData {
   track: Track;
+  song: Song;
   team: TeamMember[];
 }
 
