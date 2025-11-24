@@ -28,8 +28,7 @@ const SubmitModal: React.FC<SubmitModalProps> = ({
         <S.ModalContent>
           <S.UserText>{`${name} | ${member}매 | ${phone}`}</S.UserText>
           <S.EndText>
-            문의 사항은 아래 [문의하기] 버튼을 통해 접수해 주세요. <br />
-            공연 당일에 뵙겠습니다. 감사합니다.
+            {`문의 사항은 아래 [문의하기] 버튼을 통해 접수해 주세요.\n공연 당일에 뵙겠습니다. 감사합니다.`}
           </S.EndText>
           <S.ButtonContainer>
             <a href={questionLink} target="_blank" rel="noopener noreferrer">

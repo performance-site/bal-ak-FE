@@ -75,6 +75,7 @@ export const EndText = styled.p`
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
   letter-spacing: -0.03rem;
+  white-space: pre-line;
 `;
 
 export const ButtonContainer = styled.div`
