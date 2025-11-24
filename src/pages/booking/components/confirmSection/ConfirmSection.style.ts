@@ -6,7 +6,7 @@ export const ConfirmContainer = styled.div`
   gap: 1.3rem;
 `;
 
-export const ConfirmText = styled.p`
+export const ConfirmText = styled.div`
   color: ${({ theme }) => theme.colors.gray6};
   font-family: Pretendard;
   font-size: 1.3rem;
@@ -14,6 +14,7 @@ export const ConfirmText = styled.p`
   font-weight: 700;
   line-height: 140%; /* 1.1375rem */
   letter-spacing: -0.03rem;
+  white-space: pre-line;
 
   p {
     margin-bottom: 1.3rem;
