@@ -5,17 +5,17 @@ import { SetListItem } from '../../../../types/setList/setList.type';
 
 interface ListProps {
   data: SetListItem[];
-  currentOrder: number;
+  nowPlayingOrder: number;
 }
 
-const List = ({ data, currentOrder }: ListProps) => {
+const List = ({ data, nowPlayingOrder }: ListProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const spacerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const currentItem = itemRefs.current.find(
-      (el, index) => el && data[index]?.order === currentOrder,
+      (el, index) => el && data[index]?.order === nowPlayingOrder,
     );
     const container = containerRef.current;
 
@@ -37,7 +37,7 @@ const List = ({ data, currentOrder }: ListProps) => {
         behavior: 'smooth',
       });
     }
-  }, [currentOrder, data]);
+  }, [nowPlayingOrder, data]);
 
   return (
     <S.ListContainer className="scroll" ref={containerRef}>
@@ -48,7 +48,7 @@ const List = ({ data, currentOrder }: ListProps) => {
           }}
           key={item.order}
         >
-          <Item data={item} index={index} currentOrder={currentOrder} />
+          <Item data={item} index={index} nowPlayingOrder={nowPlayingOrder} />
         </div>
       ))}
 

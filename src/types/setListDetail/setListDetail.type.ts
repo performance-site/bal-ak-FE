@@ -1,3 +1,5 @@
+import { ApiEnvelope } from '../api.type';
+
 export interface Track {
   likes: number;
   title: string;
@@ -19,8 +21,10 @@ export interface TeamMember {
   instagramId: string | null;
 }
 
-export interface SetListDetail {
+export interface SetListDetailData {
   track: Track;
   song: Song;
   team: TeamMember[];
 }
+
+export interface SetListDetailResponse extends ApiEnvelope<SetListDetailData> {}

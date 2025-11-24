@@ -2,7 +2,8 @@ import * as S from './styles/AlbumExplain.style';
 import type { Track } from '../../../../../types/setListDetail/setListDetail.type';
 import HeartOff from '../../../../../assets/images/setListDetail/heartOff.svg';
 import HeartOn from '../../../../../assets/images/setListDetail/heartOn.svg';
-import { useLike } from '../../../../../hooks/setListDetail/useLike';
+import { usePostLikeData } from '../../../hooks/useMutation/usePostLikeData';
+import { useParams } from 'react-router-dom';
 import { getAlbumExplainList } from '../../../../../utils/setListDetail/albumExplain/albumExplainList';
 
 interface AlbumExplainProps {
@@ -10,9 +11,10 @@ interface AlbumExplainProps {
 }
 
 const AlbumExplain = ({ track }: AlbumExplainProps) => {
-  const storageKey = `like_${track.artist}_${track.title}`;
-  const { liked, likes, toggleLike, isAnimating } = useLike(
-    storageKey,
+  const { id: performanceSongId } = useParams<{ id: string }>();
+
+  const { liked, likes, toggleLike, isAnimating } = usePostLikeData(
+    Number(performanceSongId),
     track.likes,
   );
 
@@ -38,7 +40,7 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
           <S.AlbumLikeImg
             src={liked ? HeartOn : HeartOff}
             alt="heart"
-            onClick={toggleLike}
+            onClick={() => toggleLike()}
             $isAnimating={isAnimating}
           />
           <S.AlbumExplainP fontWeight={400} fontSize="1.2rem" color="gray2">
