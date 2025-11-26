@@ -6,7 +6,7 @@ import * as S from './PriceSection.style';
 
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
-import { LINKS } from '../../../../datas/BookingLinks';
+import { LINKS } from '../../../../constants/Booking';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
