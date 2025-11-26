@@ -15,6 +15,9 @@ export const AlbumExplainP = styled.p<{
   font-size: ${({ fontSize }) => fontSize || '2rem'};
   font-weight: ${({ fontWeight }) => fontWeight || 700};
   color: ${({ theme, color }) => theme.colors[color || 'gray6']};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const AlbumExplainInnerContainer = styled.div`
@@ -35,6 +38,12 @@ export const AlbumExplainDiv = styled.div`
     font-size: 1.2rem;
     line-height: 1.4rem;
     color: ${({ theme }) => theme.colors.gray2};
+  }
+
+  .span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 

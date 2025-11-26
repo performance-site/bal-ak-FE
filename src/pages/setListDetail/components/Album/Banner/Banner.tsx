@@ -6,7 +6,7 @@ interface BannerProps {
 }
 
 const Banner = ({ track }: BannerProps) => {
-  return <S.BannerImg src={track.albumImgUrl} alt="banner" />;
+  return <S.Banner imageUrl={track?.albumImgUrl} />;
 };
 
 export default Banner;

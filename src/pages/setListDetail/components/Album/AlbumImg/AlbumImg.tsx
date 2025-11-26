@@ -6,7 +6,7 @@ interface AlbumImgProps {
 }
 
 const AlbumImg = ({ track }: AlbumImgProps) => {
-  return <S.AlbumImgContainer src={track.albumImgUrl} alt="album" />;
+  return <S.AlbumImgContainer imageUrl={track?.albumImgUrl} />;
 };
 
 export default AlbumImg;
