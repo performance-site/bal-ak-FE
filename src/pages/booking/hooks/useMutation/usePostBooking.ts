@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { postBooking } from '../../apis/booking';
 import { ApiEnvelopeNullable } from '../../../../types/api.type';
+import { postBooking } from '../../../../apis/bookingApi';
 
 type BookingRequest = {
   name: string;

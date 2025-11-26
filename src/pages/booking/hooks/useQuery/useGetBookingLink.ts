@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { BookingLinkResponse } from '../../../../types/booking/booking.type';
-import { getBookingLink } from '../../apis/bookingLink';
+import { getBookingLink } from '../../../../apis/bookingApi';
 
 export const useGetBookingLink = () => {
   return useQuery<BookingLinkResponse>({
