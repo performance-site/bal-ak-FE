@@ -7,11 +7,15 @@ interface ListTeamProps {
 }
 
 const ListTeam = ({ team }: ListTeamProps) => {
+  const hasTeam = team && team.length > 0;
+
   return (
     <S.ListTeamContainer>
-      {team.map((member, index) => (
-        <ItemTeam key={index} member={member} />
-      ))}
+      {hasTeam ? (
+        team.map((member, index) => <ItemTeam key={index} member={member} />)
+      ) : (
+        <p style={{ gridColumn: '1 / -1' }}>팀 정보가 없습니다.</p>
+      )}
     </S.ListTeamContainer>
   );
 };

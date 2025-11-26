@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
-import { postLike } from '../../apis/like';
+import { postLike } from '../../../../apis/setListDetail/like';
 import { useSession } from '../../../../hooks/useSession';
 import type { LikeResponse } from '../../../../types/setListDetail/like.type';
 

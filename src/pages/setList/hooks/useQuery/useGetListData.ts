@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getSetList } from '../../apis/setList';
+import { getSetList } from '../../../../apis/setList/setList';
 import type { SetListResponse } from '../../../../types/setList/setList.type';
 
 export const useGetListData = () => {

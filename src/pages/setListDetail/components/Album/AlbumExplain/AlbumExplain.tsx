@@ -19,6 +19,7 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
   );
 
   const albumExplainList = getAlbumExplainList(track);
+  console.log(albumExplainList);
 
   return (
     <S.AlbumExplainContainer>
@@ -30,8 +31,8 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
         <S.AlbumExplainDiv>
           {albumExplainList.map((item) => (
             <div className="row" key={item.label}>
-              <span>{item.label}</span>
-              <span>{item.value}</span>
+              <span className="span">{item.label}</span>
+              <span className="span">{item.value}</span>
             </div>
           ))}
         </S.AlbumExplainDiv>

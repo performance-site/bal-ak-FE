@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getSetListDetail } from '../../apis/setListDetail';
+import { getSetListDetail } from '../../../../apis/setListDetail/setListDetail';
 import type { SetListDetailResponse } from '../../../../types/setListDetail/setListDetail.type';
 
 export const useGetTrackData = (performanceSongId: number) => {
