@@ -1,3 +1,4 @@
+import { PRICE } from '../../../../constants/Booking';
 import UseBookingForm from '../../../../hooks/UseBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
@@ -27,8 +28,12 @@ const InfoSection: React.FC<InfoSectionProps> = ({ form, performanceData }) => {
 
           <S.DetailInfo>
             <S.PriceText>
-              <S.BasicPrice>현장예매: 6,000원</S.BasicPrice>
-              <S.BookingPrice>사전예매: 5,000원</S.BookingPrice>
+              <S.BasicPrice>
+                현장예매: {PRICE.VENUE.toLocaleString()}원
+              </S.BasicPrice>
+              <S.BookingPrice>
+                사전예매: {PRICE.BOOKING.toLocaleString()}원
+              </S.BookingPrice>
             </S.PriceText>
 
             <S.InfoText>
