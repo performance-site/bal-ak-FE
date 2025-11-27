@@ -1,3 +1,4 @@
+import { PERFORMANCE_ID } from '../config/performance';
 import { ApiEnvelope, ApiEnvelopeNullable } from '../types/api.type';
 import { BookingInfoResponse } from '../types/booking/booking.type';
 import apiInstance from './axios/instance';
@@ -9,7 +10,7 @@ export interface BookingRequest {
 }
 
 export const postBooking = async (
-  performanceId: number = 1,
+  performanceId: number = PERFORMANCE_ID,
   body: BookingRequest,
 ): Promise<ApiEnvelopeNullable<null>> => {
   const res = await apiInstance.post<ApiEnvelopeNullable<null>>(
@@ -20,7 +21,7 @@ export const postBooking = async (
 };
 
 export const getBookingInfo = async (
-  performanceId: number,
+  performanceId: number = PERFORMANCE_ID,
 ): Promise<ApiEnvelope<BookingInfoResponse>> => {
   const res = await apiInstance.get<ApiEnvelope<BookingInfoResponse>>(
     `api/performances/${performanceId}/inquiry`,
