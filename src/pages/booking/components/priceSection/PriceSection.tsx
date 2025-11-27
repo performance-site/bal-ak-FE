@@ -11,15 +11,23 @@ type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
   kakaopayUrl: string;
   naverpayUrl: string;
+  bankName: string;
+  bankAccount: string;
+  accountHolder: string;
 };
 
 const PriceSection: React.FC<PriceSectionProps> = ({
   form,
   kakaopayUrl,
   naverpayUrl,
+  bankName,
+  bankAccount,
+  accountHolder,
 }) => {
   const { name, member, checked, toggleCheck } = form;
-  const account = import.meta.env.VITE_PAY_ACCOUNT;
+  const accountFull = bankAccount
+    ? `${bankName} ${bankAccount} (${accountHolder})`
+    : '직접 계좌이체가 불가능한 공연입니다';
 
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -86,13 +94,10 @@ const PriceSection: React.FC<PriceSectionProps> = ({
               <S.CopyTitle>직접 계좌이체</S.CopyTitle>
               <S.CopySub>ㅣ</S.CopySub>
             </S.CopyText>
-            <S.CopyImg
-              onClick={() => {
-                onCopyClick(account);
-              }}
-              src={COPY}
-            />
-            <S.AccountText>{account}</S.AccountText>
+            {bankAccount && (
+              <S.CopyImg onClick={() => onCopyClick(bankAccount)} src={COPY} />
+            )}
+            <S.AccountText>{accountFull}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
 

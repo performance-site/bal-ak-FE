@@ -72,11 +72,12 @@ export const CopyBox = styled.div`
   display: flex;
   height: 4rem;
   padding: 1rem 2.7rem;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid ${({ theme }) => theme.colors.purple1};
   background: ${({ theme }) => theme.gradients.checkbox};
+  gap: 0.25rem;
 `;
 
 export const CopyText = styled.div`

@@ -32,11 +32,18 @@ const Booking = () => {
   const kakaopayUrl = data?.data?.kakaopayUrl ?? '';
   const naverpayUrl = data?.data?.naverpayUrl ?? '';
 
+  // 가격 정보
   const preSaleFee = data?.data?.preSaleFee ?? '';
   const onSiteFee = data?.data?.onSiteFee ?? '';
 
+  // 예매 마감일
   const preSaleEndTime = data?.data?.preSaleEndTime ?? '';
   const endTime = formatToMonthDayWeek(preSaleEndTime);
+
+  // 계좌 정보
+  const bankName = data?.data?.bankName ?? '';
+  const bankAccount = data?.data?.bankAccount ?? '';
+  const accountHolder = data?.data?.accountHolder ?? '';
 
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
@@ -95,6 +102,9 @@ const Booking = () => {
             form={form}
             kakaopayUrl={kakaopayUrl}
             naverpayUrl={naverpayUrl}
+            bankName={bankName}
+            bankAccount={bankAccount}
+            accountHolder={accountHolder}
           />
         </Element>
 
