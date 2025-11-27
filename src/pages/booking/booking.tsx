@@ -24,7 +24,6 @@ const Booking = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
-  console.log('전체 bookingInfo:', data);
 
   const questionLink = data?.data?.openChatUrl ?? ''; // 문의하기 링크
 
