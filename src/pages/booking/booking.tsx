@@ -23,12 +23,16 @@ const Booking = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
+  console.log('전체 bookingInfo:', data);
 
   const questionLink = data?.data?.openChatUrl ?? ''; // 문의하기 링크
 
   // 송금 관련 링크
   const kakaopayUrl = data?.data?.kakaopayUrl ?? '';
   const naverpayUrl = data?.data?.naverpayUrl ?? '';
+
+  const preSaleFee = data?.data?.preSaleFee ?? '';
+  const onSiteFee = data?.data?.onSiteFee ?? '';
 
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
@@ -66,7 +70,12 @@ const Booking = () => {
         />
 
         {/* 공연 기본 정보 확인 */}
-        <InfoSection form={form} performanceData={performanceData} />
+        <InfoSection
+          form={form}
+          performanceData={performanceData}
+          preSaleFee={preSaleFee}
+          onSiteFee={onSiteFee}
+        />
         <S.Line />
 
         <Element name="info">
