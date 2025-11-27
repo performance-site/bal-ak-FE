@@ -25,9 +25,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
   accountHolder,
 }) => {
   const { name, member, checked, toggleCheck } = form;
-  const accountFull = bankAccount
-    ? `${bankName} ${bankAccount} (${accountHolder})`
-    : '직접 계좌이체가 불가능한 공연입니다';
+  const account = `${bankName} ${bankAccount} ${accountHolder}`;
 
   const [selected, setSelected] = useState<string | null>(null);
 
@@ -97,7 +95,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
             {bankAccount && (
               <S.CopyImg onClick={() => onCopyClick(bankAccount)} src={COPY} />
             )}
-            <S.AccountText>{accountFull}</S.AccountText>
+            <S.AccountText>{account}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
 
