@@ -22,8 +22,13 @@ const Booking = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data } = useGetBookingInfo();
-  const questionLink = data?.data?.openChatUrl ?? '';
+  const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
+
+  const questionLink = data?.data?.openChatUrl ?? ''; // 문의하기 링크
+
+  // 송금 관련 링크
+  const kakaopayUrl = data?.data?.kakaopayUrl ?? '';
+  const naverpayUrl = data?.data?.naverpayUrl ?? '';
 
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
@@ -73,7 +78,11 @@ const Booking = () => {
 
         <Element name="price">
           {/* 가격 안내 및 입금 */}
-          <PriceSection form={form} />
+          <PriceSection
+            form={form}
+            kakaopayUrl={kakaopayUrl}
+            naverpayUrl={naverpayUrl}
+          />
         </Element>
 
         <S.Line />

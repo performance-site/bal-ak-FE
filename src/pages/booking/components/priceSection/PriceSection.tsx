@@ -6,13 +6,18 @@ import * as S from './PriceSection.style';
 
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
-import { LINKS } from '../../../../datas/BookingLinks';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
+  kakaopayUrl: string;
+  naverpayUrl: string;
 };
 
-const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
+const PriceSection: React.FC<PriceSectionProps> = ({
+  form,
+  kakaopayUrl,
+  naverpayUrl,
+}) => {
   const { name, member, checked, toggleCheck } = form;
   const account = import.meta.env.VITE_PAY_ACCOUNT;
 
@@ -58,7 +63,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
         <S.PayContainer>
           {/* 송금 방식 선택 박스*/}
           <S.ClickRow>
-            <a href={LINKS.KAKAO_PAY} target="_blank" rel="noopener noreferrer">
+            <a href={kakaopayUrl} target="_blank" rel="noopener noreferrer">
               <ClickBox
                 text="카카오페이 송금"
                 isSelected={selected === '카카오페이 송금'}
@@ -66,7 +71,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
               />
             </a>
 
-            <a href={LINKS.NAVER_PAY} target="_blank" rel="noopener noreferrer">
+            <a href={naverpayUrl} target="_blank" rel="noopener noreferrer">
               <ClickBox
                 text="네이버페이 송금"
                 isSelected={selected === '네이버페이 송금'}
