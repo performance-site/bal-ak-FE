@@ -19,6 +19,7 @@ export const ItemImg = styled.img<ItemImgProps>`
   width: ${(props) => props.$iconWidth};
   height: ${(props) => props.$iconHeight};
   display: block;
+  cursor: pointer;
 `;
 
 export const ItemInfo = styled.p`

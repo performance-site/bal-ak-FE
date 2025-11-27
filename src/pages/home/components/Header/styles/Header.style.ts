@@ -33,7 +33,8 @@ export const SlideItem = styled.div<SlideItemProps>`
   width: ${(props) => 100 / props.$imageCount}%;
   height: 100%;
   flex-shrink: 0;
-  background-color: ${(props) => props.$imageURL};
+  background-image: url(${(props) => props.$imageURL});
   background-size: cover;
   background-position: center;
+  background-color: #f0f0f0;
 `;

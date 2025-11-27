@@ -34,7 +34,8 @@ export const PosterItem = styled.div<PosterItemProps>`
   border-radius: 8px;
   flex-shrink: 0;
   scroll-snap-align: center;
-  background-color: ${(props) => props.$imageURL};
+  background-image: url(${(props) => props.$imageURL});
   background-size: cover;
   background-position: center;
+  background-color: #f0f0f0;
 `;
