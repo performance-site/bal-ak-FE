@@ -8,7 +8,7 @@ function Header() {
   const SLIDE_INTERVAL = 5000;
 
   const images = useHomeStore((state) => state.homeData?.imageUrls) || [];
-  console.log(images);
+  // console.log(images);
 
   useEffect(() => {
     const nextIndex = (currentIndex + 1) % images.length;
