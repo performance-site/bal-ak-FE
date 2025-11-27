@@ -13,6 +13,7 @@ import SubmitModal from './components/submitModal/SubmitModal';
 import { useGetBookingInfo } from './hooks/useQuery/useGetBookingInfo';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
+import { formatToMonthDayWeek } from '../../utils/booking/date';
 
 const Booking = () => {
   const { data: performanceData } = useGetHomeData();
@@ -21,20 +22,6 @@ const Booking = () => {
   const { isAllValid, errorMsgs } = form;
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const formatToMonthDayWeek = (isoString: string) => {
-    if (!isoString) return '';
-
-    const date = new Date(isoString);
-
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-
-    const week = ['일', '월', '화', '수', '목', '금', '토'];
-    const weekDay = week[date.getDay()];
-
-    return `${month}/${day}(${weekDay})`;
-  };
 
   const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
   console.log('전체 bookingInfo:', data);
