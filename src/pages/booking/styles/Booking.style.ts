@@ -62,7 +62,7 @@ export const ErrorMsgWrapper = styled.div`
 `;
 
 export const ErrorMsg = styled.p`
-  color: #ff027a;
+  color: ${({ theme }) => theme.colors.red};
   font-family: Pretendard;
   font-size: 1rem;
   font-weight: 300;

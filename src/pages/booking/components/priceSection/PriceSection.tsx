@@ -6,6 +6,7 @@ import * as S from './PriceSection.style';
 
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
+import useNavigation from '../../../../hooks/useNavigation';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
@@ -24,13 +25,15 @@ const PriceSection: React.FC<PriceSectionProps> = ({
   bankAccount,
   accountHolder,
 }) => {
+  const { goTo } = useNavigation();
   const { name, member, checked, toggleCheck } = form;
   const account = `${bankName} ${bankAccount} ${accountHolder}`;
 
   const [selected, setSelected] = useState<string | null>(null);
 
-  const handleSelect = (text: string) => {
+  const handleSelect = (text: string, url: string) => {
     setSelected(text);
+    goTo(url);
   };
 
   const onCopyClick = async (text: string) => {
@@ -69,21 +72,17 @@ const PriceSection: React.FC<PriceSectionProps> = ({
         <S.PayContainer>
           {/* 송금 방식 선택 박스*/}
           <S.ClickRow>
-            <a href={kakaopayUrl} target="_blank" rel="noopener noreferrer">
-              <ClickBox
-                text="카카오페이 송금"
-                isSelected={selected === '카카오페이 송금'}
-                onClick={() => handleSelect('카카오페이 송금')}
-              />
-            </a>
+            <ClickBox
+              text="카카오페이 송금"
+              isSelected={selected === '카카오페이 송금'}
+              onClick={() => handleSelect('카카오페이 송금', kakaopayUrl)}
+            />
 
-            <a href={naverpayUrl} target="_blank" rel="noopener noreferrer">
-              <ClickBox
-                text="네이버페이 송금"
-                isSelected={selected === '네이버페이 송금'}
-                onClick={() => handleSelect('네이버페이 송금')}
-              />
-            </a>
+            <ClickBox
+              text="네이버페이 송금"
+              isSelected={selected === '네이버페이 송금'}
+              onClick={() => handleSelect('네이버페이 송금', naverpayUrl)}
+            />
           </S.ClickRow>
 
           {/* 계좌이체 박스 */}
