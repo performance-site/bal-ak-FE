@@ -1,9 +1,9 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import * as S from './styles/KakaoMap.style';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 
-function KakaoMap() {
+const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const location = useHomeStore((state) => state.homeData?.location);
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null,
@@ -49,7 +49,7 @@ function KakaoMap() {
   }
 
   return (
-    <S.MapContainer>
+    <S.MapContainer ref={ref}>
       <S.TitleWrapper>
         <S.MapTitle>Concert Location</S.MapTitle>
         <S.MapSubTitle>위치 안내</S.MapSubTitle>
@@ -69,6 +69,6 @@ function KakaoMap() {
       <S.AddressReminder>장소: {location}</S.AddressReminder>
     </S.MapContainer>
   );
-}
+});
 
 export default KakaoMap;
