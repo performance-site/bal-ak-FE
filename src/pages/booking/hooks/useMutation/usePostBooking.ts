@@ -10,9 +10,6 @@ type BookingRequest = {
 
 export const usePostBooking = (performanceId: number = 1) => {
   return useMutation<ApiEnvelopeNullable<null>, unknown, BookingRequest>({
-    mutationFn: async (body) => {
-      const res = await postBooking(performanceId, body);
-      return res.data;
-    },
+    mutationFn: (body) => postBooking(performanceId, body),
   });
 };
