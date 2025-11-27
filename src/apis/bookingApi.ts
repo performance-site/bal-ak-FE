@@ -11,6 +11,6 @@ export const postBooking = (
   return apiInstance.post(`api/performances/${performanceId}/bookings`, body);
 };
 
-export const getBookingLink = (performanceId: number = 1) => {
+export const getBookingInfo = (performanceId: number = 1) => {
   return apiInstance.get(`api/performances/${performanceId}/inquiry`);
 };

@@ -10,7 +10,7 @@ import PriceSection from './components/priceSection/PriceSection';
 import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
 import SubmitModal from './components/submitModal/SubmitModal';
-import { useGetBookingLink } from './hooks/useQuery/useGetBookingLink';
+import { useGetBookingInfo } from './hooks/useQuery/useGetBookingInfo';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 
@@ -22,7 +22,7 @@ const Booking = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data } = useGetBookingLink();
+  const { data } = useGetBookingInfo();
   const questionLink = data?.data?.openChatUrl ?? '';
 
   const bookingMutation = usePostBooking();
