@@ -22,6 +22,20 @@ const Booking = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const formatToMonthDayWeek = (isoString: string) => {
+    if (!isoString) return '';
+
+    const date = new Date(isoString);
+
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    const week = ['일', '월', '화', '수', '목', '금', '토'];
+    const weekDay = week[date.getDay()];
+
+    return `${month}/${day}(${weekDay})`;
+  };
+
   const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
   console.log('전체 bookingInfo:', data);
 
@@ -33,6 +47,9 @@ const Booking = () => {
 
   const preSaleFee = data?.data?.preSaleFee ?? '';
   const onSiteFee = data?.data?.onSiteFee ?? '';
+
+  const preSaleEndTime = data?.data?.preSaleEndTime ?? '';
+  const endTime = formatToMonthDayWeek(preSaleEndTime);
 
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
@@ -66,7 +83,7 @@ const Booking = () => {
           title="사전예매"
           questionText="예매 관련 문의하기"
           questionLink={questionLink}
-          subtitle="더 싼 가격으로 미리 하는 사전예매 ~ 12/19(금)"
+          subtitle={`더 싼 가격으로 미리 하는 사전예매 ~ ${endTime}`}
         />
 
         {/* 공연 기본 정보 확인 */}
