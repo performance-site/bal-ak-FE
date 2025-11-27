@@ -1,5 +1,6 @@
 import React from 'react';
 import * as S from './SectionHeader.style';
+import useNavigation from '../../../../hooks/useNavigation';
 
 interface SectionHeaderProps {
   title: string;
@@ -14,18 +15,15 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   questionLink,
   subtitle,
 }) => {
+  const { goTo } = useNavigation();
+
   return (
     <S.HeaderTextSection>
       <S.HeaderTopText>
         <S.Title>{title}</S.Title>
 
         {questionText && questionLink ? (
-          <S.QuestionText
-            as="a"
-            href={questionLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <S.QuestionText onClick={() => goTo(questionLink)}>
             {questionText}
           </S.QuestionText>
         ) : (
