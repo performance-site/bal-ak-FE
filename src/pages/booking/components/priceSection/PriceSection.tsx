@@ -15,6 +15,7 @@ type PriceSectionProps = {
   bankName: string;
   bankAccount: string;
   accountHolder: string;
+  preSaleFee: string;
 };
 
 const PriceSection: React.FC<PriceSectionProps> = ({
@@ -24,6 +25,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
   bankName,
   bankAccount,
   accountHolder,
+  preSaleFee,
 }) => {
   const { goTo } = useNavigation();
   const { name, member, checked, toggleCheck } = form;
@@ -61,7 +63,9 @@ const PriceSection: React.FC<PriceSectionProps> = ({
             입금자: <strong>{name}</strong>
             <br />총 입금 금액:{' '}
             <strong>
-              {member ? `${(Number(member) * 5000).toLocaleString()}원` : '0원'}
+              {member
+                ? `${(Number(member) * Number(preSaleFee)).toLocaleString()}원`
+                : '0원'}
             </strong>
           </S.UserPrice>
         </S.PriceText>
