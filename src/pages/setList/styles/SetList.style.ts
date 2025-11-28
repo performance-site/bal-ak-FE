@@ -21,3 +21,11 @@ export const ListBar = styled.div`
   box-shadow: 0 0 0.4rem 0
     ${({ theme }) => theme.hexToRgba(theme.colors.purple2, 0.18)};
 `;
+
+export const SpinnerContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

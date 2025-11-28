@@ -12,8 +12,9 @@ interface ItemProps {
   nowPlayingOrder: number;
 }
 
-const Item = ({ data, nowPlayingOrder }: ItemProps) => {
-  const isCurrent = data.order === nowPlayingOrder;
+const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
+  const isCurrent = data.order == nowPlayingOrder;
+  const isBeforeShow = nowPlayingOrder === -1 && index === 0;
   const { goTo } = useNavigation();
 
   return (
@@ -22,9 +23,7 @@ const Item = ({ data, nowPlayingOrder }: ItemProps) => {
 
       <S.ItemRightContainer
         onClick={() =>
-          goTo(
-            nowPlayingOrder === -1 ? '/' : `/setlist/${data.performanceSongId}`,
-          )
+          goTo(isBeforeShow ? '/' : `/setlist/${data.performanceSongId}`)
         }
       >
         <S.ItemRightInnerContainer>
@@ -33,7 +32,7 @@ const Item = ({ data, nowPlayingOrder }: ItemProps) => {
             <S.ItemP
               color={!isCurrent ? 'setListItemTitleBackground' : undefined}
             >
-              {data.title}
+              {isBeforeShow ? '공연 시작 전' : data.title}
             </S.ItemP>
           </S.ItemPContainer>
 
@@ -47,7 +46,9 @@ const Item = ({ data, nowPlayingOrder }: ItemProps) => {
               weight={400}
               color="setListItemDownloadBackground"
             >
-              {data.artist}
+              {isBeforeShow
+                ? '현재는 Setlist만 확인할 수 있습니다.'
+                : data.artist}
             </S.ItemP>
           </S.ItemPContainer>
         </S.ItemRightInnerContainer>

@@ -19,7 +19,7 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
   );
 
   const albumExplainList = getAlbumExplainList(track);
-  console.log(albumExplainList);
+  // console.log(albumExplainList);
 
   return (
     <S.AlbumExplainContainer>

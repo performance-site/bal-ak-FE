@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const ItemTeamContainer = styled.div`
   width: 100%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,10 +30,11 @@ export const ItemTeamProfileImg = styled.img`
 `;
 
 export const ItemTeamP = styled.p`
+  width: 100%;
   margin-top: 1.2rem;
-  white-space: nowrap;
   font-weight: 400;
   font-size: 1rem;
+  text-align: left;
   line-height: 1.4;
   letter-spacing: -0.025em;
   color: ${({ theme }) => theme.colors.gray7};
