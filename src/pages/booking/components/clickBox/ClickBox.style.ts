@@ -22,7 +22,6 @@ export const ClickBoxContainer = styled.div<{ $isSelected?: boolean }>`
 
 export const ClickText = styled.p<{ $isSelected?: boolean }>`
   font-size: 1.2rem;
-  font-family: Pretendard;
   font-weight: 500;
   line-height: 140%;
   letter-spacing: -0.03rem;

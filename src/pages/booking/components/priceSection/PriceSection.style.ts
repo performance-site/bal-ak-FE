@@ -27,7 +27,6 @@ export const PriceText = styled.div`
 
 export const PriceExplain = styled.p`
   color: ${({ theme }) => theme.colors.gray6};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 140%;
@@ -45,7 +44,6 @@ export const PriceExplain = styled.p`
 
 export const UserPrice = styled.p`
   color: ${({ theme }) => theme.colors.gray2};
-  font-family: Pretendard;
   font-size: 1.3em;
   font-weight: 400;
   line-height: 140%; /* 1.1375rem */
@@ -87,7 +85,6 @@ export const CopyText = styled.div`
 
 export const CopyTitle = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
@@ -96,7 +93,6 @@ export const CopyTitle = styled.p`
 
 export const CopySub = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.4rem;
   font-weight: 500;
   line-height: 140%; /* 1.225rem */
@@ -113,7 +109,6 @@ export const CopyImg = styled.img`
 
 export const AccountText = styled.p`
   color: ${({ theme }) => theme.colors.gray8};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */

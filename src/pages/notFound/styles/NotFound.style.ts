@@ -15,7 +15,6 @@ export const NotFoundHeader = styled.div``;
 export const MainText = styled.p`
   color: ${({ theme }) => theme.colors.gray1};
   text-align: center;
-  font-family: Pretendard;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 140%; /* 33.6px */
@@ -25,7 +24,6 @@ export const MainText = styled.p`
 export const SubText = styled.p`
   color: ${({ theme }) => theme.colors.gray9};
   text-align: center;
-  font-family: Pretendard;
   font-size: 0.875rem;
   font-weight: 300;
   line-height: 140%; /* 1.225rem */
@@ -43,7 +41,6 @@ export const NotFoundContent = styled.div`
 export const NotText = styled.p`
   color: ${({ theme }) => theme.colors.gray1};
   text-align: center;
-  font-family: Pretendard;
   font-size: 1rem;
   font-weight: 400;
   line-height: 140%; /* 1.4rem */
@@ -68,7 +65,6 @@ export const BackBox = styled.button`
 export const BackText = styled.p`
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
-  font-family: Pretendard;
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 140%; /* 1.05rem */

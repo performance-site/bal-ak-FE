@@ -50,7 +50,6 @@ export const ButtonText = styled.p`
   font-weight: 600;
   line-height: 140%; /* 1.05rem */
   letter-spacing: -0.01875rem;
-  font-family: Pretendard;
 `;
 
 export const ErrorMsgWrapper = styled.div`
@@ -63,7 +62,6 @@ export const ErrorMsgWrapper = styled.div`
 
 export const ErrorMsg = styled.p`
   color: ${({ theme }) => theme.colors.red};
-  font-family: Pretendard;
   font-size: 1rem;
   font-weight: 300;
   line-height: 140%; /* 0.875rem */

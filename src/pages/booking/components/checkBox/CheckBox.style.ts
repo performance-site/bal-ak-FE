@@ -22,7 +22,6 @@ export const Icon = styled.img`
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;

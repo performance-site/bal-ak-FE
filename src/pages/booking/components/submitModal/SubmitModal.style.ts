@@ -39,7 +39,6 @@ export const ModalHeader = styled.div`
 
 export const ModalTitle = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 140%; /* 1.4rem */
@@ -61,7 +60,6 @@ export const ModalContent = styled.div`
 
 export const UserText = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 140%; /* 1.225rem */
@@ -70,7 +68,6 @@ export const UserText = styled.p`
 
 export const EndText = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
@@ -98,7 +95,6 @@ export const ModalBtn = styled.button`
 
 export const BtnText = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 140%; /* 1.4rem */
