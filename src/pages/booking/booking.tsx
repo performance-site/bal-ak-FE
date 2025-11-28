@@ -133,13 +133,7 @@ const Booking = () => {
         </Element>
       </S.BookingContainer>
 
-      {isOpen && (
-        <SubmitModal
-          form={form}
-          onClose={handleOpen}
-          questionLink={openChatUrl}
-        />
-      )}
+      {isOpen && <SubmitModal form={form} questionLink={openChatUrl} />}
     </>
   );
 };

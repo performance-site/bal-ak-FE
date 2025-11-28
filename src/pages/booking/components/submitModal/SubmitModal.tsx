@@ -6,15 +6,10 @@ import useNavigation from '../../../../hooks/useNavigation';
 
 type SubmitModalProps = {
   form: ReturnType<typeof UseBookingForm>;
-  onClose: () => void;
   questionLink: string;
 };
 
-const SubmitModal: React.FC<SubmitModalProps> = ({
-  form,
-  onClose,
-  questionLink,
-}) => {
+const SubmitModal: React.FC<SubmitModalProps> = ({ form, questionLink }) => {
   const { name, phone, member } = form;
   const { goTo } = useNavigation();
 
@@ -23,7 +18,7 @@ const SubmitModal: React.FC<SubmitModalProps> = ({
       <S.ModalContainer>
         <S.ModalHeader>
           <S.ModalTitle>사전 예매가 완료되었습니다.</S.ModalTitle>
-          <S.CloseIcon src={CLOSE} onClick={onClose} />
+          <S.CloseIcon src={CLOSE} onClick={() => goTo('/')} />
         </S.ModalHeader>
         <S.ModalContent>
           <S.UserText>{`${name} | ${member}매 | ${phone}`}</S.UserText>
