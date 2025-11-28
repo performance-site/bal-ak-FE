@@ -42,9 +42,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
               </S.BookingPrice>
             </S.PriceText>
 
-            <S.InfoText>
-              위치: {homeData?.venue} <br /> {homeData?.location}
-            </S.InfoText>
+            <S.InfoText>위치: {homeData?.venue}</S.InfoText>
           </S.DetailInfo>
         </S.TextBox>
       </S.ShowInfoContainer>
