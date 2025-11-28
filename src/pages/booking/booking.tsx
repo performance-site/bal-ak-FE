@@ -104,6 +104,7 @@ const Booking = () => {
             bankName={bankName}
             bankAccount={bankAccount}
             accountHolder={accountHolder}
+            preSaleFee={preSaleFee}
           />
         </Element>
 
