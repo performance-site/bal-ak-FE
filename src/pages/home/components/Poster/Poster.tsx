@@ -1,10 +1,11 @@
 import { forwardRef } from 'react';
 import * as S from './styles/Poster.style';
 import PosterInfo from './PosterInfo';
-
-const images = ['red', 'blue', 'yellow', 'green'];
+import { useHomeStore } from '../../../../store/homeStore/homeStore';
 
 const Poster = forwardRef<HTMLDivElement, {}>((_, ref) => {
+  const images = useHomeStore((state) => state.homeData?.posterUrls) || [];
+
   return (
     <S.PosterConatiner ref={ref}>
       <PosterInfo />
