@@ -3,6 +3,7 @@ import PageTitle from './components/PageTitle/PageTitle';
 import List from './components/List/List';
 import RefreshButton from './components/RefreshButton/RefreshButton';
 import { useGetListData } from './hooks/useQuery/useGetListData';
+import Spinner from '../../components/Spinner/Spinner';
 
 const SetList = () => {
   const { data, isLoading, refetch } = useGetListData();
@@ -16,7 +17,12 @@ const SetList = () => {
     refetch();
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <S.SpinnerContainer>
+        <Spinner />
+      </S.SpinnerContainer>
+    );
 
   return (
     <S.SetListContainer>

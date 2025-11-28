@@ -8,15 +8,20 @@ import AlbumExplain from './components/Album/AlbumExplain/AlbumExplain';
 import AlbumTap from './components/Button/AlbumTap/AlbumTap';
 import Song from './components/Song/Song';
 import Team from './components/Team/Team';
+import Spinner from '../../components/Spinner/Spinner';
 
 const SetListDetail = () => {
   const { id: performanceSongId } = useParams<{ id: string }>();
   const { data, isLoading } = useGetTrackData(Number(performanceSongId));
   const [selectedTab, setSelectedTab] = useState<'song' | 'team'>('song');
+  // console.log(data);
 
-  // 백엔드 더미데이터가 다 Null이라 추후 다시 확인 예정
-  if (isLoading) return <div>Loading...</div>;
-  if (!data) return <div>데이터 없음</div>;
+  if (isLoading || !data)
+    return (
+      <S.SpinnerContainer>
+        <Spinner />
+      </S.SpinnerContainer>
+    );
 
   const { track, team, song } = data.data;
 

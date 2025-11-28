@@ -18,3 +18,11 @@ export const SetListDetailInnerContainer = styled.section`
   flex-direction: column;
   gap: 4rem;
 `;
+
+export const SpinnerContainer = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
