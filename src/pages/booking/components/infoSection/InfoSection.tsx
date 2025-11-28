@@ -1,4 +1,3 @@
-import { PRICE } from '../../../../constants/Booking';
 import UseBookingForm from '../../../../hooks/UseBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
