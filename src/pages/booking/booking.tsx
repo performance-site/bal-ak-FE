@@ -16,6 +16,7 @@ import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 import { formatToMonthDayWeek } from '../../utils/booking/date';
 
 const Booking = () => {
+  // 공연 정보
   const { data: performanceData } = useGetHomeData();
 
   const form = UseBookingForm();
@@ -23,27 +24,24 @@ const Booking = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
+  // 사전예매 정보 조회
+  const { data: bookingInfoResponse } = useGetBookingInfo();
 
-  const questionLink = data?.data?.openChatUrl ?? ''; // 문의하기 링크
+  const {
+    openChatUrl = '',
+    kakaopayUrl = '',
+    naverpayUrl = '',
+    preSaleFee = '',
+    onSiteFee = '',
+    preSaleEndTime = '',
+    bankName = '',
+    bankAccount = '',
+    accountHolder = '',
+  } = bookingInfoResponse?.data ?? {};
 
-  // 송금 관련 링크
-  const kakaopayUrl = data?.data?.kakaopayUrl ?? '';
-  const naverpayUrl = data?.data?.naverpayUrl ?? '';
-
-  // 가격 정보
-  const preSaleFee = data?.data?.preSaleFee ?? '';
-  const onSiteFee = data?.data?.onSiteFee ?? '';
-
-  // 예매 마감일
-  const preSaleEndTime = data?.data?.preSaleEndTime ?? '';
   const endTime = formatToMonthDayWeek(preSaleEndTime);
 
-  // 계좌 정보
-  const bankName = data?.data?.bankName ?? '';
-  const bankAccount = data?.data?.bankAccount ?? '';
-  const accountHolder = data?.data?.accountHolder ?? '';
-
+  // 최종 제출
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
     bookingMutation.mutate(
@@ -75,7 +73,7 @@ const Booking = () => {
         <SectionHeader
           title="사전예매"
           questionText="예매 관련 문의하기"
-          questionLink={questionLink}
+          questionLink={openChatUrl}
           subtitle={`더 싼 가격으로 미리 하는 사전예매 ~ ${endTime}`}
         />
 
@@ -139,7 +137,7 @@ const Booking = () => {
         <SubmitModal
           form={form}
           onClose={handleOpen}
-          questionLink={questionLink}
+          questionLink={openChatUrl}
         />
       )}
     </>
