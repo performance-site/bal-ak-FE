@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import 'pretendard/dist/web/variable/pretendardvariable.css';
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -9,10 +10,10 @@ const GlobalStyle = createGlobalStyle`
     html, body, #root {
         height: 100%;
         overflow: hidden;
+        font-family: var(--font-family);
     }
 
     html {
-        font-family: var(--font-family);
         -webkit-touch-callout: none;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         -webkit-text-size-adjust: 100%;
