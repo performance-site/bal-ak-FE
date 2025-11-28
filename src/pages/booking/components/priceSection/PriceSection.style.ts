@@ -108,6 +108,7 @@ export const CopyImg = styled.img`
   height: 1.7rem;
   flex-shrink: 0;
   margin: 0.14rem 0.21rem;
+  cursor: pointer;
 `;
 
 export const AccountText = styled.p`

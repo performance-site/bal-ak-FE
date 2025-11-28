@@ -27,6 +27,7 @@ export const QuestionText = styled.p`
   line-height: 140%; /* 14px */
   letter-spacing: -0.025rem;
   text-decoration: underline;
+  cursor: pointer;
 `;
 
 export const SubTitle = styled.p`

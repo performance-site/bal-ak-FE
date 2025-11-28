@@ -9,6 +9,7 @@ export const ClickBoxContainer = styled.div<{ $isSelected?: boolean }>`
   align-items: center;
   gap: 2.4rem;
   border-radius: 0.8rem;
+  cursor: pointer;
 
   border: 1px solid ${({ theme }) => theme.colors.purple1};
 

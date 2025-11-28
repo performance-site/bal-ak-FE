@@ -6,6 +6,7 @@ export const CheckBoxContainer = styled.div`
   padding: 1rem 1.4rem;
   align-items: center;
   gap: 0.8rem;
+  cursor: pointer;
 
   border-radius: 0.25rem;
   border: 1.25px solid ${({ theme }) => theme.colors.purple1};
