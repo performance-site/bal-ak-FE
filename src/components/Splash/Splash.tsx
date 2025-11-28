@@ -25,7 +25,13 @@ const Splash = () => {
   return (
     <S.SplashContainer>
       <S.LogoContainer fadeState={fadeState}>
-        <S.LogoImg src={Logo} alt="lgoo" />
+        <S.LogoImg
+          src={Logo}
+          alt="lgoo"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
         <S.LogoP>DEUL BUL</S.LogoP>
       </S.LogoContainer>
     </S.SplashContainer>

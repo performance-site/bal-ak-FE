@@ -10,7 +10,13 @@ const ItemTeam = ({ member }: ItemTeamProps) => {
   return (
     <S.ItemTeamContainer>
       <S.ItemTeamProfileDiv>
-        <S.ItemTeamProfileImg src={ProfileImg} alt="profile" />
+        <S.ItemTeamProfileImg
+          src={ProfileImg}
+          alt="profile"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
       </S.ItemTeamProfileDiv>
       <S.ItemTeamP>
         {member.session} | {member.name} <br />

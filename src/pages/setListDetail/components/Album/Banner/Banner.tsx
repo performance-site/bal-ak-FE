@@ -11,6 +11,9 @@ const Banner = ({ track }: BannerProps) => {
     <S.BannerContainer
       src={track?.albumImgUrl || DefaultImg}
       alt={track?.title || 'banner'}
+      loading="eager"
+      decoding="async"
+      draggable={false}
     />
   );
 };

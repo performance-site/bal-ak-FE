@@ -11,6 +11,9 @@ const AlbumImg = ({ track }: AlbumImgProps) => {
     <S.AlbumImgContainer
       src={track?.albumImgUrl || DefaultImg}
       alt={track?.title || 'album image'}
+      loading="eager"
+      decoding="async"
+      draggable={false}
     />
   );
 };

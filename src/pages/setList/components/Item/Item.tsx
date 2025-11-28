@@ -40,6 +40,9 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
             <S.ItemDownloadImg
               src={isCurrent ? ItemDownloadOn : ItemDownloadOff}
               alt="download"
+              loading="eager"
+              decoding="async"
+              draggable={false}
             />
             <S.ItemP
               size="1.2rem"
@@ -53,7 +56,14 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
           </S.ItemPContainer>
         </S.ItemRightInnerContainer>
 
-        <S.ItemArrowImg src={ItemArrow} isWhite={!isCurrent} alt="arrow" />
+        <S.ItemArrowImg
+          src={ItemArrow}
+          isWhite={!isCurrent}
+          alt="arrow"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
       </S.ItemRightContainer>
     </S.ItemContainer>
   );
