@@ -6,10 +6,11 @@ import { useGetListData } from './hooks/useQuery/useGetListData';
 
 const SetList = () => {
   const { data, isLoading, refetch } = useGetListData();
-  console.log(data?.data?.setlist);
+  // console.log(data?.data?.setlist);
 
   const list = data?.data?.setlist ?? [];
-  const nowPlayingOrder = data?.data?.nowPlayingOrder ?? 0;
+  const nowPlayingOrder = data?.data?.nowPlayingOrder ?? -1;
+  // console.log('now: ', nowPlayingOrder);
 
   const handleRefresh = () => {
     refetch();
