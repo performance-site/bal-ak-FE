@@ -11,6 +11,7 @@ export const PageTitleContainer = styled.nav`
 export const PageTitlePContainer = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const PageTitleP = styled.p<{
@@ -18,7 +19,8 @@ export const PageTitleP = styled.p<{
   weight?: number;
   color?: keyof DefaultTheme['colors'];
 }>`
-  font-size: ${({ size }) => size || '2.4rem'};
+  width: 100%;
+  font-size: ${({ size }) => size || '2rem'};
   font-weight: ${({ weight }) => weight || 600};
   color: ${({ theme, color }) => theme.colors[color || 'gray1']};
 `;
@@ -37,6 +39,7 @@ export const PageTitleButton = styled.button`
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  white-space: nowrap;
 
   &::before {
     content: '';

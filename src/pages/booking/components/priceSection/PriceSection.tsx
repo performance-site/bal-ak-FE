@@ -6,20 +6,34 @@ import * as S from './PriceSection.style';
 
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
-import { LINKS } from '../../../../constants/Booking';
+import useNavigation from '../../../../hooks/useNavigation';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
+  kakaopayUrl: string;
+  naverpayUrl: string;
+  bankName: string;
+  bankAccount: string;
+  accountHolder: string;
 };
 
-const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
+const PriceSection: React.FC<PriceSectionProps> = ({
+  form,
+  kakaopayUrl,
+  naverpayUrl,
+  bankName,
+  bankAccount,
+  accountHolder,
+}) => {
+  const { goTo } = useNavigation();
   const { name, member, checked, toggleCheck } = form;
-  const account = import.meta.env.VITE_PAY_ACCOUNT;
+  const account = `${bankName} ${bankAccount} ${accountHolder}`;
 
   const [selected, setSelected] = useState<string | null>(null);
 
-  const handleSelect = (text: string) => {
+  const handleSelect = (text: string, url: string) => {
     setSelected(text);
+    goTo(url);
   };
 
   const onCopyClick = async (text: string) => {
@@ -58,21 +72,17 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
         <S.PayContainer>
           {/* 송금 방식 선택 박스*/}
           <S.ClickRow>
-            <a href={LINKS.KAKAO_PAY} target="_blank" rel="noopener noreferrer">
-              <ClickBox
-                text="카카오페이 송금"
-                isSelected={selected === '카카오페이 송금'}
-                onClick={() => handleSelect('카카오페이 송금')}
-              />
-            </a>
+            <ClickBox
+              text="카카오페이 송금"
+              isSelected={selected === '카카오페이 송금'}
+              onClick={() => handleSelect('카카오페이 송금', kakaopayUrl)}
+            />
 
-            <a href={LINKS.NAVER_PAY} target="_blank" rel="noopener noreferrer">
-              <ClickBox
-                text="네이버페이 송금"
-                isSelected={selected === '네이버페이 송금'}
-                onClick={() => handleSelect('네이버페이 송금')}
-              />
-            </a>
+            <ClickBox
+              text="네이버페이 송금"
+              isSelected={selected === '네이버페이 송금'}
+              onClick={() => handleSelect('네이버페이 송금', naverpayUrl)}
+            />
           </S.ClickRow>
 
           {/* 계좌이체 박스 */}
@@ -81,12 +91,9 @@ const PriceSection: React.FC<PriceSectionProps> = ({ form }) => {
               <S.CopyTitle>직접 계좌이체</S.CopyTitle>
               <S.CopySub>ㅣ</S.CopySub>
             </S.CopyText>
-            <S.CopyImg
-              onClick={() => {
-                onCopyClick(account);
-              }}
-              src={COPY}
-            />
+            {bankAccount && (
+              <S.CopyImg onClick={() => onCopyClick(bankAccount)} src={COPY} />
+            )}
             <S.AccountText>{account}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>

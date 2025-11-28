@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import { postBooking } from '../../apis/booking';
 import { ApiEnvelopeNullable } from '../../../../types/api.type';
+import { postBooking } from '../../../../apis/bookingApi';
+import { PERFORMANCE_ID } from '../../../../config/performance';
 
 type BookingRequest = {
   name: string;
@@ -8,11 +9,8 @@ type BookingRequest = {
   headCount: number;
 };
 
-export const usePostBooking = (performanceId: number = 1) => {
+export const usePostBooking = (performanceId: number = PERFORMANCE_ID) => {
   return useMutation<ApiEnvelopeNullable<null>, unknown, BookingRequest>({
-    mutationFn: async (body) => {
-      const res = await postBooking(performanceId, body);
-      return res.data;
-    },
+    mutationFn: (body) => postBooking(performanceId, body),
   });
 };

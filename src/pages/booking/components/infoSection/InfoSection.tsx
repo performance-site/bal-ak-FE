@@ -8,9 +8,16 @@ import POSTER from '@/assets/booking/poster.svg';
 type InfoSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
   performanceData: any;
+  preSaleFee: string;
+  onSiteFee: string;
 };
 
-const InfoSection: React.FC<InfoSectionProps> = ({ form, performanceData }) => {
+const InfoSection: React.FC<InfoSectionProps> = ({
+  form,
+  performanceData,
+  preSaleFee,
+  onSiteFee,
+}) => {
   const { checked, toggleCheck } = form;
 
   const homeData = performanceData;
@@ -29,10 +36,10 @@ const InfoSection: React.FC<InfoSectionProps> = ({ form, performanceData }) => {
           <S.DetailInfo>
             <S.PriceText>
               <S.BasicPrice>
-                현장예매: {PRICE.VENUE.toLocaleString()}원
+                현장예매: {Number(onSiteFee).toLocaleString()}원
               </S.BasicPrice>
               <S.BookingPrice>
-                사전예매: {PRICE.BOOKING.toLocaleString()}원
+                사전예매: {Number(preSaleFee).toLocaleString()}원
               </S.BookingPrice>
             </S.PriceText>
 

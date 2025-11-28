@@ -1,10 +1,11 @@
-export interface BookingLinkResponse {
-  isSuccess: boolean;
-  code: string;
-  httpStatus: number;
-  message: string;
-  data: {
-    openChatUrl: string;
-  };
-  timeStamp: string;
+export interface BookingInfoResponse {
+  openChatUrl: string;
+  preSaleEndTime: string;
+  preSaleFee: string;
+  onSiteFee: string;
+  bankName: string;
+  bankAccount: string;
+  accountHolder: string;
+  kakaopayUrl: string;
+  naverpayUrl: string;
 }

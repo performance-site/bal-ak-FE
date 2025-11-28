@@ -9,8 +9,8 @@ interface SongProps {
 const Song = ({ song }: SongProps) => {
   return (
     <S.SongContainer>
-      <Youtube youtubeUrl={song.youtubeUrl} />
-      <S.SongP>{song.lyrics}</S.SongP>
+      <Youtube youtubeUrl={song?.youtubeUrl} />
+      <S.SongP>{song?.lyrics}</S.SongP>
     </S.SongContainer>
   );
 };

@@ -10,9 +10,10 @@ import PriceSection from './components/priceSection/PriceSection';
 import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
 import SubmitModal from './components/submitModal/SubmitModal';
-import { useGetBookingLink } from './hooks/useQuery/useGetBookingLink';
+import { useGetBookingInfo } from './hooks/useQuery/useGetBookingInfo';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
+import { formatToMonthDayWeek } from '../../utils/booking/date';
 
 const Booking = () => {
   const { data: performanceData } = useGetHomeData();
@@ -22,8 +23,26 @@ const Booking = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data } = useGetBookingLink();
-  const questionLink = data?.data?.openChatUrl ?? '';
+  const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
+
+  const questionLink = data?.data?.openChatUrl ?? ''; // 문의하기 링크
+
+  // 송금 관련 링크
+  const kakaopayUrl = data?.data?.kakaopayUrl ?? '';
+  const naverpayUrl = data?.data?.naverpayUrl ?? '';
+
+  // 가격 정보
+  const preSaleFee = data?.data?.preSaleFee ?? '';
+  const onSiteFee = data?.data?.onSiteFee ?? '';
+
+  // 예매 마감일
+  const preSaleEndTime = data?.data?.preSaleEndTime ?? '';
+  const endTime = formatToMonthDayWeek(preSaleEndTime);
+
+  // 계좌 정보
+  const bankName = data?.data?.bankName ?? '';
+  const bankAccount = data?.data?.bankAccount ?? '';
+  const accountHolder = data?.data?.accountHolder ?? '';
 
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
@@ -57,11 +76,16 @@ const Booking = () => {
           title="사전예매"
           questionText="예매 관련 문의하기"
           questionLink={questionLink}
-          subtitle="더 싼 가격으로 미리 하는 사전예매 ~ 12/19(금)"
+          subtitle={`더 싼 가격으로 미리 하는 사전예매 ~ ${endTime}`}
         />
 
         {/* 공연 기본 정보 확인 */}
-        <InfoSection form={form} performanceData={performanceData} />
+        <InfoSection
+          form={form}
+          performanceData={performanceData}
+          preSaleFee={preSaleFee}
+          onSiteFee={onSiteFee}
+        />
         <S.Line />
 
         <Element name="info">
@@ -73,7 +97,14 @@ const Booking = () => {
 
         <Element name="price">
           {/* 가격 안내 및 입금 */}
-          <PriceSection form={form} />
+          <PriceSection
+            form={form}
+            kakaopayUrl={kakaopayUrl}
+            naverpayUrl={naverpayUrl}
+            bankName={bankName}
+            bankAccount={bankAccount}
+            accountHolder={accountHolder}
+          />
         </Element>
 
         <S.Line />

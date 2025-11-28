@@ -33,6 +33,8 @@ const colors = {
 
   white: '#FFFFFF',
   black: '#000000',
+
+  red: '#FF027A',
 };
 
 const gradients = {
