@@ -17,7 +17,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
         <InputField
           title="입금자 성함"
           variant="large"
-          placeholder="홍길동"
+          placeholder="김들불"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
