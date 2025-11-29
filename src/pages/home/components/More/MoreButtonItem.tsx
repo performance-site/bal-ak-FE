@@ -2,6 +2,7 @@ import * as S from './styles/MoreButtonItem.style';
 import instagramImg from '../../../../assets/images/home/More/INSTAGRAM.svg';
 import menuImg from '../../../../assets/images/home/More/Menu.png';
 import youtubeImg from '../../../../assets/images/home/More/YOUTUBE.svg';
+import useNavigation from '../../../../hooks/useNavigation';
 
 interface ButtonItemProps {
   type: string;
@@ -35,13 +36,10 @@ const ICON_SIZES = {
   EVENT_NOTICE: { width: '4.6rem', height: '3.6rem' },
 };
 
-const handleExternalLink = (url: string) => {
-  window.location.href = url;
-};
-
 function MoreButtonItem(data: ButtonItemProps) {
   const imgSrc = converter(data.type);
   const typeKey = data.type.toUpperCase() as keyof typeof ICON_SIZES;
+  const { goTo } = useNavigation();
   const size = ICON_SIZES[typeKey];
   return (
     <S.ItemWrapper>
@@ -49,7 +47,7 @@ function MoreButtonItem(data: ButtonItemProps) {
         src={imgSrc}
         $iconWidth={size.width}
         $iconHeight={size.height}
-        onClick={() => handleExternalLink(data.url)}
+        onClick={() => goTo(data.url)}
       />
       <S.ItemInfo>{data.name}</S.ItemInfo>
     </S.ItemWrapper>

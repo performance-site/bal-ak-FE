@@ -11,6 +11,7 @@ export const PlayerContainer = styled.div`
   backdrop-filter: blur(25px);
   border-radius: 12px;
   padding-top: 1.2rem;
+  cursor: pointer;
   box-shadow:
     inset -1px -1px 4px -2px rgba(255, 255, 255, 1),
     inset 1px 1px 4px -2px rgba(255, 255, 255, 1);

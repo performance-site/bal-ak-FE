@@ -8,4 +8,5 @@ export const PerformenceInfoContainer = styled.div`
 export const PerformenceInfo = styled.p`
   font-size: 1.2rem;
   font-weight: 600;
+  text-align: center;
 `;

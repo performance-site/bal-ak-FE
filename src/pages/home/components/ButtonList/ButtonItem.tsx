@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
 import * as S from './styles/ButtonItem.style';
+import useNavigation from '../../../../hooks/useNavigation';
 
 interface ButtonItemProps {
   src: string;
@@ -10,13 +10,13 @@ interface ButtonItemProps {
 }
 
 function ButtonItem(data: ButtonItemProps) {
-  const navigate = useNavigate();
+  const { goTo } = useNavigation();
 
   const handleClick = () => {
     if (data.onScrollToKakaoMap) {
       data.onScrollToKakaoMap();
     } else {
-      navigate(data.link);
+      goTo(data.link);
     }
   };
 
