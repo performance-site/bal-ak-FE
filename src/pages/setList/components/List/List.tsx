@@ -29,7 +29,7 @@ const List = ({ data, nowPlayingOrder }: ListProps) => {
       const maxScrollTop = container.scrollHeight - container.clientHeight;
 
       if (spacerRef.current) {
-        spacerRef.current.style.height = 'calc(100vh - 11.5rem)';
+        spacerRef.current.style.height = 'calc(100vh - 10.5rem)';
       }
 
       container.scrollTo({
