@@ -1,15 +1,22 @@
-import UseBookingForm from '../../../../hooks/UseBookingForm';
-import * as S from './SubmitModal.style';
+import * as S from './BookingModal.style';
 
 import CLOSE from '@/assets/booking/close.svg';
-import useNavigation from '../../../../hooks/useNavigation';
+import UseBookingForm from '../../hooks/UseBookingForm';
+import useNavigation from '../../hooks/useNavigation';
 
 type SubmitModalProps = {
   form: ReturnType<typeof UseBookingForm>;
   questionLink: string;
+  title: string;
+  content: string;
 };
 
-const SubmitModal: React.FC<SubmitModalProps> = ({ form, questionLink }) => {
+const BookingModal: React.FC<SubmitModalProps> = ({
+  form,
+  questionLink,
+  title,
+  content,
+}) => {
   const { name, phone, member } = form;
   const { goTo } = useNavigation();
 
@@ -17,14 +24,18 @@ const SubmitModal: React.FC<SubmitModalProps> = ({ form, questionLink }) => {
     <S.ModalOverlay>
       <S.ModalContainer>
         <S.ModalHeader>
-          <S.ModalTitle>사전 예매가 완료되었습니다.</S.ModalTitle>
+          <S.ModalTitle>{title}</S.ModalTitle>
           <S.CloseIcon src={CLOSE} onClick={() => goTo('/')} />
         </S.ModalHeader>
         <S.ModalContent>
-          <S.UserText>{`${name} | ${member}매 | ${phone}`}</S.UserText>
-          <S.EndText>
-            {`문의 사항은 아래 [문의하기] 버튼을 통해 접수해 주세요.\n공연 당일에 뵙겠습니다. 감사합니다.`}
-          </S.EndText>
+          {(name || member || phone) && (
+            <S.UserText>
+              {[name && `${name}`, member && `${member}매`, phone && `${phone}`]
+                .filter(Boolean)
+                .join(' | ')}
+            </S.UserText>
+          )}
+          <S.EndText>{content} </S.EndText>
           <S.ButtonContainer>
             <a href={questionLink} target="_blank" rel="noopener noreferrer">
               <S.ModalBtn>
@@ -42,4 +53,4 @@ const SubmitModal: React.FC<SubmitModalProps> = ({ form, questionLink }) => {
   );
 };
 
-export default SubmitModal;
+export default BookingModal;
