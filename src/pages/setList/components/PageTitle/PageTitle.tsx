@@ -21,7 +21,13 @@ const PageTitle = () => {
 
       <S.PageTitleButton onClick={handleClick}>
         전곡듣기
-        <S.PageTitleButtonImg src={PageTitleArrow} alt="arrow" />
+        <S.PageTitleButtonImg
+          src={PageTitleArrow}
+          alt="arrow"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
       </S.PageTitleButton>
     </S.PageTitleContainer>
   );

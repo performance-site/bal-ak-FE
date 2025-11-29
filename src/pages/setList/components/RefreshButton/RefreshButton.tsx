@@ -8,7 +8,13 @@ interface RefreshButtonProps {
 const RefreshButton = ({ onClick }: RefreshButtonProps) => {
   return (
     <S.RefreshButtonContainer onClick={onClick}>
-      <S.RefreshImg src={RefreshButtonLogo} alt="refresh" />
+      <S.RefreshImg
+        src={RefreshButtonLogo}
+        alt="refresh"
+        loading="eager"
+        decoding="async"
+        draggable={false}
+      />
     </S.RefreshButtonContainer>
   );
 };

@@ -43,6 +43,9 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
             alt="heart"
             onClick={() => toggleLike()}
             $isAnimating={isAnimating}
+            loading="eager"
+            decoding="async"
+            draggable={false}
           />
           <S.AlbumExplainP fontWeight={400} fontSize="1.2rem" color="gray2">
             {likes}

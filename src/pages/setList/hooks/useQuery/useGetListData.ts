@@ -10,5 +10,7 @@ export const useGetListData = () => {
       return res.data;
     },
     staleTime: 1000 * 60,
+    refetchInterval: 7000,
+    refetchIntervalInBackground: true,
   });
 };
