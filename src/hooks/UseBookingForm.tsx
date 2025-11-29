@@ -26,6 +26,7 @@ const UseBookingForm = () => {
 
   const errorMsgs = useMemo(() => {
     const msgs: string[] = [];
+    if (!checked.info) msgs.push('*공연 정보 항목을 다시 확인해 주세요.');
     if (!isNameValid || !isPhoneValid || !isMemberValid)
       msgs.push('*예매 정보 입력 항목을 다시 확인해 주세요.');
     if (!checked.price)
