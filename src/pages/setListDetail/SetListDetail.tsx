@@ -14,7 +14,7 @@ const SetListDetail = () => {
   const { id: performanceSongId } = useParams<{ id: string }>();
   const { data, isLoading } = useGetTrackData(Number(performanceSongId));
   const [selectedTab, setSelectedTab] = useState<'song' | 'team'>('song');
-  // console.log(data);
+  console.log(data);
 
   if (isLoading || !data)
     return (
@@ -23,7 +23,7 @@ const SetListDetail = () => {
       </S.SpinnerContainer>
     );
 
-  const { track, team, song } = data.data;
+  const { track, team } = data.data;
 
   return (
     <S.SetListDetailContainer className="scroll">
@@ -35,7 +35,7 @@ const SetListDetail = () => {
 
         <AlbumTap onTabChange={setSelectedTab} />
 
-        {selectedTab === 'song' ? <Song song={song} /> : <Team team={team} />}
+        {selectedTab === 'song' ? <Song song={track} /> : <Team team={team} />}
       </S.SetListDetailInnerContainer>
     </S.SetListDetailContainer>
   );
