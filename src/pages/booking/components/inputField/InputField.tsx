@@ -9,7 +9,9 @@ interface InputFieldProps {
   width?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: 'default' | 'phone';
+  role?: 'default' | 'phone';
+  type?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -19,14 +21,16 @@ const InputField: React.FC<InputFieldProps> = ({
   width,
   value,
   onChange,
-  type = 'default',
+  role = 'default',
+  type,
+  inputMode,
 }) => {
   const [phone1, setPhone1] = useState('');
   const [phone2, setPhone2] = useState('');
   const [phone3, setPhone3] = useState('');
 
   useEffect(() => {
-    if (type === 'phone' && onChange) {
+    if (role === 'phone' && onChange) {
       const Number = `${phone1}-${phone2}-${phone3}`;
       onChange({
         target: { value: Number },
@@ -37,7 +41,7 @@ const InputField: React.FC<InputFieldProps> = ({
   return (
     <S.InputFieldContainer>
       <S.fieldTitle>{title}</S.fieldTitle>
-      {type === 'phone' ? (
+      {role === 'phone' ? (
         <S.NumberInput>
           <InputBox
             variant="small"
@@ -46,6 +50,8 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) =>
               setPhone1(e.target.value.replace(/[^0-9]/g, '').slice(0, 3))
             }
+            inputMode="numeric"
+            type="tel"
           />
           -
           <InputBox
@@ -56,6 +62,8 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) =>
               setPhone2(e.target.value.replace(/[^0-9]/g, '').slice(0, 4))
             }
+            inputMode="numeric"
+            type="tel"
           />
           -
           <InputBox
@@ -66,6 +74,8 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) =>
               setPhone3(e.target.value.replace(/[^0-9]/g, '').slice(0, 4))
             }
+            inputMode="numeric"
+            type="tel"
           />
         </S.NumberInput>
       ) : (
@@ -75,6 +85,8 @@ const InputField: React.FC<InputFieldProps> = ({
           width={width}
           value={value}
           onChange={onChange}
+          inputMode={inputMode}
+          type={type}
         />
       )}
     </S.InputFieldContainer>

@@ -24,7 +24,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
 
         <InputField
           title="입금자 전화번호"
-          type="phone"
+          role="phone"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
@@ -35,6 +35,8 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           placeholder="ex. 1"
           value={member}
           onChange={(e) => setMember(e.target.value.replace(/[^0-9]/g, ''))}
+          inputMode="numeric"
+          type="tel"
         />
       </S.InfoInput>
     </S.InputSectionContainer>

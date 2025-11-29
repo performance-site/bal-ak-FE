@@ -6,6 +6,8 @@ interface InputBoxProps {
   width?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -14,6 +16,8 @@ const InputBox: React.FC<InputBoxProps> = ({
   width,
   value,
   onChange,
+  type,
+  inputMode,
 }) => {
   const size = {
     small: { width: '5rem', height: '2.7rem', padding: '0.5rem 1.2rem' },
@@ -35,7 +39,13 @@ const InputBox: React.FC<InputBoxProps> = ({
       $height={size.height}
       $padding={size.padding}
     >
-      <S.Input placeholder={placeholder} value={value} onChange={onChange} />
+      <S.Input
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        inputMode={inputMode}
+        type={type}
+      />
     </S.InputBoxContainer>
   );
 };
