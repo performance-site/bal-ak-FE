@@ -27,6 +27,9 @@ export const Input = styled.input`
   flex: 1;
   min-width: 0;
 
+  font-family: Pretendard;
+
   &::placeholder {
+    font-family: Pretendard;
     color: ${({ theme }) => theme.colors.gray8}
 `;
