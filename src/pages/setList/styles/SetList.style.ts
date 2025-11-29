@@ -7,7 +7,7 @@ export const SetListContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 6.8rem;
+  padding-top: 3.4rem;
   overflow: hidden;
 `;
 
@@ -15,7 +15,7 @@ export const ListBar = styled.div`
   width: 0.1rem;
   height: 100%;
   position: absolute;
-  top: 15rem;
+  top: 11.5rem;
   left: 3rem;
   background: ${({ theme }) => theme.colors.gray3};
   box-shadow: 0 0 0.4rem 0
