@@ -5,7 +5,7 @@ import { SetListItem } from '../../../../types/setList/setList.type';
 
 interface ListProps {
   data: SetListItem[];
-  nowPlayingOrder: number;
+  nowPlayingOrder: number | null;
 }
 
 const List = ({ data, nowPlayingOrder }: ListProps) => {

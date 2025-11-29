@@ -15,8 +15,8 @@ export const ListBar = styled.div`
   width: 0.1rem;
   height: 100%;
   position: absolute;
-  top: 19.5rem;
-  left: 2.9rem;
+  top: 15rem;
+  left: 3rem;
   background: ${({ theme }) => theme.colors.gray3};
   box-shadow: 0 0 0.4rem 0
     ${({ theme }) => theme.hexToRgba(theme.colors.purple2, 0.18)};

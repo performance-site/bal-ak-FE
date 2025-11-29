@@ -8,7 +8,7 @@ export interface SetListItem {
 }
 
 export interface SetListData {
-  nowPlayingOrder: number;
+  nowPlayingOrder: number | null;
   setlist: SetListItem[];
 }
 

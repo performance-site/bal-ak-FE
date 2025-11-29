@@ -9,12 +9,13 @@ import useNavigation from '../../../../hooks/useNavigation';
 interface ItemProps {
   data: SetListItem;
   index: number;
-  nowPlayingOrder: number;
+  nowPlayingOrder: number | null;
 }
 
 const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
-  const isCurrent = data.order == nowPlayingOrder;
   const isBeforeShow = nowPlayingOrder === -1 && index === 0;
+  const isCurrent = data.order === nowPlayingOrder || isBeforeShow;
+
   const { goTo } = useNavigation();
 
   return (
@@ -23,7 +24,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
 
       <S.ItemRightContainer
         onClick={() =>
-          goTo(isBeforeShow ? '/' : `/setlist/${data.performanceSongId}`)
+          goTo(isBeforeShow ? '/home' : `/setlist/${data.performanceSongId}`)
         }
       >
         <S.ItemRightInnerContainer>
