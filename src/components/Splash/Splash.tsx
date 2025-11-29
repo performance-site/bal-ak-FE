@@ -32,7 +32,7 @@ const Splash = () => {
           decoding="async"
           draggable={false}
         />
-        <S.LogoP>DEUL BUL</S.LogoP>
+        <S.LogoP>DEUL BULL</S.LogoP>
       </S.LogoContainer>
     </S.SplashContainer>
   );
