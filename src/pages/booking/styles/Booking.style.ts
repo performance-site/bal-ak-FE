@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BookingContainer = styled.div`
-  padding: 2.5rem;
+  padding: 2.4rem;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
