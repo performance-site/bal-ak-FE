@@ -9,11 +9,11 @@ import InputSection from './components/inputSection/InputSection';
 import PriceSection from './components/priceSection/PriceSection';
 import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
-import SubmitModal from './components/submitModal/SubmitModal';
 import { useGetBookingInfo } from './hooks/useQuery/useGetBookingInfo';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 import { formatToMonthDayWeek } from '../../utils/booking/date';
+import BookingModal from '../../components/BookingModal/BookingModal';
 
 const Booking = () => {
   // 공연 정보
@@ -133,7 +133,14 @@ const Booking = () => {
         </Element>
       </S.BookingContainer>
 
-      {isOpen && <SubmitModal form={form} questionLink={openChatUrl} />}
+      {isOpen && (
+        <BookingModal
+          form={form}
+          questionLink={openChatUrl}
+          title="사전 예매가 완료되었습니다."
+          content={`문의 사항은 아래 [문의하기] 버튼을 통해 접수해 주세요.\n공연 당일에 뵙겠습니다. 감사합니다.`}
+        />
+      )}
     </>
   );
 };
