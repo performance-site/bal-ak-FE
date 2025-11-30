@@ -75,4 +75,5 @@ export const InfoText = styled.p`
   font-weight: 400;
   line-height: 140%; /* 16.8px */
   letter-spacing: -0.03rem;
+  white-space: pre-line;
 `;
