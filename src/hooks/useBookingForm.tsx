@@ -25,7 +25,7 @@ const getInput = (key: string) => {
   }
 };
 
-const UseBookingFormtemp = () => {
+const useBookingForm = () => {
   const [name, setName] = useState(() => getInput('name'));
   const [phone, setPhone] = useState(() => getInput('phone'));
   const [member, setMember] = useState(() => getInput('member'));
@@ -87,4 +87,4 @@ const UseBookingFormtemp = () => {
   };
 };
 
-export default UseBookingFormtemp;
+export default useBookingForm;
