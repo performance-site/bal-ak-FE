@@ -5,7 +5,7 @@ import Splash from '../components/Splash/Splash';
 
 import NotFound from '../pages/notFound/NotFound';
 import Home from '../pages/home/home';
-import Booking from '../pages/booking/booking';
+import Booking from '../pages/booking/Booking';
 import SetList from '../pages/setList/SetList';
 import SetListDetail from '../pages/setListDetail/SetListDetail';
 
