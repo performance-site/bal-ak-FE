@@ -70,7 +70,7 @@ export const CopyBox = styled.div`
   display: flex;
   height: 4rem;
   padding: 1rem 2rem;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid ${({ theme }) => theme.colors.purple1};
@@ -103,7 +103,7 @@ export const CopyImg = styled.img`
   width: 1.7rem;
   height: 1.7rem;
   flex-shrink: 0;
-  margin: 0.14rem 0.21rem;
+  margin: 0.14rem 0.5rem 0.14rem 0.21rem;
   cursor: pointer;
 `;
 
