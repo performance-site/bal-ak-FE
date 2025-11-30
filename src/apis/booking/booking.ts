@@ -1,7 +1,7 @@
-import { PERFORMANCE_ID } from '../config/performance';
-import { ApiEnvelope, ApiEnvelopeNullable } from '../types/api.type';
-import { BookingInfoResponse } from '../types/booking/booking.type';
-import apiInstance from './axios/instance';
+import { PERFORMANCE_ID } from '../../config/performance';
+import { ApiEnvelope, ApiEnvelopeNullable } from '../../types/api.type';
+import { BookingInfoResponse } from '../../types/booking/booking.type';
+import apiInstance from '../axios/instance';
 
 export interface BookingRequest {
   name: string;
