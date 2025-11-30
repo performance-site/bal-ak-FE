@@ -1,11 +1,11 @@
 import * as S from './BookingModal.style';
 
 import CLOSE from '@/assets/booking/close.svg';
-import UseBookingForm from '../../hooks/UseBookingForm';
 import useNavigation from '../../hooks/useNavigation';
+import useBookingForm from '../../hooks/useBookingForm';
 
 type SubmitModalProps = {
-  form: ReturnType<typeof UseBookingForm>;
+  form: ReturnType<typeof useBookingForm>;
   questionLink: string;
   title: string;
   content: string;

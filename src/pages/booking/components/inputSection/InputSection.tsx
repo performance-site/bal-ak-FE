@@ -1,10 +1,10 @@
-import UseBookingForm from '../../../../hooks/UseBookingForm';
+import useBookingForm from '../../../../hooks/useBookingForm';
 import InputField from '../inputField/InputField';
 import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './InputSection.style';
 
 type InputSectionProps = {
-  form: ReturnType<typeof UseBookingForm>;
+  form: ReturnType<typeof useBookingForm>;
 };
 
 const InputSection: React.FC<InputSectionProps> = ({ form }) => {

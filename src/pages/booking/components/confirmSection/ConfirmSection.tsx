@@ -1,10 +1,10 @@
-import UseBookingForm from '../../../../hooks/UseBookingForm';
+import useBookingForm from '../../../../hooks/useBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './ConfirmSection.style';
 
 type ConfirmSectionProps = {
-  form: ReturnType<typeof UseBookingForm>;
+  form: ReturnType<typeof useBookingForm>;
 };
 
 const ConfirmSection: React.FC<ConfirmSectionProps> = ({ form }) => {
