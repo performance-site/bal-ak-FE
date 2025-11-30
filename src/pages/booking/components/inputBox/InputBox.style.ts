@@ -30,6 +30,5 @@ export const Input = styled.input`
   font-family: Pretendard;
 
   &::placeholder {
-    font-family: Pretendard;
     color: ${({ theme }) => theme.colors.gray8}
 `;
