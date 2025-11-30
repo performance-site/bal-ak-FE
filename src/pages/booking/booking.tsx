@@ -3,7 +3,6 @@ import * as S from './styles/Booking.style';
 import { Element } from 'react-scroll';
 
 import SectionHeader from './components/sectionHeader/SectionHeader';
-import UseBookingForm from '../../hooks/UseBookingForm';
 import InfoSection from './components/infoSection/InfoSection';
 import InputSection from './components/inputSection/InputSection';
 import PriceSection from './components/priceSection/PriceSection';
@@ -14,6 +13,7 @@ import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 import { formatToMonthDayWeek } from '../../utils/booking/date';
 import BookingModal from '../../components/BookingModal/BookingModal';
+import UseBookingForm from '../../hooks/UseBookingForm';
 
 const Booking = () => {
   // 공연 정보
@@ -63,6 +63,9 @@ const Booking = () => {
   };
 
   const handleOpen = () => {
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('phone');
+    sessionStorage.removeItem('member');
     setIsOpen((prev) => !prev);
   };
 
