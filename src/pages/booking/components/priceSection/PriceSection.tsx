@@ -7,6 +7,7 @@ import * as S from './PriceSection.style';
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
 import useNavigation from '../../../../hooks/useNavigation';
+import Toast from '../toast/Toast';
 
 type PriceSectionProps = {
   form: ReturnType<typeof UseBookingForm>;
@@ -38,10 +39,15 @@ const PriceSection: React.FC<PriceSectionProps> = ({
     goTo(url);
   };
 
+  const [showToast, setShowToast] = useState(false);
+
   const onCopyClick = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      console.log('계좌번호 복사 성공');
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
     } catch (e) {
       console.log('계좌번호 복사 실패');
     }
@@ -109,6 +115,8 @@ const PriceSection: React.FC<PriceSectionProps> = ({
           onChange={() => toggleCheck('price')}
         />
       </S.PayBoxWrapper>
+
+      {showToast && <Toast />}
     </S.PriceContainer>
   );
 };
