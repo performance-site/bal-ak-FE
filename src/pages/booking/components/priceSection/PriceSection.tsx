@@ -47,7 +47,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
-      }, 3000);
+      }, 1000);
     } catch (e) {
       console.log('계좌번호 복사 실패');
     }
