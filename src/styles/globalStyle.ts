@@ -4,7 +4,7 @@ import 'pretendard/dist/web/variable/pretendardvariable.css';
 const GlobalStyle = createGlobalStyle`
     :root {
         --vh: 100%;
-        --font-family: 'Pretendard', sans-serif;
+        --font-family: "Pretendard Variable", Pretendard, sans-serif;
     }
 
     html, body, #root {
@@ -81,6 +81,7 @@ const GlobalStyle = createGlobalStyle`
 
     * {
         box-sizing: border-box;
+        font-synthesis: none;
     } 
     
     ul, li, ol {
