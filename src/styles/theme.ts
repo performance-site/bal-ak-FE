@@ -51,6 +51,9 @@ const gradients = {
                 linear-gradient(180deg, rgba(211,96,229,0.24) 0%, rgba(69,75,249,0.24) 100%), 
                 linear-gradient(180deg, rgba(211,96,229,0.08) 0%, rgba(69,75,249,0.08) 100%)`,
   showInfo: `linear-gradient(180deg, rgba(123, 87, 228, 0.12) 0%, rgba(44, 31, 81, 0) 36.54%, rgba(123, 87, 228, 0.12) 100%)`,
+  toast: `linear-gradient(180deg, rgba(233,233,233,0.24) 0%, rgba(255,255,255,0.16) 100%), 
+                linear-gradient(180deg, rgba(211,96,229,0.54) 0%, rgba(69,75,249,0.54) 100%), 
+                linear-gradient(180deg, rgba(211,96,229,0.54) 0%, rgba(69,75,249,0.54) 100%)`,
 
   setListPageTitleBackground: `linear-gradient(97.62deg, ${hexToRgba(colors.purple1, 0.5)} 43.66%, ${hexToRgba(colors.purple2, 0.5)} 116.16%)`,
   setListPageTitleBorder: `linear-gradient(97.62deg, ${colors.purple1} 43.66%, ${colors.purple2} 116.16%)`,
