@@ -20,6 +20,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           placeholder="김들불"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          inputMode="text"
         />
 
         <InputField
