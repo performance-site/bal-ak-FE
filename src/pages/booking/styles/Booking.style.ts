@@ -13,6 +13,8 @@ export const BookingContainer = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+
+  overflow-x: hidden;
 `;
 
 export const Line = styled.hr`
