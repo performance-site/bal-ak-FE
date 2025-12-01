@@ -3,6 +3,7 @@ import middleImg from '../../../../assets/images/home/PlayerBtn/middle.svg';
 import bottomImg from '../../../../assets/images/home/PlayerBtn/bottom.svg';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 import { useShallow } from 'zustand/shallow';
+import useNavigation from '../../../../hooks/useNavigation';
 
 function Player() {
   const { currentSongTitle, currentSongArtist, currentSongAlbumUrl } =
@@ -14,8 +15,10 @@ function Player() {
       })),
     );
 
+  const { goTo } = useNavigation();
+
   return (
-    <S.PlayerContainer>
+    <S.PlayerContainer onClick={() => goTo('/setlist')}>
       <S.PlayerHeader>
         <S.PlayerImg $imageUrl={currentSongAlbumUrl} />
         <S.PlayerTextWrapper>

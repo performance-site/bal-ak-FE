@@ -13,21 +13,27 @@ import useGetHomeData from './hooks/useQuery/useGetHomeData';
 
 const Home = () => {
   const posterRef = useRef<HTMLDivElement>(null);
+  const kakaoMapRef = useRef<HTMLDivElement>(null);
 
   useGetHomeData();
 
   const handleScrollToPoster = () => {
     posterRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const handleScrollToKakaoMap = () => {
+    kakaoMapRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <HomeContainer className="scroll">
       <Header />
       <Performence />
-      <ButtonList />
+      <ButtonList onScrollToKakaoMap={handleScrollToKakaoMap} />
       <DropDownBtn onScrollToPoster={handleScrollToPoster} />
       <Poster ref={posterRef} />
       <NowPlaying />
-      <KakaoMap />
+      <KakaoMap ref={kakaoMapRef} />
       <More />
       <Footer />
     </HomeContainer>

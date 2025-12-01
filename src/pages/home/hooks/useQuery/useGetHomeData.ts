@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import homeFetchData from '../../apis/home';
+import homeFetchData from '../../../../apis/home/home';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 import { HomeData } from '../../../../types/home/home.type';
 

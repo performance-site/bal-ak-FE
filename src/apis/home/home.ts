@@ -1,4 +1,4 @@
-import apiInstance from '../../../apis/axios/instance';
+import apiInstance from '../axios/instance';
 
 const homeFetchData = async () => {
   try {
