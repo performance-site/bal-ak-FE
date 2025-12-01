@@ -9,10 +9,22 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
     null,
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [kakaoLoaded, setKakaoLoaded] = useState(false);
 
   useEffect(() => {
-    if (!location) {
-      setIsLoading(false);
+    const checkKakaoLoaded = () => {
+      if (window.kakao && window.kakao.maps) {
+        setKakaoLoaded(true);
+      } else {
+        setTimeout(checkKakaoLoaded, 100);
+      }
+    };
+    checkKakaoLoaded();
+  }, []);
+
+  useEffect(() => {
+    if (!location || !kakaoLoaded) {
+      if (!location) setIsLoading(false);
       return;
     }
 
@@ -30,9 +42,9 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
         setIsLoading(false);
       }
     });
-  }, [location]);
+  }, [location, kakaoLoaded]);
 
-  if (isLoading) {
+  if (!kakaoLoaded || isLoading) {
     return (
       <S.MapWrapper>
         <S.MapContainer>지도 로딩중...</S.MapContainer>
