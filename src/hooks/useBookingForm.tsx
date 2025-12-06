@@ -37,17 +37,15 @@ const useBookingForm = () => {
   });
 
   useEffect(() => {
-    if (name) setInput('name', name);
+    setInput('name', name);
   }, [name]);
 
   useEffect(() => {
-    if (/^010-\d{3,4}-\d{4}$/.test(phone)) {
-      setInput('phone', phone);
-    }
+    setInput('phone', phone);
   }, [phone]);
 
   useEffect(() => {
-    if (member) setInput('member', member);
+    setInput('member', member);
   }, [member]);
 
   // 위의 세 타입 중 하나만 받도록 설정
