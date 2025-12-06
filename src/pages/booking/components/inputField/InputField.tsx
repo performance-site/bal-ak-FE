@@ -30,13 +30,13 @@ const InputField: React.FC<InputFieldProps> = ({
   const [phone3, setPhone3] = useState('');
 
   useEffect(() => {
-    if (role === 'phone' && onChange) {
-      const Number = `${phone1}-${phone2}-${phone3}`;
-      onChange({
-        target: { value: Number },
-      } as React.ChangeEvent<HTMLInputElement>);
+    if (role === 'phone' && value) {
+      const [p1 = '', p2 = '', p3 = ''] = value.split('-');
+      setPhone1(p1);
+      setPhone2(p2);
+      setPhone3(p3);
     }
-  }, [phone1, phone2, phone3]);
+  }, [value, role]);
 
   return (
     <S.InputFieldContainer>

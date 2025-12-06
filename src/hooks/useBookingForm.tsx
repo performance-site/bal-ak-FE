@@ -41,7 +41,9 @@ const useBookingForm = () => {
   }, [name]);
 
   useEffect(() => {
-    if (phone) setInput('phone', phone);
+    if (/^010-\d{3,4}-\d{4}$/.test(phone)) {
+      setInput('phone', phone);
+    }
   }, [phone]);
 
   useEffect(() => {
