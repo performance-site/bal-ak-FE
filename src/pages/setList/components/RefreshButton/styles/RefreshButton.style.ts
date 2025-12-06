@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const RefreshButtonContainer = styled.button`
   z-index: 2;
@@ -17,7 +26,13 @@ export const RefreshButtonContainer = styled.button`
     ${({ theme }) => theme.hexToRgba(theme.colors.background1, 0.14)};
 `;
 
-export const RefreshImg = styled.img`
+export const RefreshImg = styled.img<{ spinning: boolean }>`
   width: 1.8rem;
   height: auto;
+
+  ${({ spinning }) =>
+    spinning &&
+    css`
+      animation: ${rotate} 0.6s linear;
+    `}
 `;
