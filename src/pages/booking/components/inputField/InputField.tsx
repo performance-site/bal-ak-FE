@@ -8,7 +8,7 @@ interface InputFieldProps {
   variant?: 'small' | 'medium' | 'large';
   width?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: string) => void;
   role?: 'default' | 'phone';
   type?: string;
   inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
@@ -38,6 +38,10 @@ const InputField: React.FC<InputFieldProps> = ({
     }
   }, [value, role]);
 
+  const emit = (p1: string, p2: string, p3: string) => {
+    onChange?.(`${p1}-${p2}-${p3}`);
+  };
+
   return (
     <S.InputFieldContainer>
       <S.fieldTitle>{title}</S.fieldTitle>
@@ -50,9 +54,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) => {
               const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 3);
               setPhone1(v);
-              onChange?.({
-                target: { value: `${v}-${phone2}-${phone3}` },
-              } as React.ChangeEvent<HTMLInputElement>);
+              emit(v, phone2, phone3);
             }}
             inputMode="numeric"
             type="tel"
@@ -66,9 +68,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) => {
               const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
               setPhone2(v);
-              onChange?.({
-                target: { value: `${phone1}-${v}-${phone3}` },
-              } as React.ChangeEvent<HTMLInputElement>);
+              emit(phone1, v, phone3);
             }}
             inputMode="numeric"
             type="tel"
@@ -82,9 +82,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) => {
               const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
               setPhone3(v);
-              onChange?.({
-                target: { value: `${phone1}-${phone2}-${v}` },
-              } as React.ChangeEvent<HTMLInputElement>);
+              emit(phone1, phone2, v);
             }}
             inputMode="numeric"
             type="tel"
@@ -96,7 +94,7 @@ const InputField: React.FC<InputFieldProps> = ({
           variant={variant}
           width={width}
           value={value}
-          onChange={onChange}
+          onChange={(e) => onChange?.(e.target.value)}
           inputMode={inputMode}
           type={type}
         />

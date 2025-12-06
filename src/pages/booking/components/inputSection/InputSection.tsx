@@ -19,7 +19,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           variant="large"
           placeholder="김들불"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(v) => setName(v)}
           inputMode="text"
         />
 
@@ -27,7 +27,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           title="입금자 전화번호"
           role="phone"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={(v) => setPhone(v)}
         />
 
         <InputField
@@ -35,7 +35,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           variant="medium"
           placeholder="ex. 1"
           value={member}
-          onChange={(e) => setMember(e.target.value.replace(/[^0-9]/g, ''))}
+          onChange={(v) => setMember(v.replace(/[^0-9]/g, ''))}
           inputMode="numeric"
           type="tel"
         />
