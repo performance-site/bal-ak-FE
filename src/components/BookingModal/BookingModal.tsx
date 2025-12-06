@@ -5,7 +5,7 @@ import useNavigation from '../../hooks/useNavigation';
 import useBookingForm from '../../hooks/useBookingForm';
 
 type SubmitModalProps = {
-  form: ReturnType<typeof useBookingForm>;
+  form?: ReturnType<typeof useBookingForm>;
   questionLink: string;
   title: string;
   content: string;
@@ -17,7 +17,10 @@ const BookingModal: React.FC<SubmitModalProps> = ({
   title,
   content,
 }) => {
-  const { name, phone, member } = form;
+  const name = form?.name ?? '';
+  const phone = form?.phone ?? '';
+  const member = form?.member ?? '';
+
   const { goTo } = useNavigation();
 
   return (
