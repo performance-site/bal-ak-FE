@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { postLike } from '../../../../apis/setListDetail/like';
 import { useSession } from '../../../../hooks/useSession';
 import type { LikeResponse } from '../../../../types/setListDetail/like.type';
@@ -13,36 +13,30 @@ export const usePostLikeData = (
     false,
   );
 
-  const [likes, setLikes] = useSession<number>(
-    `track_${performanceSongId}_likes`,
-    initialLikes,
-  );
+  const [likes, setLikes] = useState<number>(initialLikes);
 
   const [isAnimating, setIsAnimating] = useState(false);
 
   const mutation = useMutation<LikeResponse, Error, boolean>({
-    mutationFn: (newLiked) =>
-      postLike(performanceSongId, newLiked).then((res) => res.data),
+    mutationFn: async (newLiked) => {
+      const res = await postLike(performanceSongId, newLiked);
+      return res.data;
+    },
 
     onMutate: (newLiked) => {
-      const newLikes = newLiked ? likes + 1 : likes - 1;
-
       setLiked(newLiked);
-      setLikes(newLikes);
+      setLikes((prev) => (newLiked ? prev + 1 : prev - 1));
       setIsAnimating(true);
     },
 
-    onSuccess: (data) => {
-      const { likes: serverLikes } = data.data;
-
+    onSuccess: (response) => {
+      const { likes: serverLikes } = response.data;
       setLikes(serverLikes);
     },
 
-    onError: (_error, newLiked) => {
-      const rollbackLikes = newLiked ? likes - 1 : likes + 1;
-
+    onError: (_err, newLiked) => {
       setLiked(!newLiked);
-      setLikes(rollbackLikes);
+      setLikes((prev) => (newLiked ? prev - 1 : prev + 1));
     },
 
     onSettled: () => {
@@ -50,9 +44,12 @@ export const usePostLikeData = (
     },
   });
 
+  useEffect(() => {
+    setLikes(initialLikes);
+  }, [initialLikes]);
+
   const toggleLike = () => {
-    const newLiked = !liked;
-    mutation.mutate(newLiked);
+    mutation.mutate(!liked);
   };
 
   return {
