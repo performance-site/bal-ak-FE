@@ -47,9 +47,13 @@ const InputField: React.FC<InputFieldProps> = ({
             variant="small"
             placeholder="010"
             value={phone1}
-            onChange={(e) =>
-              setPhone1(e.target.value.replace(/[^0-9]/g, '').slice(0, 3))
-            }
+            onChange={(e) => {
+              const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 3);
+              setPhone1(v);
+              onChange?.({
+                target: { value: `${v}-${phone2}-${phone3}` },
+              } as React.ChangeEvent<HTMLInputElement>);
+            }}
             inputMode="numeric"
             type="tel"
           />
@@ -59,9 +63,13 @@ const InputField: React.FC<InputFieldProps> = ({
             width="5.8rem"
             placeholder="1234"
             value={phone2}
-            onChange={(e) =>
-              setPhone2(e.target.value.replace(/[^0-9]/g, '').slice(0, 4))
-            }
+            onChange={(e) => {
+              const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
+              setPhone2(v);
+              onChange?.({
+                target: { value: `${phone1}-${v}-${phone3}` },
+              } as React.ChangeEvent<HTMLInputElement>);
+            }}
             inputMode="numeric"
             type="tel"
           />
@@ -71,9 +79,13 @@ const InputField: React.FC<InputFieldProps> = ({
             width="5.8rem"
             placeholder="5678"
             value={phone3}
-            onChange={(e) =>
-              setPhone3(e.target.value.replace(/[^0-9]/g, '').slice(0, 4))
-            }
+            onChange={(e) => {
+              const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
+              setPhone3(v);
+              onChange?.({
+                target: { value: `${phone1}-${phone2}-${v}` },
+              } as React.ChangeEvent<HTMLInputElement>);
+            }}
             inputMode="numeric"
             type="tel"
           />
