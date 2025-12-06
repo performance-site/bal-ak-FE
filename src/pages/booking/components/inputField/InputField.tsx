@@ -38,7 +38,7 @@ const InputField: React.FC<InputFieldProps> = ({
     }
   }, [value, role]);
 
-  const emit = (p1: string, p2: string, p3: string) => {
+  const storePhone = (p1: string, p2: string, p3: string) => {
     onChange?.(`${p1}-${p2}-${p3}`);
   };
 
@@ -54,7 +54,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) => {
               const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 3);
               setPhone1(v);
-              emit(v, phone2, phone3);
+              storePhone(v, phone2, phone3);
             }}
             inputMode="numeric"
             type="tel"
@@ -68,7 +68,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) => {
               const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
               setPhone2(v);
-              emit(phone1, v, phone3);
+              storePhone(phone1, v, phone3);
             }}
             inputMode="numeric"
             type="tel"
@@ -82,7 +82,7 @@ const InputField: React.FC<InputFieldProps> = ({
             onChange={(e) => {
               const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
               setPhone3(v);
-              emit(phone1, phone2, v);
+              storePhone(phone1, phone2, v);
             }}
             inputMode="numeric"
             type="tel"
