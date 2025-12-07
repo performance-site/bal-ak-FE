@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import LogoSvg from '@/assets/images/splash/logo.svg?react';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -27,14 +28,14 @@ export const LogoContainer = styled.div<{ fadeState: 'fadeIn' | 'fadeOut' }>`
   ${({ fadeState }) =>
     fadeState === 'fadeIn'
       ? css`
-          animation: ${fadeIn} 1s forwards;
+          animation: ${fadeIn} 0.5s forwards;
         `
       : css`
-          animation: ${fadeOut} 1s forwards;
+          animation: ${fadeOut} 0.5s forwards;
         `}
 `;
 
-export const LogoImg = styled.img`
+export const LogoSvgStyled = styled(LogoSvg)`
   width: 14.1rem;
   height: 14.1rem;
   opacity: 0.8;
