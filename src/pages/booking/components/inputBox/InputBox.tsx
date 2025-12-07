@@ -8,6 +8,7 @@ interface InputBoxProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type?: string;
   inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+  centerPlaceholder?: boolean;
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -18,6 +19,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   onChange,
   type,
   inputMode,
+  centerPlaceholder = false,
 }) => {
   const size = {
     small: { width: '5rem', height: '2.7rem' },
@@ -39,6 +41,9 @@ const InputBox: React.FC<InputBoxProps> = ({
         onChange={onChange}
         inputMode={inputMode}
         type={type}
+        style={{
+          textAlign: !value && centerPlaceholder ? 'center' : 'left',
+        }}
       />
     </S.InputBoxContainer>
   );

@@ -22,7 +22,6 @@ export const Input = styled.input`
   line-height: 140%; /* 1.05rem */
   letter-spacing: -0.03rem;
   padding: 0.5rem 1.2rem;
-  text-align: center;
 
   flex: 1;
   min-width: 0;

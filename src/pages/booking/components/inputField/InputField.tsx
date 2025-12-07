@@ -12,6 +12,7 @@ interface InputFieldProps {
   role?: 'default' | 'phone';
   type?: string;
   inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
+  centerPlaceholder?: boolean;
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -24,6 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({
   role = 'default',
   type,
   inputMode,
+  centerPlaceholder = false,
 }) => {
   const [phone1, setPhone1] = useState('');
   const [phone2, setPhone2] = useState('');
@@ -58,6 +60,7 @@ const InputField: React.FC<InputFieldProps> = ({
             }}
             inputMode="numeric"
             type="tel"
+            centerPlaceholder={centerPlaceholder}
           />
           -
           <InputBox
@@ -72,6 +75,7 @@ const InputField: React.FC<InputFieldProps> = ({
             }}
             inputMode="numeric"
             type="tel"
+            centerPlaceholder={centerPlaceholder}
           />
           -
           <InputBox
@@ -86,6 +90,7 @@ const InputField: React.FC<InputFieldProps> = ({
             }}
             inputMode="numeric"
             type="tel"
+            centerPlaceholder={centerPlaceholder}
           />
         </S.NumberInput>
       ) : (
@@ -97,6 +102,7 @@ const InputField: React.FC<InputFieldProps> = ({
           onChange={(e) => onChange?.(e.target.value)}
           inputMode={inputMode}
           type={type}
+          centerPlaceholder={centerPlaceholder}
         />
       )}
     </S.InputFieldContainer>
