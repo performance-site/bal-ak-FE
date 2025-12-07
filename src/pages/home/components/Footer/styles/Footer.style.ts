@@ -8,9 +8,10 @@ export const FooterContainer = styled.footer`
   top: 200rem;
   background: linear-gradient(
     to bottom,
-    rgba(156, 69, 169, 0.2),
-    rgba(34, 23, 41, 0.4),
-    rgba(0, 0, 0, 0.3)
+    rgba(34, 23, 41, 0.4) 0%,
+    rgba(156, 69, 169, 0.2) 30%,
+    rgba(156, 69, 169, 0.2) 70%,
+    rgba(34, 23, 41, 0.4) 100%
   );
 `;
 
