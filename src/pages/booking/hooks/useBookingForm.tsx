@@ -1,52 +1,16 @@
-import { useEffect, useMemo, useState } from 'react';
-
-const EXPIRATION_MIN = 10;
-
-// 저장하는 함수
-const setInput = (key: string, value: string) => {
-  const expires = Date.now() + EXPIRATION_MIN * 60 * 1000;
-  sessionStorage.setItem(key, JSON.stringify({ value, expires }));
-};
-
-// 불러오는 함수
-const getInput = (key: string) => {
-  const item = sessionStorage.getItem(key);
-  if (!item) return '';
-
-  try {
-    const { value, expires } = JSON.parse(item);
-    if (Date.now() > expires) {
-      sessionStorage.removeItem(key);
-      return '';
-    }
-    return value;
-  } catch {
-    return '';
-  }
-};
+import { useMemo, useState } from 'react';
+import useExpiringSession from './useExpiringSession';
 
 const useBookingForm = () => {
-  const [name, setName] = useState(() => getInput('name'));
-  const [phone, setPhone] = useState(() => getInput('phone'));
-  const [member, setMember] = useState(() => getInput('member'));
+  const [name, setName] = useExpiringSession('name', '');
+  const [phone, setPhone] = useExpiringSession('phone', '');
+  const [member, setMember] = useExpiringSession('member', '');
 
   const [checked, setChecked] = useState({
     info: false,
     price: false,
     confirm: false,
   });
-
-  useEffect(() => {
-    setInput('name', name);
-  }, [name]);
-
-  useEffect(() => {
-    setInput('phone', phone);
-  }, [phone]);
-
-  useEffect(() => {
-    setInput('member', member);
-  }, [member]);
 
   // 위의 세 타입 중 하나만 받도록 설정
   const toggleCheck = (key: keyof typeof checked) => {
