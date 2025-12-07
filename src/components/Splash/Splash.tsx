@@ -1,4 +1,5 @@
 import * as S from './styles/Splash.style';
+import Logo from '../../assets/images/splash/logo.svg';
 import useNavigation from '../../hooks/useNavigation';
 import { useEffect, useState } from 'react';
 
@@ -24,7 +25,13 @@ const Splash = () => {
   return (
     <S.SplashContainer>
       <S.LogoContainer fadeState={fadeState}>
-        <S.LogoSvgStyled />
+        <S.LogoImg
+          src={Logo}
+          alt="lgoo"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
         <S.LogoP>DEUL BULL</S.LogoP>
       </S.LogoContainer>
     </S.SplashContainer>
