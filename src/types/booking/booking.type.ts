@@ -8,4 +8,5 @@ export interface BookingInfoResponse {
   accountHolder: string;
   kakaopayUrl: string;
   naverpayUrl: string;
+  entryStartTime: string;
 }

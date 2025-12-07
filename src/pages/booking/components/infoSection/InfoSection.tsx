@@ -7,6 +7,7 @@ type InfoSectionProps = {
   performanceData: any;
   preSaleFee: string;
   onSiteFee: string;
+  entryStartTime: string;
 };
 
 const InfoSection: React.FC<InfoSectionProps> = ({
@@ -14,6 +15,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   performanceData,
   preSaleFee,
   onSiteFee,
+  entryStartTime,
 }) => {
   const { checked, toggleCheck } = form;
 
@@ -28,7 +30,9 @@ const InfoSection: React.FC<InfoSectionProps> = ({
         <S.TextBox>
           <S.ShowTitle>
             <S.TitleText>{homeData?.title}</S.TitleText>
-            <S.InfoText>{homeData?.dateTime}</S.InfoText>
+            <S.InfoText>
+              {homeData?.dateTime} (입장 시간 {entryStartTime})
+            </S.InfoText>
           </S.ShowTitle>
 
           <S.DetailInfo>
