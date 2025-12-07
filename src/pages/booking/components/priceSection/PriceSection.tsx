@@ -29,13 +29,15 @@ const PriceSection: React.FC<PriceSectionProps> = ({
   preSaleFee,
 }) => {
   const { goTo } = useNavigation();
-  const { name, member, checked, toggleCheck } = form;
+  const { name, member, checked, toggleCheck, setPaymentMethod } = form;
   const account = `${bankName} ${bankAccount} ${accountHolder}`;
 
   const [selected, setSelected] = useState<string | null>(null);
+  const isAccountSelected = selected === '계좌이체';
 
   const handleSelect = (text: string, url: string) => {
     setSelected(text);
+    setPaymentMethod(text);
     goTo(url);
   };
 
@@ -44,12 +46,14 @@ const PriceSection: React.FC<PriceSectionProps> = ({
   const onCopyClick = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
+      setPaymentMethod('계좌이체');
+      setSelected('계좌이체');
       setShowToast(true);
       setTimeout(() => {
         setShowToast(false);
       }, 1000);
     } catch (e) {
-      console.log('계좌번호 복사 실패');
+      console.log('계좌번호 복사 실패 ', e);
     }
   };
 
@@ -96,7 +100,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
           </S.ClickRow>
 
           {/* 계좌이체 박스 */}
-          <S.CopyBox>
+          <S.CopyBox $isSelected={isAccountSelected}>
             <S.CopyText>
               <S.CopyTitle>직접 계좌이체</S.CopyTitle>
               <S.CopySub>ㅣ</S.CopySub>
@@ -104,7 +108,9 @@ const PriceSection: React.FC<PriceSectionProps> = ({
             {bankAccount && (
               <S.CopyImg onClick={() => onCopyClick(bankAccount)} src={COPY} />
             )}
-            <S.AccountText>{account}</S.AccountText>
+            <S.AccountText $isSelected={isAccountSelected}>
+              {account}
+            </S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
         <ScrollCheck

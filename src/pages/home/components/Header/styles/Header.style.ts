@@ -6,7 +6,6 @@ interface SliderWrapperProps {
 }
 
 interface SlideItemProps {
-  $imageURL: string;
   $imageCount: number;
 }
 
@@ -33,8 +32,14 @@ export const SlideItem = styled.div<SlideItemProps>`
   width: ${(props) => 100 / props.$imageCount}%;
   height: 100%;
   flex-shrink: 0;
-  background-image: url(${(props) => props.$imageURL});
-  background-size: cover;
-  background-position: center;
   background-color: #f0f0f0;
+
+  img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
 `;

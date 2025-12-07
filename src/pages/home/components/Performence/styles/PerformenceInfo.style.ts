@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const PerformenceInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.3rem;
 `;
 
 export const PerformenceInfo = styled.p`

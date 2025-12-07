@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 interface PlayerImgProps {
   $imageUrl: string | null;
@@ -36,12 +37,13 @@ export const PlayerTextWrapper = styled.div`
 
 export const PlayerTitle = styled.p`
   font-size: 1.6rem;
-  font-widght: 500;
+  font-weight: 500;
 `;
 
 export const PlayerArtist = styled.p`
   font-size: 1.2rem;
-  font-wieght: 400;
+  font-weight: 400;
+  color: ${theme.colors.gray4};
 `;
 
 export const PlayerImg = styled.div<PlayerImgProps>`

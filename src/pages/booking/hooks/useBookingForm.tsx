@@ -5,6 +5,10 @@ const useBookingForm = () => {
   const [name, setName] = useExpiringSession('name', '');
   const [phone, setPhone] = useExpiringSession('phone', '');
   const [member, setMember] = useExpiringSession('member', '');
+  const [paymentMethod, setPaymentMethod] = useExpiringSession(
+    'paymentMethod',
+    '',
+  );
 
   const [checked, setChecked] = useState({
     info: false,
@@ -48,6 +52,8 @@ const useBookingForm = () => {
     setPhone,
     setMember,
     toggleCheck,
+    paymentMethod,
+    setPaymentMethod,
   };
 };
 

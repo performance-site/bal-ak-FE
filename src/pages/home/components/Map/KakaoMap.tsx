@@ -2,8 +2,10 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import * as S from './styles/KakaoMap.style';
 import { useState, useEffect, forwardRef } from 'react';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
+import Spinner from '../../../../components/Spinner/Spinner';
 
-const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
+const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
+  const venue = useHomeStore((state) => state.homeData?.venue);
   const location = useHomeStore((state) => state.homeData?.location);
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null,
@@ -13,7 +15,7 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
 
   useEffect(() => {
     const checkKakaoLoaded = () => {
-      if (window.kakao && window.kakao.maps) {
+      if (window.kakao && window.kakao.maps && window.kakao.maps.services) {
         setKakaoLoaded(true);
       } else {
         setTimeout(checkKakaoLoaded, 100);
@@ -23,15 +25,21 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
   }, []);
 
   useEffect(() => {
-    if (!location || !kakaoLoaded) {
+    if (
+      !location ||
+      !kakaoLoaded ||
+      !window.kakao ||
+      !window.kakao.maps ||
+      !window.kakao.maps.services
+    ) {
       if (!location) setIsLoading(false);
       return;
     }
 
-    const geocoder = new kakao.maps.services.Geocoder();
+    const geocoder = new window.kakao.maps.services.Geocoder();
 
     geocoder.addressSearch(location, (result, status) => {
-      if (status === kakao.maps.services.Status.OK) {
+      if (status === window.kakao.maps.services.Status.OK) {
         const coords = {
           lat: parseFloat(result[0].y),
           lng: parseFloat(result[0].x),
@@ -44,6 +52,14 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
     });
   }, [location, kakaoLoaded]);
 
+  // 주소를 검색어로 사용하여 카카오맵 열기
+  const handleOpenKakaoMap = () => {
+    if (!location) return;
+
+    const url = `https://map.kakao.com/link/search/${encodeURIComponent(location)}`;
+    window.open(url, '_blank');
+  };
+
   if (!kakaoLoaded || isLoading) {
     return (
       <S.MapWrapper>
@@ -55,7 +71,9 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
   if (!position) {
     return (
       <S.MapWrapper>
-        <S.MapContainer>주소를 찾을 수 없습니다.</S.MapContainer>
+        <S.MapContainer>
+          <Spinner />
+        </S.MapContainer>
       </S.MapWrapper>
     );
   }
@@ -66,7 +84,7 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
         <S.MapTitle>Concert Location</S.MapTitle>
         <S.MapSubTitle>위치 안내</S.MapSubTitle>
       </S.TitleWrapper>
-      <S.MapWrapper>
+      <S.MapWrapper onClick={handleOpenKakaoMap}>
         <Map
           center={position}
           style={{ width: '100%', height: '100%' }}
@@ -78,7 +96,7 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
       <S.AddressInfo>
         <S.AddressText>위치 : {location}</S.AddressText>
       </S.AddressInfo>
-      <S.AddressReminder>장소: {location}</S.AddressReminder>
+      <S.AddressReminder>장소: {venue}</S.AddressReminder>
     </S.MapContainer>
   );
 });

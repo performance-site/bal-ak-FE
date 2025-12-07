@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 export const PerformenceTitleContainer = styled.div`
   width: 100%;
@@ -7,12 +8,13 @@ export const PerformenceTitleContainer = styled.div`
   flex-direction: column;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(25px);
+  backdrop-filter: blur(12.5px);
   justify-content: center;
   align-items: center;
   box-shadow:
-    inset 1px 1px 1px 1px rgba(170, 170, 170, 1),
-    inset -1px -1px 1px 1px rgba(150, 150, 150, 1);
+    1px 1px 1px 0px #969696 inset,
+    -1px -1px 1px 0px #aaa inset,
+    0 4px 12px 0 rgba(4, 0, 250, 0.06);
 `;
 
 export const PerformenceTitle = styled.p`
@@ -23,4 +25,5 @@ export const PerformenceTitle = styled.p`
 export const PerformenceSubtitle = styled.p`
   font-size: 1.2rem;
   font-weight: 400;
+  color: ${theme.colors.gray2};
 `;

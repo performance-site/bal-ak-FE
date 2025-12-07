@@ -7,11 +7,12 @@ interface ItemImgProps extends ItemWrapperProps {
 }
 
 export const ItemWrapper = styled.div`
-  min-width: 5.2rem
+  min-width: 5.2rem;
   height: 5.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 0.8rem;
   align-items: center;
 `;
 

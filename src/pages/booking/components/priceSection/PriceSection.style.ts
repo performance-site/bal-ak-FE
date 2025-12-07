@@ -66,7 +66,7 @@ export const ClickRow = styled.div`
   gap: 1rem;
 `;
 
-export const CopyBox = styled.div`
+export const CopyBox = styled.div<{ $isSelected?: boolean }>`
   display: flex;
   height: 4rem;
   padding: 1rem 2rem;
@@ -74,7 +74,12 @@ export const CopyBox = styled.div`
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid ${({ theme }) => theme.colors.purple1};
-  background: ${({ theme }) => theme.gradients.checkbox};
+
+  background: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.gradients.clickbox : theme.gradients.checkbox};
+
+  box-shadow: ${({ theme, $isSelected }) =>
+    $isSelected ? '' : theme.gradients.checkbox};
 `;
 
 export const CopyText = styled.div`
@@ -107,8 +112,9 @@ export const CopyImg = styled.img`
   cursor: pointer;
 `;
 
-export const AccountText = styled.p`
-  color: ${({ theme }) => theme.colors.gray8};
+export const AccountText = styled.span<{ $isSelected?: boolean }>`
+  color: ${({ theme, $isSelected }) =>
+    $isSelected ? theme.colors.white : theme.colors.gray8};
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */
