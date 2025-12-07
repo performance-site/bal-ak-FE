@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
+    svgr({
+      svgrOptions: { exportType: 'default' },
+    }),
     react(),
     VitePWA({
       registerType: 'autoUpdate', // 새 버전 생기면 자동 업데이트
@@ -36,6 +40,9 @@ export default defineConfig({
             type: 'image/png',
           },
         ],
+      },
+      workbox: {
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
       },
     }),
   ],
