@@ -2,7 +2,7 @@ import * as S from './BookingModal.style';
 
 import CLOSE from '@/assets/booking/close.svg';
 import useNavigation from '../../hooks/useNavigation';
-import useBookingForm from '../../hooks/useBookingForm';
+import useBookingForm from '../../pages/booking/hooks/useBookingForm';
 
 type SubmitModalProps = {
   form?: ReturnType<typeof useBookingForm>;

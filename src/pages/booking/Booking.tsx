@@ -13,7 +13,7 @@ import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 import { formatToMonthDayWeek } from '../../utils/booking/date';
 import BookingModal from '../../components/BookingModal/BookingModal';
-import useBookingForm from '../../hooks/useBookingForm';
+import useBookingForm from './hooks/useBookingForm';
 
 const Booking = () => {
   // 공연 정보

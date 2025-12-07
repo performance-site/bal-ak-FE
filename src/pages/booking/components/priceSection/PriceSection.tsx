@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useBookingForm from '../../../../hooks/useBookingForm';
+import useBookingForm from '../../hooks/useBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './PriceSection.style';
@@ -107,7 +107,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
             <S.AccountText>{account}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
-
+        c
         <ScrollCheck
           to="confirm"
           text="송금 완료했습니다."

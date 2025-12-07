@@ -1,4 +1,4 @@
-import useBookingForm from '../../../../hooks/useBookingForm';
+import useBookingForm from '../../hooks/useBookingForm';
 import InputField from '../inputField/InputField';
 import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './InputSection.style';
