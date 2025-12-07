@@ -46,6 +46,14 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
     });
   }, [location, kakaoLoaded]);
 
+  // 주소를 검색어로 사용하여 카카오맵 열기
+  const handleOpenKakaoMap = () => {
+    if (!location) return;
+
+    const url = `https://map.kakao.com/link/search/${encodeURIComponent(location)}`;
+    window.open(url, '_blank');
+  };
+
   if (!kakaoLoaded || isLoading) {
     return (
       <S.MapWrapper>
@@ -70,7 +78,7 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
         <S.MapTitle>Concert Location</S.MapTitle>
         <S.MapSubTitle>위치 안내</S.MapSubTitle>
       </S.TitleWrapper>
-      <S.MapWrapper>
+      <S.MapWrapper onClick={handleOpenKakaoMap}>
         <Map
           center={position}
           style={{ width: '100%', height: '100%' }}
