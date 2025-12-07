@@ -15,7 +15,7 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
 
   useEffect(() => {
     const checkKakaoLoaded = () => {
-      if (window.kakao && window.kakao.maps) {
+      if (window.kakao && window.kakao.maps && window.kakao.maps.services) {
         setKakaoLoaded(true);
       } else {
         setTimeout(checkKakaoLoaded, 100);
@@ -25,15 +25,21 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
   }, []);
 
   useEffect(() => {
-    if (!location || !kakaoLoaded) {
+    if (
+      !location ||
+      !kakaoLoaded ||
+      !window.kakao ||
+      !window.kakao.maps ||
+      !window.kakao.maps.services
+    ) {
       if (!location) setIsLoading(false);
       return;
     }
 
-    const geocoder = new kakao.maps.services.Geocoder();
+    const geocoder = new window.kakao.maps.services.Geocoder();
 
     geocoder.addressSearch(location, (result, status) => {
-      if (status === kakao.maps.services.Status.OK) {
+      if (status === window.kakao.maps.services.Status.OK) {
         const coords = {
           lat: parseFloat(result[0].y),
           lng: parseFloat(result[0].x),

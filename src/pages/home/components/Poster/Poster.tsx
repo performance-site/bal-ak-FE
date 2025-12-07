@@ -29,6 +29,7 @@ const Poster = forwardRef<HTMLDivElement, unknown>((_, ref) => {
                   alt={`메인 사진 ${index + 1}`}
                   fetchPriority={index === 0 ? 'high' : 'auto'}
                   loading={index === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
                 />
               </S.PosterItem>
             ))}

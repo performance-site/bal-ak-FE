@@ -11,12 +11,14 @@ function Header() {
   // console.log(images);
 
   useEffect(() => {
-    const nextIndex = (currentIndex + 1) % images.length;
+    if (!images || images.length === 0) return;
+
     const timer = setInterval(() => {
-      setCurrentIndex(nextIndex);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
     }, SLIDE_INTERVAL);
+
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [images.length]);
 
   return (
     <div>
@@ -26,11 +28,15 @@ function Header() {
           $imageCount={images.length}
         >
           {images.map((imageURL, index) => (
-            <S.SlideItem
-              key={index}
-              $imageURL={imageURL}
-              $imageCount={images.length}
-            />
+            <S.SlideItem key={index} $imageCount={images.length}>
+              <img
+                src={imageURL}
+                alt={`메인 배너 ${index + 1}`}
+                fetchPriority={index === 0 ? 'high' : 'auto'}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+            </S.SlideItem>
           ))}
         </S.SliderWrapper>
         <HeaderTitle />
