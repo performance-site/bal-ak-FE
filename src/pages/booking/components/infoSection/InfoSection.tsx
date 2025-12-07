@@ -2,8 +2,6 @@ import useBookingForm from '../../hooks/useBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
 
-import POSTER from '@/assets/booking/poster.svg';
-
 type InfoSectionProps = {
   form: ReturnType<typeof useBookingForm>;
   performanceData: any;
@@ -20,11 +18,12 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   const { checked, toggleCheck } = form;
 
   const homeData = performanceData;
+  const posterUrl = homeData?.posterUrls?.[0];
 
   return (
     <S.InfoContainer>
       <S.ShowInfoContainer>
-        <S.Poster src={POSTER} />
+        <S.Poster src={posterUrl} />
 
         <S.TextBox>
           <S.ShowTitle>
