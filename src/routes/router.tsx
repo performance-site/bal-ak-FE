@@ -1,30 +1,75 @@
 import { createBrowserRouter } from 'react-router-dom';
 import RootLayout from '../layouts/RootLayout';
-
+import { Suspense, lazy } from 'react';
 import Splash from '../components/Splash/Splash';
-
-import NotFound from '../pages/notFound/NotFound';
+import Spinner from '../components/Spinner/Spinner';
 import Home from '../pages/home/home';
-import Booking from '../pages/booking/booking';
-import SetList from '../pages/setList/SetList';
-import SetListDetail from '../pages/setListDetail/SetListDetail';
+
+const Booking = lazy(() => import('../pages/booking/booking'));
+const SetList = lazy(() => import('../pages/setList/SetList'));
+const SetListDetail = lazy(
+  () => import('../pages/setListDetail/SetListDetail'),
+);
+const NotFound = lazy(() => import('../pages/notFound/NotFound'));
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
     children: [
-      { index: true, element: <Splash /> },
-      { path: 'home', element: <Home /> },
-      { path: 'booking', element: <Booking /> },
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Splash />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'home',
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Home />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'booking',
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <Booking />
+          </Suspense>
+        ),
+      },
       {
         path: 'setlist',
         children: [
-          { index: true, element: <SetList /> },
-          { path: ':id', element: <SetListDetail /> },
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<Spinner />}>
+                <SetList />
+              </Suspense>
+            ),
+          },
+          {
+            path: ':id',
+            element: (
+              <Suspense fallback={<Spinner />}>
+                <SetListDetail />
+              </Suspense>
+            ),
+          },
         ],
       },
-      { path: '*', element: <NotFound /> },
+      {
+        path: '*',
+        element: (
+          <Suspense fallback={<Spinner />}>
+            <NotFound />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);
