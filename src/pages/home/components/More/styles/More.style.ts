@@ -15,9 +15,9 @@ export const MoreBtnContainer = styled.div<MoreBtnContainerProps>`
   top: 181.6rem;
   left: 50%;
   transform: translateX(-50%);
-  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
-  transform: translateX(-50%) translateY(${({ $isVisible }) => ($isVisible ? '0' : '20px')});
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0.3)};
+  transform: translateX(-50%) translateY(${({ $isVisible }) => ($isVisible ? '0' : '10px')});
+  transition: opacity 1s ease-out, transform 1s ease-out;
 `;
 
 export const MoreButtonList = styled.div`

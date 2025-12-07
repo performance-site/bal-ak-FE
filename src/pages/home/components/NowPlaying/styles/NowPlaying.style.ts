@@ -12,7 +12,7 @@ export const NowPlayingContainer = styled.div<NowPlayingContainerProps>`
   left: 50%;
   transform: translateX(-50%);
   height: 23.6rem;
-  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
-  transform: translateX(-50%) translateY(${({ $isVisible }) => ($isVisible ? '0' : '20px')});
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0.3)};
+  transform: translateX(-50%) translateY(${({ $isVisible }) => ($isVisible ? '0' : '10px')});
+  transition: opacity 1s ease-out, transform 1s ease-out;
 `;

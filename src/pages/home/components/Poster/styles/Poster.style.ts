@@ -15,9 +15,9 @@ export const PosterConatiner = styled.div`
 `;
 
 export const FadeInWrapper = styled.div<FadeInWrapperProps>`
-  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
-  transform: translateY(${({ $isVisible }) => ($isVisible ? '0' : '20px')});
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0.3)};
+  transform: translateY(${({ $isVisible }) => ($isVisible ? '0' : '10px')});
+  transition: opacity 1s ease-out, transform 1s ease-out;
 `;
 
 export const PosterSlider = styled.div`
