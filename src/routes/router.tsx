@@ -3,11 +3,14 @@ import RootLayout from '../layouts/RootLayout';
 
 import Splash from '../components/Splash/Splash';
 
-import NotFound from '../pages/notFound/NotFound';
 import Home from '../pages/home/home';
-import Booking from '../pages/booking/Booking';
-import SetList from '../pages/setList/SetList';
-import SetListDetail from '../pages/setListDetail/SetListDetail';
+import { lazy } from 'react';
+const Booking = lazy(() => import('../pages/booking/Booking'));
+const SetList = lazy(() => import('../pages/setList/SetList'));
+const SetListDetail = lazy(
+  () => import('../pages/setListDetail/SetListDetail'),
+);
+const NotFound = lazy(() => import('../pages/notFound/NotFound'));
 
 const router = createBrowserRouter([
   {
