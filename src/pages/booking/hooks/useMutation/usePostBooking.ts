@@ -7,6 +7,7 @@ type BookingRequest = {
   name: string;
   phoneNumber: string;
   headCount: number;
+  paymentMethod: string;
 };
 
 export const usePostBooking = (performanceId: number = PERFORMANCE_ID) => {

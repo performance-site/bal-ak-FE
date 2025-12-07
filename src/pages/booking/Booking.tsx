@@ -50,6 +50,7 @@ const Booking = () => {
         name: form.name,
         phoneNumber: form.phone,
         headCount: Number(form.member),
+        paymentMethod: form.paymentMethod,
       },
       {
         onSuccess: () => {
@@ -67,6 +68,8 @@ const Booking = () => {
     sessionStorage.removeItem('name');
     sessionStorage.removeItem('phone');
     sessionStorage.removeItem('member');
+    sessionStorage.removeItem('paymentMethod');
+
     setIsOpen((prev) => !prev);
   };
 
