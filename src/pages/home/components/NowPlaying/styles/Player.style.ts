@@ -49,7 +49,7 @@ export const PlayerImg = styled.div<PlayerImgProps>`
   height: 4rem;
   border-radius: 4px;
   background-image: url(${(props) => props.$imageUrl});
-  background-color: red;
+  background-size: contain;
 `;
 
 export const ImageWrapper = styled.div`

@@ -10,7 +10,9 @@ const useGetHomeData = () => {
   const query = useQuery<HomeData>({
     queryKey: ['homeData'],
     queryFn: homeFetchData,
-    staleTime: 5 * 60 * 1000,
+    staleTime: 1 * 60 * 1000,
+    refetchInterval: 1 * 60 * 1000,
+    refetchIntervalInBackground: true,
   });
 
   useEffect(() => {
