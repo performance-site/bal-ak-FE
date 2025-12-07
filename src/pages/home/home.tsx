@@ -26,7 +26,7 @@ const Home = () => {
   };
 
   return (
-    <HomeContainer className="scroll">
+    <HomeContainer>
       <Header />
       <Performence />
       <ButtonList onScrollToKakaoMap={handleScrollToKakaoMap} />
