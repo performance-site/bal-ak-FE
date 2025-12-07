@@ -35,10 +35,10 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
     <S.AlbumExplainContainer>
       <S.AlbumExplainPWrapper ref={pRef}>
         <S.AlbumExplainPInner $scroll={scroll}>
-          <S.AlbumExplainP>
+          <S.AlbumExplainP style={{ marginRight: '3rem' }}>
             {track.artist} - {track.title}
           </S.AlbumExplainP>
-          <S.AlbumExplainP>
+          <S.AlbumExplainP style={{ marginRight: '3rem' }}>
             {track.artist} - {track.title}
           </S.AlbumExplainP>
         </S.AlbumExplainPInner>

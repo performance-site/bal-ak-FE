@@ -20,15 +20,16 @@ export const AlbumExplainPWrapper = styled.div`
 `;
 
 export const AlbumExplainPInner = styled.div<{ $scroll?: boolean }>`
-  display: inline-flex;
+  display: flex;
   white-space: nowrap;
-  gap: 4rem;
+  width: max-content;
 
   ${({ $scroll }) =>
     $scroll &&
     css`
       animation: ${marquee} 10s linear infinite;
       animation-delay: 1s;
+      animation-fill-mode: both;
     `}
 `;
 
