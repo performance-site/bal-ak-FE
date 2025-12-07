@@ -2,13 +2,12 @@ import useBookingForm from '../../hooks/useBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
 
-import POSTER from '@/assets/booking/poster.svg';
-
 type InfoSectionProps = {
   form: ReturnType<typeof useBookingForm>;
   performanceData: any;
   preSaleFee: string;
   onSiteFee: string;
+  entryStartTime: string;
 };
 
 const InfoSection: React.FC<InfoSectionProps> = ({
@@ -16,20 +15,24 @@ const InfoSection: React.FC<InfoSectionProps> = ({
   performanceData,
   preSaleFee,
   onSiteFee,
+  entryStartTime,
 }) => {
   const { checked, toggleCheck } = form;
 
   const homeData = performanceData;
+  const posterUrl = homeData?.posterUrls?.[0];
 
   return (
     <S.InfoContainer>
       <S.ShowInfoContainer>
-        <S.Poster src={POSTER} />
+        <S.Poster src={posterUrl} />
 
         <S.TextBox>
           <S.ShowTitle>
             <S.TitleText>{homeData?.title}</S.TitleText>
-            <S.InfoText>{homeData?.dateTime}</S.InfoText>
+            <S.InfoText>
+              {homeData?.dateTime} (입장 시간 {entryStartTime})
+            </S.InfoText>
           </S.ShowTitle>
 
           <S.DetailInfo>

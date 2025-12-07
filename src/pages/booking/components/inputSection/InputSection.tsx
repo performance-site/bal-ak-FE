@@ -28,6 +28,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           role="phone"
           value={phone}
           onChange={(v) => setPhone(v)}
+          centerPlaceholder
         />
 
         <InputField
@@ -38,6 +39,7 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           onChange={(v) => setMember(v.replace(/[^0-9]/g, ''))}
           inputMode="numeric"
           type="tel"
+          centerPlaceholder
         />
       </S.InfoInput>
     </S.InputSectionContainer>

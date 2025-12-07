@@ -37,6 +37,7 @@ const Booking = () => {
     bankName = '',
     bankAccount = '',
     accountHolder = '',
+    entryStartTime = '',
   } = bookingInfoResponse?.data ?? {};
 
   const endTime = formatToMonthDayWeek(preSaleEndTime);
@@ -86,6 +87,7 @@ const Booking = () => {
           performanceData={performanceData}
           preSaleFee={preSaleFee}
           onSiteFee={onSiteFee}
+          entryStartTime={entryStartTime}
         />
         <S.Line />
 
