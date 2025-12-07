@@ -107,7 +107,6 @@ const PriceSection: React.FC<PriceSectionProps> = ({
             <S.AccountText>{account}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
-        c
         <ScrollCheck
           to="confirm"
           text="송금 완료했습니다."
