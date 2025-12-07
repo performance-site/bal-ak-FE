@@ -1,10 +1,36 @@
-import styled, { DefaultTheme } from 'styled-components';
+import styled, { DefaultTheme, keyframes, css } from 'styled-components';
+
+const marquee = keyframes`
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+`;
 
 export const AlbumExplainContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.1rem;
+`;
+
+export const AlbumExplainPWrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+`;
+
+export const AlbumExplainPInner = styled.div<{ $scroll?: boolean }>`
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+
+  ${({ $scroll }) =>
+    $scroll &&
+    css`
+      animation: ${marquee} 10s linear infinite;
+      animation-delay: 1s;
+      animation-fill-mode: both;
+    `}
 `;
 
 export const AlbumExplainP = styled.p<{
@@ -16,8 +42,6 @@ export const AlbumExplainP = styled.p<{
   font-weight: ${({ fontWeight }) => fontWeight || 700};
   color: ${({ theme, color }) => theme.colors[color || 'gray6']};
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 export const AlbumExplainInnerContainer = styled.div`

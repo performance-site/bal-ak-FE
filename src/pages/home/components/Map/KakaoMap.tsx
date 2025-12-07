@@ -1,18 +1,30 @@
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import * as S from './styles/KakaoMap.style';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 
-function KakaoMap() {
+const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const location = useHomeStore((state) => state.homeData?.location);
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null,
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [kakaoLoaded, setKakaoLoaded] = useState(false);
 
   useEffect(() => {
-    if (!location) {
-      setIsLoading(false);
+    const checkKakaoLoaded = () => {
+      if (window.kakao && window.kakao.maps) {
+        setKakaoLoaded(true);
+      } else {
+        setTimeout(checkKakaoLoaded, 100);
+      }
+    };
+    checkKakaoLoaded();
+  }, []);
+
+  useEffect(() => {
+    if (!location || !kakaoLoaded) {
+      if (!location) setIsLoading(false);
       return;
     }
 
@@ -30,9 +42,9 @@ function KakaoMap() {
         setIsLoading(false);
       }
     });
-  }, [location]);
+  }, [location, kakaoLoaded]);
 
-  if (isLoading) {
+  if (!kakaoLoaded || isLoading) {
     return (
       <S.MapWrapper>
         <S.MapContainer>지도 로딩중...</S.MapContainer>
@@ -49,7 +61,7 @@ function KakaoMap() {
   }
 
   return (
-    <S.MapContainer>
+    <S.MapContainer ref={ref}>
       <S.TitleWrapper>
         <S.MapTitle>Concert Location</S.MapTitle>
         <S.MapSubTitle>위치 안내</S.MapSubTitle>
@@ -69,6 +81,6 @@ function KakaoMap() {
       <S.AddressReminder>장소: {location}</S.AddressReminder>
     </S.MapContainer>
   );
-}
+});
 
 export default KakaoMap;

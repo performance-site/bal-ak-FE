@@ -1,5 +1,5 @@
 import * as S from './styles/Splash.style';
-import Logo from '../../assets/images/splash/logo.svg';
+import Logo from '../../assets/images/splash/logo.png';
 import useNavigation from '../../hooks/useNavigation';
 import { useEffect, useState } from 'react';
 
@@ -10,11 +10,11 @@ const Splash = () => {
   useEffect(() => {
     const fadeOutTimer = setTimeout(() => {
       setFadeState('fadeOut');
-    }, 1500);
+    }, 1200);
 
     const navigateTimer = setTimeout(() => {
       goTo('/home');
-    }, 3000);
+    }, 1400);
 
     return () => {
       clearTimeout(fadeOutTimer);
@@ -25,8 +25,14 @@ const Splash = () => {
   return (
     <S.SplashContainer>
       <S.LogoContainer fadeState={fadeState}>
-        <S.LogoImg src={Logo} alt="lgoo" />
-        <S.LogoP>DEUL BUL</S.LogoP>
+        <S.LogoImg
+          src={Logo}
+          alt="lgoo"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
+        <S.LogoP>DEUL BULL</S.LogoP>
       </S.LogoContainer>
     </S.SplashContainer>
   );

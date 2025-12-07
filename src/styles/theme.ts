@@ -19,6 +19,7 @@ const colors = {
   gray7: '#D9D9D9',
   gray8: '#9D9D9D',
   gray9: '#7C7C7C',
+  gray10: '#555555',
 
   purple1: '#886AE2',
   purple2: '#A284F6',

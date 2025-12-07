@@ -4,7 +4,7 @@ export const HeaderTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 4.6rem;
+  top: 2.4rem;
   left: 2.4rem;
 `;
 

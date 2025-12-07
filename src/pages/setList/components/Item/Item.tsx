@@ -9,12 +9,13 @@ import useNavigation from '../../../../hooks/useNavigation';
 interface ItemProps {
   data: SetListItem;
   index: number;
-  nowPlayingOrder: number;
+  nowPlayingOrder: number | null;
 }
 
 const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
-  const isCurrent = data.order == nowPlayingOrder;
   const isBeforeShow = nowPlayingOrder === -1 && index === 0;
+  const isCurrent = data.order === nowPlayingOrder || isBeforeShow;
+
   const { goTo } = useNavigation();
 
   return (
@@ -23,7 +24,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
 
       <S.ItemRightContainer
         onClick={() =>
-          goTo(isBeforeShow ? '/' : `/setlist/${data.performanceSongId}`)
+          goTo(isBeforeShow ? '/home' : `/setlist/${data.performanceSongId}`)
         }
       >
         <S.ItemRightInnerContainer>
@@ -40,6 +41,9 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
             <S.ItemDownloadImg
               src={isCurrent ? ItemDownloadOn : ItemDownloadOff}
               alt="download"
+              loading="eager"
+              decoding="async"
+              draggable={false}
             />
             <S.ItemP
               size="1.2rem"
@@ -53,7 +57,14 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
           </S.ItemPContainer>
         </S.ItemRightInnerContainer>
 
-        <S.ItemArrowImg src={ItemArrow} isWhite={!isCurrent} alt="arrow" />
+        <S.ItemArrowImg
+          src={ItemArrow}
+          isWhite={!isCurrent}
+          alt="arrow"
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
       </S.ItemRightContainer>
     </S.ItemContainer>
   );

@@ -19,6 +19,7 @@ export const DropDownContainer = styled.div`
   top: 65rem;
   left: 50%;
   transform: translatex(-50%);
+  cursor: pointer;
 
   animation: ${float} 3s ease-in-out infinite alternate;
 

@@ -9,9 +9,8 @@ function Footer() {
           <S.Description>
             공연 웹사이트 제작이 필요하면 편하게 연락주세요!
             <br />
-            Interested in making your own band concert website?
-            <br />
-            Get in touch with us!
+            Interested in making your own band concert website? Get in touch
+            with us!
           </S.Description>
           <S.ContactInfo>
             <S.Email href="mailto:hjnee222@gmail.com">

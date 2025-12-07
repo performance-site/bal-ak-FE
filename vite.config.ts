@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate', // 새 버전 생기면 자동 업데이트
+      injectRegister: 'script-defer',
       devOptions: {
         enabled: false, // 개발 중 SW 비활성화
       },

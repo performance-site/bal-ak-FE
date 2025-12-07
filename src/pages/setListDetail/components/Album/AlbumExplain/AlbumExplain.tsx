@@ -5,6 +5,7 @@ import HeartOn from '../../../../../assets/images/setListDetail/heartOn.svg';
 import { usePostLikeData } from '../../../hooks/useMutation/usePostLikeData';
 import { useParams } from 'react-router-dom';
 import { getAlbumExplainList } from '../../../../../utils/setListDetail/albumExplain/albumExplainList';
+import { useRef, useState, useEffect } from 'react';
 
 interface AlbumExplainProps {
   track: Track;
@@ -12,6 +13,15 @@ interface AlbumExplainProps {
 
 const AlbumExplain = ({ track }: AlbumExplainProps) => {
   const { id: performanceSongId } = useParams<{ id: string }>();
+  const [scroll, setScroll] = useState(false);
+  const pRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    if (pRef.current) {
+      const isOverflowing = pRef.current.scrollWidth > pRef.current.clientWidth;
+      setScroll(isOverflowing);
+    }
+  }, [track.artist, track.title]);
 
   const { liked, likes, toggleLike, isAnimating } = usePostLikeData(
     Number(performanceSongId),
@@ -23,9 +33,16 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
 
   return (
     <S.AlbumExplainContainer>
-      <S.AlbumExplainP>
-        {track.artist} - {track.title}
-      </S.AlbumExplainP>
+      <S.AlbumExplainPWrapper ref={pRef}>
+        <S.AlbumExplainPInner $scroll={scroll}>
+          <S.AlbumExplainP style={{ marginRight: '3rem' }}>
+            {track.artist} - {track.title}
+          </S.AlbumExplainP>
+          <S.AlbumExplainP style={{ marginRight: '3rem' }}>
+            {track.artist} - {track.title}
+          </S.AlbumExplainP>
+        </S.AlbumExplainPInner>
+      </S.AlbumExplainPWrapper>
 
       <S.AlbumExplainInnerContainer>
         <S.AlbumExplainDiv>
@@ -43,6 +60,9 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
             alt="heart"
             onClick={() => toggleLike()}
             $isAnimating={isAnimating}
+            loading="eager"
+            decoding="async"
+            draggable={false}
           />
           <S.AlbumExplainP fontWeight={400} fontSize="1.2rem" color="gray2">
             {likes}

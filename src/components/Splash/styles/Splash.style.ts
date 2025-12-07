@@ -27,10 +27,10 @@ export const LogoContainer = styled.div<{ fadeState: 'fadeIn' | 'fadeOut' }>`
   ${({ fadeState }) =>
     fadeState === 'fadeIn'
       ? css`
-          animation: ${fadeIn} 1s forwards;
+          animation: ${fadeIn} 0.5s forwards;
         `
       : css`
-          animation: ${fadeOut} 1s forwards;
+          animation: ${fadeOut} 0.5s forwards;
         `}
 `;
 
