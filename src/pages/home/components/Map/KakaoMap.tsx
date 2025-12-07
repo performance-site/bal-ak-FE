@@ -2,8 +2,10 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import * as S from './styles/KakaoMap.style';
 import { useState, useEffect, forwardRef } from 'react';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
+import Spinner from '../../../../components/Spinner/Spinner';
 
-const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
+const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
+  const venue = useHomeStore((state) => state.homeData?.venue);
   const location = useHomeStore((state) => state.homeData?.location);
   const [position, setPosition] = useState<{ lat: number; lng: number } | null>(
     null,
@@ -55,7 +57,9 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
   if (!position) {
     return (
       <S.MapWrapper>
-        <S.MapContainer>주소를 찾을 수 없습니다.</S.MapContainer>
+        <S.MapContainer>
+          <Spinner />
+        </S.MapContainer>
       </S.MapWrapper>
     );
   }
@@ -78,7 +82,7 @@ const KakaoMap = forwardRef<HTMLDivElement, {}>((_, ref) => {
       <S.AddressInfo>
         <S.AddressText>위치 : {location}</S.AddressText>
       </S.AddressInfo>
-      <S.AddressReminder>장소: {location}</S.AddressReminder>
+      <S.AddressReminder>장소: {venue}</S.AddressReminder>
     </S.MapContainer>
   );
 });

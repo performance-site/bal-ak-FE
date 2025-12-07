@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 export const PosterInfoConatiner = styled.div`
   display: flex;
@@ -16,4 +17,5 @@ export const PosterTitle = styled.p`
 export const PosterSubtitle = styled.p`
   font-size: 1.2rem;
   font-weight: 400;
+  color: ${theme.colors.gray2};
 `;

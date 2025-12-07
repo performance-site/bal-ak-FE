@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 export const MapContainer = styled.div`
   width: 90%;
@@ -31,6 +32,7 @@ export const MapTitle = styled.p`
 export const MapSubTitle = styled.p`
   font-size: 1.2rem;
   font-weight: 400;
+  color: ${theme.colors.gray2};
 `;
 
 export const AddressInfo = styled.div`

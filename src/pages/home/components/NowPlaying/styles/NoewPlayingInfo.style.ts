@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 export const NowPlayingInfoConatiner = styled.div`
   display: flex;
@@ -15,4 +16,5 @@ export const NowPlayingInfoTitle = styled.p`
 export const NowPlayingInfoSubtitle = styled.p`
   font-size: 1.2rem;
   font-weight: 400;
+  color: ${theme.colors.gray2};
 `;

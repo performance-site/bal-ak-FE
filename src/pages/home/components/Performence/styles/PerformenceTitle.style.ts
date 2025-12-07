@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 export const PerformenceTitleContainer = styled.div`
   width: 100%;
@@ -24,4 +25,5 @@ export const PerformenceTitle = styled.p`
 export const PerformenceSubtitle = styled.p`
   font-size: 1.2rem;
   font-weight: 400;
+  color: ${theme.colors.gray2};
 `;
