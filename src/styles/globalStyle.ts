@@ -139,13 +139,66 @@ const GlobalStyle = createGlobalStyle`
         width: 393px;
         min-height: 100vh;
         background: ${({ theme }) => theme.gradients.background};
+        background-size: 105% 105%;
+        background-position: center;
         color: ${({ theme }) => theme.colors.white};
-
+        position: relative;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-    
+        animation: gradientWave 45s ease-in-out infinite;
+
         @media screen and (max-width: 392px) {
             width: 100vw;
+        }
+
+        /* 무대 조명 효과 - 주황빛 spotlight */
+        &::after {
+            content: '';
+            position: fixed;
+            top: 20%;
+            right: 15%;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 140, 60, 0.15) 0%, rgba(255, 100, 40, 0.08) 30%, transparent 70%);
+            border-radius: 50%;
+            animation: spotlightGlow 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(30px);
+        }
+
+        > * {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    @keyframes gradientWave {
+        0% {
+            background-position: 50% 50%;
+        }
+        25% {
+            background-position: 52% 51%;
+        }
+        50% {
+            background-position: 48% 52%;
+        }
+        75% {
+            background-position: 51% 48%;
+        }
+        100% {
+            background-position: 50% 50%;
+        }
+    }
+
+    @keyframes spotlightGlow {
+        0%, 100% {
+            opacity: 0.3;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.6;
+            transform: scale(1.2);
         }
     }
 `;

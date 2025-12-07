@@ -15,6 +15,11 @@ export const ItemWrapper = styled.div<ItemWrapperProps>`
   align-items: center;
   gap: 0.4rem;
   cursor: pointer;
+  transition: transform 0.1s ease;
+
+  &:active {
+  transform: scale(0.95);
+  }
 `;
 
 export const ItemImg = styled.img<ItemImgProps>`

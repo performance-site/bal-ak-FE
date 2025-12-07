@@ -5,7 +5,7 @@ import { useFadeIn } from '../../hooks/useFadeIn';
 
 function More() {
   const IconArray = useHomeStore((state) => state.homeData?.moreLinks);
-  const { elementRef, isVisible } = useFadeIn({ threshold: 0.2, delay: 200 });
+  const { elementRef, isVisible } = useFadeIn({ threshold: 0.01, delay: 200, rootMargin: '100px' });
 
   if (!IconArray) {
     return null;

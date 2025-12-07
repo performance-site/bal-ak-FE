@@ -14,6 +14,12 @@ export const ItemWrapper = styled.div`
   justify-content: space-between;
   gap: 0.8rem;
   align-items: center;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const ItemImg = styled.img<ItemImgProps>`
