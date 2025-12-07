@@ -8,7 +8,6 @@ export const ConfirmContainer = styled.div`
 
 export const ConfirmText = styled.div`
   color: ${({ theme }) => theme.colors.gray6};
-  font-family: Pretendard;
   font-size: 1.3rem;
   font-style: normal;
   font-weight: 700;

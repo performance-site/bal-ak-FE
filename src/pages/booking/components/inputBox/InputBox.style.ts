@@ -19,7 +19,6 @@ export const InputBoxContainer = styled.div<{
 
 export const Input = styled.input`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 1.05rem */

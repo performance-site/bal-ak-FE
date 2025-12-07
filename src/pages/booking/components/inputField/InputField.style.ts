@@ -10,7 +10,6 @@ export const InputFieldContainer = styled.div`
 
 export const fieldTitle = styled.p`
   color: ${({ theme }) => theme.colors.gray6};
-  font-family: Pretendard;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 140%; /* 1.225rem */

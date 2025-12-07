@@ -5,7 +5,7 @@ import Splash from '../components/Splash/Splash';
 import Spinner from '../components/Spinner/Spinner';
 import Home from '../pages/home/home';
 
-const Booking = lazy(() => import('../pages/booking/booking'));
+const Booking = lazy(() => import('../pages/booking/Booking'));
 const SetList = lazy(() => import('../pages/setList/SetList'));
 const SetListDetail = lazy(
   () => import('../pages/setListDetail/SetListDetail'),

@@ -37,7 +37,6 @@ export const ShowTitle = styled.div`
 
 export const TitleText = styled.p`
   color: ${({ theme }) => theme.colors.gray6};
-  font-family: Pretendard;
   font-size: 1.4rem;
   font-weight: 600;
   line-height: 140%; /* 19.6px */
@@ -55,7 +54,6 @@ export const DetailInfo = styled.div`
 
 export const BasicPrice = styled.p`
   color: ${({ theme }) => theme.colors.gray2};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 500;
   line-height: 140%; /* 16.8px */
@@ -65,7 +63,6 @@ export const BasicPrice = styled.p`
 
 export const BookingPrice = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 140%;
@@ -74,9 +71,9 @@ export const BookingPrice = styled.p`
 
 export const InfoText = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 140%; /* 16.8px */
   letter-spacing: -0.03rem;
+  white-space: pre-line;
 `;

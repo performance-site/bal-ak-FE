@@ -3,47 +3,45 @@ import * as S from './styles/Booking.style';
 import { Element } from 'react-scroll';
 
 import SectionHeader from './components/sectionHeader/SectionHeader';
-import UseBookingForm from '../../hooks/UseBookingForm';
 import InfoSection from './components/infoSection/InfoSection';
 import InputSection from './components/inputSection/InputSection';
 import PriceSection from './components/priceSection/PriceSection';
 import ConfirmSection from './components/confirmSection/ConfirmSection';
 import { useState } from 'react';
-import SubmitModal from './components/submitModal/SubmitModal';
 import { useGetBookingInfo } from './hooks/useQuery/useGetBookingInfo';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 import { formatToMonthDayWeek } from '../../utils/booking/date';
+import BookingModal from '../../components/BookingModal/BookingModal';
+import useBookingForm from './hooks/useBookingForm';
 
 const Booking = () => {
+  // 공연 정보
   const { data: performanceData } = useGetHomeData();
 
-  const form = UseBookingForm();
+  const form = useBookingForm();
   const { isAllValid, errorMsgs } = form;
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const { data } = useGetBookingInfo(); // 사전 예매 관련 정보 조회
+  // 사전예매 정보 조회
+  const { data: bookingInfoResponse } = useGetBookingInfo();
 
-  const questionLink = data?.data?.openChatUrl ?? ''; // 문의하기 링크
+  const {
+    openChatUrl = '',
+    kakaopayUrl = '',
+    naverpayUrl = '',
+    preSaleFee = '',
+    onSiteFee = '',
+    preSaleEndTime = '',
+    bankName = '',
+    bankAccount = '',
+    accountHolder = '',
+  } = bookingInfoResponse?.data ?? {};
 
-  // 송금 관련 링크
-  const kakaopayUrl = data?.data?.kakaopayUrl ?? '';
-  const naverpayUrl = data?.data?.naverpayUrl ?? '';
-
-  // 가격 정보
-  const preSaleFee = data?.data?.preSaleFee ?? '';
-  const onSiteFee = data?.data?.onSiteFee ?? '';
-
-  // 예매 마감일
-  const preSaleEndTime = data?.data?.preSaleEndTime ?? '';
   const endTime = formatToMonthDayWeek(preSaleEndTime);
 
-  // 계좌 정보
-  const bankName = data?.data?.bankName ?? '';
-  const bankAccount = data?.data?.bankAccount ?? '';
-  const accountHolder = data?.data?.accountHolder ?? '';
-
+  // 최종 제출
   const bookingMutation = usePostBooking();
   const handleSubmitBooking = () => {
     bookingMutation.mutate(
@@ -65,6 +63,9 @@ const Booking = () => {
   };
 
   const handleOpen = () => {
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('phone');
+    sessionStorage.removeItem('member');
     setIsOpen((prev) => !prev);
   };
 
@@ -75,7 +76,7 @@ const Booking = () => {
         <SectionHeader
           title="사전예매"
           questionText="예매 관련 문의하기"
-          questionLink={questionLink}
+          questionLink={openChatUrl}
           subtitle={`더 싼 가격으로 미리 하는 사전예매 ~ ${endTime}`}
         />
 
@@ -136,10 +137,11 @@ const Booking = () => {
       </S.BookingContainer>
 
       {isOpen && (
-        <SubmitModal
+        <BookingModal
           form={form}
-          onClose={handleOpen}
-          questionLink={questionLink}
+          questionLink={openChatUrl}
+          title="사전 예매가 완료되었습니다."
+          content={`문의 사항은 아래 [문의하기] 버튼을 통해 접수해 주세요.\n공연 당일에 뵙겠습니다. 감사합니다.`}
         />
       )}
     </>

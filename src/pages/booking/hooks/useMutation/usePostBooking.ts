@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { ApiEnvelopeNullable } from '../../../../types/api.type';
-import { postBooking } from '../../../../apis/bookingApi';
+import { postBooking } from '../../../../apis/booking/booking';
 import { PERFORMANCE_ID } from '../../../../config/performance';
 
 type BookingRequest = {

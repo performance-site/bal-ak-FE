@@ -8,8 +8,10 @@ interface InputFieldProps {
   variant?: 'small' | 'medium' | 'large';
   width?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  type?: 'default' | 'phone';
+  onChange?: (value: string) => void;
+  role?: 'default' | 'phone';
+  type?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode'];
 }
 
 const InputField: React.FC<InputFieldProps> = ({
@@ -19,33 +21,43 @@ const InputField: React.FC<InputFieldProps> = ({
   width,
   value,
   onChange,
-  type = 'default',
+  role = 'default',
+  type,
+  inputMode,
 }) => {
   const [phone1, setPhone1] = useState('');
   const [phone2, setPhone2] = useState('');
   const [phone3, setPhone3] = useState('');
 
   useEffect(() => {
-    if (type === 'phone' && onChange) {
-      const Number = `${phone1}-${phone2}-${phone3}`;
-      onChange({
-        target: { value: Number },
-      } as React.ChangeEvent<HTMLInputElement>);
+    if (role === 'phone' && value) {
+      const [p1 = '', p2 = '', p3 = ''] = value.split('-');
+      setPhone1(p1);
+      setPhone2(p2);
+      setPhone3(p3);
     }
-  }, [phone1, phone2, phone3]);
+  }, [value, role]);
+
+  const storePhone = (p1: string, p2: string, p3: string) => {
+    onChange?.(`${p1}-${p2}-${p3}`);
+  };
 
   return (
     <S.InputFieldContainer>
       <S.fieldTitle>{title}</S.fieldTitle>
-      {type === 'phone' ? (
+      {role === 'phone' ? (
         <S.NumberInput>
           <InputBox
             variant="small"
             placeholder="010"
             value={phone1}
-            onChange={(e) =>
-              setPhone1(e.target.value.replace(/[^0-9]/g, '').slice(0, 3))
-            }
+            onChange={(e) => {
+              const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 3);
+              setPhone1(v);
+              storePhone(v, phone2, phone3);
+            }}
+            inputMode="numeric"
+            type="tel"
           />
           -
           <InputBox
@@ -53,9 +65,13 @@ const InputField: React.FC<InputFieldProps> = ({
             width="5.8rem"
             placeholder="1234"
             value={phone2}
-            onChange={(e) =>
-              setPhone2(e.target.value.replace(/[^0-9]/g, '').slice(0, 4))
-            }
+            onChange={(e) => {
+              const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
+              setPhone2(v);
+              storePhone(phone1, v, phone3);
+            }}
+            inputMode="numeric"
+            type="tel"
           />
           -
           <InputBox
@@ -63,9 +79,13 @@ const InputField: React.FC<InputFieldProps> = ({
             width="5.8rem"
             placeholder="5678"
             value={phone3}
-            onChange={(e) =>
-              setPhone3(e.target.value.replace(/[^0-9]/g, '').slice(0, 4))
-            }
+            onChange={(e) => {
+              const v = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
+              setPhone3(v);
+              storePhone(phone1, phone2, v);
+            }}
+            inputMode="numeric"
+            type="tel"
           />
         </S.NumberInput>
       ) : (
@@ -74,7 +94,9 @@ const InputField: React.FC<InputFieldProps> = ({
           variant={variant}
           width={width}
           value={value}
-          onChange={onChange}
+          onChange={(e) => onChange?.(e.target.value)}
+          inputMode={inputMode}
+          type={type}
         />
       )}
     </S.InputFieldContainer>

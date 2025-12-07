@@ -1,11 +1,11 @@
-import UseBookingForm from '../../../../hooks/UseBookingForm';
+import useBookingForm from '../../hooks/useBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import * as S from './InfoSection.style';
 
 import POSTER from '@/assets/booking/poster.svg';
 
 type InfoSectionProps = {
-  form: ReturnType<typeof UseBookingForm>;
+  form: ReturnType<typeof useBookingForm>;
   performanceData: any;
   preSaleFee: string;
   onSiteFee: string;
@@ -43,7 +43,7 @@ const InfoSection: React.FC<InfoSectionProps> = ({
             </S.PriceText>
 
             <S.InfoText>
-              위치: {homeData?.venue} <br /> {homeData?.location}
+              위치: {homeData?.venue?.replace('(', '\n(')}
             </S.InfoText>
           </S.DetailInfo>
         </S.TextBox>

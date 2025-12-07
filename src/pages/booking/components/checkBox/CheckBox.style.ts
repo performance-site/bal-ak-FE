@@ -6,6 +6,7 @@ export const CheckBoxContainer = styled.div`
   padding: 1rem 1.4rem;
   align-items: center;
   gap: 0.8rem;
+  cursor: pointer;
 
   border-radius: 0.25rem;
   border: 1.25px solid ${({ theme }) => theme.colors.purple1};
@@ -21,7 +22,6 @@ export const Icon = styled.img`
 
 export const Text = styled.p`
   color: ${({ theme }) => theme.colors.white};
-  font-family: Pretendard;
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 500;

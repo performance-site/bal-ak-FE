@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
+import useExpiringSession from './useExpiringSession';
 
-const UseBookingForm = () => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [member, setMember] = useState('');
+const useBookingForm = () => {
+  const [name, setName] = useExpiringSession('name', '');
+  const [phone, setPhone] = useExpiringSession('phone', '');
+  const [member, setMember] = useExpiringSession('member', '');
 
   const [checked, setChecked] = useState({
     info: false,
@@ -26,6 +27,7 @@ const UseBookingForm = () => {
 
   const errorMsgs = useMemo(() => {
     const msgs: string[] = [];
+    if (!checked.info) msgs.push('*공연 정보 항목을 다시 확인해 주세요.');
     if (!isNameValid || !isPhoneValid || !isMemberValid)
       msgs.push('*예매 정보 입력 항목을 다시 확인해 주세요.');
     if (!checked.price)
@@ -49,4 +51,4 @@ const UseBookingForm = () => {
   };
 };
 
-export default UseBookingForm;
+export default useBookingForm;

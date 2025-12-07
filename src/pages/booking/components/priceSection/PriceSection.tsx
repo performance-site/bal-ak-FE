@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import UseBookingForm from '../../../../hooks/UseBookingForm';
+import useBookingForm from '../../hooks/useBookingForm';
 import ScrollCheck from '../scrollCheck/ScrollCheck';
 import SectionHeader from '../sectionHeader/SectionHeader';
 import * as S from './PriceSection.style';
@@ -7,9 +7,10 @@ import * as S from './PriceSection.style';
 import COPY from '@/assets/booking/copy.svg';
 import ClickBox from '../clickBox/ClickBox';
 import useNavigation from '../../../../hooks/useNavigation';
+import Toast from '../toast/Toast';
 
 type PriceSectionProps = {
-  form: ReturnType<typeof UseBookingForm>;
+  form: ReturnType<typeof useBookingForm>;
   kakaopayUrl: string;
   naverpayUrl: string;
   bankName: string;
@@ -38,10 +39,15 @@ const PriceSection: React.FC<PriceSectionProps> = ({
     goTo(url);
   };
 
+  const [showToast, setShowToast] = useState(false);
+
   const onCopyClick = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      console.log('계좌번호 복사 성공');
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 1000);
     } catch (e) {
       console.log('계좌번호 복사 실패');
     }
@@ -101,7 +107,7 @@ const PriceSection: React.FC<PriceSectionProps> = ({
             <S.AccountText>{account}</S.AccountText>
           </S.CopyBox>
         </S.PayContainer>
-
+        c
         <ScrollCheck
           to="confirm"
           text="송금 완료했습니다."
@@ -109,6 +115,8 @@ const PriceSection: React.FC<PriceSectionProps> = ({
           onChange={() => toggleCheck('price')}
         />
       </S.PayBoxWrapper>
+
+      {showToast && <Toast />}
     </S.PriceContainer>
   );
 };
