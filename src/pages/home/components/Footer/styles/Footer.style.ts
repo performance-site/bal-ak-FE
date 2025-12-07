@@ -49,6 +49,7 @@ export const Description = styled.p`
 export const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.1rem;
 `;
 
 export const Email = styled.a`

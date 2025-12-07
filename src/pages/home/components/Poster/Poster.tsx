@@ -22,10 +22,15 @@ const Poster = forwardRef<HTMLDivElement, unknown>((_, ref) => {
             {images.map((imageURL, index) => (
               <S.PosterItem
                 key={index}
-                $imageURL={imageURL}
-                $imageCount={images.length}
                 onClick={() => setSelectedImage(imageURL)}
-              />
+              >
+                <img
+                  src={imageURL}
+                  alt={`메인 사진 ${index + 1}`}
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              </S.PosterItem>
             ))}
           </S.PosterWrapper>
         </S.PosterSlider>

@@ -4,11 +4,6 @@ interface PosterWrapperProps {
   $imageCount: number;
 }
 
-interface PosterItemProps {
-  $imageURL: string;
-  $imageCount: number;
-}
-
 export const PosterConatiner = styled.div`
   position: absolute;
   top: 71.8rem;
@@ -32,17 +27,23 @@ export const PosterWrapper = styled.div<PosterWrapperProps>`
   height: 100%;
 `;
 
-export const PosterItem = styled.div<PosterItemProps>`
+export const PosterItem = styled.div`
   width: 22rem;
   height: 31.1rem;
   border-radius: 8px;
   flex-shrink: 0;
   scroll-snap-align: center;
-  background-image: url(${(props) => props.$imageURL});
-  background-size: cover;
-  background-position: center;
   background-color: #f0f0f0;
   cursor: pointer;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
 `;
 
 export const ModalOverlay = styled.div`
