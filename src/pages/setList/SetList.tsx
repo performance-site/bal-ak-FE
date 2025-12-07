@@ -4,16 +4,19 @@ import List from './components/List/List';
 import RefreshButton from './components/RefreshButton/RefreshButton';
 import { useGetListData } from './hooks/useQuery/useGetListData';
 import Spinner from '../../components/Spinner/Spinner';
+import { useState } from 'react';
 
 const SetList = () => {
+  const [listKey, setListKey] = useState(0);
   const { data, isLoading, refetch } = useGetListData();
-  // console.log(data?.data?.setlist);
+  // console.log(data);
 
   const list = data?.data?.setlist ?? [];
+  const url = data?.data?.setListUrl ?? '';
   const nowPlayingOrder = data?.data?.nowPlayingOrder ?? -1;
-  // console.log('now: ', nowPlayingOrder);
 
   const handleRefresh = () => {
+    setListKey((prev) => prev + 1);
     refetch();
   };
 
@@ -26,8 +29,8 @@ const SetList = () => {
 
   return (
     <S.SetListContainer>
-      <PageTitle />
-      <List data={list} nowPlayingOrder={nowPlayingOrder} />
+      <PageTitle data={url} />
+      <List key={listKey} data={list} nowPlayingOrder={nowPlayingOrder} />
       <RefreshButton onClick={handleRefresh} />
 
       <S.ListBar />

@@ -2,12 +2,15 @@ import * as S from './styles/PageTitle.style';
 import PageTitleArrow from '../../../../assets/images/setList/pageTitleArrow.svg';
 import useNavigation from '../../../../hooks/useNavigation';
 
-const PageTitle = () => {
+interface PageTitleProps {
+  data: string;
+}
+
+const PageTitle = ({ data }: PageTitleProps) => {
   const { goTo } = useNavigation();
-  const YOUTUBE_PLAYLIST_URL = import.meta.env.VITE_YOUTUBE_PLAYLIST_URL;
 
   const handleClick = () => {
-    goTo(YOUTUBE_PLAYLIST_URL);
+    goTo(data);
   };
 
   return (
