@@ -4,10 +4,20 @@ interface PosterWrapperProps {
   $imageCount: number;
 }
 
+interface FadeInWrapperProps {
+  $isVisible: boolean;
+}
+
 export const PosterConatiner = styled.div`
   position: absolute;
   top: 71.8rem;
   width: 100%;
+`;
+
+export const FadeInWrapper = styled.div<FadeInWrapperProps>`
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0)};
+  transform: translateY(${({ $isVisible }) => ($isVisible ? '0' : '20px')});
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 `;
 
 export const PosterSlider = styled.div`
