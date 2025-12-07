@@ -1,5 +1,5 @@
 import * as S from './styles/Splash.style';
-import Logo from '../../assets/images/splash/logo.svg';
+import Logo from '../../assets/images/splash/logo.png';
 import useNavigation from '../../hooks/useNavigation';
 import { useEffect, useState } from 'react';
 
