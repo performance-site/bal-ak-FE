@@ -6,6 +6,7 @@ export const ItemTeamContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 `;
 
 export const ItemTeamProfileDiv = styled.div`
@@ -34,8 +35,8 @@ export const ItemTeamP = styled.p`
   margin-top: 1.2rem;
   font-weight: 400;
   font-size: 1rem;
-  text-align: left;
   line-height: 1.4;
   letter-spacing: -0.025em;
   color: ${({ theme }) => theme.colors.gray7};
+  text-align: center;
 `;

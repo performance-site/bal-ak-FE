@@ -7,10 +7,15 @@ interface SongProps {
 }
 
 const Song = ({ song }: SongProps) => {
+  const formattedLyrics = song?.lyrics
+    ?.replace(/\\r\\n/g, '\n')
+    ?.replace(/\\n/g, '\n')
+    ?.replace(/\\r/g, '\n');
+
   return (
     <S.SongContainer>
       <Youtube youtubeUrl={song?.youtubeUrl} />
-      <S.SongP>{song?.lyrics}</S.SongP>
+      <S.SongP>{formattedLyrics}</S.SongP>
     </S.SongContainer>
   );
 };

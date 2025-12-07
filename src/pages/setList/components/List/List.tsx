@@ -41,14 +41,37 @@ const List = ({ data, nowPlayingOrder }: ListProps) => {
 
   return (
     <S.ListContainer className="scroll" ref={containerRef}>
+      {nowPlayingOrder === -1 && (
+        <div
+          ref={(el) => {
+            itemRefs.current[0] = el;
+          }}
+        >
+          <Item
+            data={{
+              order: 0,
+              performanceSongId: 0,
+              title: '공연 시작 전',
+              artist: '현재는 Setlist만 확인할 수 있습니다.',
+            }}
+            index={0}
+            nowPlayingOrder={nowPlayingOrder}
+          />
+        </div>
+      )}
+
       {data.map((item, index) => (
         <div
           ref={(el) => {
-            itemRefs.current[index] = el;
+            itemRefs.current[nowPlayingOrder === -1 ? index + 1 : index] = el;
           }}
           key={item.order}
         >
-          <Item data={item} index={index} nowPlayingOrder={nowPlayingOrder} />
+          <Item
+            data={item}
+            index={nowPlayingOrder === -1 ? index + 1 : index}
+            nowPlayingOrder={nowPlayingOrder}
+          />
         </div>
       ))}
 
