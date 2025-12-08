@@ -33,7 +33,9 @@ const useBookingForm = () => {
     const msgs: string[] = [];
     if (!checked.info) msgs.push('*공연 정보 항목을 다시 확인해 주세요.');
     if (!isNameValid || !isPhoneValid || !isMemberValid)
-      msgs.push('*예매 정보 입력 항목을 다시 확인해 주세요.');
+      msgs.push(
+        '*예매 정보 입력 항목을 다시 확인해 주세요. (한 번에 최대 10명까지 예매할 수 있습니다.)',
+      );
     if (!checked.price)
       msgs.push('*가격 안내 및 입금 항목을 다시 확인해 주세요.');
     if (!checked.confirm)

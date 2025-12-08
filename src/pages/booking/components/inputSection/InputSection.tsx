@@ -39,7 +39,14 @@ const InputSection: React.FC<InputSectionProps> = ({ form }) => {
           onChange={(v) => {
             const onlyNumber = v.replace(/[^0-9]/g, '');
 
+            if (onlyNumber === '') {
+              setMember('');
+              return;
+            }
+
             if (onlyNumber === '0') return;
+
+            if (Number(onlyNumber) > 10) return;
 
             setMember(onlyNumber);
           }}
