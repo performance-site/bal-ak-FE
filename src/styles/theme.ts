@@ -49,6 +49,7 @@ const gradients = {
 
   inputbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.10) 43.66%, rgba(162, 132, 246, 0.10) 116.16%)`,
   checkbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.1) 44%, rgba(162, 132, 246, 0.1) 116%)`,
+  checkedbox: `linear-gradient(38deg, rgba(113, 80, 208, 0.56) 15.58%, rgba(174, 146, 255, 0.56) 83%)`,
   clickbox: `linear-gradient(98deg, ${colors.purple1} 44%, ${colors.purple2} 116%)`,
   submitModal: `linear-gradient(180deg, rgba(233,233,233,0.24) 0%, rgba(255,255,255,0.16) 100%), 
                 linear-gradient(180deg, rgba(211,96,229,0.24) 0%, rgba(69,75,249,0.24) 100%), 
