@@ -100,14 +100,15 @@ const PriceSection: React.FC<PriceSectionProps> = ({
           </S.ClickRow>
 
           {/* 계좌이체 박스 */}
-          <S.CopyBox $isSelected={isAccountSelected}>
+          <S.CopyBox
+            $isSelected={isAccountSelected}
+            onClick={() => onCopyClick(bankAccount)}
+          >
             <S.CopyText>
               <S.CopyTitle>직접 계좌이체</S.CopyTitle>
               <S.CopySub>ㅣ</S.CopySub>
             </S.CopyText>
-            {bankAccount && (
-              <S.CopyImg onClick={() => onCopyClick(bankAccount)} src={COPY} />
-            )}
+            {bankAccount && <S.CopyImg src={COPY} />}
             <S.AccountText $isSelected={isAccountSelected}>
               {account}
             </S.AccountText>
