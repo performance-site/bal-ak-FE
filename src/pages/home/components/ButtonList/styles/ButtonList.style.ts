@@ -8,7 +8,7 @@ export const ButtonListContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 15.4rem;
+  margin-top: 15.2rem;
   left: 50%;
   transform: translate(-50%);
 `;

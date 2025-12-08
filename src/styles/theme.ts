@@ -32,7 +32,9 @@ const colors = {
 
   pink1: '#D360E5',
 
-  white: '#FFFFFF',
+  white: '#F0F0F0',
+  white2: '#F5F5F5',
+  white3: '#E0E0E0',
   black: '#000000',
 
   red: '#FF027A',

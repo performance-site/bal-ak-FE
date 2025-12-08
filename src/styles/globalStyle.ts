@@ -140,10 +140,9 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
         background: ${({ theme }) => theme.gradients.background};
         color: ${({ theme }) => theme.colors.white};
-
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-    
+
         @media screen and (max-width: 392px) {
             width: 100vw;
         }

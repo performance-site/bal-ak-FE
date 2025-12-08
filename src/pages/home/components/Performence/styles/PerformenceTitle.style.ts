@@ -1,5 +1,29 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import theme from '../../../../../styles/theme';
+
+const shimmer = keyframes`
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+`;
+
+const glow = keyframes`
+  0%, 100% {
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.2),
+      0 0 12px rgba(162, 132, 246, 0.12),
+      0 0 18px rgba(162, 132, 246, 0.08);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 255, 255, 0.28),
+      0 0 16px rgba(162, 132, 246, 0.18),
+      0 0 24px rgba(162, 132, 246, 0.12);
+  }
+`;
 
 export const PerformenceTitleContainer = styled.div`
   width: 100%;
@@ -20,6 +44,20 @@ export const PerformenceTitleContainer = styled.div`
 export const PerformenceTitle = styled.p`
   font-size: 2.4rem;
   font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.88) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation:
+    ${shimmer} 6s ease-in-out infinite,
+    ${glow} 5s ease-in-out infinite;
+  filter: brightness(1.05);
 `;
 
 export const PerformenceSubtitle = styled.p`

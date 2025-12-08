@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const MoreBtnContainer = styled.div`
+interface MoreBtnContainerProps {
+  $isVisible: boolean;
+}
+
+export const MoreBtnContainer = styled.div<MoreBtnContainerProps>`
   width: 90%;
   max-width: 34.5rem;
   height: 11.3rem;
@@ -11,6 +15,9 @@ export const MoreBtnContainer = styled.div`
   top: 181.6rem;
   left: 50%;
   transform: translateX(-50%);
+  opacity: ${({ $isVisible }) => ($isVisible ? 1 : 0.3)};
+  transform: translateX(-50%) translateY(${({ $isVisible }) => ($isVisible ? '0' : '10px')});
+  transition: opacity 1s ease-out, transform 1s ease-out;
 `;
 
 export const MoreButtonList = styled.div`
