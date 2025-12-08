@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import useNavigation from '../../hooks/useNavigation';
 import * as S from './styles/NotFound.style';
 
 const NotFound = () => {
+  useEffect(() => {
+    document.title = '404 - 들불';
+  }, []);
+
   const { goTo } = useNavigation();
 
   return (
