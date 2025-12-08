@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 interface UseFadeInOptions {
   threshold?: number;
@@ -9,32 +9,43 @@ interface UseFadeInOptions {
 export const useFadeIn = (options: UseFadeInOptions = {}) => {
   const { threshold = 0.1, rootMargin = '0px', delay = 0 } = options;
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLDivElement>(null);
+  const [element, setElement] = useState<HTMLElement | null>(null);
+
+  const onRefChange = useCallback((node: HTMLElement | null) => {
+    if (node) {
+      setElement(node);
+    }
+  }, []);
 
   useEffect(() => {
+    if (!element) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
+          if (delay > 0) {
+            setTimeout(() => {
+              setIsVisible(true);
+            }, delay);
+          } else {
+            // 딜레이 없으면 바로 보여줌
             setIsVisible(true);
-          }, delay);
+          }
           observer.disconnect();
         }
       },
       {
         threshold,
         rootMargin,
-      }
+      },
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+    observer.observe(element);
 
     return () => {
       observer.disconnect();
     };
-  }, [threshold, rootMargin, delay]);
+  }, [element, threshold, rootMargin, delay]);
 
-  return { elementRef, isVisible };
+  return { elementRef: onRefChange, isVisible };
 };
