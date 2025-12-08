@@ -9,11 +9,11 @@ export const HeaderTitleContainer = styled.div`
 `;
 
 export const HeaderTitle = styled.p`
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-size: 1.4rem;
+  font-weight: 600;
 `;
 
 export const HeaderDescription = styled.p`
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 400;
 `;
