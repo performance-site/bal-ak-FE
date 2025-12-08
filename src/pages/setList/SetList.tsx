@@ -4,9 +4,13 @@ import List from './components/List/List';
 import RefreshButton from './components/RefreshButton/RefreshButton';
 import { useGetListData } from './hooks/useQuery/useGetListData';
 import Spinner from '../../components/Spinner/Spinner';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const SetList = () => {
+  useEffect(() => {
+    document.title = '셋리스트 - 들불';
+  }, []);
+
   const [listKey, setListKey] = useState(0);
   const { data, isLoading, refetch } = useGetListData();
   // console.log(data);

@@ -7,7 +7,7 @@ import InfoSection from './components/infoSection/InfoSection';
 import InputSection from './components/inputSection/InputSection';
 import PriceSection from './components/priceSection/PriceSection';
 import ConfirmSection from './components/confirmSection/ConfirmSection';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGetBookingInfo } from './hooks/useQuery/useGetBookingInfo';
 import { usePostBooking } from './hooks/useMutation/usePostBooking';
 import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
@@ -16,6 +16,10 @@ import BookingModal from '../../components/BookingModal/BookingModal';
 import useBookingForm from './hooks/useBookingForm';
 
 const Booking = () => {
+  useEffect(() => {
+    document.title = '예매 - 들불';
+  }, []);
+
   // 공연 정보
   const { data: performanceData } = useGetHomeData();
 

@@ -1,4 +1,4 @@
-import { useRef, Suspense, lazy } from 'react';
+import { useRef, Suspense, lazy, useEffect } from 'react';
 import ButtonList from './components/ButtonList/ButtonList';
 import DropDownBtn from './components/DropDown/DropDownBtn';
 import Footer from './components/Footer/Footer';
@@ -15,6 +15,10 @@ const NowPlaying = lazy(() => import('./components/NowPlaying/NowPlaying'));
 const More = lazy(() => import('./components/More/More'));
 
 const Home = () => {
+  useEffect(() => {
+    document.title = '홈 - 들불';
+  }, []);
+
   const posterRef = useRef<HTMLDivElement>(null);
   const kakaoMapRef = useRef<HTMLDivElement>(null);
 
