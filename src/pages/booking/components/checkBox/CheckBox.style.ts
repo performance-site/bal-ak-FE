@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CheckBoxContainer = styled.div`
+export const CheckBoxContainer = styled.div<{ $checked: boolean }>`
   display: flex;
   width: 33.4rem;
   padding: 1rem 1.4rem;
@@ -10,7 +10,8 @@ export const CheckBoxContainer = styled.div`
 
   border-radius: 0.25rem;
   border: 1.25px solid ${({ theme }) => theme.colors.purple1};
-  background: ${({ theme }) => theme.gradients.checkbox};
+  background: ${({ theme, $checked }) =>
+    $checked ? theme.gradients.checkedbox : theme.gradients.checkbox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
 `;
 

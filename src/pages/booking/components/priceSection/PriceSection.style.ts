@@ -74,6 +74,7 @@ export const CopyBox = styled.div<{ $isSelected?: boolean }>`
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid ${({ theme }) => theme.colors.purple1};
+  cursor: pointer;
 
   background: ${({ theme, $isSelected }) =>
     $isSelected ? theme.gradients.clickbox : theme.gradients.checkbox};
