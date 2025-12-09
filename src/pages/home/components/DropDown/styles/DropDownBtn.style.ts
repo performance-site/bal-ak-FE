@@ -16,7 +16,7 @@ export const DropDownContainer = styled.div`
   width: 7.9rem;
   height: 2.8rem;
   position: absolute;
-  top: 64.6rem;
+  top: 62rem;
   left: 50%;
   transform: translatex(-50%);
   cursor: pointer;
