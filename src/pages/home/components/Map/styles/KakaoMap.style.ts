@@ -52,6 +52,6 @@ export const AddressText = styled.span`
 
 export const AddressReminder = styled.p`
   margin-top: 0.6rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
 `;

@@ -94,7 +94,7 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
         </Map>
       </S.MapWrapper>
       <S.AddressInfo>
-        <S.AddressText>위치 : {location}</S.AddressText>
+        <S.AddressText>위치: {location}</S.AddressText>
       </S.AddressInfo>
       <S.AddressReminder>장소: {venue}</S.AddressReminder>
     </S.MapContainer>
