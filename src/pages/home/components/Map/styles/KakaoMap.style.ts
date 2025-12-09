@@ -1,5 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import theme from '../../../../../styles/theme';
+
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 export const MapContainer = styled.div`
   width: 90%;
@@ -22,6 +34,7 @@ export const TitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 2.4rem;
+  position: relative;
 `;
 
 export const MapTitle = styled.p`
@@ -54,4 +67,18 @@ export const AddressReminder = styled.p`
   margin-top: 0.6rem;
   font-size: 1.4rem;
   font-weight: 400;
+`;
+
+export const ClickIcon = styled.div`
+  position: absolute;
+  width: 3.9rem;
+  right: 0.5rem;
+  bottom: -2.8rem;
+  z-index: 1000;
+  animation: ${pulse} 1.5s ease-in-out infinite;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
