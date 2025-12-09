@@ -47,9 +47,10 @@ const Booking = () => {
   const endTime = formatToMonthDayWeek(preSaleEndTime);
 
   // 최종 제출
-  const bookingMutation = usePostBooking();
+  const { mutate, isPending } = usePostBooking();
+
   const handleSubmitBooking = () => {
-    bookingMutation.mutate(
+    mutate(
       {
         name: form.name,
         phoneNumber: form.phone,
@@ -135,12 +136,13 @@ const Booking = () => {
           )}
 
           <S.EndButton
-            $active={!!isAllValid}
+            $active={!!isAllValid && !isPending}
             onClick={() => {
-              if (isAllValid) handleSubmitBooking();
+              if (isAllValid && !isPending) handleSubmitBooking();
             }}
+            style={{ pointerEvents: isPending ? 'none' : 'auto' }}
           >
-            <S.ButtonText>최종 제출</S.ButtonText>
+            <S.ButtonText>{isPending ? '제출 중..' : '최종 제출'}</S.ButtonText>
           </S.EndButton>
         </Element>
       </S.BookingContainer>
