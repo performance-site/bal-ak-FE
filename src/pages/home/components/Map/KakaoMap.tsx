@@ -3,6 +3,7 @@ import * as S from './styles/KakaoMap.style';
 import { useState, useEffect, forwardRef } from 'react';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 import Spinner from '../../../../components/Spinner/Spinner';
+import CLICK from '@assets/images/home/ClickIcon.png';
 
 const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
   const venue = useHomeStore((state) => state.homeData?.venue);
@@ -83,6 +84,9 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
       <S.TitleWrapper>
         <S.MapTitle>Concert Location</S.MapTitle>
         <S.MapSubTitle>위치 안내</S.MapSubTitle>
+        <S.ClickIcon>
+          <img src={CLICK} alt="클릭아이콘" />
+        </S.ClickIcon>
       </S.TitleWrapper>
       <S.MapWrapper onClick={handleOpenKakaoMap}>
         <Map
@@ -94,7 +98,7 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
         </Map>
       </S.MapWrapper>
       <S.AddressInfo>
-        <S.AddressText>위치 : {location}</S.AddressText>
+        <S.AddressText>위치: {location}</S.AddressText>
       </S.AddressInfo>
       <S.AddressReminder>장소: {venue}</S.AddressReminder>
     </S.MapContainer>
