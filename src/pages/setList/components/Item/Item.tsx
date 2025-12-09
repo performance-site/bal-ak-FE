@@ -24,7 +24,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
 
       <S.ItemRightContainer
         onClick={() =>
-          goTo(isBeforeShow ? '/home' : `/setlist/${data.performanceSongId}`)
+          !isBeforeShow && goTo(`/setlist/${data.performanceSongId}`)
         }
       >
         <S.ItemRightInnerContainer>
