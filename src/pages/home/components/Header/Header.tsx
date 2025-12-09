@@ -1,27 +1,16 @@
 import * as S from './styles/Header.style';
 import HeaderTitle from './HeaderTitle';
-import { useEffect, useState } from 'react';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
+import { useAutoSlider } from '../../hooks/useAutoSlider';
 
 function Header() {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const SLIDE_INTERVAL = 5000;
-
   const images = useHomeStore((state) => state.homeData?.imageUrls) || [];
-  // console.log(images);
-
-  useEffect(() => {
-    if (!images || images.length === 0) return;
-
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, SLIDE_INTERVAL);
-
-    return () => clearInterval(timer);
-  }, [images.length]);
+  const { currentIndex, touchHandlers } = useAutoSlider({
+    length: images.length,
+  });
 
   return (
-    <div>
+    <div {...touchHandlers}>
       <S.HeaderContainer>
         <S.SliderWrapper
           $currentIndex={currentIndex}
