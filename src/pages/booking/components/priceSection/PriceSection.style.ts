@@ -26,7 +26,7 @@ export const PriceText = styled.div`
 `;
 
 export const PriceExplain = styled.p`
-  color: ${({ theme }) => theme.colors.gray6};
+  color: ${({ theme }) => theme.colors.red};
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 140%;
