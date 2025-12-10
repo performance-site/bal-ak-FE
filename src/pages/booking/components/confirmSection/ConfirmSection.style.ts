@@ -28,5 +28,5 @@ export const ConfirmText = styled.div`
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 7.5rem;
+  margin-top: 1.1rem;
 `;
