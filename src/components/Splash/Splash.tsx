@@ -1,6 +1,7 @@
 import * as S from './styles/Splash.style';
 import Logo from '../../assets/images/splash/logo.png';
 import useNavigation from '../../hooks/useNavigation';
+import { SplashData } from '../../constants/splash';
 import { useEffect, useState } from 'react';
 
 const Splash = () => {
@@ -24,7 +25,7 @@ const Splash = () => {
 
   return (
     <S.SplashContainer>
-      <S.LogoContainer fadeState={fadeState}>
+      <S.SplashInnerContainer fadeState={fadeState}>
         <S.LogoImg
           src={Logo}
           alt="lgoo"
@@ -32,8 +33,21 @@ const Splash = () => {
           decoding="async"
           draggable={false}
         />
-        <S.LogoP>DEUL BULL</S.LogoP>
-      </S.LogoContainer>
+        <S.LogoP>
+          {SplashData.title.map((t) => (
+            <>
+              {t}
+              <br />
+            </>
+          ))}
+        </S.LogoP>
+
+        <S.BottomContainer>
+          {SplashData.bottomTexts.map((b) => (
+            <S.SplashP key={b}>{b}</S.SplashP>
+          ))}
+        </S.BottomContainer>
+      </S.SplashInnerContainer>
     </S.SplashContainer>
   );
 };

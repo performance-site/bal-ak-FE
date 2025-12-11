@@ -13,37 +13,55 @@ const fadeOut = keyframes`
 export const SplashContainer = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: ${({ theme }) => theme.colors.black};
+  padding-top: 15rem;
 `;
 
-export const LogoContainer = styled.div<{ fadeState: 'fadeIn' | 'fadeOut' }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const SplashInnerContainer = styled.div<{
+  fadeState: 'fadeIn' | 'fadeOut';
+}>`
   position: relative;
-
-  ${({ fadeState }) =>
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: ${({ fadeState }) =>
     fadeState === 'fadeIn'
       ? css`
-          animation: ${fadeIn} 0.5s forwards;
+          ${fadeIn} 0.5s forwards
         `
       : css`
-          animation: ${fadeOut} 0.5s forwards;
-        `}
+          ${fadeOut} 0.5s forwards
+        `};
 `;
 
 export const LogoImg = styled.img`
-  width: 14.1rem;
-  height: 14.1rem;
-  opacity: 0.8;
+  width: 29rem;
+  margin-top: 1.1rem;
 `;
 
 export const LogoP = styled.p`
-  font-size: 3.8rem;
+  font-size: 2.4rem;
   font-weight: 700;
-  color: ${({ theme }) => theme.colors.gray1};
+  color: ${({ theme }) => theme.colors.white};
+  line-height: 120%;
+  letter-spacing: -2.5%;
+  text-align: center;
+`;
+
+export const SplashP = styled(LogoP)`
+  font-size: 1rem;
+  font-weight: 400;
+`;
+
+export const BottomContainer = styled.div`
+  width: 100%;
+  height: 4.6rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  align-items: center;
   position: absolute;
-  white-space: nowrap;
+  bottom: 0;
 `;
