@@ -43,8 +43,10 @@ const Splash = () => {
         </S.LogoP>
 
         <S.BottomContainer>
-          {SplashData.bottomTexts.map((b) => (
-            <S.SplashP key={b}>{b}</S.SplashP>
+          {SplashData.bottomTexts.map((b, i) => (
+            <S.BottomText key={b} index={i}>
+              {b}
+            </S.BottomText>
           ))}
         </S.BottomContainer>
       </S.SplashInnerContainer>

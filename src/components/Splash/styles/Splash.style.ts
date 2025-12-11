@@ -58,10 +58,32 @@ export const SplashP = styled(LogoP)`
 export const BottomContainer = styled.div`
   width: 100%;
   height: 4.6rem;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  align-items: center;
   position: absolute;
   bottom: 0;
+`;
+
+export const BottomText = styled(SplashP)<{
+  index: number;
+}>`
+  position: absolute;
+  bottom: 1.5rem;
+
+  ${({ index }) =>
+    index === 0 &&
+    css`
+      left: 2rem;
+    `}
+
+  ${({ index }) =>
+    index === 1 &&
+    css`
+      left: 50%;
+      transform: translateX(-50%);
+    `}
+
+  ${({ index }) =>
+    index === 2 &&
+    css`
+      right: 2rem;
+    `}
 `;
