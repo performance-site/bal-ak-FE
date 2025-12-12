@@ -12,7 +12,7 @@ const fadeOut = keyframes`
 
 export const SplashContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   background: ${({ theme }) => theme.colors.black};
   padding-top: 15rem;
 `;
@@ -58,8 +58,7 @@ export const SplashP = styled(LogoP)`
 export const BottomContainer = styled.div`
   width: 100%;
   height: 4.6rem;
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
 `;
 
 export const BottomText = styled(SplashP)<{
