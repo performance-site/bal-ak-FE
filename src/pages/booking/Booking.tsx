@@ -14,6 +14,7 @@ import useGetHomeData from '../home/hooks/useQuery/useGetHomeData';
 import { formatToMonthDayWeek } from '../../utils/booking/date';
 import BookingModal from '../../components/BookingModal/BookingModal';
 import useBookingForm from './hooks/useBookingForm';
+import NotFound from '../notFound/NotFound';
 
 const Booking = () => {
   useEffect(() => {
@@ -43,6 +44,10 @@ const Booking = () => {
     accountHolder = '',
     entryStartTime = '',
   } = bookingInfoResponse?.data ?? {};
+
+  if (bookingInfoResponse && new Date(preSaleEndTime).getTime() < Date.now()) {
+    return <NotFound />;
+  }
 
   const endTime = formatToMonthDayWeek(preSaleEndTime);
 
