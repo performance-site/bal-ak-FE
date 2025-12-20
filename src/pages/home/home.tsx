@@ -1,4 +1,4 @@
-import { useRef, Suspense, lazy, useEffect } from 'react';
+import { useRef, Suspense, lazy, useEffect, useState } from 'react';
 import ButtonList from './components/ButtonList/ButtonList';
 import DropDownBtn from './components/DropDown/DropDownBtn';
 import Footer from './components/Footer/Footer';
@@ -8,6 +8,9 @@ import Performence from './components/Performence/Performence';
 import { HomeContainer } from './styles/Home.style';
 import useGetHomeData from './hooks/useQuery/useGetHomeData';
 import Spinner from '../../components/Spinner/Spinner';
+import { useGetBookingInfo } from '../booking/hooks/useQuery/useGetBookingInfo';
+import BookingModal from '../../components/BookingModal/BookingModal';
+import { useHomeStore } from '../../store/homeStore/homeStore';
 
 const Poster = lazy(() => import('./components/Poster/Poster'));
 const KakaoMap = lazy(() => import('./components/Map/KakaoMap'));
@@ -32,11 +35,24 @@ const Home = () => {
     kakaoMapRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const { data: bookingInfo } = useGetBookingInfo();
+  const preSaleEndTime = bookingInfo?.data.preSaleEndTime;
+  const openchatUrl = useHomeStore((state) => state.homeData?.openchatUrl);
+
+  const isBookingClosed =
+    !!preSaleEndTime && new Date(preSaleEndTime).getTime() < Date.now();
+
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
   return (
     <HomeContainer>
       <Header />
       <Performence />
-      <ButtonList onScrollToKakaoMap={handleScrollToKakaoMap} />
+      <ButtonList
+        onScrollToKakaoMap={handleScrollToKakaoMap}
+        isBookingClosed={isBookingClosed}
+        onBookingClosedClick={() => setIsBookingModalOpen(true)}
+      />
       <DropDownBtn onScrollToPoster={handleScrollToPoster} />
       <Suspense
         fallback={
@@ -75,6 +91,14 @@ const Home = () => {
         <More />
       </Suspense>
       <Footer />
+
+      {isBookingModalOpen && (
+        <BookingModal
+          questionLink={openchatUrl || ''}
+          title="사전 예매 기간이 아닙니다."
+          content="현장 예매를 이용해 주세요."
+        />
+      )}
     </HomeContainer>
   );
 };
