@@ -7,12 +7,18 @@ interface ButtonItemProps {
   link: string;
   isFirst?: boolean;
   onScrollToKakaoMap?: () => void;
+  onClickOverride?: () => void;
 }
 
 function ButtonItem(data: ButtonItemProps) {
   const { goTo } = useNavigation();
 
   const handleClick = () => {
+    if (data.onClickOverride) {
+      data.onClickOverride();
+      return;
+    }
+
     if (data.onScrollToKakaoMap) {
       data.onScrollToKakaoMap();
     } else {

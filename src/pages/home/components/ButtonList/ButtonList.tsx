@@ -8,13 +8,24 @@ import { useHomeStore } from '../../../../store/homeStore/homeStore';
 
 interface ButtonListProps {
   onScrollToKakaoMap?: () => void;
+  isBookingClosed: boolean;
+  onBookingClosedClick: () => void;
 }
 
-function ButtonList({ onScrollToKakaoMap }: ButtonListProps) {
+function ButtonList({
+  onScrollToKakaoMap,
+  isBookingClosed,
+  onBookingClosedClick,
+}: ButtonListProps) {
   const openchatUrl = useHomeStore((state) => state.homeData?.openchatUrl);
 
   const IconArray = [
-    { src: StarBtn, info: '사전 예매', link: '/booking' },
+    {
+      src: StarBtn,
+      info: '사전 예매',
+      link: '/booking',
+      onClickOverride: isBookingClosed ? onBookingClosedClick : undefined,
+    },
     { src: setListBtn, info: '셋리스트', link: '/setlist' },
     { src: LocationBtn, info: '공연 장소', link: '' },
     { src: inquiryBtn, info: '문의 사항', link: openchatUrl || '' },
