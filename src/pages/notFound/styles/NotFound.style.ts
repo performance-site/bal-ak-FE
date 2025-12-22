@@ -6,7 +6,7 @@ export const NotFoundContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4.5rem;
+  gap: 7.2rem;
   background: ${({ theme }) => theme.gradients.background};
 `;
 
@@ -15,19 +15,19 @@ export const NotFoundHeader = styled.div``;
 export const MainText = styled.p`
   color: ${({ theme }) => theme.colors.gray1};
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2.4rem;
   font-weight: 600;
   line-height: 140%; /* 33.6px */
-  letter-spacing: -0.0375rem;
+  letter-spacing: -0.06rem;
 `;
 
 export const SubText = styled.p`
   color: ${({ theme }) => theme.colors.gray9};
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   font-weight: 300;
   line-height: 140%; /* 1.225rem */
-  letter-spacing: -0.02188rem;
+  letter-spacing: -0.03rem;
 `;
 
 export const NotFoundContent = styled.div`
@@ -35,38 +35,36 @@ export const NotFoundContent = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.63rem;
+  gap: 2.6rem;
 `;
 
 export const NotText = styled.p`
   color: ${({ theme }) => theme.colors.gray1};
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 140%; /* 1.4rem */
-  letter-spacing: -0.025rem;
+  letter-spacing: -0.04rem;
 `;
 
 export const BackBox = styled.button`
-  width: 5.75rem;
-  height: 2.06rem;
+  width: 9.2rem;
+  height: 3.3rem;
   display: inline-flex;
-  padding: 0.5rem 1.5rem;
+  padding: 0.8rem 2.4rem;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   border: 1.25px solid ${({ theme }) => theme.colors.purple1};
   background: ${({ theme }) => theme.gradients.inputbox};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
-  margin-bottom: 2rem;
 `;
 
 export const BackText = styled.p`
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   font-weight: 600;
   line-height: 140%; /* 1.05rem */
-  letter-spacing: -0.01875rem;
+  letter-spacing: -0.03rem;
 `;
