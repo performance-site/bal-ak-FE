@@ -23,4 +23,4 @@ export interface SetListDetailData {
   team: TeamMember[];
 }
 
-export interface SetListDetailResponse extends ApiEnvelope<SetListDetailData> {}
+export type SetListDetailResponse = ApiEnvelope<SetListDetailData>;

@@ -5,4 +5,4 @@ export interface LikeData {
   liked: boolean;
 }
 
-export interface LikeResponse extends ApiEnvelope<LikeData> {}
+export type LikeResponse = ApiEnvelope<LikeData>;
