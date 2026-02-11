@@ -4,52 +4,55 @@ export const handlers = [
   // 1. 공연 정보 상세 조회
   http.get('**/performances/:performanceId', () => {
     return HttpResponse.json({
-      "performanceId": 1,
-			  "websiteName": "websiteName",
-			  "websiteDescription": "websiteDescription",
-				 "imageUrls": [
-                    "https://item.kakaocdn.net/do/fae86d24809f7b9d33dd4b9ac8e3cdf37154249a3890514a43687a85e6b6cc82",
-                    "https://yt3.ggpht.com/gZmUSQP9wdYLgdb6V_2HtmgJ9Esw9rV57t6SbA1j4rhw6xfdWIoWVmbpyiQG2j55gTKzCTmIHMmdZQg=s1024-c-fcrop64=1,000003a6ffffd072-nd-v1",
-                    "https://i.pinimg.com/236x/ee/65/62/ee6562b665719b5c623605756c11ba33.jpg",
-			    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCnCNGYk4itqKhS20_Cm05OLelITZew5I2rw&s",
-			  ],
-			  "title": "PERFORMANCE TITLE",
-			  "subtitle": "PERFORMANCE SUBTITLE",
-			  "description": "description",
-			  "dateTime": "dateTime",
-			  "venue": "venue",
-			  "openchatUrl": "https://www.kakao.com/de",
-			  "posterUrls": [
-			    "https://i.pinimg.com/736x/51/28/1d/51281d3f4f12c6a9cf76dbe5880984f8.jpg",
-			    "https://i.pinimg.com/236x/3d/f0/f0/3df0f0b9e15cf85c55cd88985d90dc97.jpg"
-			  ],
-			  "currentSongTitle": "Drowning",
-			  "currentSongArtist": "WOODZ (우즈)",
-			  "currentSongAlbumUrl" : "https://~~",
-			  "location": "location location location",
-			
-				"moreLinks": [
-				  {
-				    "type": "INSTAGRAM",
-				    "name": "인스타",
-				    "url": "https://www.instagram.com/deulbull_band"
-				  },
-				  {
-				    "type": "YOUTUBE",
-				    "name": "유튜브",
-				    "url": "https://www.youtube.com/@deulbull_official"
-				  },
-				  {
-				    "type": "GOODS",
-				    "name": "굿즈",
-				    "url": "https://notion.so/deulbull_goods"
-				  },
-				  {
-				    "type": "EVENT_NOTICE",
-				    "name": "이벤트 홍보",
-				    "url": "https://notion.so/deulbull_event"
-				  }
-				]
+      "status": 200,
+      "message": "성공",
+      "data": {
+        "performanceId": 1,
+        "websiteName": "websiteName",
+        "websiteDescription": "websiteDescription",
+        "imageUrls": [
+          "https://item.kakaocdn.net/do/fae86d24809f7b9d33dd4b9ac8e3cdf37154249a3890514a43687a85e6b6cc82",
+          "https://yt3.ggpht.com/gZmUSQP9wdYLgdb6V_2HtmgJ9Esw9rV57t6SbA1j4rhw6xfdWIoWVmbpyiQG2j55gTKzCTmIHMmdZQg=s1024-c-fcrop64=1,000003a6ffffd072-nd-v1",
+          "https://i.pinimg.com/236x/ee/65/62/ee6562b665719b5c623605756c11ba33.jpg",
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCnCNGYk4itqKhS20_Cm05OLelITZew5I2rw&s",
+        ],
+        "title": "PERFORMANCE TITLE",
+        "subtitle": "PERFORMANCE SUBTITLE",
+        "description": "description",
+        "dateTime": "dateTime",
+        "venue": "venue",
+        "openchatUrl": "https://www.kakao.com/de",
+        "posterUrls": [
+          "https://i.pinimg.com/736x/51/28/1d/51281d3f4f12c6a9cf76dbe5880984f8.jpg",
+          "https://i.pinimg.com/236x/3d/f0/f0/3df0f0b9e15cf85c55cd88985d90dc97.jpg"
+        ],
+        "currentSongTitle": "Drowning",
+        "currentSongArtist": "WOODZ (우즈)",
+        "currentSongAlbumUrl": "https://~~",
+        "location": "location location location",
+        "moreLinks": [
+          {
+            "type": "INSTAGRAM",
+            "name": "인스타",
+            "url": "https://www.instagram.com/deulbull_band"
+          },
+          {
+            "type": "YOUTUBE",
+            "name": "유튜브",
+            "url": "https://www.youtube.com/@deulbull_official"
+          },
+          {
+            "type": "GOODS",
+            "name": "굿즈",
+            "url": "https://notion.so/deulbull_goods"
+          },
+          {
+            "type": "EVENT_NOTICE",
+            "name": "이벤트 홍보",
+            "url": "https://notion.so/deulbull_event"
+          }
+        ]
+      }
     })
   }),
 

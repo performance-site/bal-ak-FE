@@ -9,7 +9,10 @@ const useGetHomeData = () => {
 
   const query = useQuery<HomeData>({
     queryKey: ['homeData'],
-    queryFn: getPerformData,
+    queryFn: async () => {
+      const res = await getPerformData();
+      return res.data.data;
+    },
     staleTime: 1 * 60 * 1000,
     refetchInterval: 1 * 60 * 1000,
     refetchIntervalInBackground: true,
