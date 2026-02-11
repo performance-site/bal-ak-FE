@@ -6,6 +6,27 @@ const hexToRgba = (hex: string, alpha: number): string => {
 };
 
 const colors = {
+  white: '#FCFCFC',
+  white10: '#FCFCFC1A',
+
+  black: '#111111',
+  black10: '#1111111A',
+
+  red: '#FF2B2B',
+
+  gray800: '#1B1B1B',
+  gray700: '#505050',
+  gray600: '#555555',
+  gray500: '#767676',
+  gray400: '#9D9D9D',
+  gray300: '#C4C4C4',
+  gray200: '#D9D9D9',
+  gray100: '#E9E9E9',
+
+  blurBox: '#756A7F33',
+  dropShadow: '#0400FA0F',
+
+  // 아래는 모두 제거 예정
   background1: '#4800FF',
   background2: '#121212',
   background3: '#321857',
@@ -32,15 +53,15 @@ const colors = {
 
   pink1: '#D360E5',
 
-  white: '#F0F0F0',
   white2: '#F5F5F5',
   white3: '#E0E0E0',
-  black: '#000000',
 
-  red: '#FF027A',
+  
 };
 
+
 const gradients = {
+  // 아래는 모두 제거 예정
   get background() {
     const topGradient = `radial-gradient(300% 150% at -30% -50%, ${colors.background1} 0%, transparent 75%)`;
     const bottomGradient = `radial-gradient(180% 50% at 100% 60%, ${colors.background3} 0%, transparent 75%)`;
@@ -71,6 +92,7 @@ const gradients = {
 };
 
 const shadows = {
+  // 아래는 모두 제거 예정
   default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
   purple: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple7, 0.08)}`,
   purple2: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple8, 0.06)}`,
