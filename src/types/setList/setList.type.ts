@@ -13,4 +13,4 @@ export interface SetListData {
   setlist: SetListItem[];
 }
 
-export interface SetListResponse extends ApiEnvelope<SetListData> {}
+export type SetListResponse = ApiEnvelope<SetListData>;

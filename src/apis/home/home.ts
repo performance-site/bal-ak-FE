@@ -1,13 +1,9 @@
 import apiInstance from '../axios/instance';
+import { PERFORMANCE_ID } from '../../config/performance';
 
-const homeFetchData = async () => {
-  try {
-    const res = await apiInstance.get(`/api/performances/1`);
-    // console.log(res.data.data);
-    return res.data.data;
-  } catch (err) {
-    throw err;
-  }
+const getPerformData = async () => {
+    const res = await apiInstance.get(`/performances/${PERFORMANCE_ID}`);
+    return res;
 };
 
-export default homeFetchData;
+export default getPerformData;

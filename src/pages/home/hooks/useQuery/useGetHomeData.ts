@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import homeFetchData from '../../../../apis/home/home';
+import getPerformData from '../../../../apis/home/home';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 import { HomeData } from '../../../../types/home/home.type';
 
@@ -9,7 +9,10 @@ const useGetHomeData = () => {
 
   const query = useQuery<HomeData>({
     queryKey: ['homeData'],
-    queryFn: homeFetchData,
+    queryFn: async () => {
+      const res = await getPerformData();
+      return res.data.data;
+    },
     staleTime: 1 * 60 * 1000,
     refetchInterval: 1 * 60 * 1000,
     refetchIntervalInBackground: true,

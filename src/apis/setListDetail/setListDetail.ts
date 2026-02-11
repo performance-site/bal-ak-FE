@@ -1,5 +1,6 @@
 import apiInstance from '../axios/instance';
 
-export const getSetListDetail = (performanceSongId: number) => {
-  return apiInstance.get(`/api/tracks/${performanceSongId}`);
+export const getSetListDetail = async (performanceSongId: number) => {
+  const res = await apiInstance.get(`/tracks/${performanceSongId}`);
+  return res;
 };
