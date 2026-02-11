@@ -1,11 +1,9 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import RootLayout from '../layouts/RootLayout';
 import { Suspense, lazy } from 'react';
-import Splash from '../components/Splash/Splash';
 import Spinner from '../components/Spinner/Spinner';
 import Home from '../pages/home/home';
 
-const Booking = lazy(() => import('../pages/booking/Booking'));
 const SetList = lazy(() => import('../pages/setList/SetList'));
 const SetListDetail = lazy(
   () => import('../pages/setListDetail/SetListDetail'),
@@ -15,60 +13,36 @@ const NotFound = lazy(() => import('../pages/notFound/NotFound'));
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <RootLayout />,
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <RootLayout />
+      </Suspense>
+    ),
     children: [
       {
         index: true,
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <Splash />
-          </Suspense>
-        ),
+        element: <Home />, 
       },
       {
         path: 'home',
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <Home />
-          </Suspense>
-        ),
-      },
-      {
-        path: 'booking',
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <Booking />
-          </Suspense>
-        ),
+        element: <Navigate to="/" replace />,
       },
       {
         path: 'setlist',
         children: [
           {
             index: true,
-            element: (
-              <Suspense fallback={<Spinner />}>
-                <SetList />
-              </Suspense>
-            ),
+            element: <SetList />,
           },
           {
             path: ':id',
-            element: (
-              <Suspense fallback={<Spinner />}>
-                <SetListDetail />
-              </Suspense>
-            ),
+            element: <SetListDetail />,
           },
         ],
       },
       {
         path: '*',
-        element: (
-          <Suspense fallback={<Spinner />}>
-            <NotFound />
-          </Suspense>
-        ),
+        element: <NotFound />,
       },
     ],
   },
