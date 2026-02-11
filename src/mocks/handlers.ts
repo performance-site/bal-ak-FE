@@ -88,7 +88,7 @@ export const handlers = [
   }),
 
   // 3. 곡 정보 상세 조회
-  http.get('*/api/tracks/:performanceSongId', () => {
+  http.get('**/tracks/:performanceSongId', () => {
     return HttpResponse.json({
       status: 200,
       message: "성공",
@@ -121,7 +121,7 @@ export const handlers = [
   }),
 
   // 4. 곡 좋아요 추가/취소
-  http.post('*/api/tracks/:performanceSongId/like', async ({ request }) => {
+  http.post('**/tracks/:performanceSongId/like', async ({ request }) => {
     const { liked } = await request.json() as { liked: boolean };
     return HttpResponse.json({
       status: 200,
