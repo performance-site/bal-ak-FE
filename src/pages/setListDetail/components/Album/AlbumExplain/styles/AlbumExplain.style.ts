@@ -40,7 +40,7 @@ export const AlbumExplainP = styled.p<{
 }>`
   font-size: ${({ fontSize }) => fontSize || '2rem'};
   font-weight: ${({ fontWeight }) => fontWeight || 700};
-  color: ${({ theme, color }) => theme.colors[color || 'gray6']};
+  color: ${({ theme, color }) => theme.colors[color || 'black']};
   white-space: nowrap;
 `;
 
@@ -61,7 +61,7 @@ export const AlbumExplainDiv = styled.div`
     grid-template-columns: 5rem 1fr;
     font-size: 1.2rem;
     line-height: 1.4rem;
-    color: ${({ theme }) => theme.colors.gray2};
+    color: ${({ theme }) => theme.colors.gray600};
   }
 
   .span {
