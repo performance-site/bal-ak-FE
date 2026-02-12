@@ -30,9 +30,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
         <S.ItemRightInnerContainer>
           <S.ItemPContainer>
             {isCurrent && <Wave />}
-            <S.ItemP
-              color={!isCurrent ? 'setListItemTitleBackground' : undefined}
-            >
+            <S.ItemP color="gray800">
               {isBeforeShow ? '공연 시작 전' : data.title}
             </S.ItemP>
           </S.ItemPContainer>
@@ -45,11 +43,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
               decoding="async"
               draggable={false}
             />
-            <S.ItemP
-              size="1.2rem"
-              weight={400}
-              color="setListItemDownloadBackground"
-            >
+            <S.ItemP size="1.2rem" weight={400} color="gray600">
               {isBeforeShow
                 ? '현재는 Setlist만 확인할 수 있습니다.'
                 : data.artist}

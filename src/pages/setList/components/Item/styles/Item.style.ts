@@ -11,14 +11,16 @@ export const ItemContainer = styled.div`
 
 export const Circle = styled.div<{ isFirst?: boolean }>`
   position: relative;
-  width: 2rem;
+  width: 2.1895rem;
   height: 2rem;
   margin-top: 1.2rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.hexToRgba(theme.colors.purple5, 0.6)};
+  background: ${({ theme }) => theme.hexToRgba(theme.colors.gray100, 0.6)};
+  border: 0.1rem solid ${({ theme }) => theme.colors.gray400};
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 
   &::after {
     content: '';
@@ -26,7 +28,7 @@ export const Circle = styled.div<{ isFirst?: boolean }>`
     height: 1.2rem;
     border-radius: 50%;
     background: ${({ theme, isFirst }) =>
-      isFirst ? theme.gradients.setListItemBackground : theme.colors.gray5};
+      isFirst ? theme.colors.gray700 : theme.colors.gray400};
   }
 `;
 
@@ -53,13 +55,12 @@ export const ItemPContainer = styled.div`
 export const ItemP = styled.p<{
   size?: string;
   weight?: number;
-  color?: keyof DefaultTheme['gradients'];
+  color?: keyof DefaultTheme['colors'];
 }>`
   font-size: ${({ size }) => size || '1.6rem'};
   font-weight: ${({ weight }) => weight || 600};
   color: transparent;
-  background: ${({ theme, color }) =>
-    theme.gradients[color ?? 'setListItemBackground']};
+  background: ${({ theme, color }) => theme.colors[color ?? 'gray600']};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
