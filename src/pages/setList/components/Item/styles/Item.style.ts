@@ -15,7 +15,10 @@ export const Circle = styled.div<{ isFirst?: boolean }>`
   height: 2rem;
   margin-top: 1.2rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.hexToRgba(theme.colors.gray100, 0.6)};
+  background: ${({ theme, isFirst }) =>
+    isFirst
+      ? theme.colors.gray400
+      : theme.hexToRgba(theme.colors.gray100, 0.6)};
   border: 0.1rem solid ${({ theme }) => theme.colors.gray400};
   display: flex;
   justify-content: center;
