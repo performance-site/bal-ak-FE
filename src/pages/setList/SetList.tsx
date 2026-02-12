@@ -1,7 +1,6 @@
 import * as S from './styles/SetList.style';
 import PageTitle from './components/PageTitle/PageTitle';
 import List from './components/List/List';
-import RefreshButton from './components/RefreshButton/RefreshButton';
 import { useGetListData } from './hooks/useQuery/useGetListData';
 import Spinner from '../../components/Spinner/Spinner';
 import { useEffect, useState } from 'react';
@@ -12,16 +11,11 @@ const SetList = () => {
   }, []);
 
   const [listKey, setListKey] = useState(0);
-  const { data, isLoading, refetch } = useGetListData();
+  const { data, isLoading } = useGetListData();
   // console.log(data);
 
   const list = data?.data?.setlist ?? [];
   const nowPlayingOrder = data?.data?.nowPlayingOrder ?? -1;
-
-  const handleRefresh = () => {
-    setListKey((prev) => prev + 1);
-    refetch();
-  };
 
   if (isLoading)
     return (
@@ -34,7 +28,6 @@ const SetList = () => {
     <S.SetListContainer>
       <PageTitle />
       <List key={listKey} data={list} nowPlayingOrder={nowPlayingOrder} />
-      <RefreshButton onClick={handleRefresh} />
 
       <S.ListBar />
     </S.SetListContainer>
