@@ -6,6 +6,8 @@ const hexToRgba = (hex: string, alpha: number): string => {
 };
 
 const colors = {
+  background: '#FFFFFF',
+
   white: '#FCFCFC',
   white10: '#FCFCFC1A',
 
@@ -55,10 +57,7 @@ const colors = {
 
   white2: '#F5F5F5',
   white3: '#E0E0E0',
-
-  
 };
-
 
 const gradients = {
   // 아래는 모두 제거 예정
