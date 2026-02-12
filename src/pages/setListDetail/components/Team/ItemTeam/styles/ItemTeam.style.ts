@@ -37,6 +37,6 @@ export const ItemTeamP = styled.p`
   font-size: 1rem;
   line-height: 1.4;
   letter-spacing: -0.025em;
-  color: ${({ theme }) => theme.colors.gray7};
-  text-align: center;
+  color: ${({ theme }) => theme.colors.gray800};
+  text-align: left;
 `;
