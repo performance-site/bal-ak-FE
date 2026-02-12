@@ -24,7 +24,7 @@ const WaveBar = styled.div`
   height: 1.165rem;
   transform-origin: bottom;
   animation: ${waveAnimation} 1s ease-in-out infinite;
-  background: ${({ theme }) => theme.gradients.setListItemWaveBackground};
+  background: ${({ theme }) => theme.colors.gray600};
   background-size: 1.18rem 100%;
   background-repeat: no-repeat;
 `;
