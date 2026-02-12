@@ -19,21 +19,21 @@ export const AlbumTapDiv = styled.div<{
   align-items: center;
   font-size: 1.2rem;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.gray1};
+  color: ${({ theme }) => theme.colors.black};
   background: ${({ $active, theme }) =>
-    $active ? theme.gradients.setListRefreshbackground : 'transparent'};
+    $active ? theme.colors.gray200 : 'transparent'};
   cursor: pointer;
   overflow: hidden;
 
   ${({ $position }) =>
     $position === 'left'
       ? `
-        border-top-left-radius: 0.6rem;
-        border-bottom-left-radius: 0.6rem;
+        border-top-left-radius: 1.8rem;
+        border-bottom-left-radius: 1.8rem;
       `
       : `
-        border-top-right-radius: 0.6rem;
-        border-bottom-right-radius: 0.6rem;
+        border-top-right-radius: 1.8rem;
+        border-bottom-right-radius: 1.8rem;
       `}
 
   &::before {
@@ -42,7 +42,7 @@ export const AlbumTapDiv = styled.div<{
     inset: 0;
     border-radius: inherit;
     padding: 0.1rem;
-    background: ${({ theme }) => theme.gradients.setListPageTitleBorder};
+    background: ${({ theme }) => theme.colors.gray500};
     -webkit-mask:
       linear-gradient(${({ theme }) => theme.colors.white} 0 0) content-box,
       linear-gradient(${({ theme }) => theme.colors.white} 0 0);
