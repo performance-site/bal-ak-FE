@@ -16,7 +16,6 @@ const SetList = () => {
   // console.log(data);
 
   const list = data?.data?.setlist ?? [];
-  const url = data?.data?.setListUrl ?? '';
   const nowPlayingOrder = data?.data?.nowPlayingOrder ?? -1;
 
   const handleRefresh = () => {
@@ -33,7 +32,7 @@ const SetList = () => {
 
   return (
     <S.SetListContainer>
-      <PageTitle data={url} />
+      <PageTitle />
       <List key={listKey} data={list} nowPlayingOrder={nowPlayingOrder} />
       <RefreshButton onClick={handleRefresh} />
 
