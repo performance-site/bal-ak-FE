@@ -30,18 +30,24 @@ const SetListDetail = () => {
   const { track, team } = data.data;
 
   return (
-    <S.SetListDetailContainer className="scroll">
-      <Banner track={track} />
-      <AlbumImg track={track} />
+    <S.Background>
+      <S.SetListDetailContainer className="scroll">
+        <Banner track={track} />
+        <AlbumImg track={track} />
 
-      <S.SetListDetailInnerContainer>
-        <AlbumExplain track={track} />
+        <S.SetListDetailInnerContainer>
+          <AlbumExplain track={track} />
 
-        <AlbumTap onTabChange={setSelectedTab} />
+          <AlbumTap onTabChange={setSelectedTab} />
 
-        {selectedTab === 'song' ? <Song song={track} /> : <Team team={team} />}
-      </S.SetListDetailInnerContainer>
-    </S.SetListDetailContainer>
+          {selectedTab === 'song' ? (
+            <Song song={track} />
+          ) : (
+            <Team team={team} />
+          )}
+        </S.SetListDetailInnerContainer>
+      </S.SetListDetailContainer>
+    </S.Background>
   );
 };
 

@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+export const Background = styled.div`
+  height: 100%;
+  background-image: url('/backgroundImg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+`;
+
 export const SetListDetailContainer = styled.main`
   width: 100%;
   height: 100vh;
