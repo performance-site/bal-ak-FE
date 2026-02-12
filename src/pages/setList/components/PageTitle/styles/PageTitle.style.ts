@@ -21,8 +21,8 @@ export const PageTitleP = styled.p<{
 }>`
   width: 100%;
   font-size: ${({ size }) => size || '2rem'};
-  font-weight: ${({ weight }) => weight || 600};
-  color: ${({ theme, color }) => theme.colors[color || 'gray1']};
+  font-weight: ${({ weight }) => weight || 700};
+  color: ${({ theme, color }) => theme.colors[color || 'black']};
 `;
 
 export const PageTitleButton = styled.button`
