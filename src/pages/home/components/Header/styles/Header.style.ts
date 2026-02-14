@@ -13,19 +13,17 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 38.7rem;
   overflow: hidden;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
   position: relative;
 `;
 
 export const SliderWrapper = styled.div<SliderWrapperProps>`
   display: flex;
-  width: ${(props) => props.$imageCount * 100}%;
+  width: ${({ $imageCount }) => $imageCount * 100}%;
   height: 100%;
   transition: transform 0.5s ease-in-out;
-  transform: translateX(
-    ${(props) => -props.$currentIndex * (100 / props.$imageCount)}%
-  );
+
+  transform: ${({ $currentIndex, $imageCount }) =>
+    `translateX(-${$currentIndex * (100 / $imageCount)}%)`};
 `;
 
 export const SlideItem = styled.div<SlideItemProps>`
