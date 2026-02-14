@@ -82,8 +82,6 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
   return (
     <S.MapContainer ref={ref}>
       <S.TitleWrapper>
-        <S.MapTitle>Concert Location</S.MapTitle>
-        <S.MapSubTitle>위치 안내</S.MapSubTitle>
         <S.ClickIcon>
           <img src={CLICK} alt="클릭아이콘" />
         </S.ClickIcon>
