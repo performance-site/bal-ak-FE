@@ -1,8 +1,8 @@
 import { ButtonListContainer } from './styles/ButtonList.style';
-import inquiryBtn from '../../../../assets/images/home/MsgImg.png';
-import LocationBtn from '../../../../assets/images/home/LocationImg.png';
-import StarBtn from '../../../../assets/images/home/Star.png';
-import setListBtn from '../../../../assets/images/home/PlayImg.png';
+import inquiryBtn from '../../../../assets/images/home/MsgImg.webp';
+import LocationBtn from '../../../../assets/images/home/LocationImg.webp';
+import StarBtn from '../../../../assets/images/home/StarImg.webp';
+import setListBtn from '../../../../assets/images/home/PlayImg.webp';
 import ButtonItem from './ButtonItem';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 

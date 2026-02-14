@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 interface ItemWrapperProps {
   $isFirst?: boolean;
@@ -9,30 +10,35 @@ interface ItemImgProps {
 }
 
 export const ItemWrapper = styled.div<ItemWrapperProps>`
-  height: 100%;
+  width: 7.4rem;
+  height: 9rem;
+  background-color: ${theme.colors.white};
+  border: 0.75px solid ${theme.colors.gray700};
+  border-radius: 1.8rem;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 0.4rem;
+  gap: 1.2rem;
+
   cursor: pointer;
   transition: transform 0.1s ease;
 
   &:active {
-  transform: scale(0.95);
+    transform: scale(0.95);
   }
 `;
 
 export const ItemImg = styled.img<ItemImgProps>`
-  height: 5rem;
+  width: 4.3rem;
+  height: 4.4rem;
   object-fit: contain;
   display: block;
-  margin-top: ${(props) => (props.$isFirst ? '-0.4rem' : '0')};
-  margin-bottom: ${(props) => (props.$isFirst ? '0.4rem' : '0')};
-  transform: ${(props) => (props.$isFirst ? 'scale(1.1)' : 'scale(1)')};
 `;
 
 export const ItemInfo = styled.p`
-  font-size: 1rem;
-  font-weight: 600;
-  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: ${theme.colors.black};
 `;
