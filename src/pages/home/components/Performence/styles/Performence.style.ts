@@ -27,7 +27,7 @@ export const PerformenceContainer = styled.div`
 
 export const PerformenceTitle = styled.p`
   font-size: 2.4rem;
-  font-weight: 400;
+  font-weight: 700;
   color: ${({ theme }) => theme.colors.gray800};
 `;
 
