@@ -6,7 +6,6 @@ export const FooterContainer = styled.footer`
   padding: 2.2rem 2.4rem;
   color: white;
   position: absolute;
-  top: 200rem;
   background: ${theme.gradients.linear1};
   display: flex;
   justify-content: space-between;
