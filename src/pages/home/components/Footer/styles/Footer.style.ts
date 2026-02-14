@@ -7,22 +7,9 @@ export const FooterContainer = styled.footer`
   color: white;
   position: absolute;
   top: 200rem;
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%),
-    linear-gradient(
-      180deg,
-      rgba(156, 69, 169, 0.2) 0%,
-      rgba(34, 23, 41, 0.4) 100%
-    );
-`;
-
-export const FooterContent = styled.div`
-  display: grid;
-  grid-template-columns: 2.2fr 0.8fr 1.3fr;
-
-  & > *:nth-child(1) {
-    margin-right: 3rem;
-  }
+  background: ${theme.gradients.linear1};
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const Section = styled.div`
@@ -32,50 +19,43 @@ export const Section = styled.div`
 `;
 
 export const Title = styled.p`
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 400;
   letter-spacing: 1px;
-  color: ${theme.colors.gray6};
+  color: ${theme.colors.black};
 `;
 
 export const Description = styled.p`
-  font-size: 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 400;
   line-height: 1.6;
   margin: 0;
   opacity: 0.9;
-  color: ${theme.colors.gray8};
+  color: ${theme.colors.gray700};
+  white-space: pre-line;
 `;
 
 export const ContactInfo = styled.div`
+  font-size: 0.8rem;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   gap: 0.1rem;
+  color: ${theme.colors.gray700};
 `;
 
 export const Email = styled.a`
-  color: white;
   text-decoration: none;
-  font-size: 0.7rem;
-  opacity: 0.9;
-  color: ${theme.colors.gray8};
-`;
-
-export const InfoText = styled.p`
-  font-size: 0.7rem;
-  margin: 0;
-  opacity: 0.9;
-  color: ${theme.colors.gray8};
 `;
 
 export const TeamList = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  color: ${theme.colors.gray8};
+  gap: 0.5rem;
 `;
 
 export const TeamMember = styled.p`
-  font-size: 0.7rem;
-  margin: 0;
-  opacity: 0.9;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: ${theme.colors.gray700};
 `;

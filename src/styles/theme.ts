@@ -27,9 +27,9 @@ const colors = {
   dropShadow: '#0400FA0F',
 
   // 아래는 모두 제거 예정
-  background1: '#4800FF',
-  background2: '#121212',
-  background3: '#321857',
+  background1: '#F4F4F6',
+  background2: '#ffffff',
+  background3: '#dedede',
 
   gray1: '#FCFCFC',
   gray2: '#C4C4C4',
@@ -55,12 +55,11 @@ const colors = {
 
   white2: '#F5F5F5',
   white3: '#E0E0E0',
-
-  
 };
 
-
 const gradients = {
+  linear1: `linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, rgba(187, 187, 187, 0.2) 0%, rgba(34, 23, 41, 0.42) 100%)`,
+
   // 아래는 모두 제거 예정
   get background() {
     const topGradient = `radial-gradient(300% 150% at -30% -50%, ${colors.background1} 0%, transparent 75%)`;
