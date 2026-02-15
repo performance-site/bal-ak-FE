@@ -3,7 +3,6 @@ import { SetListItem } from '../../../../types/setList/setList.type';
 import ItemArrow from '../../../../assets/images/setList/itemArrow.svg';
 import Wave from './Wave';
 import ItemDownloadOn from '../../../../assets/images/setList/itemDownloadOn.svg';
-import ItemDownloadOff from '../../../../assets/images/setList/itemDownloadOff.svg';
 import useNavigation from '../../../../hooks/useNavigation';
 
 interface ItemProps {
@@ -20,7 +19,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
 
   return (
     <S.ItemContainer>
-      <S.Circle isFirst={isCurrent} />
+      <S.Circle />
 
       <S.ItemRightContainer
         onClick={() =>
@@ -37,7 +36,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
 
           <S.ItemPContainer>
             <S.ItemDownloadImg
-              src={isCurrent ? ItemDownloadOn : ItemDownloadOff}
+              src={ItemDownloadOn}
               alt="download"
               loading="eager"
               decoding="async"

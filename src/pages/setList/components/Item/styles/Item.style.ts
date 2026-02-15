@@ -9,16 +9,13 @@ export const ItemContainer = styled.div`
   z-index: 1;
 `;
 
-export const Circle = styled.div<{ isFirst?: boolean }>`
+export const Circle = styled.div`
   position: relative;
   width: 2.1895rem;
   height: 2rem;
   margin-top: 1.2rem;
   border-radius: 50%;
-  background: ${({ theme, isFirst }) =>
-    isFirst
-      ? theme.colors.gray400
-      : theme.hexToRgba(theme.colors.gray100, 0.6)};
+  background: ${({ theme }) => theme.colors.gray400};
   border: 0.1rem solid ${({ theme }) => theme.colors.gray400};
   display: flex;
   justify-content: center;
@@ -30,8 +27,7 @@ export const Circle = styled.div<{ isFirst?: boolean }>`
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 50%;
-    background: ${({ theme, isFirst }) =>
-      isFirst ? theme.colors.gray700 : theme.colors.gray400};
+    background: ${({ theme }) => theme.colors.gray700};
   }
 `;
 
