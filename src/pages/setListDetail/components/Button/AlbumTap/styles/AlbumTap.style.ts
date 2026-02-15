@@ -43,7 +43,7 @@ export const AlbumTapDiv = styled.div<{
     inset: 0;
     border-radius: inherit;
     padding: 0.1rem;
-    background: ${({ theme }) => theme.colors.gray500};
+    background: ${({ theme }) => theme.colors.black};
     -webkit-mask:
       linear-gradient(${({ theme }) => theme.colors.white} 0 0) content-box,
       linear-gradient(${({ theme }) => theme.colors.white} 0 0);
