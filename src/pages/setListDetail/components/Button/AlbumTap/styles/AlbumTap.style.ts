@@ -19,9 +19,10 @@ export const AlbumTapDiv = styled.div<{
   align-items: center;
   font-size: 1.2rem;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.gray100 : theme.colors.black};
   background: ${({ $active, theme }) =>
-    $active ? theme.colors.gray200 : 'transparent'};
+    $active ? theme.colors.black : 'transparent'};
   cursor: pointer;
   overflow: hidden;
 
