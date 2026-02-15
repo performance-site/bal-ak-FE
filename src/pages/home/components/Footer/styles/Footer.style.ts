@@ -8,6 +8,7 @@ export const FooterContainer = styled.footer`
   background: ${theme.gradients.linear1};
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
 `;
 
 export const Section = styled.div`

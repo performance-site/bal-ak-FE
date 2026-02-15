@@ -7,6 +7,11 @@ export const HomeContainer = styled.div`
   height: 100vh;
   overflow-y: auto;
 
+  background-image: url(${bgImg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
@@ -18,10 +23,8 @@ export const MainInfo = styled.div`
   flex-direction: column;
   gap: 7rem;
 
-  background-image: url(${bgImg});
-  background-size: cover; /* 이미지가 요소를 꽉 채우도록 */
-  background-position: center; /* 이미지 중앙 정렬 */
-  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
 `;
 
 export const SectionBox = styled.section`
