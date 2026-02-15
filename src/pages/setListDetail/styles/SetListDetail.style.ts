@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
-export const Background = styled.div`
+export const Background = styled.div<{ $tab: 'song' | 'team' }>`
   height: 100%;
-  background-image: url('/backgroundImg.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-image: ${({ $tab }) =>
+    $tab === 'song'
+      ? "url('/songBackgroundImg.svg')"
+      : "url('/backgroundImg.svg')"};
 `;
 
 export const SetListDetailContainer = styled.main`

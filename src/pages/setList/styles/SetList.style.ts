@@ -9,7 +9,7 @@ export const SetListContainer = styled.main`
   align-items: center;
   padding-top: 2.4rem;
   overflow: hidden;
-  background-image: url(/setListBgImg.svg);
+  background-image: url(/backgroundImg.svg);
 `;
 
 export const ListBar = styled.div`

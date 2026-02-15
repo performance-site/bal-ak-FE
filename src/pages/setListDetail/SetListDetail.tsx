@@ -30,7 +30,7 @@ const SetListDetail = () => {
   const { track, team } = data.data;
 
   return (
-    <S.Background>
+    <S.Background $tab={selectedTab}>
       <S.SetListDetailContainer className="scroll">
         <Banner track={track} />
         <AlbumImg track={track} />
