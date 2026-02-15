@@ -9,11 +9,12 @@ export const ItemTeamContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const ItemTeamProfileDiv = styled.div`
+export const ItemTeamProfileDiv = styled.div<{ $isVocal: boolean }>`
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.gradients.whiteOpacity10};
+  background: ${({ theme, $isVocal }) =>
+    $isVocal ? theme.colors.white : theme.gradients.whiteOpacity10};
   box-shadow: ${({ theme }) => `
     ${theme.shadows.blueSoft},
     ${theme.shadows.insetLight},
