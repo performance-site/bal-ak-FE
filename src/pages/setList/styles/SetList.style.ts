@@ -10,6 +10,9 @@ export const SetListContainer = styled.main`
   padding-top: 2.4rem;
   overflow: hidden;
   background-image: url(/backgroundImg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const ListBar = styled.div`
