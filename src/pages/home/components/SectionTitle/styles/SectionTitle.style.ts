@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import theme from '../../../../../styles/theme';
 
 export const SectionInfo = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 2.4rem;
-  margin-top: 3rem;
+  padding: 0 2.4rem;
   color: ${theme.colors.black};
 `;
 

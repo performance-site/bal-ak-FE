@@ -9,9 +9,9 @@ interface FadeInWrapperProps {
 }
 
 export const PosterConatiner = styled.div`
-  position: absolute;
-  top: 70rem;
   width: 100%;
+  padding-left: 2.4rem;
+  margin-top: 2.4rem;
 `;
 
 export const FadeInWrapper = styled.div<FadeInWrapperProps>`
@@ -23,7 +23,6 @@ export const FadeInWrapper = styled.div<FadeInWrapperProps>`
 `;
 
 export const PosterSlider = styled.div`
-  padding: 0 2.4rem;
   overflow-x: auto;
   scrollbar-width: none;
   &::-webkit-scrollbar {

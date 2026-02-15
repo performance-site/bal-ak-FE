@@ -11,3 +11,15 @@ export const HomeContainer = styled.div`
     display: none;
   }
 `;
+
+export const MainInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+`;
+
+export const SectionBox = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
