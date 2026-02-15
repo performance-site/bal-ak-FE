@@ -77,14 +77,8 @@ export const ItemDownloadImg = styled.img`
   height: auto;
 `;
 
-export const ItemArrowImg = styled.img<{ isWhite?: boolean }>`
+export const ItemArrowImg = styled.img`
   width: 0.688rem;
   height: auto;
   margin-top: 0.133rem;
-
-  ${({ isWhite }) =>
-    isWhite &&
-    `
-      filter: brightness(0) invert(1);
-    `}
 `;

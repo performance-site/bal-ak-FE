@@ -53,7 +53,6 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
 
         <S.ItemArrowImg
           src={ItemArrow}
-          isWhite={!isCurrent}
           alt="arrow"
           loading="eager"
           decoding="async"
