@@ -8,12 +8,9 @@ import useNavigation from '../../../../hooks/useNavigation';
 interface ItemProps {
   data: SetListItem;
   index: number;
-  nowPlayingOrder: number | null;
 }
 
-const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
-  const isBeforeShow = nowPlayingOrder === -1 && index === 0;
-
+const Item = ({ data }: ItemProps) => {
   const { goTo } = useNavigation();
 
   return (
@@ -21,16 +18,12 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
       <S.Circle />
 
       <S.ItemRightContainer
-        onClick={() =>
-          !isBeforeShow && goTo(`/setlist/${data.performanceSongId}`)
-        }
+        onClick={() => goTo(`/setlist/${data.performanceSongId}`)}
       >
         <S.ItemRightInnerContainer>
           <S.ItemPContainer>
             <Wave />
-            <S.ItemP color="gray800">
-              {isBeforeShow ? '공연 시작 전' : data.title}
-            </S.ItemP>
+            <S.ItemP color="gray800">{data.title}</S.ItemP>
           </S.ItemPContainer>
 
           <S.ItemPContainer>
@@ -42,9 +35,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
               draggable={false}
             />
             <S.ItemP size="1.2rem" weight={400} color="gray600">
-              {isBeforeShow
-                ? '현재는 Setlist만 확인할 수 있습니다.'
-                : data.artist}
+              {data.artist}
             </S.ItemP>
           </S.ItemPContainer>
         </S.ItemRightInnerContainer>
