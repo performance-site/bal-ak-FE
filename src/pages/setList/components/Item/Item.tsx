@@ -13,7 +13,6 @@ interface ItemProps {
 
 const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
   const isBeforeShow = nowPlayingOrder === -1 && index === 0;
-  const isCurrent = data.order === nowPlayingOrder || isBeforeShow;
 
   const { goTo } = useNavigation();
 
@@ -28,7 +27,7 @@ const Item = ({ data, index, nowPlayingOrder }: ItemProps) => {
       >
         <S.ItemRightInnerContainer>
           <S.ItemPContainer>
-            {isCurrent && <Wave />}
+            <Wave />
             <S.ItemP color="gray800">
               {isBeforeShow ? '공연 시작 전' : data.title}
             </S.ItemP>
