@@ -38,8 +38,8 @@ export const AlbumExplainP = styled.p<{
   fontSize?: string;
   fontWeight?: number;
 }>`
-  font-size: ${({ fontSize }) => fontSize || '2rem'};
-  font-weight: ${({ fontWeight }) => fontWeight || 700};
+  font-size: ${({ fontSize }) => fontSize || '2.4rem'};
+  font-weight: ${({ fontWeight }) => fontWeight || 400};
   color: ${({ theme, color }) => theme.colors[color || 'black']};
   white-space: nowrap;
 `;
@@ -61,7 +61,7 @@ export const AlbumExplainDiv = styled.div`
     grid-template-columns: 5rem 1fr;
     font-size: 1.2rem;
     line-height: 1.4rem;
-    color: ${({ theme }) => theme.colors.gray600};
+    color: ${({ theme }) => theme.colors.black};
   }
 
   .span {
