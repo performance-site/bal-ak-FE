@@ -21,7 +21,7 @@ export const PageTitleP = styled.p<{
 }>`
   width: 100%;
   font-size: ${({ size }) => size || '2rem'};
-  font-weight: ${({ weight }) => weight || 700};
+  font-weight: 400;
   color: ${({ theme, color }) => theme.colors[color || 'black']};
 `;
 
