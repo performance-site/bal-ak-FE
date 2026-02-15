@@ -8,6 +8,7 @@ const hexToRgba = (hex: string, alpha: number): string => {
 const colors = {
   white: '#FCFCFC',
   white10: '#FCFCFC1A',
+  white20: '#FCFCFC33',
 
   black: '#111111',
   black10: '#1111111A',
@@ -22,6 +23,7 @@ const colors = {
   gray300: '#C4C4C4',
   gray200: '#D9D9D9',
   gray100: '#E9E9E9',
+  graySub: '#7C7C7C',
 
   blurBox: '#756A7F33',
   dropShadow: '#0400FA0F',
@@ -67,11 +69,7 @@ const gradients = {
   `,
 
   // 아래는 모두 제거 예정
-  get background() {
-    const topGradient = `radial-gradient(300% 150% at -30% -50%, ${colors.background1} 0%, transparent 75%)`;
-    const bottomGradient = `radial-gradient(180% 50% at 100% 60%, ${colors.background3} 0%, transparent 75%)`;
-    return `${bottomGradient}, ${topGradient}, ${colors.background2}`;
-  },
+  //background: `linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, rgba(187, 187, 187, 0.2) 0%, rgba(34, 23, 41, 0.42) 100%)`,
 
   inputbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.10) 43.66%, rgba(162, 132, 246, 0.10) 116.16%)`,
   checkbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.1) 44%, rgba(162, 132, 246, 0.1) 116%)`,
