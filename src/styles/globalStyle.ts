@@ -138,7 +138,6 @@ const GlobalStyle = createGlobalStyle`
     .pageContainer {
         width: 393px;
         min-height: 100vh;
-        background: ${({ theme }) => theme.colors.background};
         color: ${({ theme }) => theme.colors.white};
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
