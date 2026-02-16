@@ -19,9 +19,9 @@ export default defineConfig({
         'favicons/favicon.svg',
       ],
       manifest: {
-        name: '들불 공연',
-        short_name: '들불 공연',
-        description: '들불 공연 초대장 웹사이트',
+        name: '發樂:발악',
+        short_name: '發樂:발악',
+        description: '發樂:발악 웹사이트',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',

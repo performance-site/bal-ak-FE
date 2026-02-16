@@ -12,27 +12,23 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
     null,
   );
   const [isLoading, setIsLoading] = useState(true);
-  const [kakaoLoaded, setKakaoLoaded] = useState(false);
+  const [kakaoReady, setKakaoReady] = useState(false);
 
   useEffect(() => {
-    const checkKakaoLoaded = () => {
-      if (window.kakao && window.kakao.maps && window.kakao.maps.services) {
-        setKakaoLoaded(true);
+    const loadKakao = () => {
+      if (window.kakao && window.kakao.maps) {
+        window.kakao.maps.load(() => {
+          setKakaoReady(true);
+        });
       } else {
-        setTimeout(checkKakaoLoaded, 100);
+        setTimeout(loadKakao, 100);
       }
     };
-    checkKakaoLoaded();
+    loadKakao();
   }, []);
 
   useEffect(() => {
-    if (
-      !location ||
-      !kakaoLoaded ||
-      !window.kakao ||
-      !window.kakao.maps ||
-      !window.kakao.maps.services
-    ) {
+    if (!location || !kakaoReady || !window.kakao?.maps?.services) {
       if (!location) setIsLoading(false);
       return;
     }
@@ -41,17 +37,14 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
 
     geocoder.addressSearch(location, (result, status) => {
       if (status === window.kakao.maps.services.Status.OK) {
-        const coords = {
+        setPosition({
           lat: parseFloat(result[0].y),
           lng: parseFloat(result[0].x),
-        };
-        setPosition(coords);
-        setIsLoading(false);
-      } else {
-        setIsLoading(false);
+        });
       }
+      setIsLoading(false);
     });
-  }, [location, kakaoLoaded]);
+  }, [location, kakaoReady]);
 
   // 주소를 검색어로 사용하여 카카오맵 열기
   const handleOpenKakaoMap = () => {
@@ -61,17 +54,9 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
     window.open(url, '_blank');
   };
 
-  if (!kakaoLoaded || isLoading) {
+  if (!kakaoReady) {
     return (
-      <S.MapWrapper>
-        <S.MapContainer>지도 로딩중...</S.MapContainer>
-      </S.MapWrapper>
-    );
-  }
-
-  if (!position) {
-    return (
-      <S.MapWrapper>
+      <S.MapWrapper ref={ref}>
         <S.MapContainer>
           <Spinner />
         </S.MapContainer>
@@ -82,20 +67,22 @@ const KakaoMap = forwardRef<HTMLDivElement, unknown>((_, ref) => {
   return (
     <S.MapContainer ref={ref}>
       <S.TitleWrapper>
-        <S.MapTitle>Concert Location</S.MapTitle>
-        <S.MapSubTitle>위치 안내</S.MapSubTitle>
         <S.ClickIcon>
           <img src={CLICK} alt="클릭아이콘" />
         </S.ClickIcon>
       </S.TitleWrapper>
       <S.MapWrapper onClick={handleOpenKakaoMap}>
-        <Map
-          center={position}
-          style={{ width: '100%', height: '100%' }}
-          level={3}
-        >
-          <MapMarker position={position} />
-        </Map>
+        {isLoading || !position ? (
+          <Spinner />
+        ) : (
+          <Map
+            center={position}
+            style={{ width: '100%', height: '100%' }}
+            level={3}
+          >
+            <MapMarker position={position} />
+          </Map>
+        )}
       </S.MapWrapper>
       <S.AddressInfo>
         <S.AddressText>위치: {location}</S.AddressText>

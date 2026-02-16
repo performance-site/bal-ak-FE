@@ -7,13 +7,13 @@ export const NotFoundContainer = styled.div`
   justify-content: center;
   align-items: center;
   gap: 7.2rem;
-  background: ${({ theme }) => theme.gradients.background};
+  background: ${({ theme }) => theme.gradients.linear1};
 `;
 
 export const NotFoundHeader = styled.div``;
 
 export const MainText = styled.p`
-  color: ${({ theme }) => theme.colors.gray1};
+  color: ${({ theme }) => theme.colors.black};
   text-align: center;
   font-size: 2.4rem;
   font-weight: 600;
@@ -22,7 +22,7 @@ export const MainText = styled.p`
 `;
 
 export const SubText = styled.p`
-  color: ${({ theme }) => theme.colors.gray9};
+  color: ${({ theme }) => theme.colors.graySub};
   text-align: center;
   font-size: 1.4rem;
   font-weight: 300;
@@ -39,7 +39,7 @@ export const NotFoundContent = styled.div`
 `;
 
 export const NotText = styled.p`
-  color: ${({ theme }) => theme.colors.gray1};
+  color: ${({ theme }) => theme.colors.black};
   text-align: center;
   font-size: 1.6rem;
   font-weight: 400;
@@ -55,13 +55,20 @@ export const BackBox = styled.button`
   justify-content: center;
   align-items: center;
   border-radius: 0.4rem;
-  border: 1.25px solid ${({ theme }) => theme.colors.purple1};
-  background: ${({ theme }) => theme.gradients.inputbox};
+  border: 1.25px solid ${({ theme }) => theme.colors.gray700};
+  background: ${({ theme }) => theme.colors.white20};
   box-shadow: 0 0 8px 0 rgba(4, 0, 250, 0.08);
+
+  &:active {
+    transform: scale(0.95);
+  }
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const BackText = styled.p`
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   text-align: center;
   font-size: 1.2rem;
   font-weight: 600;

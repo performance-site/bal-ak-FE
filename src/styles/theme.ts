@@ -10,6 +10,7 @@ const colors = {
 
   white: '#FCFCFC',
   white10: '#FCFCFC1A',
+  white20: '#FCFCFC33',
 
   black: '#111111',
   black10: '#1111111A',
@@ -24,14 +25,15 @@ const colors = {
   gray300: '#C4C4C4',
   gray200: '#D9D9D9',
   gray100: '#E9E9E9',
+  graySub: '#7C7C7C',
 
   blurBox: '#756A7F33',
   dropShadow: '#0400FA0F',
 
   // 아래는 모두 제거 예정
-  background1: '#4800FF',
-  background2: '#121212',
-  background3: '#321857',
+  background1: '#F4F4F6',
+  background2: '#ffffff',
+  background3: '#dedede',
 
   gray1: '#FCFCFC',
   gray2: '#C4C4C4',
@@ -60,12 +62,16 @@ const colors = {
 };
 
 const gradients = {
+  linear1: `linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, rgba(187, 187, 187, 0.2) 0%, rgba(34, 23, 41, 0.42) 100%)`,
+
+  performanceBg: `
+    linear-gradient(0deg, rgba(25, 37, 73, 0.14) 0.83%, rgba(216, 216, 216, 0.14) 14.99%, rgba(216, 216, 216, 0.14) 27.23%, rgba(137, 134, 134, 0.14) 52.34%, rgba(241, 241, 241, 0.14) 66.67%, rgba(133, 129, 129, 0.14) 85.19%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 100%),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 100%)
+  `,
+
   // 아래는 모두 제거 예정
-  get background() {
-    const topGradient = `radial-gradient(300% 150% at -30% -50%, ${colors.background1} 0%, transparent 75%)`;
-    const bottomGradient = `radial-gradient(180% 50% at 100% 60%, ${colors.background3} 0%, transparent 75%)`;
-    return `${bottomGradient}, ${topGradient}, ${colors.background2}`;
-  },
+  //background: `linear-gradient(0deg, rgba(0, 0, 0, 0.07) 0%, rgba(0, 0, 0, 0.07) 100%), linear-gradient(180deg, rgba(187, 187, 187, 0.2) 0%, rgba(34, 23, 41, 0.42) 100%)`,
 
   inputbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.10) 43.66%, rgba(162, 132, 246, 0.10) 116.16%)`,
   checkbox: `linear-gradient(98deg, rgba(136, 106, 226, 0.1) 44%, rgba(162, 132, 246, 0.1) 116%)`,
@@ -91,6 +97,12 @@ const gradients = {
 };
 
 const shadows = {
+  performanceInset: `
+    1px 1px 1px -2px #969696 inset,
+    -1px -1px 1px -2px #9c9c9c inset,
+    0 4px 18px 0 rgba(0, 0, 0, 0.04)
+  `,
+
   // 아래는 모두 제거 예정
   default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
   purple: `0.8rem 0.8rem 1.8rem 0 ${hexToRgba(colors.purple7, 0.08)}`,

@@ -1,5 +1,4 @@
 import * as S from './styles/Header.style';
-import HeaderTitle from './HeaderTitle';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 import { useAutoSlider } from '../../hooks/useAutoSlider';
 
@@ -28,7 +27,6 @@ function Header() {
             </S.SlideItem>
           ))}
         </S.SliderWrapper>
-        <HeaderTitle />
       </S.HeaderContainer>
     </div>
   );
