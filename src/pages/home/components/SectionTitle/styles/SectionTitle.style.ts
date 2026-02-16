@@ -1,21 +1,22 @@
 import styled from 'styled-components';
 import theme from '../../../../../styles/theme';
 
-export const PosterInfoConatiner = styled.div`
+export const SectionInfo = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-bottom: 2.4rem;
-  margin-left: 2.4rem;
+  padding: 0 2.4rem;
+  color: ${theme.colors.black};
 `;
 
-export const PosterTitle = styled.p`
+export const SectionTitle = styled.p`
   font-size: 2.4rem;
-  font-weight: 600;
+  font-weight: 400;
+  margin-bottom: 0.2rem;
 `;
 
-export const PosterSubtitle = styled.p`
+export const SectionSubtitle = styled.p`
   font-size: 1.2rem;
   font-weight: 400;
-  color: ${theme.colors.gray2};
 `;

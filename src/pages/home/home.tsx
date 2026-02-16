@@ -1,97 +1,56 @@
-import { useRef, Suspense, lazy, useEffect, useState } from 'react';
+import { useRef, lazy } from 'react';
 import ButtonList from './components/ButtonList/ButtonList';
-import DropDownBtn from './components/DropDown/DropDownBtn';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
 import Performence from './components/Performence/Performence';
-import { HomeContainer } from './styles/Home.style';
+import * as S from './styles/Home.style';
 import useGetHomeData from './hooks/useQuery/useGetHomeData';
-import Spinner from '../../components/Spinner/Spinner';
-import BookingModal from '../../components/BookingModal/BookingModal';
-import { useHomeStore } from '../../store/homeStore/homeStore';
+import SectionTitle from './components/SectionTitle/SectionTitle';
 
 const Poster = lazy(() => import('./components/Poster/Poster'));
 const KakaoMap = lazy(() => import('./components/Map/KakaoMap'));
-const More = lazy(() => import('./components/More/More'));
 
 const Home = () => {
-  useEffect(() => {
-    document.title = '홈 - 들불';
-  }, []);
+  // useEffect(() => {
+  //   document.title = '홈 - 들불';
+  // }, []);
 
   const posterRef = useRef<HTMLDivElement>(null);
   const kakaoMapRef = useRef<HTMLDivElement>(null);
 
   useGetHomeData();
 
-  const handleScrollToPoster = () => {
-    posterRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const handleScrollToKakaoMap = () => {
     kakaoMapRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const openchatUrl = useHomeStore((state) => state.homeData?.openchatUrl);
-
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
-
   return (
-    <HomeContainer>
+    <S.HomeContainer>
+      {/* 헤더, 타이틀 박스 */}
       <Header />
       <Performence />
-      <ButtonList
-        onScrollToKakaoMap={handleScrollToKakaoMap}
-        isBookingClosed={false}
-        onBookingClosedClick={() => setIsBookingModalOpen(true)}
-      />
-      <DropDownBtn onScrollToPoster={handleScrollToPoster} />
-      <Suspense
-        fallback={
-          <div style={{ height: '38.3rem' }}>
-            <Spinner />
-          </div>
-        }
-      >
-        <Poster ref={posterRef} />
-      </Suspense>
-      <Suspense
-        fallback={
-          <div style={{ height: '23.6rem' }}>
-            <Spinner />
-          </div>
-        }
-      >
-      </Suspense>
-      <Suspense
-        fallback={
-          <div style={{ height: '33.9rem' }}>
-            <Spinner />
-          </div>
-        }
-      >
-        <KakaoMap ref={kakaoMapRef} />
-      </Suspense>
-      <Suspense
-        fallback={
-          <div style={{ height: '11.3rem' }}>
-            <Spinner />
-          </div>
-        }
-      >
-        <More />
-      </Suspense>
-      <Footer />
 
-      {isBookingModalOpen && (
-        <BookingModal
-          questionLink={openchatUrl || ''}
-          title="사전 예매 기간이 아닙니다."
-          content="현장 예매를 이용해 주세요."
-        />
-      )}
-    </HomeContainer>
+      <S.MainInfo>
+        {/* 버튼 리스트 (사전예매, 셋리스트, 공연장소, 문의사항) */}
+        <ButtonList onScrollToKakaoMap={handleScrollToKakaoMap} />
+
+        {/* 포스터 */}
+        <S.SectionBox>
+          <SectionTitle title="POSTER" subTitle="공연 포스터" />
+          <Poster ref={posterRef} />
+        </S.SectionBox>
+
+        {/* 지도 */}
+        <S.SectionBox>
+          <SectionTitle title="LOCATION" subTitle="위치 안내" />
+          <KakaoMap ref={kakaoMapRef} />
+        </S.SectionBox>
+
+        {/* 푸터 */}
+        <Footer />
+      </S.MainInfo>
+    </S.HomeContainer>
   );
 };
 

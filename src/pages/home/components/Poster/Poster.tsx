@@ -1,6 +1,5 @@
 import { forwardRef, useState } from 'react';
 import * as S from './styles/Poster.style';
-import PosterInfo from './PosterInfo';
 import { useHomeStore } from '../../../../store/homeStore/homeStore';
 import { useFadeIn } from '../../hooks/useFadeIn';
 
@@ -19,7 +18,6 @@ const Poster = forwardRef<HTMLDivElement, unknown>((_, ref) => {
     <>
       <S.PosterConatiner ref={ref}>
         <S.FadeInWrapper ref={elementRef} $isVisible={isVisible}>
-          <PosterInfo />
           <S.PosterSlider>
             <S.PosterWrapper $imageCount={images.length}>
               {images.map((imageURL, index) => (
