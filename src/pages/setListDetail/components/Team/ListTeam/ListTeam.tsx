@@ -12,9 +12,7 @@ const ListTeam = ({ team }: ListTeamProps) => {
   return (
     <S.ListTeamContainer>
       {hasTeam ? (
-        team.map((member, index) => (
-          <ItemTeam key={index} member={member} isVocal={index === 0} />
-        ))
+        team.map((member, index) => <ItemTeam key={index} member={member} />)
       ) : (
         <p style={{ gridColumn: '1 / -1' }}>팀 정보가 없습니다.</p>
       )}

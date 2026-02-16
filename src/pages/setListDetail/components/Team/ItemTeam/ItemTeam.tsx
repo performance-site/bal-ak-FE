@@ -4,13 +4,12 @@ import ProfileImg from '../../../../../assets/images/setListDetail/profileImg.pn
 
 interface ItemTeamProps {
   member: TeamMember;
-  isVocal: boolean;
 }
 
-const ItemTeam = ({ member, isVocal }: ItemTeamProps) => {
+const ItemTeam = ({ member }: ItemTeamProps) => {
   return (
     <S.ItemTeamContainer>
-      <S.ItemTeamProfileDiv $isVocal={isVocal}>
+      <S.ItemTeamProfileDiv>
         <S.ItemTeamProfileImg
           src={ProfileImg}
           alt="profile"
