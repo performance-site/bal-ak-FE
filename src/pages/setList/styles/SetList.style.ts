@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import backgroundImg from '@/assets/images/setList/backgroundImg.svg';
+
 export const SetListContainer = styled.main`
   width: 100%;
   height: 100vh;
@@ -9,7 +11,7 @@ export const SetListContainer = styled.main`
   align-items: center;
   padding-top: 2.4rem;
   overflow: hidden;
-  background-image: url(/backgroundImg.svg);
+  background-image: url(${backgroundImg});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
