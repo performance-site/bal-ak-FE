@@ -31,6 +31,8 @@ export const ItemTeamProfileImg = styled.img`
 `;
 
 export const ItemTeamP = styled.p`
+display: flex;
+justify-content: center
   width: 100%;
   margin-top: 1.2rem;
   font-weight: 400;
