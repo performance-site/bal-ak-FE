@@ -34,7 +34,6 @@ export const handlers = [
       status: 200,
       message: '성공',
       data: {
-        nowPlayingOrder: 1,
         setlist: [
           {
             order: 1,
