@@ -6,7 +6,7 @@ const PageTitle = () => {
       <S.PageTitlePContainer>
         <S.PageTitleP>SETLIST</S.PageTitleP>
         <S.PageTitleP size="1.1rem" color="gray700">
-          공연 당일에는 현재 공연중인 곡을 알려드려요.
+          공연 곡 순서와 연주자 정보를 확인하세요.
         </S.PageTitleP>
       </S.PageTitlePContainer>
     </S.PageTitleContainer>
