@@ -14,7 +14,7 @@ export const SongP = styled.p`
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.025em;
-  color: ${({ theme }) => theme.colors.gray6};
+  color: ${({ theme }) => theme.colors.gray800};
   white-space: pre-wrap;
   text-align: center;
 `;

@@ -1,37 +1,14 @@
 import * as S from './styles/PageTitle.style';
-import PageTitleArrow from '../../../../assets/images/setList/pageTitleArrow.svg';
-import useNavigation from '../../../../hooks/useNavigation';
 
-interface PageTitleProps {
-  data: string;
-}
-
-const PageTitle = ({ data }: PageTitleProps) => {
-  const { goTo } = useNavigation();
-
-  const handleClick = () => {
-    goTo(data);
-  };
-
+const PageTitle = () => {
   return (
     <S.PageTitleContainer>
       <S.PageTitlePContainer>
-        <S.PageTitleP>Setlist & Now Playing</S.PageTitleP>
-        <S.PageTitleP size="1.1rem" weight={500} color="gray2">
-          공연 당일에는 현재 공연중인 곡을 알려드려요.
+        <S.PageTitleP>SETLIST</S.PageTitleP>
+        <S.PageTitleP size="1.1rem" color="gray700">
+          공연 곡 순서와 연주자 정보를 확인하세요.
         </S.PageTitleP>
       </S.PageTitlePContainer>
-
-      <S.PageTitleButton onClick={handleClick}>
-        전곡듣기
-        <S.PageTitleButtonImg
-          src={PageTitleArrow}
-          alt="arrow"
-          loading="eager"
-          decoding="async"
-          draggable={false}
-        />
-      </S.PageTitleButton>
     </S.PageTitleContainer>
   );
 };

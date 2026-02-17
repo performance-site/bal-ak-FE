@@ -67,7 +67,7 @@ const AlbumExplain = ({ track }: AlbumExplainProps) => {
             decoding="async"
             draggable={false}
           />
-          <S.AlbumExplainP fontWeight={400} fontSize="1.2rem" color="gray2">
+          <S.AlbumExplainP fontWeight={400} fontSize="1.2rem" color="gray600">
             {likes}
           </S.AlbumExplainP>
         </S.AlbumExplainLikeDiv>

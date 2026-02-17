@@ -13,7 +13,7 @@ export const ItemTeamProfileDiv = styled.div`
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.gradients.whiteOpacity10};
+  background: theme.gradients.whiteOpacity10;
   box-shadow: ${({ theme }) => `
     ${theme.shadows.blueSoft},
     ${theme.shadows.insetLight},
@@ -31,12 +31,14 @@ export const ItemTeamProfileImg = styled.img`
 `;
 
 export const ItemTeamP = styled.p`
+display: flex;
+justify-content: center
   width: 100%;
   margin-top: 1.2rem;
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.4;
   letter-spacing: -0.025em;
-  color: ${({ theme }) => theme.colors.gray7};
-  text-align: center;
+  color: ${({ theme }) => theme.colors.gray800};
+  text-align: left;
 `;

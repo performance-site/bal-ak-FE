@@ -9,24 +9,25 @@ export const ItemContainer = styled.div`
   z-index: 1;
 `;
 
-export const Circle = styled.div<{ isFirst?: boolean }>`
+export const Circle = styled.div`
   position: relative;
-  width: 2rem;
+  width: 2.1895rem;
   height: 2rem;
   margin-top: 1.2rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.hexToRgba(theme.colors.purple5, 0.6)};
+  background: ${({ theme }) => theme.colors.gray400};
+  border: 0.1rem solid ${({ theme }) => theme.colors.gray400};
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 
   &::after {
     content: '';
     width: 1.2rem;
     height: 1.2rem;
     border-radius: 50%;
-    background: ${({ theme, isFirst }) =>
-      isFirst ? theme.gradients.setListItemBackground : theme.colors.gray5};
+    background: ${({ theme }) => theme.colors.gray700};
   }
 `;
 
@@ -53,13 +54,12 @@ export const ItemPContainer = styled.div`
 export const ItemP = styled.p<{
   size?: string;
   weight?: number;
-  color?: keyof DefaultTheme['gradients'];
+  color?: keyof DefaultTheme['colors'];
 }>`
   font-size: ${({ size }) => size || '1.6rem'};
   font-weight: ${({ weight }) => weight || 600};
   color: transparent;
-  background: ${({ theme, color }) =>
-    theme.gradients[color ?? 'setListItemBackground']};
+  background: ${({ theme, color }) => theme.colors[color ?? 'gray600']};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -73,14 +73,8 @@ export const ItemDownloadImg = styled.img`
   height: auto;
 `;
 
-export const ItemArrowImg = styled.img<{ isWhite?: boolean }>`
+export const ItemArrowImg = styled.img`
   width: 0.688rem;
   height: auto;
   margin-top: 0.133rem;
-
-  ${({ isWhite }) =>
-    isWhite &&
-    `
-      filter: brightness(0) invert(1);
-    `}
 `;

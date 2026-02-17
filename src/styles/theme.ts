@@ -6,6 +6,8 @@ const hexToRgba = (hex: string, alpha: number): string => {
 };
 
 const colors = {
+  background: '#FFFFFF',
+
   white: '#FCFCFC',
   white10: '#FCFCFC1A',
   white20: '#FCFCFC33',
