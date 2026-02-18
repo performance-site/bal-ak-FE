@@ -13,7 +13,7 @@ export const ItemTeamProfileDiv = styled.div`
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background: theme.gradients.whiteOpacity10;
+  background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => `
     ${theme.shadows.blueSoft},
     ${theme.shadows.insetLight},

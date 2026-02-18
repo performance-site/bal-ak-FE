@@ -93,7 +93,6 @@ const gradients = {
 
   setListItemDownloadBackground: `${colors.gray4}`,
   setListItemTitleBackground: `${colors.gray1}`,
-  whiteOpacity10: hexToRgba(colors.white, 0.1),
 };
 
 const shadows = {
