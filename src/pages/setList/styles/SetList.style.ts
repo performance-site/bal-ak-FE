@@ -23,9 +23,9 @@ export const ListBar = styled.div`
   position: absolute;
   top: 10.5rem;
   left: 3.15rem;
-  background: ${({ theme }) => theme.colors.red}; // 색 변경 예정
-  box-shadow: 0 0 0.4rem 0
-    ${({ theme }) => theme.hexToRgba(theme.colors.red, 0.18)}; // 색 변경 예정
+  background: ${({ theme }) => theme.colors.gray500};
+  box-shadow: 0 0 0.4rem 0 ${({ theme }) => theme.shadows.listBar};
+  opacity: 0.8;
 `;
 
 export const SpinnerContainer = styled.div`

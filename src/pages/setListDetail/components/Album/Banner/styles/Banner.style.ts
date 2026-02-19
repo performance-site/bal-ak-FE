@@ -7,5 +7,5 @@ export const BannerContainer = styled.img`
   object-fit: cover;
   border-radius: 0 0 1.2rem 1.2rem;
   filter: blur(0.4rem) brightness(0.75);
-  box-shadow: ${({ theme }) => theme.shadows.poster}; // 색 변경 예정
+  box-shadow: ${({ theme }) => theme.shadows.album};
 `;

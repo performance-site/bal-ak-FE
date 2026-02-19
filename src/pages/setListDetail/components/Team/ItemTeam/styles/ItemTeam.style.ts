@@ -9,16 +9,15 @@ export const ItemTeamContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-// 색 변경 예정
 export const ItemTeamProfileDiv = styled.div`
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background: ${({ theme }) => theme.gradients.whiteOpacity10};
+  background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => `
-    ${theme.shadows.poster},
-    ${theme.shadows.poster},
-    ${theme.shadows.poster}
+    ${theme.shadows.insetLight},
+    ${theme.shadows.insetDark},
+    ${theme.shadows.profile}
   `};
   backdrop-filter: ${({ theme }) => theme.shadows.glassBlur};
   display: flex;
