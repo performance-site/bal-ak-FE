@@ -15,9 +15,9 @@ export const ItemTeamProfileDiv = styled.div`
   border-radius: 50%;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => `
-    ${theme.shadows.poster},
-    ${theme.shadows.poster},
-    ${theme.shadows.poster}
+    ${theme.shadows.insetLight},
+    ${theme.shadows.insetDark},
+    ${theme.shadows.profile}
   `};
   backdrop-filter: ${({ theme }) => theme.shadows.glassBlur};
   display: flex;
