@@ -33,17 +33,6 @@ export const TitleWrapper = styled.div`
   position: relative;
 `;
 
-export const MapTitle = styled.p`
-  font-size: 2.4rem;
-  font-weight: 600;
-`;
-
-export const MapSubTitle = styled.p`
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: ${theme.colors.gray2};
-`;
-
 export const AddressInfo = styled.div`
   display: flex;
   align-items: center;
