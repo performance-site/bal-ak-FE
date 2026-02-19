@@ -51,8 +51,6 @@ const shadows = {
   poster: `12px 12px 28px 0 rgba(4, 0, 250, 0.04);`,
   glassBlur: `blur(2.5rem)`,
   // default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
-  // insetLight: `-0.1rem -0.1rem 0.3rem -0.2rem ${hexToRgba(colors.gray7, 0.8)} inset`,
-  // insetDark: `0.1rem 0.1rem 0.3rem -0.2rem ${hexToRgba(colors.gray8, 0.8)} inset`,
 };
 
 const theme = {
