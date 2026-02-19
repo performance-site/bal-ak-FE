@@ -25,6 +25,7 @@ export const ListBar = styled.div`
   left: 3.15rem;
   background: ${({ theme }) => theme.colors.gray500};
   box-shadow: 0 0 0.4rem 0 ${({ theme }) => theme.shadows.listBar};
+  opacity: 0.8;
 `;
 
 export const SpinnerContainer = styled.div`
