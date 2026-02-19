@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../../../styles/theme';
 
 interface PosterWrapperProps {
   $imageCount: number;
@@ -39,14 +40,16 @@ export const PosterWrapper = styled.div<PosterWrapperProps>`
 `;
 
 export const PosterItem = styled.div`
-  width: 22rem;
-  height: 31.1rem;
-  border-radius: 8px;
+  width: 33.698rem;
+  height: 47.688rem;
+  border-radius: 2.859rem;
   flex-shrink: 0;
   scroll-snap-align: center;
   background-color: #f0f0f0;
   cursor: pointer;
   overflow: hidden;
+  border: 1.5px solid ${theme.colors.gray200};
+  box-shadow: ${theme.shadows.poster};
 
   img {
     width: 100%;

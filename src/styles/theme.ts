@@ -102,6 +102,7 @@ const shadows = {
     -1px -1px 1px -2px #9c9c9c inset,
     0 4px 18px 0 rgba(0, 0, 0, 0.04)
   `,
+  poster: `12px 12px 28px 0 rgba(4, 0, 250, 0.04);`,
 
   // 아래는 모두 제거 예정
   default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
