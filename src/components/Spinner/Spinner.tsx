@@ -5,7 +5,7 @@ import theme from '../../styles/theme';
 const Spinner = () => {
   return (
     <S.SpinnerContainer>
-      <BeatLoader size={10} color={`${theme.colors.purple5}`} />
+      <BeatLoader size={10} color={`${theme.colors.graySub}`} />
     </S.SpinnerContainer>
   );
 };

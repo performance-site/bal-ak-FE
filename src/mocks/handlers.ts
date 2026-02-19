@@ -21,7 +21,6 @@ export const handlers = [
         phoneNumber: '010-1234-5678',
         posterUrls: [
           'https://i.pinimg.com/736x/51/28/1d/51281d3f4f12c6a9cf76dbe5880984f8.jpg',
-          'https://i.pinimg.com/236x/3d/f0/f0/3df0f0b9e15cf85c55cd88985d90dc97.jpg',
         ],
         location: '서울 서대문구 연세로5다길 10',
       },

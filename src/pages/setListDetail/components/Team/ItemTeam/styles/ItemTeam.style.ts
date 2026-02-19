@@ -9,15 +9,16 @@ export const ItemTeamContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
+// 색 변경 예정
 export const ItemTeamProfileDiv = styled.div`
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background: theme.gradients.whiteOpacity10;
+  background: ${({ theme }) => theme.gradients.whiteOpacity10};
   box-shadow: ${({ theme }) => `
-    ${theme.shadows.blueSoft},
-    ${theme.shadows.insetLight},
-    ${theme.shadows.insetDark}
+    ${theme.shadows.poster},
+    ${theme.shadows.poster},
+    ${theme.shadows.poster}
   `};
   backdrop-filter: ${({ theme }) => theme.shadows.glassBlur};
   display: flex;
@@ -31,8 +32,8 @@ export const ItemTeamProfileImg = styled.img`
 `;
 
 export const ItemTeamP = styled.p`
-display: flex;
-justify-content: center
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin-top: 1.2rem;
   font-weight: 400;

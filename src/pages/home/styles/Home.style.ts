@@ -4,8 +4,7 @@ import bgImg from '@/assets/images/home/MainBgImg.webp';
 export const HomeContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
-  overflow-y: auto;
+  min-height: 100vh;
 
   background-image: url(${bgImg});
   background-size: cover;
@@ -23,7 +22,6 @@ export const MainInfo = styled.div`
   flex-direction: column;
   gap: 7rem;
 
-  min-height: 100vh;
   width: 100%;
 `;
 
