@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'pretendard/dist/web/variable/pretendardvariable.css';
+import theme from './theme';
 
 const GlobalStyle = createGlobalStyle`
     :root {
@@ -9,8 +10,12 @@ const GlobalStyle = createGlobalStyle`
 
     html, body, #root {
         height: 100%;
-        overflow: hidden;
+        overflow: auto;
         font-family: var(--font-family);
+
+        &::-webkit-scrollbar {
+        display: none;
+    }
     }
 
     html {
@@ -145,6 +150,15 @@ const GlobalStyle = createGlobalStyle`
         @media screen and (max-width: 392px) {
             width: 100vw;
         }
+    }
+
+    ::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: ${theme.colors.gray400};
+        border-radius: 1rem;
     }
 `;
 
