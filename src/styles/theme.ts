@@ -39,8 +39,6 @@ const gradients = {
     linear-gradient(0deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 100%),
     linear-gradient(0deg, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.42) 100%)
   `,
-
-  whiteOpacity10: hexToRgba(colors.white, 0.1),
 };
 
 const shadows = {
@@ -52,6 +50,9 @@ const shadows = {
   poster: `12px 12px 28px 0 rgba(4, 0, 250, 0.04);`,
   glassBlur: `blur(2.5rem)`,
   // default: `0 0.4rem 0.4rem 0 ${hexToRgba(colors.black, 0.25)}`,
+  listBar: `0 0 4px rgba(186, 144, 255, 0.18)`,
+  album: `0 4px 4px 0 rgba(0, 0, 0, 0.25)`,
+  youtube: `8px 8px 18px 0 rgba(123, 87, 228, 0.06)`,
 };
 
 const theme = {
