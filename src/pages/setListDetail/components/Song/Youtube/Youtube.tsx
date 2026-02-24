@@ -19,7 +19,7 @@ const Youtube = ({ youtubeUrl }: YoutubeProps) => {
           allowFullScreen
         />
       ) : (
-        <p>유효한 유튜브 링크가 아닙니다.</p>
+        <S.YoutubeNoText>유효한 유튜브 링크가 아닙니다.</S.YoutubeNoText>
       )}
     </>
   );

@@ -7,3 +7,8 @@ export const YoutubeIframe = styled.iframe`
   box-shadow: ${({ theme }) => theme.shadows.youtube};
   overflow: hidden;
 `;
+
+export const YoutubeNoText = styled.p`
+  text-align: center;
+  color: ${({theme}) => theme.colors.black};
+`
