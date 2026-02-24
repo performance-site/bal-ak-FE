@@ -77,14 +77,14 @@ export const handlers = [
         },
         team: [
           {
-            session: 'VOCAL',
+            session: 'V',
             name: '최유성',
             instagramId: '@u.star',
           },
           {
-            session: 'DRUM',
+            session: 'D',
             name: '김주호',
-            instagramId: null,
+            instagramId: '@uwekdjlfkjlsdkjdf',
           },
         ],
       },
