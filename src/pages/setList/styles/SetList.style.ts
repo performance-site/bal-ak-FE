@@ -15,6 +15,7 @@ export const SetListContainer = styled.main`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  padding-bottom: 6.2rem;
 `;
 
 export const ListBar = styled.div`
