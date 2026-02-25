@@ -10,7 +10,7 @@ const useGetHomeData = () => {
   const query = useQuery<HomeData>({
     queryKey: ['homeData'],
     queryFn: async () => {
-      const res = await getPerformData();
+      const res = await getPerformData(Date.now());
       return res.data.data;
     },
     staleTime: 1 * 60 * 1000,
