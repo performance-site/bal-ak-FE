@@ -19,7 +19,7 @@ const SetListDetail = () => {
 
   const { id: performanceSongId } = useParams<{ id: string }>();
   const { data, isLoading } = useGetTrackData(Number(performanceSongId));
-  const [selectedTab, setSelectedTab] = useState<TabType>('setList');
+  const [selectedTab, setSelectedTab] = useState<TabType>('song');
   console.log(data);
 
   if (isLoading || !data)
