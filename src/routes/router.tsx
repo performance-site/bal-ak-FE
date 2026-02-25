@@ -3,6 +3,7 @@ import RootLayout from '../layouts/RootLayout';
 import { Suspense, lazy } from 'react';
 import Spinner from '../components/Spinner/Spinner';
 import Home from '../pages/home/home';
+import GlobalError from '../components/GlobalError/GlobalError';
 
 const SetList = lazy(() => import('../pages/setList/SetList'));
 const SetListDetail = lazy(
@@ -18,10 +19,11 @@ const router = createBrowserRouter([
         <RootLayout />
       </Suspense>
     ),
+    errorElement: <GlobalError />,
     children: [
       {
         index: true,
-        element: <Home />, 
+        element: <Home />,
       },
       {
         path: 'home',
