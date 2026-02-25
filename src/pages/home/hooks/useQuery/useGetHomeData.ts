@@ -14,8 +14,6 @@ const useGetHomeData = () => {
       return res.data.data;
     },
     staleTime: 1 * 60 * 1000,
-    refetchInterval: 1 * 60 * 1000,
-    refetchIntervalInBackground: true,
   });
 
   useEffect(() => {

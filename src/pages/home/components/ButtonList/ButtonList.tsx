@@ -27,6 +27,13 @@ function ButtonList({ onScrollToKakaoMap }: ButtonListProps) {
     },
   ];
 
+  // 모바일 여부 판별
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
+  };
+
   return (
     <ButtonListContainer>
       {IconArray.map((item, index) => (
@@ -34,12 +41,19 @@ function ButtonList({ onScrollToKakaoMap }: ButtonListProps) {
           key={index}
           isFirst={index === 0}
           {...(item.src === LocationBtn && { onScrollToKakaoMap })}
-          {...(item.src === InquiryBtn &&
-            item.link.startsWith('sms:') && {
-              onClickOverride: () => {
+          {...(item.src === InquiryBtn && {
+            onClickOverride: () => {
+              if (isMobile()) {
+                // 모바일: SMS 실행
                 window.location.href = item.link;
-              },
-            })}
+              } else if (phoneNumber) {
+                // PC: 클립보드 복사
+                navigator.clipboard.writeText(phoneNumber).then(() => {
+                  alert(`문의 번호가 복사되었습니다!`);
+                });
+              }
+            },
+          })}
           {...item}
         />
       ))}

@@ -1,17 +1,8 @@
-import { useEffect } from 'react';
-import ReactGA from 'react-ga4';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import usePageTracking from '../hooks/usePageTracking';
 
 const RootLayout = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    ReactGA.send({
-      hitType: 'pageview',
-      page: location.pathname + location.search,
-      title: document.title,
-    });
-  }, [location]);
+  usePageTracking();
 
   return (
     <div className="pageContainer">
