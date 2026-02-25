@@ -10,10 +10,12 @@ import Song from './components/Song/Song';
 import Team from './components/Team/Team';
 import Spinner from '../../components/Spinner/Spinner';
 
+export type TabType = 'song' | 'team' | 'setList';
+
 const SetListDetail = () => {
   const { id: performanceSongId } = useParams<{ id: string }>();
   const { data, isLoading } = useGetTrackData(Number(performanceSongId));
-  const [selectedTab, setSelectedTab] = useState<'song' | 'team'>('song');
+  const [selectedTab, setSelectedTab] = useState<TabType>('song');
   console.log(data);
 
   if (isLoading || !data)
