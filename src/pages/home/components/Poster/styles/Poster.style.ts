@@ -12,6 +12,7 @@ interface FadeInWrapperProps {
 export const PosterConatiner = styled.div`
   width: 100%;
   padding-left: 2.4rem;
+  margin-top: 2.4rem;
 `;
 
 export const FadeInWrapper = styled.div<FadeInWrapperProps>`
@@ -23,17 +24,17 @@ export const FadeInWrapper = styled.div<FadeInWrapperProps>`
 `;
 
 export const PosterSlider = styled.div`
+  display: flex;
   overflow-x: auto;
-  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+
   &::-webkit-scrollbar {
     display: none;
   }
-  scroll-snap-type: x mandatory;
 `;
 
 export const PosterWrapper = styled.div<PosterWrapperProps>`
   display: flex;
-  gap: 1.2rem;
   width: fit-content;
   height: 100%;
 `;
@@ -41,6 +42,7 @@ export const PosterWrapper = styled.div<PosterWrapperProps>`
 export const PosterItem = styled.div`
   width: 33.698rem;
   height: 47.688rem;
+  margin-right: 1.2rem;
   border-radius: 2.859rem;
   flex-shrink: 0;
   scroll-snap-align: center;
