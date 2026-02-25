@@ -12,10 +12,6 @@ const Poster = lazy(() => import('./components/Poster/Poster'));
 const KakaoMap = lazy(() => import('./components/Map/KakaoMap'));
 
 const Home = () => {
-  // useEffect(() => {
-  //   document.title = '홈 - 들불';
-  // }, []);
-
   const posterRef = useRef<HTMLDivElement>(null);
   const kakaoMapRef = useRef<HTMLDivElement>(null);
 

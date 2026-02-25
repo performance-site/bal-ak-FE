@@ -1,5 +1,5 @@
 import * as S from './styles/SetListDetail.style';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGetTrackData } from './hooks/useQuery/useGetTrackData';
 import Banner from './components/Album/Banner/Banner';
@@ -11,10 +11,6 @@ import Team from './components/Team/Team';
 import Spinner from '../../components/Spinner/Spinner';
 
 const SetListDetail = () => {
-  useEffect(() => {
-    document.title = '곡상세 - 들불';
-  }, []);
-
   const { id: performanceSongId } = useParams<{ id: string }>();
   const { data, isLoading } = useGetTrackData(Number(performanceSongId));
   const [selectedTab, setSelectedTab] = useState<'song' | 'team'>('song');
