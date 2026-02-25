@@ -18,7 +18,7 @@ export const AlbumTapDiv = styled.div<{
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 700;
   color: ${({ $active, theme }) =>
     $active ? theme.colors.gray100 : theme.colors.black};
   background: ${({ $active, theme }) =>
