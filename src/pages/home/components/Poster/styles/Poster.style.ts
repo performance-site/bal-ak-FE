@@ -12,7 +12,6 @@ interface FadeInWrapperProps {
 export const PosterConatiner = styled.div`
   width: 100%;
   padding-left: 2.4rem;
-  margin-top: 2.4rem;
 `;
 
 export const FadeInWrapper = styled.div<FadeInWrapperProps>`
